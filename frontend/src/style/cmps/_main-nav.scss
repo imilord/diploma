@@ -7,6 +7,10 @@
     background-color: $clr-nav-bgc;
     color: $clr-nav-color1;
 
+    .logo {
+        font-weight: bold;
+    }
+
     ul {
         list-style: none;
         display: flex;

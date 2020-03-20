@@ -1,6 +1,6 @@
 <template>
   <section class="main-nav container">
-    <div>LOGO</div>
+    <div class="logo">LOGO</div>
     <ul>
       <li>Boards</li>
       <li>Login</li>
