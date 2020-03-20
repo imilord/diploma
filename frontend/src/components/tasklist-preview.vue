@@ -43,6 +43,7 @@ export default {
         taskData
       });
       this.getEmptyTask();
+      this.isAddTaskOpen = !this.isAddTaskOpen;
       this.$emit("update-board", board);
     },
     getEmptyTask() {
