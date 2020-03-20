@@ -27,6 +27,9 @@ export default {
         addTask(state, { taskData }) {
             const taskList = state.board.taskLists.find(taskList => taskList.id === taskData.taskListId);
             taskList.tasks.push(taskData.newTask);
+        },
+        updateBoard(state, { board }) {
+          state.board = board;
         }
     },
     actions: {
@@ -41,6 +44,14 @@ export default {
                 taskData
             });
             const savedBoard = await boardService.save(context.state.board);
+            return savedBoard;
+        },
+        async updateBoard(context, { board }) {
+            context.commit({
+                type: 'updateBoard',
+                board
+            });
+            const savedBoard = await boardService.save(board);
             return savedBoard;
         }
     }

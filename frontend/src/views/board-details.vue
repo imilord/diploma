@@ -6,7 +6,12 @@
       :dueDate="board.dueDate"
       :creator="board.creator"
     ></board-nav>
-    <tasklist-list :taskLists="board.taskLists" :boardId="board._id" @update-board="updateBoard"></tasklist-list>
+    <tasklist-list
+      :taskLists="board.taskLists"
+      :boardId="board._id"
+      @update-board="updateLocalBoard"
+      @update-lists="updateLists"
+    ></tasklist-list>
     <router-view></router-view>
   </section>
 </template>
@@ -24,8 +29,19 @@ export default {
     };
   },
   methods: {
-    updateBoard(board) {
+    updateLocalBoard(board) {
       this.board = board;
+    },
+    async updateBoard() {
+      const board = JSON.parse(JSON.stringify(this.board));
+      await this.$store.dispatch({
+        type: "updateBoard",
+        board
+      });
+    },
+    updateLists(lists) {
+      this.board.taskLists = lists;
+      this.updateBoard();
     }
   },
   async created() {

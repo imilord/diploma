@@ -5,7 +5,7 @@
       <button>...</button>
     </header>
     <main>
-      <task-list :tasks="taskList.tasks" :boardId="boardId"></task-list>
+      <task-list :allTasks="taskList.tasks" :boardId="boardId" @update-tasks="updateTasks"></task-list>
     </main>
     <footer>
       <button v-if="!isAddTaskOpen" @click="isAddTaskOpen=!isAddTaskOpen">Add task</button>
@@ -31,21 +31,28 @@ export default {
   data() {
     return {
       isAddTaskOpen: false,
-      newTask: null
+      newTask: null,
+      newTaskList: this.taskList
     };
   },
   methods: {
     async addTask() {
-      const taskData = {newTask: this.newTask,  taskListId: this.taskList.id};
+      const taskData = { newTask: this.newTask, taskListId: this.taskList.id };
       const board = await this.$store.dispatch({
         type: "addTask",
         taskData
       });
       this.getEmptyTask();
-      this.$emit('update-board', board);
+      this.$emit("update-board", board);
     },
     getEmptyTask() {
-      this.newTask = JSON.parse(JSON.stringify(this.$store.getters.getEmptyTask));
+      this.newTask = JSON.parse(
+        JSON.stringify(this.$store.getters.getEmptyTask)
+      );
+    },
+    updateTasks(tasks) {
+      this.newTaskList.tasks = tasks;
+      this.$emit("update-list", this.newTaskList);
     }
   },
   created() {
