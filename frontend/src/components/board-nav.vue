@@ -1,10 +1,10 @@
 <template>
-  <section class="board-nav">
+  <section class="board-nav container">
     <ul>
       <li>{{boardName}}</li>
       <li>
         <ul>
-          <li v-for="member in members" :key="member.id">{{member.name}}</li>
+          <li class="member" v-for="member in members" :key="member.id">{{member.name}}</li>
         </ul>
       </li>
       <li>{{dueDate | dueDate}}</li>

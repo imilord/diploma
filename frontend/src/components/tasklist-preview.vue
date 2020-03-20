@@ -36,16 +36,19 @@ export default {
   },
   methods: {
     async addTask() {
-      const taskData = {newTask: this.newTask,  taskListId: this.taskList.id};
+      const taskData = { newTask: this.newTask, taskListId: this.taskList.id };
       const board = await this.$store.dispatch({
         type: "addTask",
         taskData
       });
       this.getEmptyTask();
-      this.$emit('update-board', board);
+      this.isAddTaskOpen = !this.isAddTaskOpen;
+      this.$emit("update-board", board);
     },
     getEmptyTask() {
-      this.newTask = JSON.parse(JSON.stringify(this.$store.getters.getEmptyTask));
+      this.newTask = JSON.parse(
+        JSON.stringify(this.$store.getters.getEmptyTask)
+      );
     }
   },
   created() {
