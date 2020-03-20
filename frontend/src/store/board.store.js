@@ -27,6 +27,17 @@ export default {
         addTask(state, { taskData }) {
             const taskList = state.board.taskLists.find(taskList => taskList.id === taskData.taskListId);
             taskList.tasks.push(taskData.newTask);
+        },
+        updateTask(state, { task }) {
+            const newTask = task;
+            for (var i = 0; i < state.board.taskLists.length; i++) {
+                const list = state.board.taskLists[i];
+                const taskIdx = list.tasks.findIndex(task => task.id === newTask.id);
+                if (taskIdx >= 0) {
+                    state.board.taskLists[i].tasks.splice(taskIdx, 1, newTask);
+                    return;
+                }
+            }
         }
     },
     actions: {
@@ -42,6 +53,14 @@ export default {
             });
             const savedBoard = await boardService.save(context.state.board);
             return savedBoard;
+        },
+        async updateTask(context, { task }) {
+            context.commit({
+                type: 'updateTask',
+                task
+            });
+            await boardService.save(context.state.board);
+            return task;
         }
     }
 }

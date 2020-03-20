@@ -44,7 +44,7 @@
               "id": "1",
               "name": "To rest",
               "description": "Go outside",
-              "dueDate": 1584625897171,
+              "dueDate": 1584659597171,
               "createdAt": 1584625897171,
               "members": [
                 {
@@ -55,7 +55,15 @@
               ],
               "labels": [
                 {
-                  "color": "",
+                  "color": "green",
+                  "title": ""
+                },
+                {
+                  "color": "blue",
+                  "title": ""
+                },
+                {
+                  "color": "red",
                   "title": ""
                 }
               ],
@@ -177,31 +185,6 @@
                   "img": ""
                 }
               ],
-              "labels": [
-                {
-                  "color": "",
-                  "title": ""
-                }
-              ],
-              "comments": [
-                {
-                  "createdBy": "",
-                  "txt": "",
-                  "createdAt": ""
-                }
-              ],
-              "activitiesLog": [],
-              "cover": "",
-              "attachment": {},
-              "checkList": {}
-            },
-            {
-              "id": "UpOYM",
-              "name": "tesst",
-              "description": "",
-              "dueDate": "",
-              "createdAt": "",
-              "members": [],
               "labels": [
                 {
                   "color": "",
