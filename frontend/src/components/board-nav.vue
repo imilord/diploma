@@ -1,10 +1,17 @@
 <template>
-  <section class="board-nav">
+  <section class="board-nav container">
     <ul>
-      <li>{{boardName}}</li>
+      <li
+        class="board-name"
+        v-if="!titleClicked"
+        @click.stop="titleClicked = !titleClicked"
+      >{{boardName}}</li>
+      <li class="board-name" v-if="titleClicked">
+        <input type="text" placeholder="boardName" v-model="newBoardName" />
+      </li>
       <li>
         <ul>
-          <li v-for="member in members" :key="member.id">{{member.name}}</li>
+          <li class="member" v-for="member in members" :key="member.id">{{member.name}}</li>
         </ul>
       </li>
       <li>{{dueDate | dueDate}}</li>
@@ -24,6 +31,12 @@ export default {
     members: Array,
     dueDate: Number,
     creator: Object
+  },
+  data() {
+    return {
+      titleClicked: false,
+      newBoardName: ""
+    };
   }
 };
 </script>
