@@ -19,7 +19,7 @@
             @click="updateLabels(labelColor)"
           >
             <span v-if="isSelectedLabel(labelColor)">V</span>
-            <span v-if="isSelectedLabel(labelColor) && selectedLabel">{{selectedLabel.title}}</span>
+            <!-- <span v-if="selectedLabel && selectedLabel.title">{{selectedLabel.title}}</span> -->
           </span>
         </div>
       </section>
@@ -36,8 +36,7 @@ export default {
   data() {
     return {
       labelColors: ["red", "blue", "green", "yellow", "pink"],
-      selectedLabels: null,
-      selectedLabel: null
+      selectedLabels: null
     };
   },
   created() {
@@ -50,7 +49,6 @@ export default {
     isSelectedLabel(labelColor) {
       for (var i = 0; i < this.selectedLabels.length; i++) {
         if (this.selectedLabels[i].color === labelColor) {
-          this.selectedLabel = this.selectedLabels[i];
           return true;
         }
       }
