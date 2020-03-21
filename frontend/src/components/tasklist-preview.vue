@@ -17,6 +17,7 @@
       <div v-else>
         <form @submit.prevent="addTask">
           <input type="text" placeholder="Enter new task" v-model="newTask.name" />
+          <br />
           <button>Add task</button>
           <button @click.stop="isAddTaskOpen=!isAddTaskOpen">X</button>
         </form>

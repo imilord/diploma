@@ -1,5 +1,5 @@
 <template>
-  <section class="task-list">
+  <section>
     <container
       :get-child-payload="getChildPayload"
       group-name="column"
@@ -9,7 +9,7 @@
       :drop-placeholder="dropPlaceholderOptions"
     >
       <draggable v-for="task in tasks" :key="task.index">
-        <task-preview class="task-preview" :task="task" :boardId="boardId"></task-preview>
+        <task-preview :task="task" :boardId="boardId"></task-preview>
       </draggable>
     </container>
   </section>
@@ -30,7 +30,7 @@ export default {
     return {
       tasks: this.allTasks,
       dropPlaceholderOptions: {
-        className: "task-preview",
+        className: "task-preview-placeholder",
         animationDuration: "150",
         showOnTop: true
       }

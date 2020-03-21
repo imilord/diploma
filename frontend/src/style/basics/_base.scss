@@ -17,6 +17,7 @@ body {
             // padding-bottom: 5px;
         }
         &::-webkit-scrollbar-track {
+            border-radius: 10px;
             background: $clr-nav-item-hover; 
                 // margin-bottom: 8px;
         }

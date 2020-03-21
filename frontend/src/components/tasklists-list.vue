@@ -1,7 +1,6 @@
 <template>
-  <section class="container">
+  <section class="tasklist-list container">
     <container
-      class="tasklist-list"
       orientation="horizontal"
       @drop="onDrop"
       :get-child-payload="getChildPayload"
@@ -9,13 +8,23 @@
     >
       <draggable v-for="list in lists" :key="list.id">
         <tasklist-preview
-          class="tasklist"
           :taskList="list"
           :boardId="boardId"
           @update-board="updateBoard"
           @update-list="updateList"
         ></tasklist-preview>
       </draggable>
+      <div class="tasklist-preview">
+        <button v-if="!isAddListOpen" @click="isAddListOpen=!isAddListOpen">Add new list</button>
+        <div v-else>
+          <form @submit.prevent="addList">
+            <input type="text" placeholder="Add list title" v-model="newList.name" />
+            <br />
+            <button>Add List</button>
+            <button @click.stop="isAddListOpen=!isAddListOpen">X</button>
+          </form>
+        </div>
+      </div>
     </container>
   </section>
 </template>
@@ -35,8 +44,10 @@ export default {
   data() {
     return {
       lists: this.taskLists,
+      isAddListOpen: false,
+      newList: null,
       dropPlaceholderOptions: {
-        className: "tasklist",
+        className: "tasklist-preview-placeholder",
         animationDuration: "150",
         showOnTop: true
       }
@@ -50,12 +61,30 @@ export default {
       this.lists = applyDrag(this.lists, dropResult);
       this.updateList();
     },
+    async addList() {
+      const board = await this.$store.dispatch({
+        type: "addTasksList",
+        listData: this.newList
+      });
+      this.getEmptyList();
+      this.isAddListOpen = !this.isAddListOpen;
+      this.updateBoard(board);
+      this.lists = board.taskLists;
+    },
+    getEmptyList() {
+      this.newList = JSON.parse(
+        JSON.stringify(this.$store.getters.getEmptyTasksList)
+      );
+    },
     updateList() {
       this.$emit("update-lists", this.lists);
     },
     getChildPayload(index) {
       return this.taskLists[index];
     }
+  },
+  created() {
+    this.getEmptyList();
   },
   components: {
     tasklistPreview,

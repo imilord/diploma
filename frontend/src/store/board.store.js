@@ -12,6 +12,9 @@ export default {
         getEmptyTask() {
             return boardService.getEmptyTask();
         },
+        getEmptyTasksList() {
+            return boardService.getEmptyTasksList();
+        },
     },
     mutations: {
         setCurrTask(state, { taskId }) {
@@ -28,10 +31,13 @@ export default {
             const taskList = state.board.taskLists.find(taskList => taskList.id === taskData.taskListId);
             taskList.tasks.push(taskData.newTask);
         },
+        addTasksList(state, { listData }) {
+            state.board.taskLists.push(listData);
+        },
         updateBoard(state, { board }) {
           state.board = board;
         },
-            updateTask(state, { task }) {
+        updateTask(state, { task }) {
             const newTask = task;
             for (var i = 0; i < state.board.taskLists.length; i++) {
                 const list = state.board.taskLists[i];
@@ -54,6 +60,14 @@ export default {
             context.commit({
                 type: 'addTask',
                 taskData
+            });
+            const savedBoard = await boardService.save(context.state.board);
+            return savedBoard;
+        },
+        async addTasksList(context, { listData }) {
+            context.commit({
+                type: 'addTasksList',
+                listData
             });
             const savedBoard = await boardService.save(context.state.board);
             return savedBoard;
