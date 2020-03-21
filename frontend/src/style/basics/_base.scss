@@ -12,6 +12,7 @@ body {
     background-color: pink;
     overflow-x: auto;
     // overflow-y: hidden;
+<<<<<<< HEAD
     &::-webkit-scrollbar {
         height: 12px;
         // padding-bottom: 5px;
@@ -24,4 +25,19 @@ body {
         border-radius: 10px;
         background: $clr-scrollbar;
     }
+=======
+        &::-webkit-scrollbar {
+            height: 12px;
+            // padding-bottom: 5px;
+        }
+        &::-webkit-scrollbar-track {
+            border-radius: 10px;
+            background: $clr-nav-item-hover; 
+                // margin-bottom: 8px;
+        }
+        &::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background: $clr-scrollbar; 
+        }
+>>>>>>> 383f10b852c95fa576aabec0f6796fc2ce960352
 }

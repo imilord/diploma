@@ -36,17 +36,24 @@
       "description": "Final project in coding academy",
       "taskLists": [
         {
-          "id": "1",
+          "id": "2",
           "name": "Not To do",
           "bakegroundColor": "grey",
           "tasks": [
             {
+<<<<<<< HEAD
               "id": "Co34N",
               "name": "v",
+=======
+              "id": "IjevA",
+              "name": "fgerg",
+>>>>>>> 383f10b852c95fa576aabec0f6796fc2ce960352
               "description": "",
               "dueDate": "",
               "createdAt": "",
               "members": [],
+<<<<<<< HEAD
+=======
               "labels": [
                 {
                   "color": "",
@@ -66,8 +73,8 @@
               "checkList": {}
             },
             {
-              "id": "ZM5EM",
-              "name": "qqqq",
+              "id": "VXeeV",
+              "name": "ani roza lishon",
               "description": "",
               "dueDate": "",
               "createdAt": "",
@@ -93,6 +100,81 @@
           ]
         },
         {
+          "id": "1",
+          "name": "To do",
+          "bakegroundColor": "grey",
+          "tasks": [
+            {
+              "id": "3",
+              "name": "Upload to github",
+              "description": "Upload to github all the project",
+              "dueDate": 1584625897171,
+              "createdAt": 1584625897171,
+              "members": [
+                {
+                  "id": "1",
+                  "name": "Ella",
+                  "img": ""
+                },
+                {
+                  "id": "2",
+                  "name": "Daniel",
+                  "img": ""
+                }
+              ],
+>>>>>>> 383f10b852c95fa576aabec0f6796fc2ce960352
+              "labels": [
+                {
+                  "color": "",
+                  "title": ""
+                }
+              ],
+              "comments": [
+                {
+                  "createdBy": "",
+                  "txt": "",
+                  "createdAt": ""
+                }
+              ],
+              "activitiesLog": [],
+              "cover": "",
+              "attachment": {},
+              "checkList": {}
+            },
+            {
+<<<<<<< HEAD
+              "id": "ZM5EM",
+              "name": "qqqq",
+=======
+              "id": "LCexq",
+              "name": "dddd",
+>>>>>>> 383f10b852c95fa576aabec0f6796fc2ce960352
+              "description": "",
+              "dueDate": "",
+              "createdAt": "",
+              "members": [],
+              "labels": [
+                {
+                  "color": "",
+                  "title": ""
+                }
+              ],
+              "comments": [
+                {
+                  "createdBy": "",
+                  "txt": "",
+                  "createdAt": ""
+                }
+              ],
+              "activitiesLog": [],
+              "cover": "",
+              "attachment": {},
+              "checkList": {}
+<<<<<<< HEAD
+            }
+          ]
+        },
+        {
           "id": "2",
           "name": "To do",
           "bakegroundColor": "grey",
@@ -104,10 +186,58 @@
               "dueDate": "",
               "createdAt": "",
               "members": [],
+=======
+            },
+            {
+              "id": "2",
+              "name": "To eat",
+              "description": "Eat magnum",
+              "dueDate": 1584625897171,
+              "createdAt": 1584625897171,
+              "members": [
+                {
+                  "id": "2",
+                  "name": "Ella",
+                  "img": ""
+                }
+              ],
               "labels": [
                 {
                   "color": "",
                   "title": ""
+                }
+              ],
+              "comments": [
+                {
+                  "createdBy": "",
+                  "txt": "",
+                  "createdAt": ""
+                }
+              ],
+              "activitiesLog": [],
+              "cover": "",
+              "attachment": {},
+              "checkList": {}
+            },
+            {
+              "id": "1",
+              "name": "To rest",
+              "description": "Go outside",
+              "dueDate": 1584625897171,
+              "createdAt": 1584625897171,
+              "members": [
+                {
+                  "id": "2",
+                  "name": "Daniel",
+                  "img": ""
+                }
+              ],
+>>>>>>> 383f10b852c95fa576aabec0f6796fc2ce960352
+              "labels": [
+                {
+                  "color": "",
+                  "title": ""
+<<<<<<< HEAD
                 },
                 {
                   "color": "blue",
@@ -142,6 +272,11 @@
                   "name": "Ella",
                   "img": ""
                 },
+=======
+                }
+              ],
+              "comments": [
+>>>>>>> 383f10b852c95fa576aabec0f6796fc2ce960352
                 {
                   "id": "2",
                   "name": "Daniel",
@@ -215,6 +350,7 @@
               "cover": "",
               "attachment": {},
               "checkList": {}
+<<<<<<< HEAD
             },
             {
               "id": "w0dyy",
@@ -290,6 +426,8 @@
               "cover": "",
               "attachment": {},
               "checkList": {}
+=======
+>>>>>>> 383f10b852c95fa576aabec0f6796fc2ce960352
             }
           ]
         }

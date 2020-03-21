@@ -1,5 +1,7 @@
 .main-nav {
     display: flex;
+    position: fixed;
+    top: 0;
     justify-content: space-between;
     align-items: center;
     height: rem(40px);

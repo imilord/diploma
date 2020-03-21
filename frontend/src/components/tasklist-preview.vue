@@ -7,7 +7,7 @@
     <main>
       <task-list
         class="task-list"
-        :allTasks="newTaskList.tasks"
+        :allTasks="list.tasks"
         :boardId="boardId"
         @update-tasks="updateTasks"
       ></task-list>
@@ -17,6 +17,7 @@
       <div v-else>
         <form @submit.prevent="addTask">
           <input type="text" placeholder="Enter new task" v-model="newTask.name" />
+          <br />
           <button>Add task</button>
           <button @click.stop="isAddTaskOpen=!isAddTaskOpen">X</button>
         </form>
@@ -37,7 +38,7 @@ export default {
     return {
       isAddTaskOpen: false,
       newTask: null,
-      newTaskList: this.taskList
+      list: this.taskList
     };
   },
   methods: {
@@ -47,10 +48,10 @@ export default {
         type: "addTask",
         taskData
       });
-
+      this.list.tasks.push(this.newTask);
+      this.$emit("update-board", board);
       this.getEmptyTask();
       this.isAddTaskOpen = !this.isAddTaskOpen;
-      this.$emit("update-board", board);
     },
     getEmptyTask() {
       this.newTask = JSON.parse(
@@ -58,8 +59,8 @@ export default {
       );
     },
     updateTasks(tasks) {
-      this.newTaskList.tasks = tasks;
-      this.$emit("update-list", this.newTaskList);
+      this.list.tasks = tasks;
+      this.$emit("update-list", this.list);
     }
   },
   created() {

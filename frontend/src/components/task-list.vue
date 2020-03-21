@@ -1,6 +1,13 @@
 <template>
-  <section class="task-list">
-    <container :get-child-payload="getChildPayload" group-name="column" @drop="onDrop">
+  <section>
+    <container
+      :get-child-payload="getChildPayload"
+      group-name="column"
+      @drop="onDrop"
+      drag-class="card-gohst"
+      drop-class="card-ghost-drop"
+      :drop-placeholder="dropPlaceholderOptions"
+    >
       <draggable v-for="task in tasks" :key="task.index">
         <task-preview :task="task" :boardId="boardId"></task-preview>
       </draggable>
@@ -21,7 +28,12 @@ export default {
   },
   data() {
     return {
-      tasks: this.allTasks
+      tasks: this.allTasks,
+      dropPlaceholderOptions: {
+        className: "task-preview-placeholder",
+        animationDuration: "150",
+        showOnTop: true
+      }
     };
   },
   methods: {
@@ -40,3 +52,15 @@ export default {
   }
 };
 </script>
+
+<style>
+.card-ghost {
+  transition: transform 0.18s ease;
+  transform: rotateZ(5deg);
+}
+
+.card-ghost-drop {
+  transition: transform 0.18s ease-in-out;
+  transform: rotateZ(0deg);
+}
+</style>

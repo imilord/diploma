@@ -1,0 +1,16 @@
+.task-preview {
+    background-color: $clr-nav-color1;
+    border-radius: rem(3px);
+    min-height: rem(20px);
+    box-shadow: 0 rem(1px) 0 rgba(9,30,66,.25);
+    text-decoration: none;
+    margin: 0 rem(4px) rem(8px) rem(1px);
+    padding: rem(4px);
+    cursor: pointer;
+}
+
+.task-preview-placeholder {
+    background-color: $clr-nav-item-hover;
+    border-radius: rem(3px);
+    margin: 0 rem(4px) rem(8px) rem(1px);
+}
