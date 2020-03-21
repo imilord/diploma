@@ -387,15 +387,15 @@
               ],
               "labels": [
                 {
-                  "color": "green",
-                  "title": ""
-                },
-                {
-                  "color": "blue",
-                  "title": ""
-                },
-                {
                   "color": "red",
+                  "title": ""
+                },
+                {
+                  "color": "yellow",
+                  "title": ""
+                },
+                {
+                  "color": "pink",
                   "title": ""
                 }
               ],
