@@ -47,7 +47,7 @@ export default {
       isAddListOpen: false,
       newList: null,
       dropPlaceholderOptions: {
-        className: "tasklist-preview-placeholder",
+        className: "tasklist-preview",
         animationDuration: "150",
         showOnTop: true
       }
@@ -55,6 +55,7 @@ export default {
   },
   methods: {
     updateBoard(board) {
+      this.lists = board.taskLists;
       this.$emit("update-board", board);
     },
     onDrop(dropResult) {
@@ -66,10 +67,10 @@ export default {
         type: "addTasksList",
         listData: this.newList
       });
+      this.lists = board.taskLists;
       this.getEmptyList();
       this.isAddListOpen = !this.isAddListOpen;
       this.updateBoard(board);
-      this.lists = board.taskLists;
     },
     getEmptyList() {
       this.newList = JSON.parse(
