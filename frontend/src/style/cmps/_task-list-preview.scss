@@ -1,0 +1,41 @@
+.tasklist-preview {
+    color: $clr-nav-color2;
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: rem(4px);
+        height: rem(40px);
+    }
+
+    main {
+        max-height: 430px;
+        overflow-y: scroll;
+        &::-webkit-scrollbar {
+            width: 8px;
+        }
+        &::-webkit-scrollbar-track {
+            background: $clr-nav-item-hover; 
+        }
+        &::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background: $clr-scrollbar; 
+        }
+
+    footer {
+        height: rem(40px);
+        padding-top: 20px;
+        }
+    }
+}
+
+.task-preview {
+    background-color: $clr-nav-color1;
+    border-radius: rem(3px);
+    min-height: rem(20px);
+    box-shadow: 0 1px 0 rgba(9,30,66,.25);
+    text-decoration: none;
+    margin: 0 rem(4px) rem(8px) rem(1px);
+    padding: rem(4px);
+    cursor: pointer;
+}

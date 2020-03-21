@@ -1,9 +1,9 @@
 <template>
-  <section class="task-lists">
-    <container orientation="horizontal" @drop="onDrop">
-      <draggable v-for="list in lists" :key="list.id">
+  <section class="container">
+    <container class="tasklist-list" orientation="horizontal" @drop="onDrop">
+      <draggable v-for="list in lists" :key="list.index">
         <tasklist-preview
-          class="draggable-list"
+          class="tasklist"
           :taskList="list"
           :boardId="boardId"
           @update-board="updateBoard"
@@ -21,7 +21,7 @@ import draggable from "../vue-smooth-dnd/draggable.vue";
 import { applyDrag } from "../vue-smooth-dnd/utils.js";
 
 export default {
-  name: "task-lists",
+  name: "tasklist-list",
   props: {
     taskLists: Array,
     boardId: String

@@ -1,11 +1,16 @@
 <template>
-  <section class="task-list-preview">
+  <section class="tasklist-preview">
     <header>
-      <h2>{{taskList.name}}</h2>
+      <h4>{{taskList.name}}</h4>
       <button>...</button>
     </header>
     <main>
-      <task-list :allTasks="taskList.tasks" :boardId="boardId" @update-tasks="updateTasks"></task-list>
+      <task-list
+        class="task-list"
+        :allTasks="taskList.tasks"
+        :boardId="boardId"
+        @update-tasks="updateTasks"
+      ></task-list>
     </main>
     <footer>
       <button v-if="!isAddTaskOpen" @click="isAddTaskOpen=!isAddTaskOpen">Add task</button>
@@ -13,8 +18,8 @@
         <form @submit.prevent="addTask">
           <input type="text" placeholder="Enter new task" v-model="newTask.name" />
           <button>Add task</button>
+          <button @click.stop="isAddTaskOpen=!isAddTaskOpen">X</button>
         </form>
-        <button @click="isAddTaskOpen=!isAddTaskOpen">X</button>
       </div>
     </footer>
   </section>

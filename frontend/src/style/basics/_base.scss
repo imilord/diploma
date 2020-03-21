@@ -10,4 +10,6 @@ body {
     line-height: rem(20px);
     // background: transparent;
     background-color: pink;
+    overflow-x: auto;
+    overflow-y: hidden;
 }

@@ -1,5 +1,5 @@
 <template>
-  <section class="task-list">
+  <section class="task-preview">
     <router-link :to="`/board/${boardId}/task-details/${task.id}`">
       <div>
         <img v-if="task.cover" :src="task.cover" />
