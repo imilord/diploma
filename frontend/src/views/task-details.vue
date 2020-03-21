@@ -17,34 +17,44 @@
     <section class="task-buttons">
       <h4>Add to task</h4>
       <div>
-        <button v-if="!isLabelsSelected" @click="isLabelsSelected=!isLabelsSelected">Labels</button>
+        <button v-if="!isLabelsSelected" @click="toggelLabelPicker">Labels</button>
         <label-picker
           v-else
-          :labels="task.labels"
+          :selectedLabels="task.labels"
           @add-label="addLabel"
           @remove-label="removeLabel"
+          @update-label="updateLabel"
+          @close-labels="toggelLabelPicker"
         ></label-picker>
       </div>
       <div>
-        <button>Due to</button>
+        <button v-if="!isDueToSelected" @click="toggelDueDate">Due to</button>
+        <due-date-picker
+          v-else
+          :dueDate="task.dueDate"
+          @close-due-date="toggelDueDate"
+          @date-change="changeDate"
+        ></due-date-picker>
       </div>
       <div>
         <button>Cover</button>
       </div>
       <div>
-        <button>Delete</button>
+        <button @click="deleteTask()">Delete</button>
       </div>
     </section>
   </section>
 </template>
 <script>
 import labelPicker from "../components/label-picker.vue";
+import dueDatePicker from "../components/due-date-picker.vue";
 export default {
   name: "task-details",
   data() {
     return {
       task: null,
-      isLabelsSelected: false
+      isLabelsSelected: false,
+      isDueToSelected: false
     };
   },
   methods: {
@@ -58,22 +68,40 @@ export default {
     },
     async addLabel(newLabel) {
       this.task.labels.push(newLabel);
-      try {
-        const task = await this.$store.dispatch({
-          type: "updateTask",
-          task: this.task
-        });
-
-        this.task = JSON.parse(JSON.stringify(task));
-      } catch (err) {
-        console.log("Err in updateTask");
-      }
+       this.saveTask();
     },
     async removeLabel(labelToRemove) {
       const labelIndex = this.task.labels.findIndex(
         label => label.color === labelToRemove.color
       );
       this.task.labels.splice(labelIndex, 1);
+       this.saveTask();
+    },
+    async updateLabel(labelToUpdate) {
+      console.log(labelToUpdate.title);
+      const labelIndex = this.task.labels.findIndex(
+        label => label.color === labelToUpdate.color
+      );
+
+      if (labelIndex !== -1) {
+        this.task.labels.splice(labelIndex, 1, labelToUpdate);
+      } else {
+        this.addLabel(labelToUpdate);
+      }
+
+       this.saveTask();
+    },
+    toggelLabelPicker() {
+      this.isLabelsSelected = !this.isLabelsSelected;
+    },
+    toggelDueDate() {
+      this.isDueToSelected = !this.isDueToSelected;
+    },
+    changeDate(newDate) {
+      this.task.dueDate = newDate;
+      this.saveTask();
+    },
+    async saveTask() {
       try {
         const task = await this.$store.dispatch({
           type: "updateTask",
@@ -82,6 +110,19 @@ export default {
         this.task = JSON.parse(JSON.stringify(task));
       } catch (err) {
         console.log("Err in updateTask");
+      }
+    },
+    async deleteTask(){
+      try {
+        await this.$store.dispatch({
+          type: "deleteTask",
+          task: this.task
+        });
+
+        const boardId = this.$route.params.id;
+        this.$router.push(`/board/${boardId}`);
+      } catch (err) {
+        console.log("Err in deleteTask");
       }
     }
   },
@@ -90,7 +131,8 @@ export default {
     this.getTaskById(taskId);
   },
   components: {
-    labelPicker
+    labelPicker,
+    dueDatePicker
   }
 };
 </script>

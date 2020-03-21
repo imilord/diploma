@@ -7,7 +7,7 @@
     <main>
       <task-list
         class="task-list"
-        :allTasks="taskList.tasks"
+        :allTasks="newTaskList.tasks"
         :boardId="boardId"
         @update-tasks="updateTasks"
       ></task-list>
@@ -47,6 +47,7 @@ export default {
         type: "addTask",
         taskData
       });
+
       this.getEmptyTask();
       this.isAddTaskOpen = !this.isAddTaskOpen;
       this.$emit("update-board", board);

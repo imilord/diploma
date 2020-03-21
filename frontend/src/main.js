@@ -4,7 +4,10 @@ import './registerServiceWorker';
 import router from './router';
 import store from './store';
 import './filters/filter.js';
-import './style/main.scss'
+import './style/main.scss';
+import VCalendar from 'v-calendar';
+
+Vue.use(VCalendar);
 
 Vue.config.productionTip = false
 

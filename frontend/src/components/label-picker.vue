@@ -2,27 +2,27 @@
   <section class="label-picker">
     <header>
       <h2>Labels</h2>
-      <button>X</button>
+      <button @click="$emit('close-labels')">X</button>
     </header>
     <main>
-      <section>
-        <input type="text" placeholder="Search labels..." />
-      </section>
-      <section>
+      <section v-if="!isAddTitle">
         <h4>Labels</h4>
-        <div>
+        <div v-for="labelColor in Object.keys(allLabelsMap)" :key="labelColor">
           <span
             class="label"
             :style="{backgroundColor:labelColor}"
-            v-for="(labelColor,idx) in labelColors"
-            :key="idx"
             @click="updateLabels(labelColor)"
           >
             <span v-if="isSelectedLabel(labelColor)">V</span>
-            <!-- <span v-if="selectedLabel && selectedLabel.title">{{selectedLabel.title}}</span> -->
+            <span v-if="allLabelsMap[labelColor]">{{allLabelsMap[labelColor]}}</span>
           </span>
+          <button @click="toggleAddTitle(labelColor)">Add title</button>
         </div>
       </section>
+      <form v-else @submit.prevent="saveTitle">
+        <input type="text" placeholder="Enter title..." v-model="allLabelsMap[currLabelColor]" />
+        <button>Save</button>
+      </form>
     </main>
   </section>
 </template>
@@ -31,26 +31,30 @@
 export default {
   name: "label-picker",
   props: {
-    labels: Array
+    selectedLabels: Array
   },
   data() {
     return {
-      labelColors: ["red", "blue", "green", "yellow", "pink"],
-      selectedLabels: null
+      allLabelsMap: {
+        red: "",
+        blue: "",
+        green: "",
+        yellow: "",
+        grey: ""
+      },
+      isAddTitle: false,
+      currLabelColor: null
     };
   },
-  created() {
-    this.setSelectedLabels();
-  },
   methods: {
-    setSelectedLabels() {
-      this.selectedLabels = this.labels;
-    },
     isSelectedLabel(labelColor) {
-      for (var i = 0; i < this.selectedLabels.length; i++) {
-        if (this.selectedLabels[i].color === labelColor) {
-          return true;
-        }
+      const label = this.selectedLabels.find(
+        selectedLabel => selectedLabel.color === labelColor
+      );
+      if (label) {
+        this.allLabelsMap[labelColor] = label.title;
+
+        return true;
       }
 
       return false;
@@ -61,8 +65,8 @@ export default {
       this.selectedLabels.forEach(selectedLabel => {
         if (selectedLabel.color === labelColor) {
           lableExist = true;
+          this.allLabelsMap[labelColor] = "";
           this.$emit("remove-label", selectedLabel);
-          this.setSelectedLabels();
         }
       });
 
@@ -71,9 +75,24 @@ export default {
           color: labelColor,
           title: ""
         };
+
         this.$emit("add-label", newSelectedLabel);
-        this.setSelectedLabels();
       }
+    },
+    toggleAddTitle(labelColor) {
+      this.isAddTitle = !this.isAddTitle;
+      this.currLabelColor = labelColor;
+    },
+    saveTitle() {
+      const label = {
+        color: this.currLabelColor,
+        title: JSON.parse(
+          JSON.stringify(this.allLabelsMap[this.currLabelColor])
+        )
+      };
+      this.$emit("update-label", label);
+
+      this.isAddTitle = !this.isAddTitle;
     }
   }
 };

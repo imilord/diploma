@@ -52,6 +52,16 @@ export default {
     });
     this.board = JSON.parse(JSON.stringify(board));
   },
+  watch: {
+    "$route.params": async function() {
+      const boardId = this.$route.params.id;
+      const board = await this.$store.dispatch({
+        type: "loadBoard",
+        boardId
+      });
+      this.board = JSON.parse(JSON.stringify(board));
+    }
+  },
   components: {
     boardNav,
     tasklistList

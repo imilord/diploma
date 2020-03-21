@@ -11,17 +11,17 @@ body {
     // background: transparent;
     background-color: pink;
     overflow-x: auto;
-    overflow-y: hidden;
-        &::-webkit-scrollbar {
-            height: 12px;
-            // padding-bottom: 5px;
-        }
-        &::-webkit-scrollbar-track {
-            background: $clr-nav-item-hover; 
-                // margin-bottom: 8px;
-        }
-        &::-webkit-scrollbar-thumb {
-            border-radius: 10px;
-            background: $clr-scrollbar; 
-        }
+    // overflow-y: hidden;
+    &::-webkit-scrollbar {
+        height: 12px;
+        // padding-bottom: 5px;
+    }
+    &::-webkit-scrollbar-track {
+        background: $clr-nav-item-hover;
+        // margin-bottom: 8px;
+    }
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: $clr-scrollbar;
+    }
 }

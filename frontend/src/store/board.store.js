@@ -29,20 +29,30 @@ export default {
             taskList.tasks.push(taskData.newTask);
         },
         updateBoard(state, { board }) {
-          state.board = board;
+            state.board = board;
         },
-            updateTask(state, { task }) {
-            const newTask = task;
+        updateTask(state, { task }) {
             for (var i = 0; i < state.board.taskLists.length; i++) {
                 const list = state.board.taskLists[i];
-                const taskIdx = list.tasks.findIndex(task => task.id === newTask.id);
+                const taskIdx = list.tasks.findIndex(currTask => currTask.id === task.id);
                 if (taskIdx >= 0) {
-                    state.board.taskLists[i].tasks.splice(taskIdx, 1, newTask);
+                    state.board.taskLists[i].tasks.splice(taskIdx, 1, task);
                     return;
                 }
             }
+        },
+        deleteTask(state, { task }) {
+            for (var i = 0; i < state.board.taskLists.length; i++) {
+                const list = state.board.taskLists[i];
+                const taskIdx = list.tasks.findIndex(currTask => currTask.id === task.id);
+                if (taskIdx >= 0) {
+                    state.board.taskLists[i].tasks.splice(taskIdx, 1);
+                    return;
+                }
+            }
+
+            this.currTask = null;
         }
-    
     },
     actions: {
         async loadBoard(context, { boardId }) {
@@ -73,6 +83,14 @@ export default {
             });
             await boardService.save(context.state.board);
             return task;
+        },
+        async deleteTask(context, { task }) {
+            context.commit({
+                type: 'deleteTask',
+                task
+            });
+            const savedBoard = await boardService.save(context.state.board);
+            return savedBoard;
         }
     }
 }

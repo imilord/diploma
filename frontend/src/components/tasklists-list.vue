@@ -1,7 +1,7 @@
 <template>
   <section class="container">
     <container class="tasklist-list" orientation="horizontal" @drop="onDrop">
-      <draggable v-for="list in lists" :key="list.index">
+      <draggable v-for="list in lists" :key="list.id">
         <tasklist-preview
           class="tasklist"
           :taskList="list"
