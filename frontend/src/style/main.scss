@@ -3,13 +3,13 @@
 @import 'setup/variables';
 @import 'setup/mixins';
 @import 'setup/functions';
-
 // BASICS
 @import 'basics/base.scss';
 @import 'basics/layout.scss';
-
 // COMPONENTS
 @import 'cmps/main-nav.scss';
 @import 'cmps/board-nav.scss';
 @import 'cmps/task-list-preview.scss';
 @import 'cmps/task_preview.scss';
+//VIEWS
+@import './views/task-details.scss';

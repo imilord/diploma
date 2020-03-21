@@ -1,48 +1,78 @@
 <template>
   <section class="task-details" v-if="task">
-    <section class="task-data">
-      <h2>{{task.name}}</h2>
-      <div>
-        <h4>Members</h4>
-        <ul>
-          <li v-for="member in task.members" :key="member.id">{{member.name}}</li>
-        </ul>
-      </div>
-      <div>
-        <h4>Description</h4>
-        <div>{{task.description}}</div>
-      </div>
-      <div>Created at: {{task.createdAt | dueDate}}</div>
-    </section>
-    <section class="task-buttons">
-      <h4>Add to task</h4>
-      <div>
-        <button v-if="!isLabelsSelected" @click="toggelLabelPicker">Labels</button>
-        <label-picker
-          v-else
-          :selectedLabels="task.labels"
-          @add-label="addLabel"
-          @remove-label="removeLabel"
-          @update-label="updateLabel"
-          @close-labels="toggelLabelPicker"
-        ></label-picker>
-      </div>
-      <div>
-        <button v-if="!isDueToSelected" @click="toggelDueDate">Due to</button>
-        <due-date-picker
-          v-else
-          :dueDate="task.dueDate"
-          @close-due-date="toggelDueDate"
-          @date-change="changeDate"
-        ></due-date-picker>
-      </div>
-      <div>
-        <button>Cover</button>
-      </div>
-      <div>
-        <button @click="deleteTask()">Delete</button>
-      </div>
-    </section>
+    <button class="close-btn" @click="closeTaskEdit">X</button>
+    <div class="details-container">
+      <section class="task-data">
+        <h2 v-if="!isOpenName" @click="toggelName">{{task.name}}</h2>
+        <input v-else type="text" v-model="task.name" @blur="saveName" />
+        <div class="main-data">
+          <div v-if="task.labels.length > 0" class="labels">
+            <span
+              v-for="label in task.labels"
+              :key="label.id"
+              :style="{backgroundColor:label.color}"
+              class="label"
+            >
+            <span class="label-title" v-if="label.title">{{label.title}}</span>
+            </span>
+          </div>
+          <div>
+            <h4>Members</h4>
+            <ul>
+              <li v-for="member in task.members" :key="member.id">{{member.name}}</li>
+            </ul>
+          </div>
+          <div class="description-content">
+            <h4>Description</h4>
+            <div
+              v-if="!isOpenDescription"
+              class="description-txt"
+              @click="toggelDescription"
+            >{{(task.description) ? task.description : 'Add a more detailed description'}}</div>
+            <div v-else class="edit-description">
+              <textarea class="description" rows="4" cols="50" v-model="task.description"></textarea>
+              <div class="description-btns">
+                <button @click="saveDescription">Save</button>
+                <button @click="toggelDescription">X</button>
+              </div>
+            </div>
+          </div>
+          <div v-if="task.createdAt" class="created-at">Created at: {{task.createdAt | dueDate}}</div>
+          <div v-if="task.dueDate" class="due-date">Due date: {{task.dueDate | dueDate}}</div>
+        </div>
+      </section>
+      <section class="task-buttons">
+        <h4>Add to task</h4>
+        <div class="main-buttons">
+          <div>
+            <button v-if="!isLabelsSelected" @click="toggelLabelPicker">Labels</button>
+            <label-picker
+              v-else
+              :selectedLabels="task.labels"
+              @add-label="addLabel"
+              @remove-label="removeLabel"
+              @update-label="updateLabel"
+              @close-labels="toggelLabelPicker"
+            ></label-picker>
+          </div>
+          <div>
+            <button v-if="!isDueToSelected" @click="toggelDueDate">Due to</button>
+            <due-date-picker
+              v-else
+              :dueDate="task.dueDate"
+              @close-due-date="toggelDueDate"
+              @date-change="changeDate"
+            ></due-date-picker>
+          </div>
+          <div>
+            <button>Cover</button>
+          </div>
+          <div>
+            <button @click="deleteTask()">Delete</button>
+          </div>
+        </div>
+      </section>
+    </div>
   </section>
 </template>
 <script>
@@ -54,7 +84,9 @@ export default {
     return {
       task: null,
       isLabelsSelected: false,
-      isDueToSelected: false
+      isDueToSelected: false,
+      isOpenDescription: false,
+      isOpenName: false
     };
   },
   methods: {
@@ -68,14 +100,14 @@ export default {
     },
     async addLabel(newLabel) {
       this.task.labels.push(newLabel);
-       this.saveTask();
+      this.saveTask();
     },
     async removeLabel(labelToRemove) {
       const labelIndex = this.task.labels.findIndex(
         label => label.color === labelToRemove.color
       );
       this.task.labels.splice(labelIndex, 1);
-       this.saveTask();
+      this.saveTask();
     },
     async updateLabel(labelToUpdate) {
       console.log(labelToUpdate.title);
@@ -89,13 +121,19 @@ export default {
         this.addLabel(labelToUpdate);
       }
 
-       this.saveTask();
+      this.saveTask();
     },
     toggelLabelPicker() {
       this.isLabelsSelected = !this.isLabelsSelected;
     },
     toggelDueDate() {
       this.isDueToSelected = !this.isDueToSelected;
+    },
+    toggelDescription() {
+      this.isOpenDescription = !this.isOpenDescription;
+    },
+    toggelName() {
+      this.isOpenName = !this.isOpenName;
     },
     changeDate(newDate) {
       this.task.dueDate = newDate;
@@ -112,7 +150,7 @@ export default {
         console.log("Err in updateTask");
       }
     },
-    async deleteTask(){
+    async deleteTask() {
       try {
         await this.$store.dispatch({
           type: "deleteTask",
@@ -124,11 +162,24 @@ export default {
       } catch (err) {
         console.log("Err in deleteTask");
       }
+    },
+    closeTaskEdit() {
+      const boardId = this.$route.params.id;
+      this.$router.push(`/board/${boardId}`);
+    },
+    saveDescription() {
+      this.saveTask();
+      this.toggelDescription();
+    },
+    saveName() {
+      this.saveTask();
+      this.toggelName();
     }
   },
   created() {
     const taskId = this.$route.params.taskId;
     this.getTaskById(taskId);
+    console.log(this.task.labels)
   },
   components: {
     labelPicker,
