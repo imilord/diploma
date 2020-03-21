@@ -1,5 +1,8 @@
 .board-nav {
     display: flex;
+    position: fixed;
+    z-index: 10;
+    top: 40px;
     justify-content: space-between;
     align-items: center;
     height: rem(40px);

@@ -10,6 +10,17 @@
           @update-list="updateList"
         ></tasklist-preview>
       </draggable>
+      <div class="tasklist">
+        <button v-if="!isAddListOpen" @click="isAddListOpen=!isAddListOpen">Add new list</button>
+        <div v-else>
+          <form @submit.prevent="addList">
+            <input type="text" placeholder="Add list title" v-model="newList.name" />
+            <br />
+            <button>Add List</button>
+            <button @click.stop="isAddListOpen=!isAddListOpen">X</button>
+          </form>
+        </div>
+      </div>
     </container>
   </section>
 </template>
@@ -28,7 +39,9 @@ export default {
   },
   data() {
     return {
-      lists: this.taskLists
+      lists: this.taskLists,
+      isAddListOpen: false,
+      newList: null
     };
   },
   methods: {
@@ -40,9 +53,27 @@ export default {
       console.log(this.lists);
       this.updateList();
     },
+    async addList() {
+      const board = await this.$store.dispatch({
+        type: "addTasksList",
+        listData: this.newList
+      });
+      this.getEmptyList();
+      this.isAddListOpen = !this.isAddListOpen;
+      this.updateBoard(board);
+      this.lists = board.taskLists;
+    },
+    getEmptyList() {
+      this.newList = JSON.parse(
+        JSON.stringify(this.$store.getters.getEmptyTasksList)
+      );
+    },
     updateList() {
       this.$emit("update-lists", this.lists);
     }
+  },
+  created() {
+    this.getEmptyList();
   },
   components: {
     tasklistPreview,
