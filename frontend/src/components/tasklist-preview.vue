@@ -2,7 +2,16 @@
   <section class="tasklist-preview">
     <header>
       <h4>{{taskList.name}}</h4>
-      <button>...</button>
+      <button class="settings-btn" @click="isSettingsOpen=!isSettingsOpen">
+        <i class="el-icon-more"></i>
+      </button>
+      <list-settings
+        v-if="isSettingsOpen"
+        :listId="taskList.id"
+        @close-settings="isSettingsOpen=!isSettingsOpen"
+        @add-task="add-task"
+        @delete-list="deleteList"
+      ></list-settings>
     </header>
     <main>
       <task-list
@@ -28,6 +37,8 @@
 
 <script>
 import taskList from "./task-list.vue";
+import listSettings from "./list-settings.vue";
+
 export default {
   name: "tasklist-preview",
   props: {
@@ -36,12 +47,21 @@ export default {
   },
   data() {
     return {
+      isSettingsOpen: false,
       isAddTaskOpen: false,
       newTask: null,
       list: this.taskList
     };
   },
   methods: {
+    async deleteList(listId) {
+      const board = await this.$store.dispatch({
+        type: "deleteList",
+        listId
+      });
+      this.isSettingsOpen = !this.isSettingsOpen;
+      this.$emit("update-board", board);
+    },
     async addTask() {
       const taskData = { newTask: this.newTask, taskListId: this.taskList.id };
       const board = await this.$store.dispatch({
@@ -67,7 +87,8 @@ export default {
     this.getEmptyTask();
   },
   components: {
-    taskList
+    taskList,
+    listSettings
   }
 };
 </script>

@@ -12,7 +12,7 @@
         <h4>Description</h4>
         <div>{{task.description}}</div>
       </div>
-      <div>Created at: {{task.dueDate | dueDate}}</div>
+      <div>Created at: {{task.createdAt | dueDate}}</div>
     </section>
     <section class="task-buttons">
       <h4>Add to task</h4>

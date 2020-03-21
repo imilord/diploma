@@ -36,57 +36,15 @@
       "description": "Final project in coding academy",
       "taskLists": [
         {
-          "id": "2",
-          "name": "Not To do",
-          "bakegroundColor": "grey",
-          "tasks": []
-        },
-        {
           "id": "1",
           "name": "To do",
           "bakegroundColor": "grey",
           "tasks": [
             {
-              "id": "3",
-              "name": "Upload to github",
-              "description": "Upload to github all the project",
-              "dueDate": 1584625897171,
-              "createdAt": 1584625897171,
-              "members": [
-                {
-                  "id": "1",
-                  "name": "Ella",
-                  "img": ""
-                },
-                {
-                  "id": "2",
-                  "name": "Daniel",
-                  "img": ""
-                }
-              ],
-              "labels": [
-                {
-                  "color": "",
-                  "title": ""
-                }
-              ],
-              "comments": [
-                {
-                  "createdBy": "",
-                  "txt": "",
-                  "createdAt": ""
-                }
-              ],
-              "activitiesLog": [],
-              "cover": "",
-              "attachment": {},
-              "checkList": {}
-            },
-            {
               "id": "2",
               "name": "To eat",
               "description": "Eat magnum",
-              "dueDate": 1584625897171,
+              "dueDate": 1584396000000,
               "createdAt": 1584625897171,
               "members": [
                 {
@@ -197,6 +155,99 @@
             {
               "id": "VXeeV",
               "name": "vfgves",
+              "description": "",
+              "dueDate": "",
+              "createdAt": "",
+              "members": [],
+              "labels": [
+                {
+                  "color": "",
+                  "title": ""
+                }
+              ],
+              "comments": [
+                {
+                  "createdBy": "",
+                  "txt": "",
+                  "createdAt": ""
+                }
+              ],
+              "activitiesLog": [],
+              "cover": "",
+              "attachment": {},
+              "checkList": {}
+            }
+          ]
+        },
+        {
+          "id": "3t1di",
+          "name": "fff",
+          "bakegroundColor": "grey",
+          "tasks": [
+            {
+              "id": "3",
+              "name": "Upload to github",
+              "description": "Upload to github all the project",
+              "dueDate": 1584625897171,
+              "createdAt": 1584625897171,
+              "members": [
+                {
+                  "id": "1",
+                  "name": "Ella",
+                  "img": ""
+                },
+                {
+                  "id": "2",
+                  "name": "Daniel",
+                  "img": ""
+                }
+              ],
+              "labels": [
+                {
+                  "color": "",
+                  "title": ""
+                }
+              ],
+              "comments": [
+                {
+                  "createdBy": "",
+                  "txt": "",
+                  "createdAt": ""
+                }
+              ],
+              "activitiesLog": [],
+              "cover": "",
+              "attachment": {},
+              "checkList": {}
+            },
+            {
+              "id": "V71N7",
+              "name": "bfcvfd",
+              "description": "",
+              "dueDate": "",
+              "createdAt": "",
+              "members": [],
+              "labels": [
+                {
+                  "color": "",
+                  "title": ""
+                }
+              ],
+              "comments": [
+                {
+                  "createdBy": "",
+                  "txt": "",
+                  "createdAt": ""
+                }
+              ],
+              "activitiesLog": [],
+              "cover": "",
+              "attachment": {},
+              "checkList": {}
+            },
+            {
+              "id": "V71N7",
+              "name": "vfcv",
               "description": "",
               "dueDate": "",
               "createdAt": "",

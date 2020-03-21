@@ -58,6 +58,13 @@ export default {
             }
 
             this.currTask = null;
+        },
+        deleteList(state, { listId }) {
+            const listIdx = state.board.taskLists.findIndex(currList => currList.id === listId)
+            if (listIdx >= 0) {
+                state.board.taskLists.splice(listIdx, 1);
+                return;
+            }
         }
     },
     actions: {
@@ -105,6 +112,15 @@ export default {
             });
             const savedBoard = await boardService.save(context.state.board);
             return savedBoard;
+        },
+        async deleteList(context, { listId }) {
+            context.commit({
+                type: 'deleteList',
+                listId
+            });
+            const savedBoard = await boardService.save(context.state.board);
+            return savedBoard;
+
         }
     }
 }

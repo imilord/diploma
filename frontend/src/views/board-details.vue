@@ -1,5 +1,5 @@
 <template>
-  <section class="board-details" v-if="board">
+  <section class="board-details" v-if="board" :key="reload">
     <board-nav
       :boardName="board.name"
       :members="board.members"
@@ -25,7 +25,8 @@ export default {
   data() {
     return {
       board: null,
-      isTaskOpen: false
+      isTaskOpen: false,
+      reload: 0
     };
   },
   methods: {
@@ -60,7 +61,8 @@ export default {
         type: "loadBoard",
         boardId
       });
-      this.board = JSON.parse(JSON.stringify(board));
+      this.board = JSON.parse(JSON.stringify(board)); 
+      this.reload += 1;
     }
   },
   components: {

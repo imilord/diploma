@@ -1,0 +1,36 @@
+.list-settings {
+  position: absolute;
+  z-index: 20;
+  top: rem(10px);
+  right: rem(10px);
+  border-radius: rem(3px);
+  padding: 0 rem(6px) rem(12px) rem(8px);
+  background-color: white;
+  box-shadow: 0 rem(8px) rem(16px) rem(-4px) rgba(9, 30, 66, 0.25),
+    0 0 0 rem(1px) rgba(9, 30, 66, 0.08);
+
+    header {
+      display: flex;
+      align-items: center;
+      margin-top: rem(10px);
+    }
+    
+    main {
+      display: flex;
+      flex-direction: column;
+      margin-top: rem(15px);
+
+      button {
+        text-align: left;
+        padding: rem(5px) rem(10px);
+        border: none;
+        background-color: transparent;
+
+        &:hover {
+            background-color: $clr-scrollbar;
+            border-radius: rem(1px);
+        }
+      }
+    }
+}
+

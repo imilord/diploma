@@ -10,6 +10,7 @@
         width: rem(275px);
         margin: 0 rem(4px);
         padding: rem(8px);
+        position: relative;
 
         header {
             display: flex;
@@ -21,6 +22,21 @@
 
             h4 {
                 margin: 0;
+            }
+
+            button.settings-btn {
+                color: $clr-nav-color2;
+                height: rem(30px);
+                width: rem(30px);
+                padding: rem(6px);
+                padding-top: rem(4px);
+                border: none;
+                background-color: transparent;
+
+                &:hover {
+                    background-color: $clr-nav-item-hover;
+                    border-radius: rem(3px);
+                }
             }
         }
 

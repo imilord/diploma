@@ -26,3 +26,8 @@ body {
             background: $clr-scrollbar; 
         }
 }
+
+button {
+    outline: none;
+    cursor: pointer;
+}
