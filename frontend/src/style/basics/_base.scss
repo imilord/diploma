@@ -11,12 +11,13 @@ body {
     // background: transparent;
     background-color: pink;
     overflow-x: auto;
-    // overflow-y: hidden;
+    overflow-y: hidden;
         &::-webkit-scrollbar {
             height: 12px;
             // padding-bottom: 5px;
         }
         &::-webkit-scrollbar-track {
+            border-radius: 10px;
             background: $clr-nav-item-hover; 
                 // margin-bottom: 8px;
         }

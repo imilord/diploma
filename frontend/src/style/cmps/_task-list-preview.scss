@@ -1,43 +1,53 @@
-.tasklist-preview {
-    color: $clr-nav-color2;
-    header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: rem(4px);
-        padding-top: 0;
-        height: rem(40px);
+.tasklist-list {
+    height: calc(100vh - 140px);
+    margin-top: 80px;
 
-        h4 {
-            margin: 0;
-        }
-    }
+    .tasklist-preview {
+        color: $clr-nav-color2;
+        max-height: 100%;
+        background-color: $clr-nav-item-bgc;
+        border-radius: rem(3px);
+        width: rem(275px);
+        margin: 0 rem(4px);
+        padding: rem(8px);
 
-    main {
-        max-height: rem(430px);
-        overflow-y: scroll;
-        margin-bottom: rem(8px);
-        &::-webkit-scrollbar {
-            width: rem(8px);
-        }
-        &::-webkit-scrollbar-track {
-            background: $clr-nav-item-hover; 
-        }
-        &::-webkit-scrollbar-thumb {
-            border-radius: rem(10px);
-            background: $clr-scrollbar; 
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: rem(4px);
+            padding-top: 0;
+            height: rem(40px);
+
+            h4 {
+                margin: 0;
+            }
         }
 
+        main {
+            max-height: rem(415px);
+            overflow-y: scroll;
+            margin-bottom: rem(8px);
+            &::-webkit-scrollbar {
+                width: rem(8px);
+            }
+            &::-webkit-scrollbar-track {
+                border-radius: 10px;
+                background: $clr-nav-item-hover; 
+            }
+            &::-webkit-scrollbar-thumb {
+                border-radius: rem(10px);
+                background: $clr-scrollbar; 
+            }
+
+        }
     }
 }
 
-.task-preview {
-    background-color: $clr-nav-color1;
+.tasklist-preview-placeholder {
+    background-color: $clr-nav-item-hover;
     border-radius: rem(3px);
-    min-height: rem(20px);
-    box-shadow: 0 rem(1px) 0 rgba(9,30,66,.25);
-    text-decoration: none;
-    margin: 0 rem(4px) rem(8px) rem(1px);
-    padding: rem(4px);
-    cursor: pointer;
+    margin: rem(4px);
+    padding: 0;
+    max-height: 400px;
 }
