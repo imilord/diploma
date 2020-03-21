@@ -1,6 +1,12 @@
 <template>
   <section class="container">
-    <container class="tasklist-list" orientation="horizontal" @drop="onDrop">
+    <container
+      class="tasklist-list"
+      orientation="horizontal"
+      @drop="onDrop"
+      :get-child-payload="getChildPayload"
+      :drop-placeholder="dropPlaceholderOptions"
+    >
       <draggable v-for="list in lists" :key="list.id">
         <tasklist-preview
           class="tasklist"
@@ -28,7 +34,12 @@ export default {
   },
   data() {
     return {
-      lists: this.taskLists
+      lists: this.taskLists,
+      dropPlaceholderOptions: {
+        className: "tasklist",
+        animationDuration: "150",
+        showOnTop: true
+      }
     };
   },
   methods: {
@@ -37,11 +48,13 @@ export default {
     },
     onDrop(dropResult) {
       this.lists = applyDrag(this.lists, dropResult);
-      console.log(this.lists);
       this.updateList();
     },
     updateList() {
       this.$emit("update-lists", this.lists);
+    },
+    getChildPayload(index) {
+      return this.taskLists[index];
     }
   },
   components: {
