@@ -1,5 +1,5 @@
 <template>
-  <div class="color-picker">
+  <div class="color-picker-small">
     <div
       v-for="color in colors"
       :style="{backgroundColor: color}"
@@ -21,7 +21,7 @@ export default {
         "rgb(255, 198, 198)",
         "rgb(254, 255, 174)",
         "rgb(183, 255, 174)",
-        "hsla(0,0%,100%,.3)"
+        "#ebecf0"
       ],
       currColor: ""
     };

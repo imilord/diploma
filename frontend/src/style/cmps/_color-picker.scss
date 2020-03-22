@@ -1,4 +1,4 @@
-.color-picker {
+.color-picker-small {
   display: flex;
   flex-wrap: wrap;
   width: rem(132px);
@@ -10,6 +10,30 @@
         height: rem(18px);
         border-radius: 100%;
         margin: rem(1px);
+        box-sizing: border-box;
+        cursor: pointer;
+    }
+
+  .active {
+        border: rem(2px) solid black;
+    }
+}
+
+
+.color-picker-medium {
+  display: flex;
+  flex-wrap: wrap;
+  width: rem(160px);
+  background-color: $clr-scrollbar;
+  padding: rem(12px);
+  position: absolute;
+  border-radius: rem(3px);
+
+    .color {
+        width: rem(30px);
+        height: rem(30px);
+        border-radius: 100%;
+        margin: rem(2px);
         box-sizing: border-box;
         cursor: pointer;
     }

@@ -1,5 +1,5 @@
 <template>
-  <section class="task-preview">
+  <section class="task-preview" :style="{background: task.backgroundColor}">
     <router-link :to="`/board/${boardId}/task-details/${task.id}`" class="task-container">
       <div>
         <div class="cover-img-container">
