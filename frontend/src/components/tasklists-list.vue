@@ -63,6 +63,7 @@ export default {
       this.updateList();
     },
     async addList() {
+      if (!this.newList.name) return;
       const board = await this.$store.dispatch({
         type: "addTasksList",
         listData: this.newList
