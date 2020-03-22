@@ -47,18 +47,12 @@
           "bakegroundColor": "grey",
           "tasks": [
             {
-              "id": "2",
-              "name": "To eat",
-              "description": "Eat magnum",
-              "dueDate": 1584396000000,
-              "createdAt": 1584625897171,
-              "members": [
-                {
-                  "id": "2",
-                  "name": "Ella",
-                  "img": ""
-                }
-              ],
+              "id": "UpOYM",
+              "name": "tesst",
+              "description": "",
+              "dueDate": "",
+              "createdAt": "",
+              "members": [],
               "labels": [
                 {
                   "color": "",
@@ -90,31 +84,6 @@
                   "img": ""
                 }
               ],
-              "labels": [
-                {
-                  "color": "",
-                  "title": ""
-                }
-              ],
-              "comments": [
-                {
-                  "createdBy": "",
-                  "txt": "",
-                  "createdAt": ""
-                }
-              ],
-              "activitiesLog": [],
-              "cover": "",
-              "attachment": {},
-              "checkList": {}
-            },
-            {
-              "id": "UpOYM",
-              "name": "tesst",
-              "description": "",
-              "dueDate": "",
-              "createdAt": "",
-              "members": [],
               "labels": [
                 {
                   "color": "",
@@ -222,6 +191,37 @@
                 {
                   "color": "red",
                   "title": "test"
+                }
+              ],
+              "comments": [
+                {
+                  "createdBy": "",
+                  "txt": "",
+                  "createdAt": ""
+                }
+              ],
+              "activitiesLog": [],
+              "cover": "",
+              "attachment": {},
+              "checkList": {}
+            },
+            {
+              "id": "2",
+              "name": "To eat",
+              "description": "Eat magnum",
+              "dueDate": 1584396000000,
+              "createdAt": 1584625897171,
+              "members": [
+                {
+                  "id": "2",
+                  "name": "Ella",
+                  "img": ""
+                }
+              ],
+              "labels": [
+                {
+                  "color": "",
+                  "title": ""
                 }
               ],
               "comments": [
