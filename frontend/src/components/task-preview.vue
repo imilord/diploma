@@ -5,17 +5,17 @@
         <div class="cover-img-container">
           <img v-if="task.cover" class="cover-img" :src="task.cover" />
         </div>
-        <div class="tesk-name">{{task.name}}</div>
+        <div class="task-name">{{task.name}}</div>
         <div v-if="task.labels.length > 0" class="labels">
-            <span
-              v-for="label in task.labels"
-              :key="label.id"
-              :style="{backgroundColor:label.color}"
-              class="label"
-            >
-              <span class="label-title" v-if="label.title">{{label.title}}</span>
-            </span>
-          </div>
+          <span
+            v-for="label in task.labels"
+            :key="label.id"
+            :style="{backgroundColor:label.color}"
+            class="label"
+          >
+            <span class="label-title" v-if="label.title">{{label.title}}</span>
+          </span>
+        </div>
         <div class="members">
           <avatar
             v-for="member in task.members"

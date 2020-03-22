@@ -79,7 +79,7 @@
                 },
                 {
                   "color": "#f2d600",
-                  "title": ""
+                  "title": "ggdtrg"
                 }
               ],
               "comments": [
@@ -177,32 +177,6 @@
           "sortBy": "name",
           "tasks": [
             {
-              "id": "3",
-              "name": "To rest!!",
-              "description": "Go outside",
-              "dueDate": 1583791200000,
-              "createdAt": 1584625897171,
-              "members": [
-                {
-                  "id": "2",
-                  "name": "Daniel",
-                  "img": ""
-                }
-              ],
-              "labels": [],
-              "comments": [
-                {
-                  "createdBy": "",
-                  "txt": "",
-                  "createdAt": ""
-                }
-              ],
-              "activitiesLog": [],
-              "cover": "",
-              "attachment": {},
-              "checklists": []
-            },
-            {
               "id": "VXeeV",
               "name": "vfgves",
               "description": "",
@@ -263,7 +237,7 @@
               "checklists": []
             }
           ],
-          "backgroundColor": "rgb(183, 255, 174)"
+          "backgroundColor": "rgb(174, 212, 255)"
         },
         {
           "id": "yio73",
@@ -271,13 +245,22 @@
           "sortBy": "old",
           "tasks": [
             {
-              "id": "1zYeW",
-              "name": "To do",
+              "id": "7b0DG",
+              "name": "m j jk",
               "description": "",
-              "dueDate": 1584309600000,
-              "createdAt": 1584882449392,
+              "dueDate": 1583791200000,
+              "createdAt": 1584908882942,
               "members": [],
-              "labels": [],
+              "labels": [
+                {
+                  "color": "#eb5a46",
+                  "title": ""
+                },
+                {
+                  "color": "#0079bf",
+                  "title": ""
+                }
+              ],
               "comments": [
                 {
                   "createdBy": "",
@@ -286,62 +269,10 @@
                 }
               ],
               "activitiesLog": [],
-              "cover": "",
+              "cover": "http://res.cloudinary.com/dcwrnwtiu/image/upload/v1584909393/renj3esr2q5alouhqbc9.jpg",
               "attachment": {},
-              "checklists": [],
-              "backgroundColor": "linear-gradient(to top, rgb(210, 153, 194) 0%, rgb(254, 249, 215) 100%)"
-            },
-            {
-              "id": "3",
-              "name": "To rest!!",
-              "description": "Go outside",
-              "dueDate": 1583791200000,
-              "createdAt": 1584625897171,
-              "members": [
-                {
-                  "id": "2",
-                  "name": "Daniel",
-                  "img": ""
-                }
-              ],
-              "labels": [],
-              "comments": [
-                {
-                  "createdBy": "",
-                  "txt": "",
-                  "createdAt": ""
-                }
-              ],
-              "activitiesLog": [],
-              "cover": "",
-              "attachment": {},
-              "checklists": []
-            },
-            {
-              "id": "3",
-              "name": "To rest!!",
-              "description": "Go outside",
-              "dueDate": 1583791200000,
-              "createdAt": 1584625897171,
-              "members": [
-                {
-                  "id": "2",
-                  "name": "Daniel",
-                  "img": ""
-                }
-              ],
-              "labels": [],
-              "comments": [
-                {
-                  "createdBy": "",
-                  "txt": "",
-                  "createdAt": ""
-                }
-              ],
-              "activitiesLog": [],
-              "cover": "",
-              "attachment": {},
-              "checklists": []
+              "checkList": [],
+              "backgroundColor": "linear-gradient(120deg, rgb(246, 211, 101) 0%, rgb(253, 160, 133) 100%)"
             }
           ],
           "backgroundColor": "#ebecf0"
