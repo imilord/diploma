@@ -40,7 +40,10 @@ export default {
             for (var i = 0; i < state.board.taskLists.length; i++) {
                 const list = state.board.taskLists[i];
                 state.currTask = list.tasks.find(task => task.id === taskId);
-                if (state.currTask) return;
+                if (state.currTask) {
+                    state.currList = state.board.taskLists[i]
+                    return;
+                }
             }
         },
         setBoard(state, { board }) {

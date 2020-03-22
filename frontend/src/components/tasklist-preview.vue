@@ -1,9 +1,9 @@
 <template>
-  <section class="tasklist-preview" :style="{backgroundColor: taskList.bakegroundColor}">
+  <section class="tasklist-preview" :style="{backgroundColor: taskList.backgroundColor}">
     <header>
       <h4>{{taskList.name}}</h4>
       <button class="settings-btn" @click="isSettingsOpen=!isSettingsOpen">
-        <i class="el-icon-more"></i>
+        <i class="el-icon-more icon"></i>
       </button>
       <list-settings
         v-if="isSettingsOpen"
@@ -26,7 +26,7 @@
     </main>
     <footer>
       <button v-if="!isAddTaskOpen" @click="isAddTaskOpen=!isAddTaskOpen">
-        <i class="el-icon-plus"></i> Add new task
+        <i class="el-icon-plus icon"></i> Add new task
       </button>
       <div v-else>
         <form @submit.prevent="addTask">

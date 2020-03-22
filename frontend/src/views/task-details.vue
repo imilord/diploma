@@ -11,6 +11,7 @@
       <section class="task-data">
         <h2 v-if="!isOpenName" @click="toggleName">{{task.name}}</h2>
         <input v-else type="text" v-model="task.name" @blur="saveName" />
+        <div class="list-name">In list {{list.name}}</div>
         <div class="main-data">
           <div v-if="task.labels.length > 0" class="labels">
             <span
@@ -92,6 +93,10 @@
             ></checklist-picker>
           </div>
           <div>
+            <button class="main-btn" @click="toggelColorPicker">Change color</button>
+            <color-picker-medium v-if="isColorPickerOpen" @set-color="setColor"></color-picker-medium>
+          </div>
+          <div>
             <button class="main-btn" @click="deleteTask()">Delete</button>
           </div>
         </div>
@@ -104,6 +109,7 @@ import labelPicker from "../components/label-picker.vue";
 import dueDatePicker from "../components/due-date-picker.vue";
 import coverPicker from "../components/cover-picker.vue";
 import checklistPicker from "../components/checklist-picker.vue";
+import colorPickerMedium from "../components/‏‏color-picker-medium.vue";
 import avatar from "vue-avatar";
 import checklistDetails from "../components/checklist-details.vue";
 
@@ -112,6 +118,7 @@ export default {
   data() {
     return {
       task: null,
+      list: null,
       isLabelsSelected: false,
       isDueToSelected: false,
       isOpenDescription: false,
@@ -120,6 +127,7 @@ export default {
       isOpenChecklist: false,
       coverUrl: "",
       newChecklist: null
+      isColorPickerOpen: false,
     };
   },
   methods: {
@@ -130,6 +138,7 @@ export default {
       });
 
       this.task = JSON.parse(JSON.stringify(this.$store.getters.currTask));
+      this.list = JSON.parse(JSON.stringify(this.$store.getters.currList));
     },
     async addLabel(newLabel) {
       this.task.labels.push(newLabel);
@@ -176,6 +185,9 @@ export default {
       }
 
       this.isOpenChecklist = !this.isOpenChecklist;
+    },
+    toggelColorPicker() {
+      this.isColorPickerOpen = !this.isColorPickerOpen;
     },
     changeDate(newDate) {
       this.task.dueDate = newDate;
@@ -263,6 +275,9 @@ export default {
         checklist => checklist.id === checklistId
       );
       this.task.checklists[checklistIndex].todos.push(todo);
+    },
+    setColor(color) {
+      this.task.backgroundColor = color;
       this.saveTask();
     }
   },
@@ -276,7 +291,8 @@ export default {
     coverPicker,
     checklistPicker,
     avatar,
-    checklistDetails
+    checklistDetails,
+    colorPickerMedium
   }
 };
 </script>
