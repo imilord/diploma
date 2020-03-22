@@ -5,7 +5,9 @@ export default {
     state: {
         board: null,
         currTask: null,
-        currList: null
+        currList: null,
+        currChecklist: null,
+        currId: ''
     },
     getters: {
         currTask(state) {
@@ -13,6 +15,12 @@ export default {
         },
         currList(state) {
             return state.currList;
+        },
+        currChecklist(state) {
+            return state.currChecklist;
+        },
+        currId(state) {
+            return state.currId;
         }
     },
     mutations: {
@@ -24,11 +32,18 @@ export default {
             const list = boardService.getEmptyTasksList();
             state.currList = list;
         },
-        setCurrTask(state, { taskId }) {
+        setEmptyChecklist(state) {
+            const checklist = boardService.getEmptyChecklist();
+            state.currChecklist = checklist;
+        },
+        setListAndTask(state, { taskId }) {
             for (var i = 0; i < state.board.taskLists.length; i++) {
                 const list = state.board.taskLists[i];
                 state.currTask = list.tasks.find(task => task.id === taskId);
-                if (state.currTask) return;
+                if (state.currTask) {
+                    state.currList = state.board.taskLists[i]
+                    return;
+                }
             }
         },
         setBoard(state, { board }) {
@@ -64,7 +79,7 @@ export default {
                 }
             }
 
-            this.currTask = null;
+            state.currTask = null;
         },
         deleteList(state, { listId }) {
             const listIdx = state.board.taskLists.findIndex(currList => currList.id === listId)
@@ -72,6 +87,10 @@ export default {
                 state.board.taskLists.splice(listIdx, 1);
                 return;
             }
+        },
+        getId(state) {
+            const id = utilService.makeId();
+            state.currId = id
         }
     },
     actions: {

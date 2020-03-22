@@ -39,52 +39,13 @@
           "id": "1",
           "name": "To do",
           "bakegroundColor": "rgb(221, 170, 255)",
-          "sortBy": "old",
+          "sortBy": "name",
           "tasks": [
             {
-              "id": "2",
-              "name": "To eat",
-              "description": "Eat magnum",
-              "dueDate": 1583964000000,
-              "createdAt": 1584625897171,
-              "members": [
-                {
-                  "id": "2",
-                  "name": "Ella",
-                  "img": ""
-                }
-              ],
-              "labels": [
-                {
-                  "color": "red",
-                  "title": "test"
-                },
-                {
-                  "color": "green",
-                  "title": ""
-                },
-                {
-                  "color": "pink",
-                  "title": ""
-                }
-              ],
-              "comments": [
-                {
-                  "createdBy": "",
-                  "txt": "",
-                  "createdAt": ""
-                }
-              ],
-              "activitiesLog": [],
-              "cover": "",
-              "attachment": {},
-              "checkList": {}
-            },
-            {
               "id": "3",
-              "name": "To rest",
+              "name": "To rest!!",
               "description": "Go outside",
-              "dueDate": 1584625897171,
+              "dueDate": 1583791200000,
               "createdAt": 1584625897171,
               "members": [
                 {
@@ -93,39 +54,6 @@
                   "img": ""
                 }
               ],
-              "labels": [
-                {
-                  "color": "blue",
-                  "title": "test"
-                },
-                {
-                  "color": "yellow",
-                  "title": ""
-                },
-                {
-                  "color": "green",
-                  "title": ""
-                }
-              ],
-              "comments": [
-                {
-                  "createdBy": "",
-                  "txt": "",
-                  "createdAt": ""
-                }
-              ],
-              "activitiesLog": [],
-              "cover": "",
-              "attachment": {},
-              "checkList": {}
-            },
-            {
-              "id": "UpOYM",
-              "name": "tesst",
-              "description": "",
-              "dueDate": "",
-              "createdAt": "",
-              "members": [],
               "labels": [],
               "comments": [
                 {
@@ -137,27 +65,7 @@
               "activitiesLog": [],
               "cover": "",
               "attachment": {},
-              "checkList": {}
-            },
-            {
-              "id": "3td8M",
-              "name": "tosofi",
-              "description": "",
-              "dueDate": "",
-              "createdAt": "",
-              "members": [],
-              "labels": [],
-              "comments": [
-                {
-                  "createdBy": "",
-                  "txt": "",
-                  "createdAt": ""
-                }
-              ],
-              "activitiesLog": [],
-              "cover": "",
-              "attachment": {},
-              "checkList": {}
+              "checklists": []
             },
             {
               "id": "VXeeV",
@@ -177,54 +85,16 @@
               "activitiesLog": [],
               "cover": "",
               "attachment": {},
-              "checkList": {}
+              "checklists": []
             },
             {
-              "id": "UpOYM",
-              "name": "tesst!!!",
-              "description": "test test test!!!!!",
-              "dueDate": 1583791200000,
-              "createdAt": "",
-              "members": [],
-              "labels": [
-                {
-                  "color": "green",
-                  "title": ""
-                },
-                {
-                  "color": "blue",
-                  "title": ""
-                },
-                {
-                  "color": "red",
-                  "title": "important"
-                }
-              ],
-              "comments": [
-                {
-                  "createdBy": "",
-                  "txt": "",
-                  "createdAt": ""
-                }
-              ],
-              "activitiesLog": [],
-              "cover": "",
-              "attachment": {},
-              "checkList": {}
-            },
-            {
-              "id": "BeSWY",
-              "name": "ssdvs",
+              "id": "eDzgO",
+              "name": "ddf",
               "description": "",
-              "dueDate": 1584482400000,
-              "createdAt": 1584817264666,
+              "dueDate": "",
+              "createdAt": 1584885938841,
               "members": [],
-              "labels": [
-                {
-                  "color": "red",
-                  "title": "test"
-                }
-              ],
+              "labels": [],
               "comments": [
                 {
                   "createdBy": "",
@@ -235,7 +105,7 @@
               "activitiesLog": [],
               "cover": "",
               "attachment": {},
-              "checkList": {}
+              "checklists": []
             }
           ]
         },
@@ -263,7 +133,67 @@
               "activitiesLog": [],
               "cover": "",
               "attachment": {},
-              "checkList": {}
+              "checklists": []
+            },
+            {
+              "id": "UpOYM",
+              "name": "tesst!!!",
+              "description": "test test test!!!!!",
+              "dueDate": 1583186400000,
+              "createdAt": "",
+              "members": [],
+              "labels": [
+                {
+                  "color": "#c377e0",
+                  "title": ""
+                },
+                {
+                  "color": "#0098b7",
+                  "title": ""
+                },
+                {
+                  "color": "#f2d600",
+                  "title": ""
+                }
+              ],
+              "comments": [
+                {
+                  "createdBy": "",
+                  "txt": "",
+                  "createdAt": ""
+                }
+              ],
+              "activitiesLog": [],
+              "cover": "http://res.cloudinary.com/dcwrnwtiu/image/upload/v1584902534/peumsbb8deuorq5hjrl4.jpg",
+              "attachment": {},
+              "checklists": [
+                {
+                  "id": "T8DI3",
+                  "name": "Checklist",
+                  "todos": []
+                }
+              ],
+              "backgroundColor": "linear-gradient(0.25turn, rgb(63, 135, 166), rgb(235, 248, 225), rgb(246, 157, 60))"
+            },
+            {
+              "id": "3td8M",
+              "name": "tosofi",
+              "description": "",
+              "dueDate": "",
+              "createdAt": "",
+              "members": [],
+              "labels": [],
+              "comments": [
+                {
+                  "createdBy": "",
+                  "txt": "",
+                  "createdAt": ""
+                }
+              ],
+              "activitiesLog": [],
+              "cover": "",
+              "attachment": {},
+              "checklists": []
             },
             {
               "id": "Ofw7Y",
@@ -283,7 +213,41 @@
               "activitiesLog": [],
               "cover": "",
               "attachment": {},
-              "checkList": {}
+              "checklists": []
+            },
+            {
+              "id": "UpOYM",
+              "name": "tesst!!!",
+              "description": "test test test!!!!!",
+              "dueDate": 1583186400000,
+              "createdAt": "",
+              "members": [],
+              "labels": [
+                {
+                  "color": "#c377e0",
+                  "title": ""
+                },
+                {
+                  "color": "#0098b7",
+                  "title": ""
+                },
+                {
+                  "color": "#f2d600",
+                  "title": ""
+                }
+              ],
+              "comments": [
+                {
+                  "createdBy": "",
+                  "txt": "",
+                  "createdAt": ""
+                }
+              ],
+              "activitiesLog": [],
+              "cover": "http://res.cloudinary.com/dcwrnwtiu/image/upload/v1584902534/peumsbb8deuorq5hjrl4.jpg",
+              "attachment": {},
+              "checklists": [],
+              "backgroundColor": "linear-gradient(0.25turn, rgb(63, 135, 166), rgb(235, 248, 225), rgb(246, 157, 60))"
             }
           ]
         },
@@ -300,12 +264,7 @@
               "dueDate": "",
               "createdAt": 1584882449392,
               "members": [],
-              "labels": [
-                {
-                  "color": "",
-                  "title": ""
-                }
-              ],
+              "labels": [],
               "comments": [
                 {
                   "createdBy": "",
@@ -316,7 +275,7 @@
               "activitiesLog": [],
               "cover": "",
               "attachment": {},
-              "checkList": {}
+              "checklists": []
             },
             {
               "id": "JVw26",
@@ -325,12 +284,7 @@
               "dueDate": "",
               "createdAt": 1584882472605,
               "members": [],
-              "labels": [
-                {
-                  "color": "",
-                  "title": ""
-                }
-              ],
+              "labels": [],
               "comments": [
                 {
                   "createdBy": "",
@@ -341,7 +295,7 @@
               "activitiesLog": [],
               "cover": "",
               "attachment": {},
-              "checkList": {}
+              "checklists": []
             }
           ]
         }

@@ -47,7 +47,7 @@ export default {
       isAddListOpen: false,
       newList: null,
       dropPlaceholderOptions: {
-        className: "tasklist-preview",
+        className: "tasklist-preview-placeholder",
         animationDuration: "150",
         showOnTop: true
       }

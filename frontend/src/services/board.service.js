@@ -10,7 +10,8 @@ export const boardService = {
     save,
     getEmptyBoard,
     getEmptyTasksList,
-    getEmptyTask
+    getEmptyTask,
+    getEmptyChecklist
 }
 
 function query() {
@@ -55,7 +56,7 @@ function getEmptyTasksList() {
     return {
         id: utilService.makeId(),
         name: "",
-        bakegroundColor: "hsla(0,0%,100%,.3)",
+        backgroundColor: "#ebecf0",
         sortBy: "",
         tasks: []
     }
@@ -69,10 +70,7 @@ function getEmptyTask() {
         dueDate: "",
         createdAt: Date.now(),
         members: [],
-        labels: [{
-            color: "",
-            title: ""
-        }],
+        labels: [],
         comments: [{
             createdBy: "",
             txt: "",
@@ -81,6 +79,14 @@ function getEmptyTask() {
         activitiesLog: [],
         cover: "",
         attachment: {},
-        checkList: {}
+        checkList: []
+    }
+}
+
+function getEmptyChecklist() {
+    return {
+        id: utilService.makeId(),
+        name: 'Checklist',
+        todos: []
     }
 }

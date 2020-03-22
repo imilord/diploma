@@ -1,0 +1,48 @@
+.task-preview {
+    display: flex;
+    font-size: rem(15px);
+    .task-container {
+        text-decoration: none;
+        width: 100%;
+        color: black;
+        .cover-img-container {
+            text-align: center;
+            margin-bottom: rem(15px);
+            margin-top: rem(15px);
+            .cover-img {
+                width: 80%;
+            }
+        }
+        .tesk-name {
+            margin-bottom: rem(15px);
+        }
+        .labels {
+            display: flex;
+            margin-bottom: rem(15px);
+            flex-wrap: wrap;
+            .label {
+                min-width: rem(40px);
+                min-height: rem(20px);
+                display: inline-block;
+                margin-left: rem(5px);
+                border-radius: rem(5px);
+                text-align: center;
+                margin-bottom: rem(5px);
+                .label-title {
+                    padding: rem(8px);
+                    font-size: 0.9rem;
+                }
+            }
+        }
+        .members {
+            margin-bottom: rem(15px);
+            .member {
+                width: rem(30px)!important;
+                height: rem(30px)!important;
+            }
+        }
+        .due-date {
+            font-size: 0.9rem;
+        }
+    }
+}

@@ -3,7 +3,7 @@
     <header>
       <p>List Actions</p>
       <button class="settings-btn" @click="closeSettings">
-        <i class="el-icon-close"></i>
+        <i class="el-icon-close icon"></i>
       </button>
     </header>
 
@@ -14,7 +14,7 @@
       </div>
 
       <button @click="isColorPickerOpen=!isColorPickerOpen">Change list color</button>
-      <color-picker v-if="isColorPickerOpen" @set-color="setColor"></color-picker>
+      <color-picker-small v-if="isColorPickerOpen" @set-color="setColor"></color-picker-small>
 
       <button @click="addTask">Add task to this list</button>
 
@@ -32,12 +32,11 @@
 </template>
 
 <script>
-import colorPicker from "./color-picker.vue";
+import colorPickerSmall from "./color-picker-small.vue";
 
 export default {
   name: "list-settings",
   props: {
-    // listId: String,
     listName: String
   },
   data() {
@@ -69,7 +68,7 @@ export default {
     }
   },
   components: {
-    colorPicker
+    colorPickerSmall
   }
 };
 </script>
