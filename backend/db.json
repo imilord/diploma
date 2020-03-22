@@ -39,8 +39,41 @@
           "id": "1",
           "name": "To do",
           "backgroundColor": "rgb(221, 170, 255)",
-          "sortBy": "old",
+          "sortBy": "due-date",
           "tasks": [
+            {
+              "id": "UpOYM",
+              "name": "tesst!!!",
+              "description": "test test test!!!!!",
+              "dueDate": 1583791200000,
+              "createdAt": "",
+              "members": [],
+              "labels": [
+                {
+                  "color": "green",
+                  "title": ""
+                },
+                {
+                  "color": "blue",
+                  "title": ""
+                },
+                {
+                  "color": "red",
+                  "title": "important"
+                }
+              ],
+              "comments": [
+                {
+                  "createdBy": "",
+                  "txt": "",
+                  "createdAt": ""
+                }
+              ],
+              "activitiesLog": [],
+              "cover": "",
+              "attachment": {},
+              "checklists": []
+            },
             {
               "id": "2",
               "name": "To eat",
@@ -66,6 +99,31 @@
                 {
                   "color": "pink",
                   "title": ""
+                }
+              ],
+              "comments": [
+                {
+                  "createdBy": "",
+                  "txt": "",
+                  "createdAt": ""
+                }
+              ],
+              "activitiesLog": [],
+              "cover": "",
+              "attachment": {},
+              "checklists": []
+            },
+            {
+              "id": "BeSWY",
+              "name": "ssdvs",
+              "description": "",
+              "dueDate": 1584482400000,
+              "createdAt": 1584817264666,
+              "members": [],
+              "labels": [
+                {
+                  "color": "red",
+                  "title": "test"
                 }
               ],
               "comments": [
@@ -178,64 +236,6 @@
               "cover": "",
               "attachment": {},
               "checklists": []
-            },
-            {
-              "id": "UpOYM",
-              "name": "tesst!!!",
-              "description": "test test test!!!!!",
-              "dueDate": 1583791200000,
-              "createdAt": "",
-              "members": [],
-              "labels": [
-                {
-                  "color": "green",
-                  "title": ""
-                },
-                {
-                  "color": "blue",
-                  "title": ""
-                },
-                {
-                  "color": "red",
-                  "title": "important"
-                }
-              ],
-              "comments": [
-                {
-                  "createdBy": "",
-                  "txt": "",
-                  "createdAt": ""
-                }
-              ],
-              "activitiesLog": [],
-              "cover": "",
-              "attachment": {},
-              "checklists": []
-            },
-            {
-              "id": "BeSWY",
-              "name": "ssdvs",
-              "description": "",
-              "dueDate": 1584482400000,
-              "createdAt": 1584817264666,
-              "members": [],
-              "labels": [
-                {
-                  "color": "red",
-                  "title": "test"
-                }
-              ],
-              "comments": [
-                {
-                  "createdBy": "",
-                  "txt": "",
-                  "createdAt": ""
-                }
-              ],
-              "activitiesLog": [],
-              "cover": "",
-              "attachment": {},
-              "checklists": []
             }
           ]
         },
@@ -327,16 +327,16 @@
         },
         {
           "id": "yio73",
-          "name": "Done",
-          "backgroundColor": "rgb(174, 212, 255)",
-          "sortBy": "old",
+          "name": "Doneee",
+          "backgroundColor": "rgb(183, 255, 174)",
+          "sortBy": "name",
           "tasks": [
             {
-              "id": "1zYeW",
-              "name": "To do",
+              "id": "0UOwY",
+              "name": " vvcgfbfg",
               "description": "",
               "dueDate": "",
-              "createdAt": 1584882449392,
+              "createdAt": 1584904029740,
               "members": [],
               "labels": [
                 {
@@ -344,6 +344,7 @@
                   "title": ""
                 }
               ],
+              "backgroundColor": "#fff",
               "comments": [
                 {
                   "createdBy": "",
@@ -354,30 +355,61 @@
               "activitiesLog": [],
               "cover": "",
               "attachment": {},
-              "checklists": [
+              "checkList": []
+            }
+          ],
+          "bakegroundColor": "#ebecf0"
+        },
+        {
+          "id": "rEqYU",
+          "name": "b gvbgf",
+          "backgroundColor": "#ebecf0",
+          "sortBy": "",
+          "tasks": [
+            {
+              "id": "poH5O",
+              "name": "gbgfb",
+              "description": "",
+              "dueDate": "",
+              "createdAt": 1584904022540,
+              "members": [],
+              "labels": [
                 {
-                  "name": "bgn",
-                  "todos": []
-                },
-                {
-                  "name": "tht",
-                  "todos": []
+                  "color": "",
+                  "title": ""
                 }
-              ]
+              ],
+              "backgroundColor": "linear-gradient(to right, rgb(247, 140, 160) 0%, rgb(249, 116, 143) 19%, rgb(253, 134, 140) 60%, rgb(254, 154, 139) 100%)",
+              "comments": [
+                {
+                  "createdBy": "",
+                  "txt": "",
+                  "createdAt": ""
+                }
+              ],
+              "activitiesLog": [],
+              "cover": "",
+              "attachment": {},
+              "checkList": []
             },
             {
-              "id": "JVw26",
-              "name": "To do",
+              "id": "JFsc8",
+              "name": "gtg",
               "description": "",
               "dueDate": "",
-              "createdAt": 1584882472605,
+              "createdAt": 1584905012479,
               "members": [],
               "labels": [
                 {
                   "color": "",
                   "title": ""
+                },
+                {
+                  "color": "blue",
+                  "title": ""
                 }
               ],
+              "backgroundColor": "#fff",
               "comments": [
                 {
                   "createdBy": "",
@@ -388,9 +420,10 @@
               "activitiesLog": [],
               "cover": "",
               "attachment": {},
-              "checklists": []
+              "checkList": []
             }
-          ]
+          ],
+          "bakegroundColor": "rgb(221, 170, 255)"
         }
       ]
     }

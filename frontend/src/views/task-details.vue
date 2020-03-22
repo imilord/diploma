@@ -61,7 +61,7 @@
         <h4>Add to task</h4>
         <div class="main-buttons">
           <div>
-            <button v-if="!isLabelsSelected" class="main-btn" @click="toggelLabelPicker">
+            <button v-if="!isLabelsSelected" class="main-btn" @click="toggleLabelPicker">
               <i class="el-icon-price-tag"></i> Labels
             </button>
             <label-picker
@@ -74,7 +74,7 @@
             ></label-picker>
           </div>
           <div>
-            <button v-if="!isDueToSelected" class="main-btn" @click="toggelDueDate">
+            <button v-if="!isDueToSelected" class="main-btn" @click="toggleDueDate">
               <i class="el-icon-time"></i> Due to
             </button>
             <due-date-picker
@@ -101,7 +101,7 @@
             ></checklist-picker>
           </div>
           <div>
-            <button class="main-btn" @click="toggelColorPicker">
+            <button class="main-btn" @click="toggleColorPicker">
               <i class="el-icon-edit"></i> Change color
             </button>
             <color-picker-medium v-if="isColorPickerOpen" @set-color="setColor"></color-picker-medium>
@@ -198,7 +198,7 @@ export default {
 
       this.isOpenChecklist = !this.isOpenChecklist;
     },
-    toggelColorPicker() {
+    toggleColorPicker() {
       this.isColorPickerOpen = !this.isColorPickerOpen;
     },
     changeDate(newDate) {
