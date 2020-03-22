@@ -48,7 +48,24 @@
               "dueDate": "",
               "createdAt": 1584866112684,
               "members": [],
-              "labels": [],
+              "labels": [
+                {
+                  "color": "#61bd4f",
+                  "title": ""
+                },
+                {
+                  "color": "#f2d600",
+                  "title": ""
+                },
+                {
+                  "color": "#ff9f1a",
+                  "title": ""
+                },
+                {
+                  "color": "#c377e0",
+                  "title": ""
+                }
+              ],
               "comments": [
                 {
                   "createdBy": "",
