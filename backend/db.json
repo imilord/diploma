@@ -36,23 +36,17 @@
       "description": "Final project in coding academy",
       "taskLists": [
         {
-          "id": "1",
-          "name": "to do!!!",
-          "bakegroundColor": "rgb(221, 170, 255)",
+          "id": "4",
+          "name": "To do",
+          "bakegroundColor": "grey",
           "tasks": [
             {
-              "id": "2",
-              "name": "To eat",
-              "description": "Eat magnum",
-              "dueDate": 1584396000000,
-              "createdAt": 1584625897171,
-              "members": [
-                {
-                  "id": "2",
-                  "name": "Ella",
-                  "img": ""
-                }
-              ],
+              "id": "38PX7",
+              "name": "test",
+              "description": "",
+              "dueDate": "",
+              "createdAt": 1584866112684,
+              "members": [],
               "labels": [
                 {
                   "color": "",
@@ -72,7 +66,74 @@
               "checkList": {}
             },
             {
-              "id": "1",
+              "id": "Ofw7Y",
+              "name": "efwef",
+              "description": "",
+              "dueDate": "",
+              "createdAt": 1584866139163,
+              "members": [],
+              "labels": [
+                {
+                  "color": "",
+                  "title": ""
+                }
+              ],
+              "comments": [
+                {
+                  "createdBy": "",
+                  "txt": "",
+                  "createdAt": ""
+                }
+              ],
+              "activitiesLog": [],
+              "cover": "",
+              "attachment": {},
+              "checkList": {}
+            }
+          ]
+        },
+        {
+          "id": "1",
+          "name": "To do",
+          "bakegroundColor": "rgb(221, 170, 255)",
+          "tasks": [
+            {
+              "id": "2",
+              "name": "To eat",
+              "description": "Eat magnum",
+              "dueDate": 1584396000000,
+              "createdAt": 1584625897171,
+              "members": [
+                {
+                  "id": "2",
+                  "name": "Ella",
+                  "img": ""
+                }
+              ],
+              "labels": [
+                {
+                  "color": "",
+                  "title": ""
+                },
+                {
+                  "color": "red",
+                  "title": "nknk"
+                }
+              ],
+              "comments": [
+                {
+                  "createdBy": "",
+                  "txt": "",
+                  "createdAt": ""
+                }
+              ],
+              "activitiesLog": [],
+              "cover": "",
+              "attachment": {},
+              "checkList": {}
+            },
+            {
+              "id": "3",
               "name": "To rest",
               "description": "Go outside",
               "dueDate": 1584625897171,
@@ -216,164 +277,6 @@
                 {
                   "color": "red",
                   "title": "test"
-                },
-                {
-                  "color": "yellow",
-                  "title": ""
-                },
-                {
-                  "color": "green",
-                  "title": ""
-                }
-              ],
-              "comments": [
-                {
-                  "createdBy": "",
-                  "txt": "",
-                  "createdAt": ""
-                }
-              ],
-              "activitiesLog": [],
-              "cover": "",
-              "attachment": {},
-              "checkList": {}
-            },
-            {
-              "id": "8R86i",
-              "name": "",
-              "description": "",
-              "dueDate": "",
-              "createdAt": 1584832050161,
-              "members": [],
-              "labels": [
-                {
-                  "color": "",
-                  "title": ""
-                }
-              ],
-              "comments": [
-                {
-                  "createdBy": "",
-                  "txt": "",
-                  "createdAt": ""
-                }
-              ],
-              "activitiesLog": [],
-              "cover": "",
-              "attachment": {},
-              "checkList": {}
-            },
-            {
-              "id": "vxoUk",
-              "name": "",
-              "description": "",
-              "dueDate": "",
-              "createdAt": 1584832181218,
-              "members": [],
-              "labels": [
-                {
-                  "color": "",
-                  "title": ""
-                }
-              ],
-              "comments": [
-                {
-                  "createdBy": "",
-                  "txt": "",
-                  "createdAt": ""
-                }
-              ],
-              "activitiesLog": [],
-              "cover": "",
-              "attachment": {},
-              "checkList": {}
-            },
-            {
-              "id": "vxoUk",
-              "name": "",
-              "description": "",
-              "dueDate": "",
-              "createdAt": 1584832181218,
-              "members": [],
-              "labels": [
-                {
-                  "color": "",
-                  "title": ""
-                }
-              ],
-              "comments": [
-                {
-                  "createdBy": "",
-                  "txt": "",
-                  "createdAt": ""
-                }
-              ],
-              "activitiesLog": [],
-              "cover": "",
-              "attachment": {},
-              "checkList": {}
-            },
-            {
-              "id": "6FiqU",
-              "name": "cdsx",
-              "description": "",
-              "dueDate": "",
-              "createdAt": 1584833943770,
-              "members": [],
-              "labels": [
-                {
-                  "color": "",
-                  "title": ""
-                }
-              ],
-              "comments": [
-                {
-                  "createdBy": "",
-                  "txt": "",
-                  "createdAt": ""
-                }
-              ],
-              "activitiesLog": [],
-              "cover": "",
-              "attachment": {},
-              "checkList": {}
-            },
-            {
-              "id": "6FiqU",
-              "name": "vfvfdvd",
-              "description": "",
-              "dueDate": "",
-              "createdAt": 1584833943770,
-              "members": [],
-              "labels": [
-                {
-                  "color": "",
-                  "title": ""
-                }
-              ],
-              "comments": [
-                {
-                  "createdBy": "",
-                  "txt": "",
-                  "createdAt": ""
-                }
-              ],
-              "activitiesLog": [],
-              "cover": "",
-              "attachment": {},
-              "checkList": {}
-            },
-            {
-              "id": "6FiqU",
-              "name": "edew",
-              "description": "",
-              "dueDate": "",
-              "createdAt": 1584833943770,
-              "members": [],
-              "labels": [
-                {
-                  "color": "",
-                  "title": ""
                 }
               ],
               "comments": [
@@ -389,151 +292,6 @@
               "checkList": {}
             }
           ]
-        },
-        {
-          "id": "ImGNT",
-          "name": "done!!",
-          "bakegroundColor": "rgb(174, 212, 255)",
-          "tasks": [
-            {
-              "id": "6FiqU",
-              "name": "cfc",
-              "description": "",
-              "dueDate": "",
-              "createdAt": 1584833943770,
-              "members": [],
-              "labels": [
-                {
-                  "color": "",
-                  "title": ""
-                }
-              ],
-              "comments": [
-                {
-                  "createdBy": "",
-                  "txt": "",
-                  "createdAt": ""
-                }
-              ],
-              "activitiesLog": [],
-              "cover": "",
-              "attachment": {},
-              "checkList": {}
-            },
-            {
-              "id": "q6ur9",
-              "name": "v fvfxd",
-              "description": "",
-              "dueDate": "",
-              "createdAt": 1584822562161,
-              "members": [],
-              "labels": [
-                {
-                  "color": "",
-                  "title": ""
-                }
-              ],
-              "comments": [
-                {
-                  "createdBy": "",
-                  "txt": "",
-                  "createdAt": ""
-                }
-              ],
-              "activitiesLog": [],
-              "cover": "",
-              "attachment": {},
-              "checkList": {}
-            }
-          ]
-        },
-        {
-          "id": "GZauN",
-          "name": "g",
-          "bakegroundColor": "hsla(0,0%,100%,.3)",
-          "tasks": [
-            {
-              "id": "XEuI0",
-              "name": "gbfd",
-              "description": "",
-              "dueDate": "",
-              "createdAt": 1584863032677,
-              "members": [],
-              "labels": [
-                {
-                  "color": "",
-                  "title": ""
-                }
-              ],
-              "comments": [
-                {
-                  "createdBy": "",
-                  "txt": "",
-                  "createdAt": ""
-                }
-              ],
-              "activitiesLog": [],
-              "cover": "",
-              "attachment": {},
-              "checkList": {}
-            },
-            {
-              "id": "XEuI0",
-              "name": "hbf",
-              "description": "",
-              "dueDate": "",
-              "createdAt": 1584863032677,
-              "members": [],
-              "labels": [
-                {
-                  "color": "",
-                  "title": ""
-                }
-              ],
-              "comments": [
-                {
-                  "createdBy": "",
-                  "txt": "",
-                  "createdAt": ""
-                }
-              ],
-              "activitiesLog": [],
-              "cover": "",
-              "attachment": {},
-              "checkList": {}
-            },
-            {
-              "id": "annjN",
-              "name": "jj",
-              "description": "",
-              "dueDate": "",
-              "createdAt": 1584863283411,
-              "members": [],
-              "labels": [
-                {
-                  "color": "",
-                  "title": ""
-                }
-              ],
-              "comments": [
-                {
-                  "createdBy": "",
-                  "txt": "",
-                  "createdAt": ""
-                }
-              ],
-              "activitiesLog": [],
-              "cover": "",
-              "attachment": {},
-              "checkList": {}
-            }
-          ]
-        },
-        {
-          "id": "GZauN",
-          "name": "gg",
-          "bakegroundColor": "hsla(0,0%,100%,.3)",
-          "tasks": []
         }
       ]
     }

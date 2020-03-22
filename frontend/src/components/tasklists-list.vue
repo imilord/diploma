@@ -73,10 +73,12 @@ export default {
       this.isAddListOpen = !this.isAddListOpen;
       this.updateBoard(board);
     },
-    getEmptyList() {
-      this.newList = JSON.parse(
-        JSON.stringify(this.$store.getters.getEmptyTasksList)
-      );
+    async getEmptyList() {
+      await this.$store.commit({
+        type: "setEmptyTasksList"
+      });
+
+      this.newList = JSON.parse(JSON.stringify(this.$store.getters.currList));
     },
     updateList() {
       this.$emit("update-lists", this.lists);
