@@ -2,8 +2,8 @@
   <section class="task-details" v-if="task">
     <div class="header">
       <button class="close-btn" @click="closeTaskEdit">X</button>
-      <div v-if="coverUrl">
-        <img class="cover-img" :src="coverUrl" />
+      <div v-if="task.cover">
+        <img class="cover-img" :src="task.cover" />
         <button @click="removeCover">Remove cover</button>
       </div>
     </div>
@@ -19,6 +19,7 @@
               :key="label.id"
               :style="{backgroundColor:label.color}"
               class="label"
+              @click="toggleLabelPicker"
             >
               <span class="label-title" v-if="label.title">{{label.title}}</span>
             </span>
@@ -26,7 +27,12 @@
           <div class="members">
             <h4>Members</h4>
             <div>
-              <avatar v-for="member in task.members" :key="member.id" :username="member.name"></avatar>
+              <avatar
+                v-for="member in task.members"
+                :key="member.id"
+                :username="member.name"
+                class="member"
+              ></avatar>
             </div>
           </div>
           <div class="description-content">
@@ -61,11 +67,11 @@
         <h4>Add to task</h4>
         <div class="main-buttons">
           <div>
-            <button v-if="!isLabelsSelected" class="main-btn" @click="toggleLabelPicker">
+            <button class="main-btn" @click="toggleLabelPicker">
               <i class="el-icon-price-tag"></i> Labels
             </button>
             <label-picker
-              v-else
+              v-if="isLabelsSelected"
               :selectedLabels="task.labels"
               @add-label="addLabel"
               @remove-label="removeLabel"
@@ -74,22 +80,27 @@
             ></label-picker>
           </div>
           <div>
-            <button v-if="!isDueToSelected" class="main-btn" @click="toggleDueDate">
+            <button class="main-btn" @click="toggleDueDate">
               <i class="el-icon-time"></i> Due to
             </button>
             <due-date-picker
-              v-else
+              v-if="isDueToSelected"
               :dueDate="task.dueDate"
               @close-due-date="toggleDueDate"
               @date-change="changeDate"
             ></due-date-picker>
           </div>
           <div>
-            <button v-if="!isOpenCover" class="main-btn" @click="toggleCover">
+            <button class="main-btn" @click="toggleCover">
               <i class="el-icon-picture-outline"></i> Cover
             </button>
-            <cover-picker v-else @update-cover="updateCover" @close-cover-picker="toggleCover"></cover-picker>
+            <cover-picker
+              v-if="isOpenCover"
+              @update-cover="updateCover"
+              @close-cover-picker="toggleCover"
+            ></cover-picker>
           </div>
+          <button class="main-btn" @click="copyTask">Copy</button>
           <div>
             <button class="main-btn" @click="toggleChecklist">
               <i class="el-icon-document-checked"></i> Checklist
@@ -138,7 +149,6 @@ export default {
       isOpenCover: false,
       isOpenChecklist: false,
       isColorPickerOpen: false,
-      coverUrl: "",
       newChecklist: null
     };
   },
@@ -242,16 +252,28 @@ export default {
       this.toggleName();
     },
     updateCover(url) {
-      this.coverUrl = url;
+      this.task.cover = url;
+      this.saveTask();
     },
     removeCover() {
-      this.coverUrl = "";
+      this.task.cover = "";
+      this.saveTask();
+    },
+    async copyTask() {
+      const taskData = { newTask: this.task, taskListId: this.list.id };
+      try {
+        await this.$store.dispatch({
+          type: "addTask",
+          taskData
+        });
+      } catch (err) {
+        console.log("Err in addTask");
+      }
     },
     async addChecklist(title) {
       if (!title) return;
       this.newChecklist.name = title;
       const checklist = this.newChecklist;
-      console.log(this.task.checklists);
       this.task.checklists.push(checklist);
       this.saveTask();
       this.toggleChecklist();

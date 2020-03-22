@@ -7,14 +7,15 @@
 @import "basics/base.scss";
 @import "basics/layout.scss";
 // COMPONENTS
-@import "cmps/color-picker.scss";
-@import "cmps/main-nav.scss";
-@import "cmps/board-nav.scss";
-@import "cmps/task-list-preview.scss";
-@import "cmps/task_preview.scss";
-@import "cmps/list-settings.scss";
-@import "cmps/label-picker.scss";
-@import "cmps/due-date-picker.scss";
+@import 'cmps/color-picker.scss';
+@import 'cmps/main-nav.scss';
+@import 'cmps/board-nav.scss';
+@import 'cmps/task-list-preview.scss';
+@import 'cmps/task_preview.scss';
+@import 'cmps/list-settings.scss';
+@import 'cmps/label-picker.scss';
+@import 'cmps/due-date-picker.scss';
+@import 'cmps/task-preview.scss';
 @import "cmps/checklist-picker.scss";
 //VIEWS
 @import "./views/task-details.scss";

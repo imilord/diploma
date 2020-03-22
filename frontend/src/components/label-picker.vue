@@ -13,13 +13,13 @@
             @click="updateLabels(labelColor)"
           >
             <span v-if="isSelectedLabel(labelColor)">V</span>
-            <span v-if="allLabelsMap[labelColor]">{{allLabelsMap[labelColor]}}</span>
+            <span v-if="allLabelsMap[labelColor]" class="label-title">{{allLabelsMap[labelColor]}}</span>
           </span>
           <button @click="toggleAddTitle(labelColor)">Add title</button>
         </div>
       </section>
       <form v-else @submit.prevent="saveTitle">
-        <input type="text" placeholder="Enter title..." v-model="allLabelsMap[currLabelColor]" />
+        <input type="text" placeholder="Enter title..." maxlength="10" v-model="allLabelsMap[currLabelColor]" />
         <button>Save</button>
       </form>
     </main>
@@ -35,11 +35,13 @@ export default {
   data() {
     return {
       allLabelsMap: {
-        red: "",
-        blue: "",
-        green: "",
-        yellow: "",
-        pink: ""
+        "#eb5a46": "",
+        "#0079bf": "",
+        "#61bd4f": "",
+        "#f2d600": "",
+        "#ff9f1a": "",
+        "#c377e0": "",
+        "#0098b7": ""
       },
       isAddTitle: false,
       currLabelColor: null
