@@ -2,8 +2,8 @@
   <section class="task-details" v-if="task">
     <div class="header">
       <button class="close-btn" @click="closeTaskEdit">X</button>
-      <div v-if="coverUrl">
-        <img class="cover-img" :src="coverUrl" />
+      <div v-if="task.cover">
+        <img class="cover-img" :src="task.cover" />
         <button @click="removeCover">Remove cover</button>
       </div>
     </div>
@@ -18,6 +18,7 @@
               :key="label.id"
               :style="{backgroundColor:label.color}"
               class="label"
+              @click="toggelLabelPicker"
             >
               <span class="label-title" v-if="label.title">{{label.title}}</span>
             </span>
@@ -25,13 +26,21 @@
           <div class="members">
             <h4>Members</h4>
             <div>
-              <avatar v-for="member in task.members" :key="member.id" :username="member.name"></avatar>
+              <avatar
+                v-for="member in task.members"
+                :key="member.id"
+                :username="member.name"
+                class="member"
+              ></avatar>
             </div>
           </div>
           <div class="description-content">
             <h4>Description</h4>
-            <div v-if="!isOpenDescription" class="description-txt" @click="toggelDescription">
-              {{(task.description) ? task.description : 'Add a more detailed description'}}</div>
+            <div
+              v-if="!isOpenDescription"
+              class="description-txt"
+              @click="toggelDescription"
+            >{{(task.description) ? task.description : 'Add a more detailed description'}}</div>
             <div v-else class="edit-description">
               <textarea class="description" rows="4" cols="50" v-model="task.description"></textarea>
               <div class="description-btns">
@@ -48,9 +57,9 @@
         <h4>Add to task</h4>
         <div class="main-buttons">
           <div>
-            <button v-if="!isLabelsSelected" class="main-btn" @click="toggelLabelPicker">Labels</button>
+            <button class="main-btn" @click="toggelLabelPicker">Labels</button>
             <label-picker
-              v-else
+              v-if="isLabelsSelected"
               :selectedLabels="task.labels"
               @add-label="addLabel"
               @remove-label="removeLabel"
@@ -59,21 +68,28 @@
             ></label-picker>
           </div>
           <div>
-            <button v-if="!isDueToSelected" class="main-btn" @click="toggelDueDate">Due to</button>
+            <button class="main-btn" @click="toggelDueDate">Due to</button>
             <due-date-picker
-              v-else
+              v-if="isDueToSelected"
               :dueDate="task.dueDate"
               @close-due-date="toggelDueDate"
               @date-change="changeDate"
             ></due-date-picker>
           </div>
           <div>
-            <button v-if="!isOpenCover" class="main-btn" @click="toggelCover">Cover</button>
-            <cover-picker v-else @update-cover="updateCover" @close-cover-picker="toggelCover"></cover-picker>
+            <button class="main-btn" @click="toggelCover">Cover</button>
+            <cover-picker
+              v-if="isOpenCover"
+              @update-cover="updateCover"
+              @close-cover-picker="toggelCover"
+            ></cover-picker>
           </div>
           <div>
-            <button v-if="!isOpenChecklist" class="main-btn" @click="toggelChecklist">Checklist</button>
-            <checklist-picker v-else @add-checklist="addChecklist"></checklist-picker>
+            <button class="main-btn" @click="toggelChecklist">Checklist</button>
+            <checklist-picker v-if="isOpenChecklist" @add-checklist="addChecklist"></checklist-picker>
+          </div>
+          <div>
+            <button class="main-btn" @click="copyTask">Copy</button>
           </div>
           <div>
             <button class="main-btn" @click="deleteTask()">Delete</button>
@@ -100,8 +116,7 @@ export default {
       isOpenDescription: false,
       isOpenName: false,
       isOpenCover: false,
-      isOpenChecklist: false,
-      coverUrl: ""
+      isOpenChecklist: false
     };
   },
   methods: {
@@ -196,13 +211,27 @@ export default {
       this.toggelName();
     },
     updateCover(url) {
-      this.coverUrl = url;
+      this.task.cover = url;
+      this.saveTask();
     },
     removeCover() {
-      this.coverUrl = "";
+      this.task.cover = "";
+      this.saveTask();
     },
     addChecklist() {
       this.toggelChecklist();
+    },
+    copyTask() {
+      //   const taskData = { newTask: this.task, taskListId: this.list.id}
+      //   try {
+      //     await this.$store.dispatch({
+      //       type: "addTask",
+      //       taskData
+      //     });
+      //   } catch (err) {
+      //     console.log("Err in addTask");
+      //   }
+      // }
     }
   },
   created() {

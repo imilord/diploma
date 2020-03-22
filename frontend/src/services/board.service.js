@@ -69,10 +69,7 @@ function getEmptyTask() {
         dueDate: "",
         createdAt: Date.now(),
         members: [],
-        labels: [{
-            color: "",
-            title: ""
-        }],
+        labels: [],
         comments: [{
             createdBy: "",
             txt: "",
