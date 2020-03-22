@@ -6,33 +6,60 @@
         <i class="el-icon-close"></i>
       </button>
     </header>
-    <hr />
+
     <main>
-      <button>Change list name</button>
-      <button>Change list color</button>
+      <button @click="isNameEditorOpen = !isNameEditorOpen">Change list name</button>
+      <div class="nameEditor" v-if="isNameEditorOpen">
+        <input type="text" v-model="name" @change="updateListName" />
+      </div>
+
+      <button @click="isColorPickerOpen=!isColorPickerOpen">Change list color</button>
+      <color-picker v-if="isColorPickerOpen" @set-color="setColor"></color-picker>
+
       <button @click="addTask">Add task to this list</button>
+
       <button>Sort list by</button>
+
       <button @click="deleteList">Delete list</button>
     </main>
   </div>
 </template>
 
 <script>
+import colorPicker from "./color-picker.vue";
+
 export default {
   name: "list-settings",
   props: {
-    listId: String
+    // listId: String,
+    listName: String
+  },
+  data() {
+    return {
+      name: this.listName,
+      isNameEditorOpen: false,
+      isColorPickerOpen: false
+    };
   },
   methods: {
     closeSettings() {
       this.$emit("close-settings");
     },
+    updateListName() {
+      this.$emit("update-list-name", this.name);
+    },
     addTask() {
-      this.$emit("add-task");
+      this.$emit("open-add-task");
     },
     deleteList() {
-      this.$emit("delete-list", this.listId);
+      this.$emit("delete-list");
+    },
+    setColor(color) {
+      this.$emit("set-color", color);
     }
+  },
+  components: {
+    colorPicker
   }
 };
 </script>

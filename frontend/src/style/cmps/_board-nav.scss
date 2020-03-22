@@ -8,7 +8,7 @@
     height: rem(40px);
     width: 100%;
     background: transparent;
-    color: $clr-nav-color2;
+    color: $clr-text;
 
     .board-name {
         font-weight: bold;
@@ -21,7 +21,7 @@
         width: rem(100px);
         text-align: center;
         height: 23px;
-        color: $clr-nav-color2;
+        color: $clr-text;
     }
 
     ul {
@@ -57,7 +57,7 @@
         padding: rem(4px) rem(8px);
         margin: 0 rem(3px);
         background-color: $clr-nav-item-bgc;
-        color: $clr-nav-color2;
+        color:$clr-text;
         font-size: rem(15px);
 
         &:hover {

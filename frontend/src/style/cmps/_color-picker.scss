@@ -1,0 +1,22 @@
+.color-picker {
+  display: flex;
+  flex-wrap: wrap;
+  width: rem(132px);
+  background-color: $clr-scrollbar;
+  padding: 5px;
+  padding-left: 5px;
+
+    .color {
+        width: rem(18px);
+        height: rem(18px);
+        border-radius: 100%;
+        margin: rem(1px);
+        box-sizing: border-box;
+        cursor: pointer;
+    }
+
+  .active {
+        border: rem(2px) solid black;
+    }
+
+}
