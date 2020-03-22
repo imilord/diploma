@@ -1,5 +1,5 @@
 <template>
-  <section class="tasklist-preview">
+  <section class="tasklist-preview" :style="{backgroundColor: taskList.bakegroundColor}">
     <header>
       <h4>{{taskList.name}}</h4>
       <button class="settings-btn" @click="isSettingsOpen=!isSettingsOpen">
@@ -7,10 +7,12 @@
       </button>
       <list-settings
         v-if="isSettingsOpen"
-        :listId="taskList.id"
+        :listName="taskList.name"
         @close-settings="isSettingsOpen=!isSettingsOpen"
-        @add-task="add-task"
+        @update-list-name="updateListName"
+        @open-add-task="(isAddTaskOpen=true) && (isSettingsOpen=false)"
         @delete-list="deleteList"
+        @set-color="setColor"
       ></list-settings>
     </header>
     <main>
@@ -22,7 +24,9 @@
       ></task-list>
     </main>
     <footer>
-      <button v-if="!isAddTaskOpen" @click="isAddTaskOpen=!isAddTaskOpen">Add task</button>
+      <button v-if="!isAddTaskOpen" @click="isAddTaskOpen=!isAddTaskOpen">
+        <i class="el-icon-plus"></i> Add new task
+      </button>
       <div v-else>
         <form @submit.prevent="addTask">
           <input type="text" placeholder="Enter new task" v-model="newTask.name" />
@@ -54,15 +58,16 @@ export default {
     };
   },
   methods: {
-    async deleteList(listId) {
+    async deleteList() {
       const board = await this.$store.dispatch({
         type: "deleteList",
-        listId
+        listId: this.taskList.id
       });
       this.isSettingsOpen = !this.isSettingsOpen;
       this.$emit("update-board", board);
     },
     async addTask() {
+      if (!this.newTask.name) return;
       const taskData = { newTask: this.newTask, taskListId: this.taskList.id };
       const board = await this.$store.dispatch({
         type: "addTask",
@@ -80,6 +85,14 @@ export default {
     },
     updateTasks(tasks) {
       this.list.tasks = tasks;
+      this.$emit("update-list", this.list);
+    },
+    updateListName(name) {
+      this.list.name = name;
+      this.$emit("update-list", this.list);
+    },
+    setColor(color) {
+      this.list.bakegroundColor = color;
       this.$emit("update-list", this.list);
     }
   },

@@ -3,7 +3,7 @@
     margin-top: 80px;
 
     .tasklist-preview {
-        color: $clr-nav-color2;
+        color: $clr-text;
         max-height: 100%;
         background-color: $clr-nav-item-bgc;
         border-radius: rem(3px);
@@ -25,7 +25,7 @@
             }
 
             button.settings-btn {
-                color: $clr-nav-color2;
+                color: $clr-text;
                 height: rem(30px);
                 width: rem(30px);
                 padding: rem(6px);
@@ -60,10 +60,10 @@
     }
 }
 
-.tasklist-preview-placeholder {
-    background-color: $clr-nav-item-hover;
-    border-radius: rem(3px);
-    margin: rem(4px);
-    padding: 0;
-    // max-height: 400px;
-}
+// .tasklist-preview-placeholder {
+//     background-color: $clr-nav-item-hover;
+//     border-radius: rem(3px);
+//     margin: rem(4px);
+//     padding: 0;
+//     // max-height: 400px;
+// }
