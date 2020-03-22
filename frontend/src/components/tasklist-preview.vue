@@ -95,11 +95,10 @@ export default {
       this.$emit("update-list", this.list);
     },
     setColor(color) {
-      this.list.bakegroundColor = color;
+      this.list.backgroundColor = color;
       this.$emit("update-list", this.list);
     },
     setSort(sortBy) {
-      console.log(sortBy);
       this.list.sortBy = sortBy;
       if (sortBy === "name") {
         this.list.tasks.sort((a, b) => {
@@ -111,7 +110,6 @@ export default {
         this.list.tasks.sort((a, b) => b.createdAt - a.createdAt);
       } else if (sortBy === "old") {
         this.list.tasks.sort((a, b) => a.createdAt - b.createdAt);
-        console.log(this.list);
       } else if (sortBy === "due-date") {
         const withoutDueDate = this.list.tasks.filter(task => !task.dueDate);
         const withDueDate = this.list.tasks.filter(task => task.dueDate);
