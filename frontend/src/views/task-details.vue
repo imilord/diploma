@@ -52,7 +52,9 @@
         <h4>Add to task</h4>
         <div class="main-buttons">
           <div>
-            <button v-if="!isLabelsSelected" class="main-btn" @click="toggelLabelPicker">Labels</button>
+            <button v-if="!isLabelsSelected" class="main-btn" @click="toggelLabelPicker">
+              <i class="el-icon-price-tag"></i> Labels
+            </button>
             <label-picker
               v-else
               :selectedLabels="task.labels"
@@ -63,7 +65,9 @@
             ></label-picker>
           </div>
           <div>
-            <button v-if="!isDueToSelected" class="main-btn" @click="toggelDueDate">Due to</button>
+            <button v-if="!isDueToSelected" class="main-btn" @click="toggelDueDate">
+              <i class="el-icon-time"></i> Due to
+            </button>
             <due-date-picker
               v-else
               :dueDate="task.dueDate"
@@ -72,19 +76,27 @@
             ></due-date-picker>
           </div>
           <div>
-            <button v-if="!isOpenCover" class="main-btn" @click="toggelCover">Cover</button>
+            <button v-if="!isOpenCover" class="main-btn" @click="toggelCover">
+              <i class="el-icon-picture-outline"></i> Cover
+            </button>
             <cover-picker v-else @update-cover="updateCover" @close-cover-picker="toggelCover"></cover-picker>
           </div>
           <div>
-            <button v-if="!isOpenChecklist" class="main-btn" @click="toggelChecklist">Checklist</button>
+            <button v-if="!isOpenChecklist" class="main-btn" @click="toggelChecklist">
+              <i class="el-icon-document-checked"></i> Checklist
+            </button>
             <checklist-picker v-else @add-checklist="addChecklist"></checklist-picker>
           </div>
           <div>
-            <button class="main-btn" @click="toggelColorPicker">Change color</button>
+            <button class="main-btn" @click="toggelColorPicker">
+              <i class="el-icon-edit"></i> Change color
+            </button>
             <color-picker-medium v-if="isColorPickerOpen" @set-color="setColor"></color-picker-medium>
           </div>
           <div>
-            <button class="main-btn" @click="deleteTask()">Delete</button>
+            <button class="main-btn" @click="deleteTask()">
+              <i class="el-icon-delete"></i> Delete
+            </button>
           </div>
         </div>
       </section>
@@ -116,9 +128,9 @@ export default {
     };
   },
   methods: {
-    getTaskById(taskId) {
+    getListAndTask(taskId) {
       this.$store.commit({
-        type: "setCurrTask",
+        type: "setListAndTask",
         taskId
       });
 
@@ -226,7 +238,7 @@ export default {
   },
   created() {
     const taskId = this.$route.params.taskId;
-    this.getTaskById(taskId);
+    this.getListAndTask(taskId);
   },
   components: {
     labelPicker,

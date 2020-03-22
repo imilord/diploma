@@ -24,7 +24,7 @@ export default {
             const list = boardService.getEmptyTasksList();
             state.currList = list;
         },
-        setCurrTask(state, { taskId }) {
+        setListAndTask(state, { taskId }) {
             for (var i = 0; i < state.board.taskLists.length; i++) {
                 const list = state.board.taskLists[i];
                 state.currTask = list.tasks.find(task => task.id === taskId);
