@@ -13,6 +13,7 @@
         @open-add-task="(isAddTaskOpen=true) && (isSettingsOpen=false)"
         @delete-list="deleteList"
         @set-color="setColor"
+        @set-sort="setSort"
       ></list-settings>
     </header>
     <main>
@@ -79,7 +80,6 @@ export default {
       this.isAddTaskOpen = !this.isAddTaskOpen;
     },
     async getEmptyTask() {
-      console.log("getEmptyTask");
       await this.$store.commit({
         type: "setEmptyTask"
       });
@@ -96,6 +96,32 @@ export default {
     },
     setColor(color) {
       this.list.bakegroundColor = color;
+      this.$emit("update-list", this.list);
+    },
+    setSort(sortBy) {
+      this.list.sortBy = sortBy;
+      if (sortBy === "name") {
+        this.list.tasks.sort((a, b) => {
+          if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
+          else if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
+          else return 0;
+        });
+      } else if (sortBy === "new") {
+        this.list.tasks.sort((a, b) => b.createdAt - a.createdAt);
+      } else if (sortBy === "old") {
+        this.list.tasks.sort((a, b) => a.createdAt - b.createdAt);
+      } else if (sortBy === "due-date") {
+        const withoutDueDate = this.list.tasks.filter(task => !task.dueDate);
+        const withDueDate = this.list.tasks.filter(task => task.dueDate);
+        withDueDate.sort((a, b) => a.dueDate - b.dueDate);
+        const tasks = [...withDueDate, ...withoutDueDate];
+        this.list.tasks = tasks;
+        console.log(this.list.tasks);
+        // this.list.tasks.sort((a, b) => {
+        //   if (!a.dueDate || !b.dueDate) return -1;
+        //   else return a.dueDate - b.dueDate;
+        // });
+      }
       this.$emit("update-list", this.list);
     }
   },

@@ -61,7 +61,6 @@ export default {
         boardId
       });
       this.board = JSON.parse(JSON.stringify(board));
-      console.log("in board");
       this.reload += 1;
     }
   },
