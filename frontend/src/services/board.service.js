@@ -10,7 +10,8 @@ export const boardService = {
     save,
     getEmptyBoard,
     getEmptyTasksList,
-    getEmptyTask
+    getEmptyTask,
+    getEmptyChecklist
 }
 
 function query() {
@@ -81,6 +82,14 @@ function getEmptyTask() {
         activitiesLog: [],
         cover: "",
         attachment: {},
-        checkList: {}
+        checkList: []
+    }
+}
+
+function getEmptyChecklist() {
+    return {
+        id: utilService.makeId(),
+        name: 'Checklist',
+        todos: []
     }
 }

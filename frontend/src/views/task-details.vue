@@ -9,7 +9,7 @@
     </div>
     <div class="details-container">
       <section class="task-data">
-        <h2 v-if="!isOpenName" @click="toggelName">{{task.name}}</h2>
+        <h2 v-if="!isOpenName" @click="toggleName">{{task.name}}</h2>
         <input v-else type="text" v-model="task.name" @blur="saveName" />
         <div class="main-data">
           <div v-if="task.labels.length > 0" class="labels">
@@ -30,15 +30,27 @@
           </div>
           <div class="description-content">
             <h4>Description</h4>
-            <div v-if="!isOpenDescription" class="description-txt" @click="toggelDescription">
-              {{(task.description) ? task.description : 'Add a more detailed description'}}</div>
+            <div
+              v-if="!isOpenDescription"
+              class="description-txt"
+              @click="toggleDescription"
+            >{{(task.description) ? task.description : 'Add a more detailed description'}}</div>
             <div v-else class="edit-description">
               <textarea class="description" rows="4" cols="50" v-model="task.description"></textarea>
               <div class="description-btns">
                 <button @click="saveDescription">Save</button>
-                <button @click="toggelDescription">X</button>
+                <button @click="toggleDescription">X</button>
               </div>
             </div>
+          </div>
+          <div class="checklists-content">
+            <checklist-details
+              v-for="checklist in task.checklists"
+              :key="checklist.id"
+              :checklist="checklist"
+              @remove-checklist="removeChecklist"
+              @add-todo="addTodo"
+            ></checklist-details>
           </div>
           <div v-if="task.createdAt" class="created-at">Created at: {{task.createdAt | dueDate}}</div>
           <div v-if="task.dueDate" class="due-date">Due date: {{task.dueDate | dueDate}}</div>
@@ -48,32 +60,36 @@
         <h4>Add to task</h4>
         <div class="main-buttons">
           <div>
-            <button v-if="!isLabelsSelected" class="main-btn" @click="toggelLabelPicker">Labels</button>
+            <button v-if="!isLabelsSelected" class="main-btn" @click="toggleLabelPicker">Labels</button>
             <label-picker
               v-else
               :selectedLabels="task.labels"
               @add-label="addLabel"
               @remove-label="removeLabel"
               @update-label="updateLabel"
-              @close-labels="toggelLabelPicker"
+              @close-labels="toggleLabelPicker"
             ></label-picker>
           </div>
           <div>
-            <button v-if="!isDueToSelected" class="main-btn" @click="toggelDueDate">Due to</button>
+            <button v-if="!isDueToSelected" class="main-btn" @click="toggleDueDate">Due to</button>
             <due-date-picker
               v-else
               :dueDate="task.dueDate"
-              @close-due-date="toggelDueDate"
+              @close-due-date="toggleDueDate"
               @date-change="changeDate"
             ></due-date-picker>
           </div>
           <div>
-            <button v-if="!isOpenCover" class="main-btn" @click="toggelCover">Cover</button>
-            <cover-picker v-else @update-cover="updateCover" @close-cover-picker="toggelCover"></cover-picker>
+            <button v-if="!isOpenCover" class="main-btn" @click="toggleCover">Cover</button>
+            <cover-picker v-else @update-cover="updateCover" @close-cover-picker="toggleCover"></cover-picker>
           </div>
           <div>
-            <button v-if="!isOpenChecklist" class="main-btn" @click="toggelChecklist">Checklist</button>
-            <checklist-picker v-else @add-checklist="addChecklist"></checklist-picker>
+            <button class="main-btn" @click="toggleChecklist">Checklist</button>
+            <checklist-picker
+              v-if="isOpenChecklist"
+              @add-checklist="addChecklist"
+              @close-checklist-picker="toggleChecklist"
+            ></checklist-picker>
           </div>
           <div>
             <button class="main-btn" @click="deleteTask()">Delete</button>
@@ -89,6 +105,7 @@ import dueDatePicker from "../components/due-date-picker.vue";
 import coverPicker from "../components/cover-picker.vue";
 import checklistPicker from "../components/checklist-picker.vue";
 import avatar from "vue-avatar";
+import checklistDetails from "../components/checklist-details.vue";
 
 export default {
   name: "task-details",
@@ -101,7 +118,8 @@ export default {
       isOpenName: false,
       isOpenCover: false,
       isOpenChecklist: false,
-      coverUrl: ""
+      coverUrl: "",
+      newChecklist: null
     };
   },
   methods: {
@@ -137,22 +155,26 @@ export default {
 
       this.saveTask();
     },
-    toggelLabelPicker() {
+    toggleLabelPicker() {
       this.isLabelsSelected = !this.isLabelsSelected;
     },
-    toggelDueDate() {
+    toggleDueDate() {
       this.isDueToSelected = !this.isDueToSelected;
     },
-    toggelDescription() {
+    toggleDescription() {
       this.isOpenDescription = !this.isOpenDescription;
     },
-    toggelName() {
+    toggleName() {
       this.isOpenName = !this.isOpenName;
     },
-    toggelCover() {
+    toggleCover() {
       this.isOpenCover = !this.isOpenCover;
     },
-    toggelChecklist() {
+    toggleChecklist() {
+      if (!this.isOpenChecklist) {
+        this.getEmptyChecklist();
+      }
+
       this.isOpenChecklist = !this.isOpenChecklist;
     },
     changeDate(newDate) {
@@ -189,11 +211,11 @@ export default {
     },
     saveDescription() {
       this.saveTask();
-      this.toggelDescription();
+      this.toggleDescription();
     },
     saveName() {
       this.saveTask();
-      this.toggelName();
+      this.toggleName();
     },
     updateCover(url) {
       this.coverUrl = url;
@@ -201,8 +223,47 @@ export default {
     removeCover() {
       this.coverUrl = "";
     },
-    addChecklist() {
-      this.toggelChecklist();
+    async addChecklist(title) {
+      if (!title) return;
+      this.newChecklist.name = title;
+      const checklist = this.newChecklist;
+      console.log(this.task.checklists);
+      this.task.checklists.push(checklist);
+      this.saveTask();
+      this.toggleChecklist();
+    },
+    async getEmptyChecklist() {
+      try {
+        await this.$store.commit({
+          type: "setEmptyChecklist"
+        });
+
+        this.newChecklist = JSON.parse(
+          JSON.stringify(this.$store.getters.currChecklist)
+        );
+      } catch (err) {
+        console.log("Err in getEmptyChecklist");
+      }
+    },
+    removeChecklist(checklistId) {
+      const checklistIndex = this.task.checklists.findIndex(
+        checklist => checklist.id === checklistId
+      );
+      this.task.checklists.splice(checklistIndex, 1);
+      this.saveTask();
+    },
+    addTodo(checklistId, todo) {
+      this.$store.commit({
+        type: "getId"
+      });
+      const newId = this.$store.getters.currId;
+      todo.id = newId;
+
+      const checklistIndex = this.task.checklists.findIndex(
+        checklist => checklist.id === checklistId
+      );
+      this.task.checklists[checklistIndex].todos.push(todo);
+      this.saveTask();
     }
   },
   created() {
@@ -214,7 +275,8 @@ export default {
     dueDatePicker,
     coverPicker,
     checklistPicker,
-    avatar
+    avatar,
+    checklistDetails
   }
 };
 </script>
