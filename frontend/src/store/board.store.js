@@ -1,4 +1,5 @@
 import { boardService } from '../services/board.service.js';
+import { utilService } from '../services/util.service.js';
 
 export default {
     state: {
@@ -120,7 +121,11 @@ export default {
             });
             const savedBoard = await boardService.save(context.state.board);
             return savedBoard;
-
+        },
+        async uploadImg(context, {ev}) {
+            const res = await utilService.uploadImg(ev);
+            const { url } = res;
+            return url;      
         }
     }
 }

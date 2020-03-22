@@ -41,31 +41,6 @@
           "bakegroundColor": "grey",
           "tasks": [
             {
-              "id": "IjevA",
-              "name": "fgerg",
-              "description": "",
-              "dueDate": "",
-              "createdAt": "",
-              "members": [],
-              "labels": [
-                {
-                  "color": "",
-                  "title": ""
-                }
-              ],
-              "comments": [
-                {
-                  "createdBy": "",
-                  "txt": "",
-                  "createdAt": ""
-                }
-              ],
-              "activitiesLog": [],
-              "cover": "",
-              "attachment": {},
-              "checkList": {}
-            },
-            {
               "id": "VXeeV",
               "name": "ani roza lishon",
               "description": "",
@@ -95,7 +70,7 @@
         {
           "id": "1",
           "name": "To do",
-          "bakegroundColor": "grey",
+          "bakegroundColor": "rgb(221, 170, 255)",
           "tasks": [
             {
               "id": "3",
@@ -136,6 +111,31 @@
             {
               "id": "LCexq",
               "name": "dddd",
+              "description": "",
+              "dueDate": "",
+              "createdAt": "",
+              "members": [],
+              "labels": [
+                {
+                  "color": "",
+                  "title": ""
+                }
+              ],
+              "comments": [
+                {
+                  "createdBy": "",
+                  "txt": "",
+                  "createdAt": ""
+                }
+              ],
+              "activitiesLog": [],
+              "cover": "",
+              "attachment": {},
+              "checkList": {}
+            },
+            {
+              "id": "IjevA",
+              "name": "fgerg",
               "description": "",
               "dueDate": "",
               "createdAt": "",

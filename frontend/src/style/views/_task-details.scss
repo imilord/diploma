@@ -1,100 +1,103 @@
 .task-details {
+  position: absolute;
+  background-color: rgb(139, 138, 138);
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, 0%);
+  z-index: 1;
+  padding: rem(20px);
+  margin-top: rem(80px);
+  .details-container {
+    display: flex;
+    align-items: center;
+  }
+  .close-btn {
     position: absolute;
-    background-color: rgb(139, 138, 138);
-    left: 50%;
     top: 0;
-    transform: translate(-50%, 0%);
-    z-index: 1;
-    padding: rem(20px);
-    margin-top: rem(80px);
-    .details-container {
+    right: 0;
+    margin: rem(5px);
+  }
+  .cover-img {
+    width: 50%;
+  }
+  .task-data {
+    margin: rem(20px);
+    min-height: 100%;
+    h2 {
+      margin: 0;
+      margin-bottom: rem(30px);
+      font-weight: normal;
+      cursor: pointer;
+    }
+    .main-data {
+      padding-left: rem(20px);
+      h4 {
+        font-weight: normal;
+        text-transform: uppercase;
+        margin: 0;
+        margin-bottom: rem(10px);
+      }
+      .labels {
         display: flex;
-        align-items: center;
-    }
-    .close-btn {
-        position: absolute;
-        top: 0;
-        right: 0;
-        margin: rem(5px);
-    }
-    .task-data {
-        margin: rem(20px);
-        min-height: 100%;
-        h2 {
-            margin: 0;
-            margin-bottom: rem(30px);
-            font-weight: normal;
-            cursor: pointer;
+        .label {
+          min-width: rem(40px);
+          min-height: rem(30px);
+          display: inline-block;
+          margin-left: rem(5px);
+          border-radius: rem(5px);
+          text-align: center;
+          .label-title {
+            padding: rem(5px);
+          }
         }
-        .main-data {
-            padding-left: rem(20px);
-            h4 {
-                font-weight: normal;
-                text-transform: uppercase;
-                margin: 0;
-                margin-bottom: rem(10px);
-            }
-            .labels {
-                display: flex;
-                .label {
-                    min-width: rem(40px);
-                    min-height: rem(30px);
-                    display: inline-block;
-                    margin-left: rem(5px);
-                    border-radius: rem(5px);
-                    text-align: center;
-                    .label-title {
-                        padding: rem(5px);
-                    }
-                }
-            }
-            ul {
-                list-style-type: none;
-            }
-            .description-content {
-                margin-bottom: rem(30px);
-                .description-txt {
-                    background-color: rgb(204, 201, 201);
-                    padding: rem(10px);
-                    cursor: pointer;
-                }
-                .edit-description {
-                    display: flex;
-                    flex-direction: column;
-                    .description {
-                        resize: none;
-                        margin-bottom: rem(10px);
-                    }
-                    .description-btns {
-                        button {
-                            margin: rem(5px);
-                        }
-                    }
-                }
-            }
-            .created-at {
-                margin-bottom: rem(20px);
-            }
-            .due-date {
-                margin-bottom: rem(20px);
-            }
+      }
+      ul {
+        list-style-type: none;
+      }
+      .description-content {
+        margin-bottom: rem(30px);
+        .description-txt {
+          background-color: rgb(204, 201, 201);
+          padding: rem(10px);
+          cursor: pointer;
         }
-    }
-    .task-buttons {
-        margin: rem(20px);
-        min-height: 100%;
-        h4 {
-            font-weight: normal;
-            text-transform: uppercase;
-            margin: 0;
+        .edit-description {
+          display: flex;
+          flex-direction: column;
+          .description {
+            resize: none;
             margin-bottom: rem(10px);
+          }
+          .description-btns {
+            button {
+              margin: rem(5px);
+            }
+          }
         }
-        button {
-            border: none;
-            border-radius: rem(3px);
-            height: rem(30px);
-            margin-bottom: rem(8px);
-            width: rem(160px);
-        }
+      }
+      .created-at {
+        margin-bottom: rem(20px);
+      }
+      .due-date {
+        margin-bottom: rem(20px);
+      }
     }
+  }
+  .task-buttons {
+    margin: rem(20px);
+    min-height: 100%;
+    h4 {
+      font-weight: normal;
+      text-transform: uppercase;
+      margin: 0;
+      margin-bottom: rem(10px);
+    }
+    button {
+      border: none;
+      border-radius: rem(3px);
+      height: rem(30px);
+      margin-bottom: rem(8px);
+      width: rem(160px);
+    }
+  }
 }
