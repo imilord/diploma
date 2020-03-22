@@ -77,7 +77,6 @@
           <div>
             <button v-if="!isOpenChecklist" @click="toggelChecklist">Checklist</button>
             <checklist-picker v-else @add-checklist="addChecklist"></checklist-picker>
-
           </div>
           <div>
             <button class="main-btn" @click="deleteTask()">Delete</button>
@@ -217,7 +216,7 @@ export default {
     labelPicker,
     dueDatePicker,
     coverPicker,
-    checklistPicker
+    checklistPicker,
     avatar
   }
 };
