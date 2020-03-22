@@ -1,6 +1,12 @@
 <template>
   <section class="task-details" v-if="task">
-    <button class="close-btn" @click="closeTaskEdit">X</button>
+    <div class="header">
+      <button class="close-btn" @click="closeTaskEdit">X</button>
+      <div v-if="coverUrl">
+        <img class="cover-img" :src="coverUrl" />
+        <button @click="removeCover">Remove cover</button>
+      </div>
+    </div>
     <div class="details-container">
       <section class="task-data">
         <h2 v-if="!isOpenName" @click="toggelName">{{task.name}}</h2>
@@ -13,14 +19,14 @@
               :style="{backgroundColor:label.color}"
               class="label"
             >
-            <span class="label-title" v-if="label.title">{{label.title}}</span>
+              <span class="label-title" v-if="label.title">{{label.title}}</span>
             </span>
           </div>
-          <div>
+          <div class="members">
             <h4>Members</h4>
-            <ul>
-              <li v-for="member in task.members" :key="member.id">{{member.name}}</li>
-            </ul>
+            <div>
+              <avatar v-for="member in task.members" :key="member.id" :username="member.name"></avatar>
+            </div>
           </div>
           <div class="description-content">
             <h4>Description</h4>
@@ -45,7 +51,7 @@
         <h4>Add to task</h4>
         <div class="main-buttons">
           <div>
-            <button v-if="!isLabelsSelected" @click="toggelLabelPicker">Labels</button>
+            <button v-if="!isLabelsSelected" class="main-btn" @click="toggelLabelPicker">Labels</button>
             <label-picker
               v-else
               :selectedLabels="task.labels"
@@ -56,7 +62,7 @@
             ></label-picker>
           </div>
           <div>
-            <button v-if="!isDueToSelected" @click="toggelDueDate">Due to</button>
+            <button v-if="!isDueToSelected" class="main-btn" @click="toggelDueDate">Due to</button>
             <due-date-picker
               v-else
               :dueDate="task.dueDate"
@@ -65,10 +71,16 @@
             ></due-date-picker>
           </div>
           <div>
-            <button>Cover</button>
+            <button v-if="!isOpenCover" @click="toggelCover">Cover</button>
+            <cover-picker v-else @update-cover="updateCover" @close-cover-picker="toggelCover"></cover-picker>
           </div>
           <div>
-            <button @click="deleteTask()">Delete</button>
+            <button v-if="!isOpenChecklist" @click="toggelChecklist">Checklist</button>
+            <checklist-picker v-else @add-checklist="addChecklist"></checklist-picker>
+
+          </div>
+          <div>
+            <button class="main-btn" @click="deleteTask()">Delete</button>
           </div>
         </div>
       </section>
@@ -78,6 +90,10 @@
 <script>
 import labelPicker from "../components/label-picker.vue";
 import dueDatePicker from "../components/due-date-picker.vue";
+import coverPicker from "../components/cover-picker.vue";
+import checklistPicker from "../components/checklist-picker.vue";
+import avatar from "vue-avatar";
+
 export default {
   name: "task-details",
   data() {
@@ -86,7 +102,10 @@ export default {
       isLabelsSelected: false,
       isDueToSelected: false,
       isOpenDescription: false,
-      isOpenName: false
+      isOpenName: false,
+      isOpenCover: false,
+      isOpenChecklist: false,
+      coverUrl: ""
     };
   },
   methods: {
@@ -110,7 +129,6 @@ export default {
       this.saveTask();
     },
     async updateLabel(labelToUpdate) {
-      console.log(labelToUpdate.title);
       const labelIndex = this.task.labels.findIndex(
         label => label.color === labelToUpdate.color
       );
@@ -134,6 +152,12 @@ export default {
     },
     toggelName() {
       this.isOpenName = !this.isOpenName;
+    },
+    toggelCover() {
+      this.isOpenCover = !this.isOpenCover;
+    },
+    toggelChecklist() {
+      this.isOpenChecklist = !this.isOpenChecklist;
     },
     changeDate(newDate) {
       this.task.dueDate = newDate;
@@ -174,16 +198,27 @@ export default {
     saveName() {
       this.saveTask();
       this.toggelName();
+    },
+    updateCover(url) {
+      this.coverUrl = url;
+    },
+    removeCover() {
+      this.coverUrl = "";
+    },
+    addChecklist() {
+      this.toggelChecklist();
     }
   },
   created() {
     const taskId = this.$route.params.taskId;
     this.getTaskById(taskId);
-    console.log(this.task.labels)
   },
   components: {
     labelPicker,
-    dueDatePicker
+    dueDatePicker,
+    coverPicker,
+    checklistPicker
+    avatar
   }
 };
 </script>
