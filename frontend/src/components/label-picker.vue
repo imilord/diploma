@@ -1,13 +1,12 @@
 <template>
   <section class="label-picker">
     <header>
+      <button class="close-btn" @click="$emit('close-labels')">X</button>
       <h2>Labels</h2>
-      <button @click="$emit('close-labels')">X</button>
     </header>
     <main>
       <section v-if="!isAddTitle">
-        <h4>Labels</h4>
-        <div v-for="labelColor in Object.keys(allLabelsMap)" :key="labelColor">
+        <div class="label-content" v-for="labelColor in Object.keys(allLabelsMap)" :key="labelColor">
           <span
             class="label"
             :style="{backgroundColor:labelColor}"
@@ -40,7 +39,7 @@ export default {
         blue: "",
         green: "",
         yellow: "",
-        grey: ""
+        pink: ""
       },
       isAddTitle: false,
       currLabelColor: null
@@ -97,11 +96,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.label {
-  width: 300px;
-  height: 20px;
-  display: inline-block;
-}
-</style>

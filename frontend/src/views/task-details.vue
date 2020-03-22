@@ -16,11 +16,11 @@
             <span class="label-title" v-if="label.title">{{label.title}}</span>
             </span>
           </div>
-          <div>
+          <div class="members">
             <h4>Members</h4>
-            <ul>
-              <li v-for="member in task.members" :key="member.id">{{member.name}}</li>
-            </ul>
+            <div>
+              <avatar v-for="member in task.members" :key="member.id" :username="member.name"></avatar>
+            </div>
           </div>
           <div class="description-content">
             <h4>Description</h4>
@@ -45,7 +45,7 @@
         <h4>Add to task</h4>
         <div class="main-buttons">
           <div>
-            <button v-if="!isLabelsSelected" @click="toggelLabelPicker">Labels</button>
+            <button v-if="!isLabelsSelected" class="main-btn" @click="toggelLabelPicker">Labels</button>
             <label-picker
               v-else
               :selectedLabels="task.labels"
@@ -56,7 +56,7 @@
             ></label-picker>
           </div>
           <div>
-            <button v-if="!isDueToSelected" @click="toggelDueDate">Due to</button>
+            <button v-if="!isDueToSelected" class="main-btn" @click="toggelDueDate">Due to</button>
             <due-date-picker
               v-else
               :dueDate="task.dueDate"
@@ -65,10 +65,10 @@
             ></due-date-picker>
           </div>
           <div>
-            <button>Cover</button>
+            <button class="main-btn">Cover</button>
           </div>
           <div>
-            <button @click="deleteTask()">Delete</button>
+            <button class="main-btn" @click="deleteTask()">Delete</button>
           </div>
         </div>
       </section>
@@ -78,6 +78,8 @@
 <script>
 import labelPicker from "../components/label-picker.vue";
 import dueDatePicker from "../components/due-date-picker.vue";
+import avatar from "vue-avatar";
+
 export default {
   name: "task-details",
   data() {
@@ -110,7 +112,6 @@ export default {
       this.saveTask();
     },
     async updateLabel(labelToUpdate) {
-      console.log(labelToUpdate.title);
       const labelIndex = this.task.labels.findIndex(
         label => label.color === labelToUpdate.color
       );
@@ -179,11 +180,11 @@ export default {
   created() {
     const taskId = this.$route.params.taskId;
     this.getTaskById(taskId);
-    console.log(this.task.labels)
   },
   components: {
     labelPicker,
-    dueDatePicker
+    dueDatePicker,
+    avatar
   }
 };
 </script>

@@ -48,8 +48,8 @@
                     }
                 }
             }
-            ul {
-                list-style-type: none;
+            .members {
+                margin-bottom: rem(30px);
             }
             .description-content {
                 margin-bottom: rem(30px);
@@ -89,7 +89,7 @@
             margin: 0;
             margin-bottom: rem(10px);
         }
-        button {
+        .main-btn {
             border: none;
             border-radius: rem(3px);
             height: rem(30px);

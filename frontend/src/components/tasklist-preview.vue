@@ -79,7 +79,6 @@ export default {
       this.isAddTaskOpen = !this.isAddTaskOpen;
     },
     async getEmptyTask() {
-      console.log("getEmptyTask");
       await this.$store.commit({
         type: "setEmptyTask"
       });
