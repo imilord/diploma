@@ -4,20 +4,26 @@ import { utilService } from '../services/util.service.js';
 export default {
     state: {
         board: null,
-        currTask: null
+        currTask: null,
+        currList: null
     },
     getters: {
         currTask(state) {
             return state.currTask;
         },
-        getEmptyTask() {
-            return boardService.getEmptyTask();
-        },
-        getEmptyTasksList() {
-            return boardService.getEmptyTasksList();
-        },
+        currList(state) {
+            return state.currList;
+        }
     },
     mutations: {
+        setEmptyTask(state) {
+            const task = boardService.getEmptyTask();
+            state.currTask = task;
+        },
+        setEmptyTasksList(state) {
+            const list = boardService.getEmptyTasksList();
+            state.currList = list;
+        },
         setCurrTask(state, { taskId }) {
             for (var i = 0; i < state.board.taskLists.length; i++) {
                 const list = state.board.taskLists[i];
@@ -83,6 +89,7 @@ export default {
             return savedBoard;
         },
         async addTasksList(context, { listData }) {
+            console.log(listData, 'add')
             context.commit({
                 type: 'addTasksList',
                 listData

@@ -50,16 +50,58 @@
             padding: rem(5px);
           }
         }
-      }
-      ul {
-        list-style-type: none;
-      }
-      .description-content {
-        margin-bottom: rem(30px);
-        .description-txt {
-          background-color: rgb(204, 201, 201);
-          padding: rem(10px);
-          cursor: pointer;
+        .main-data {
+            padding-left: rem(20px);
+            h4 {
+                font-weight: normal;
+                text-transform: uppercase;
+                margin: 0;
+                margin-bottom: rem(10px);
+            }
+            .labels {
+                display: flex;
+                .label {
+                    min-width: rem(40px);
+                    min-height: rem(30px);
+                    display: inline-block;
+                    margin-left: rem(5px);
+                    border-radius: rem(5px);
+                    text-align: center;
+                    .label-title {
+                        padding: rem(5px);
+                    }
+                }
+            }
+            .members {
+                margin-bottom: rem(30px);
+            }
+            .description-content {
+                margin-bottom: rem(30px);
+                .description-txt {
+                    background-color: rgb(204, 201, 201);
+                    padding: rem(10px);
+                    cursor: pointer;
+                }
+                .edit-description {
+                    display: flex;
+                    flex-direction: column;
+                    .description {
+                        resize: none;
+                        margin-bottom: rem(10px);
+                    }
+                    .description-btns {
+                        button {
+                            margin: rem(5px);
+                        }
+                    }
+                }
+            }
+            .created-at {
+                margin-bottom: rem(20px);
+            }
+            .due-date {
+                margin-bottom: rem(20px);
+            }
         }
         .edit-description {
           display: flex;
@@ -92,12 +134,13 @@
       margin: 0;
       margin-bottom: rem(10px);
     }
-    button {
-      border: none;
-      border-radius: rem(3px);
-      height: rem(30px);
-      margin-bottom: rem(8px);
-      width: rem(160px);
+        .main-btn {
+            border: none;
+            border-radius: rem(3px);
+            height: rem(30px);
+            margin-bottom: rem(8px);
+            width: rem(160px);
+        }
     }
   }
 }

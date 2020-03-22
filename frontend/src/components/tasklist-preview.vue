@@ -78,10 +78,12 @@ export default {
       this.getEmptyTask();
       this.isAddTaskOpen = !this.isAddTaskOpen;
     },
-    getEmptyTask() {
-      this.newTask = JSON.parse(
-        JSON.stringify(this.$store.getters.getEmptyTask)
-      );
+    async getEmptyTask() {
+      await this.$store.commit({
+        type: "setEmptyTask"
+      });
+
+      this.newTask = JSON.parse(JSON.stringify(this.$store.getters.currTask));
     },
     updateTasks(tasks) {
       this.list.tasks = tasks;
