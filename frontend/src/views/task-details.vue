@@ -30,11 +30,8 @@
           </div>
           <div class="description-content">
             <h4>Description</h4>
-            <div
-              v-if="!isOpenDescription"
-              class="description-txt"
-              @click="toggelDescription"
-            >{{(task.description) ? task.description : 'Add a more detailed description'}}</div>
+            <div v-if="!isOpenDescription" class="description-txt" @click="toggelDescription">
+              {{(task.description) ? task.description : 'Add a more detailed description'}}</div>
             <div v-else class="edit-description">
               <textarea class="description" rows="4" cols="50" v-model="task.description"></textarea>
               <div class="description-btns">
@@ -71,11 +68,11 @@
             ></due-date-picker>
           </div>
           <div>
-            <button v-if="!isOpenCover" @click="toggelCover">Cover</button>
+            <button v-if="!isOpenCover" class="main-btn" @click="toggelCover">Cover</button>
             <cover-picker v-else @update-cover="updateCover" @close-cover-picker="toggelCover"></cover-picker>
           </div>
           <div>
-            <button v-if="!isOpenChecklist" @click="toggelChecklist">Checklist</button>
+            <button v-if="!isOpenChecklist" class="main-btn" @click="toggelChecklist">Checklist</button>
             <checklist-picker v-else @add-checklist="addChecklist"></checklist-picker>
           </div>
           <div>

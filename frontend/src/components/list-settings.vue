@@ -9,7 +9,7 @@
 
     <main>
       <button @click="isNameEditorOpen = !isNameEditorOpen">Change list name</button>
-      <div class="nameEditor" v-if="isNameEditorOpen">
+      <div class="name-editor" v-if="isNameEditorOpen">
         <input type="text" v-model="name" @change="updateListName" />
       </div>
 
@@ -18,7 +18,13 @@
 
       <button @click="addTask">Add task to this list</button>
 
-      <button>Sort list by</button>
+      <button @click="isSortByOpen = !isSortByOpen">Sort list by</button>
+      <div class="sort-by" v-if="isSortByOpen">
+        <div @click="sortBy('new')">Newest tasks first</div>
+        <div @click="sortBy('old')">Oldest tasks first</div>
+        <div @click="sortBy('due-date')">Due date</div>
+        <div @click="sortBy('name')">Task name</div>
+      </div>
 
       <button @click="deleteList">Delete list</button>
     </main>
@@ -38,7 +44,8 @@ export default {
     return {
       name: this.listName,
       isNameEditorOpen: false,
-      isColorPickerOpen: false
+      isColorPickerOpen: false,
+      isSortByOpen: false
     };
   },
   methods: {
@@ -56,6 +63,9 @@ export default {
     },
     setColor(color) {
       this.$emit("set-color", color);
+    },
+    sortBy(sortBy) {
+      this.$emit("set-sort", sortBy);
     }
   },
   components: {

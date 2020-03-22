@@ -33,12 +33,25 @@
         }
       }
 
-      .nameEditor {
+      .name-editor {
         width: 132px;
         background-color: $clr-scrollbar;
         input {
           width: 90%;
           margin: 6px;
+        }
+      }
+
+      .sort-by {
+        width: 132px;
+        background-color: $clr-scrollbar;
+        font-size: rem(14px);
+        padding: 2px 10px;
+        div {
+          &:hover {
+              font-weight: 500;
+              cursor: pointer;
+          }
         }
       }
     }
