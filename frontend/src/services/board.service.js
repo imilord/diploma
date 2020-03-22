@@ -55,7 +55,7 @@ function getEmptyTasksList() {
     return {
         id: utilService.makeId(),
         name: "",
-        bakegroundColor: "hsla(0,0%,100%,.3)",
+        backgroundColor: "#ebecf0",
         sortBy: "",
         tasks: []
     }
@@ -73,6 +73,7 @@ function getEmptyTask() {
             color: "",
             title: ""
         }],
+        backgroundColor: "#fff",
         comments: [{
             createdBy: "",
             txt: "",

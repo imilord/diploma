@@ -11,6 +11,7 @@
       <section class="task-data">
         <h2 v-if="!isOpenName" @click="toggelName">{{task.name}}</h2>
         <input v-else type="text" v-model="task.name" @blur="saveName" />
+        <div class="list-name">In list {{list.name}}</div>
         <div class="main-data">
           <div v-if="task.labels.length > 0" class="labels">
             <span
@@ -30,8 +31,11 @@
           </div>
           <div class="description-content">
             <h4>Description</h4>
-            <div v-if="!isOpenDescription" class="description-txt" @click="toggelDescription">
-              {{(task.description) ? task.description : 'Add a more detailed description'}}</div>
+            <div
+              v-if="!isOpenDescription"
+              class="description-txt"
+              @click="toggelDescription"
+            >{{(task.description) ? task.description : 'Add a more detailed description'}}</div>
             <div v-else class="edit-description">
               <textarea class="description" rows="4" cols="50" v-model="task.description"></textarea>
               <div class="description-btns">
@@ -76,6 +80,10 @@
             <checklist-picker v-else @add-checklist="addChecklist"></checklist-picker>
           </div>
           <div>
+            <button class="main-btn" @click="toggelColorPicker">Change color</button>
+            <color-picker-medium v-if="isColorPickerOpen" @set-color="setColor"></color-picker-medium>
+          </div>
+          <div>
             <button class="main-btn" @click="deleteTask()">Delete</button>
           </div>
         </div>
@@ -88,6 +96,7 @@ import labelPicker from "../components/label-picker.vue";
 import dueDatePicker from "../components/due-date-picker.vue";
 import coverPicker from "../components/cover-picker.vue";
 import checklistPicker from "../components/checklist-picker.vue";
+import colorPickerMedium from "../components/‏‏color-picker-medium.vue";
 import avatar from "vue-avatar";
 
 export default {
@@ -95,12 +104,14 @@ export default {
   data() {
     return {
       task: null,
+      list: null,
       isLabelsSelected: false,
       isDueToSelected: false,
       isOpenDescription: false,
       isOpenName: false,
       isOpenCover: false,
       isOpenChecklist: false,
+      isColorPickerOpen: false,
       coverUrl: ""
     };
   },
@@ -112,6 +123,7 @@ export default {
       });
 
       this.task = JSON.parse(JSON.stringify(this.$store.getters.currTask));
+      this.list = JSON.parse(JSON.stringify(this.$store.getters.currList));
     },
     async addLabel(newLabel) {
       this.task.labels.push(newLabel);
@@ -154,6 +166,9 @@ export default {
     },
     toggelChecklist() {
       this.isOpenChecklist = !this.isOpenChecklist;
+    },
+    toggelColorPicker() {
+      this.isColorPickerOpen = !this.isColorPickerOpen;
     },
     changeDate(newDate) {
       this.task.dueDate = newDate;
@@ -203,6 +218,10 @@ export default {
     },
     addChecklist() {
       this.toggelChecklist();
+    },
+    setColor(color) {
+      this.task.backgroundColor = color;
+      this.saveTask();
     }
   },
   created() {
@@ -214,6 +233,7 @@ export default {
     dueDatePicker,
     coverPicker,
     checklistPicker,
+    colorPickerMedium,
     avatar
   }
 };
