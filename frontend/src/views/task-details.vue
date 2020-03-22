@@ -91,20 +91,7 @@
             ></due-date-picker>
           </div>
           <div>
-            <button class="main-btn" @click="toggleCover">Cover</button>
-            <cover-picker
-              v-if="isOpenCover"
-              @update-cover="updateCover"
-              @close-cover-picker="toggleCover"
-            ></cover-picker>
-          </div>
-          <div>
-            <button class="main-btn" @click="toggleChecklist">Checklist</button>
-            <checklist-picker v-if="isOpenChecklist" @add-checklist="addChecklist"></checklist-picker>
-          </div>
-          <div>
-            <button class="main-btn" @click="copyTask">Copy</button>
-            <button v-if="!isOpenCover" class="main-btn" @click="toggleCover">
+            <button class="main-btn" @click="toggleCover">
               <i class="el-icon-picture-outline"></i> Cover
             </button>
             <cover-picker
@@ -113,6 +100,7 @@
               @close-cover-picker="toggleCover"
             ></cover-picker>
           </div>
+          <button class="main-btn" @click="copyTask">Copy</button>
           <div>
             <button class="main-btn" @click="toggleChecklist">
               <i class="el-icon-document-checked"></i> Checklist
