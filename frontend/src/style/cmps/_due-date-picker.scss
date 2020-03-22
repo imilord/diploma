@@ -1,0 +1,20 @@
+.due-date-picker {
+    position: absolute;
+    background-color: $clr-text-nav;
+    left: 100%;
+    top: 0;
+    transform: translate(-50%, 0%);
+    z-index: 1;
+    padding: rem(20px);
+    .close-btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: rem(5px);
+        background: none;
+        border: none;
+    }
+    .calender {
+        margin-bottom: rem(30px);
+    }
+}

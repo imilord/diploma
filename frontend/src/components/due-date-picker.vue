@@ -1,17 +1,17 @@
 <template>
-  <section class="due-to-picker">
+  <section class="due-date-picker">
     <header>
       <h2>Change due date</h2>
-      <button @click="$emit('close-due-date')">X</button>
+      <button class="close-btn" @click="$emit('close-due-date')">X</button>
     </header>
-    <v-date-picker v-model="selectedDate" mode="single" is-inline />
+    <v-date-picker class="calender" v-model="selectedDate" mode="single" is-inline />
     <button @click="saveDate">Save</button>
   </section>
 </template>
 
 <script>
 export default {
-  name: "due-to-picker",
+  name: "due-date-picker",
   props: {
     dueDate: Number
   },
