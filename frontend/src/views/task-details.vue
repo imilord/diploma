@@ -74,7 +74,6 @@
           <div>
             <button v-if="!isOpenChecklist" class="main-btn" @click="toggelChecklist">Checklist</button>
             <checklist-picker v-else @add-checklist="addChecklist"></checklist-picker>
-
           </div>
           <div>
             <button class="main-btn" @click="deleteTask()">Delete</button>

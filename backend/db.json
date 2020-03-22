@@ -39,12 +39,13 @@
           "id": "1",
           "name": "To do",
           "bakegroundColor": "rgb(221, 170, 255)",
+          "sortBy": "old",
           "tasks": [
             {
               "id": "2",
               "name": "To eat",
               "description": "Eat magnum",
-              "dueDate": 1583704800000,
+              "dueDate": 1583964000000,
               "createdAt": 1584625897171,
               "members": [
                 {
@@ -59,11 +60,11 @@
                   "title": "test"
                 },
                 {
-                  "color": "blue",
+                  "color": "green",
                   "title": ""
                 },
                 {
-                  "color": "yellow",
+                  "color": "pink",
                   "title": ""
                 }
               ],
@@ -94,15 +95,15 @@
               ],
               "labels": [
                 {
+                  "color": "blue",
+                  "title": "test"
+                },
+                {
                   "color": "yellow",
                   "title": ""
                 },
                 {
-                  "color": "pink",
-                  "title": ""
-                },
-                {
-                  "color": "blue",
+                  "color": "green",
                   "title": ""
                 }
               ],
@@ -242,6 +243,7 @@
           "id": "4",
           "name": "Doing",
           "bakegroundColor": "rgb(254, 255, 174)",
+          "sortBy": "old",
           "tasks": [
             {
               "id": "38PX7",
@@ -267,7 +269,7 @@
               "id": "Ofw7Y",
               "name": "efwef",
               "description": "",
-              "dueDate": 1584482400000,
+              "dueDate": "",
               "createdAt": 1584866139163,
               "members": [],
               "labels": [],
@@ -286,16 +288,17 @@
           ]
         },
         {
-          "id": "BM99O",
+          "id": "yio73",
           "name": "Done",
           "bakegroundColor": "rgb(174, 212, 255)",
+          "sortBy": "",
           "tasks": [
             {
-              "id": "D7d2F",
-              "name": "to do",
+              "id": "1zYeW",
+              "name": "To do",
               "description": "",
               "dueDate": "",
-              "createdAt": 1584880652788,
+              "createdAt": 1584882449392,
               "members": [],
               "labels": [
                 {
@@ -316,11 +319,11 @@
               "checkList": {}
             },
             {
-              "id": "ETYqZ",
-              "name": "to do",
+              "id": "JVw26",
+              "name": "To do",
               "description": "",
               "dueDate": "",
-              "createdAt": 1584880672192,
+              "createdAt": 1584882472605,
               "members": [],
               "labels": [
                 {

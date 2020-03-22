@@ -13,6 +13,7 @@
         @open-add-task="(isAddTaskOpen=true) && (isSettingsOpen=false)"
         @delete-list="deleteList"
         @set-color="setColor"
+        @set-sort="setSort"
       ></list-settings>
     </header>
     <main>
@@ -95,6 +96,31 @@ export default {
     },
     setColor(color) {
       this.list.bakegroundColor = color;
+      this.$emit("update-list", this.list);
+    },
+    setSort(sortBy) {
+      console.log(sortBy);
+      this.list.sortBy = sortBy;
+      if (sortBy === "name") {
+        this.list.tasks.sort((a, b) => {
+          if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
+          else if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
+          else return 0;
+        });
+      } else if (sortBy === "new") {
+        this.list.tasks.sort((a, b) => b.createdAt - a.createdAt);
+      } else if (sortBy === "old") {
+        this.list.tasks.sort((a, b) => a.createdAt - b.createdAt);
+        console.log(this.list);
+      } else if (sortBy === "due-date") {
+        const withoutDueDate = this.list.tasks.filter(task => !task.dueDate);
+        const withDueDate = this.list.tasks.filter(task => task.dueDate);
+        withDueDate.sort((a, b) => a.dueDate - b.dueDate);
+        const tasks = [...withDueDate, ...withoutDueDate];
+        for (var i = 0; i < tasks.length; i++) {
+          this.list.tasks.splice(i, 1, tasks[i]);
+        }
+      }
       this.$emit("update-list", this.list);
     }
   },

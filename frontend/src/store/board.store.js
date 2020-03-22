@@ -89,7 +89,6 @@ export default {
             return savedBoard;
         },
         async addTasksList(context, { listData }) {
-            console.log(listData, 'add')
             context.commit({
                 type: 'addTasksList',
                 listData
