@@ -19,7 +19,7 @@
               :key="label.id"
               :style="{backgroundColor:label.color}"
               class="label"
-              @click="toggelLabelPicker"
+              @click="toggleLabelPicker"
             >
               <span class="label-title" v-if="label.title">{{label.title}}</span>
             </span>
@@ -67,7 +67,7 @@
         <h4>Add to task</h4>
         <div class="main-buttons">
           <div>
-            <button class="main-btn" @click="toggelLabelPicker">
+            <button class="main-btn" @click="toggleLabelPicker">
               <i class="el-icon-price-tag"></i> Labels
             </button>
             <label-picker
@@ -80,7 +80,7 @@
             ></label-picker>
           </div>
           <div>
-            <button class="main-btn" @click="toggelDueDate">
+            <button class="main-btn" @click="toggleDueDate">
               <i class="el-icon-time"></i> Due to
             </button>
             <due-date-picker
@@ -91,15 +91,15 @@
             ></due-date-picker>
           </div>
           <div>
-            <button class="main-btn" @click="toggelCover">Cover</button>
+            <button class="main-btn" @click="toggleCover">Cover</button>
             <cover-picker
               v-if="isOpenCover"
               @update-cover="updateCover"
-              @close-cover-picker="toggelCover"
+              @close-cover-picker="toggleCover"
             ></cover-picker>
           </div>
           <div>
-            <button class="main-btn" @click="toggelChecklist">Checklist</button>
+            <button class="main-btn" @click="toggleChecklist">Checklist</button>
             <checklist-picker v-if="isOpenChecklist" @add-checklist="addChecklist"></checklist-picker>
           </div>
           <div>
@@ -107,7 +107,11 @@
             <button v-if="!isOpenCover" class="main-btn" @click="toggleCover">
               <i class="el-icon-picture-outline"></i> Cover
             </button>
-            <cover-picker v-if="isOpenCover" @update-cover="updateCover" @close-cover-picker="toggleCover"></cover-picker>
+            <cover-picker
+              v-if="isOpenCover"
+              @update-cover="updateCover"
+              @close-cover-picker="toggleCover"
+            ></cover-picker>
           </div>
           <div>
             <button class="main-btn" @click="toggleChecklist">
@@ -120,10 +124,10 @@
             ></checklist-picker>
           </div>
           <div>
-            <button class="main-btn" @click="toggelColorPicker">
+            <button class="main-btn" @click="toggleColorPicker">
               <i class="el-icon-edit"></i> Change color
             </button>
-            <color-picker-medium v-if="isColorPickerOpen" @set-color="setColor"></color-picker-medium>>>>>>>> 4c1d59d20e0796ea2b6c94077289eb9375dfa2dc
+            <color-picker-medium v-if="isColorPickerOpen" @set-color="setColor"></color-picker-medium>
           </div>
           <div>
             <button class="main-btn" @click="deleteTask()">
@@ -216,7 +220,7 @@ export default {
 
       this.isOpenChecklist = !this.isOpenChecklist;
     },
-    toggelColorPicker() {
+    toggleColorPicker() {
       this.isColorPickerOpen = !this.isColorPickerOpen;
     },
     changeDate(newDate) {
@@ -267,23 +271,21 @@ export default {
       this.task.cover = "";
       this.saveTask();
     },
-    copyTask() {
-      //   const taskData = { newTask: this.task, taskListId: this.list.id}
-      //   try {
-      //     await this.$store.dispatch({
-      //       type: "addTask",
-      //       taskData
-      //     });
-      //   } catch (err) {
-      //     console.log("Err in addTask");
-      //   }
-      // }
+    async copyTask() {
+      const taskData = { newTask: this.task, taskListId: this.list.id };
+      try {
+        await this.$store.dispatch({
+          type: "addTask",
+          taskData
+        });
+      } catch (err) {
+        console.log("Err in addTask");
+      }
     },
     async addChecklist(title) {
       if (!title) return;
       this.newChecklist.name = title;
       const checklist = this.newChecklist;
-      console.log(this.task.checklists);
       this.task.checklists.push(checklist);
       this.saveTask();
       this.toggleChecklist();
