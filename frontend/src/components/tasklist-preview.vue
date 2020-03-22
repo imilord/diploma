@@ -99,6 +99,7 @@ export default {
       this.$emit("update-list", this.list);
     },
     setSort(sortBy) {
+      console.log(sortBy);
       this.list.sortBy = sortBy;
       if (sortBy === "name") {
         this.list.tasks.sort((a, b) => {
@@ -110,17 +111,15 @@ export default {
         this.list.tasks.sort((a, b) => b.createdAt - a.createdAt);
       } else if (sortBy === "old") {
         this.list.tasks.sort((a, b) => a.createdAt - b.createdAt);
+        console.log(this.list);
       } else if (sortBy === "due-date") {
         const withoutDueDate = this.list.tasks.filter(task => !task.dueDate);
         const withDueDate = this.list.tasks.filter(task => task.dueDate);
         withDueDate.sort((a, b) => a.dueDate - b.dueDate);
         const tasks = [...withDueDate, ...withoutDueDate];
-        this.list.tasks = tasks;
-        console.log(this.list.tasks);
-        // this.list.tasks.sort((a, b) => {
-        //   if (!a.dueDate || !b.dueDate) return -1;
-        //   else return a.dueDate - b.dueDate;
-        // });
+        for (var i = 0; i < tasks.length; i++) {
+          this.list.tasks.splice(i, 1, tasks[i]);
+        }
       }
       this.$emit("update-list", this.list);
     }

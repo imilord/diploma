@@ -98,56 +98,6 @@
           "bakegroundColor": "rgb(221, 170, 255)",
           "tasks": [
             {
-              "id": "BeSWY",
-              "name": "ssdvs",
-              "description": "",
-              "dueDate": 1584482400000,
-              "createdAt": 1584817264666,
-              "members": [],
-              "labels": [
-                {
-                  "color": "red",
-                  "title": "test"
-                }
-              ],
-              "comments": [
-                {
-                  "createdBy": "",
-                  "txt": "",
-                  "createdAt": ""
-                }
-              ],
-              "activitiesLog": [],
-              "cover": "",
-              "attachment": {},
-              "checkList": {}
-            },
-            {
-              "id": "UpOYM",
-              "name": "tesst",
-              "description": "",
-              "dueDate": "",
-              "createdAt": "",
-              "members": [],
-              "labels": [
-                {
-                  "color": "",
-                  "title": ""
-                }
-              ],
-              "comments": [
-                {
-                  "createdBy": "",
-                  "txt": "",
-                  "createdAt": ""
-                }
-              ],
-              "activitiesLog": [],
-              "cover": "",
-              "attachment": {},
-              "checkList": {}
-            },
-            {
               "id": "UpOYM",
               "name": "tesst!!!",
               "description": "test test test!!!!!",
@@ -216,6 +166,31 @@
               "checkList": {}
             },
             {
+              "id": "BeSWY",
+              "name": "ssdvs",
+              "description": "",
+              "dueDate": 1584482400000,
+              "createdAt": 1584817264666,
+              "members": [],
+              "labels": [
+                {
+                  "color": "red",
+                  "title": "test"
+                }
+              ],
+              "comments": [
+                {
+                  "createdBy": "",
+                  "txt": "",
+                  "createdAt": ""
+                }
+              ],
+              "activitiesLog": [],
+              "cover": "",
+              "attachment": {},
+              "checkList": {}
+            },
+            {
               "id": "3",
               "name": "To rest",
               "description": "Go outside",
@@ -236,6 +211,56 @@
                 {
                   "color": "grey",
                   "title": "test"
+                }
+              ],
+              "comments": [
+                {
+                  "createdBy": "",
+                  "txt": "",
+                  "createdAt": ""
+                }
+              ],
+              "activitiesLog": [],
+              "cover": "",
+              "attachment": {},
+              "checkList": {}
+            },
+            {
+              "id": "zs0ON",
+              "name": "gg",
+              "description": "",
+              "dueDate": "",
+              "createdAt": 1584880929716,
+              "members": [],
+              "labels": [
+                {
+                  "color": "",
+                  "title": ""
+                }
+              ],
+              "comments": [
+                {
+                  "createdBy": "",
+                  "txt": "",
+                  "createdAt": ""
+                }
+              ],
+              "activitiesLog": [],
+              "cover": "",
+              "attachment": {},
+              "checkList": {}
+            },
+            {
+              "id": "UpOYM",
+              "name": "tesst",
+              "description": "",
+              "dueDate": "",
+              "createdAt": "",
+              "members": [],
+              "labels": [
+                {
+                  "color": "",
+                  "title": ""
                 }
               ],
               "comments": [
@@ -296,7 +321,7 @@
               "checkList": {}
             }
           ],
-          "sortBy": "name"
+          "sortBy": "due-date"
         }
       ]
     }
