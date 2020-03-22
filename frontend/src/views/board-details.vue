@@ -32,7 +32,6 @@ export default {
   methods: {
     updateLocalBoard(board) {
       this.board = board;
-      console.log(this.board);
     },
     async updateBoard() {
       const board = JSON.parse(JSON.stringify(this.board));
