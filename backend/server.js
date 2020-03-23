@@ -7,12 +7,12 @@ const cookieParser = require('cookie-parser');
 
 const app = express();
 const http = require('http').createServer(app);
-// const io = require('socket.io')(http);
+const io = require('socket.io')(http);
 
 // const authRoutes = require('./api/auth/auth.routes')
 // const userRoutes = require('./api/user/user.routes')
 const boardRoutes = require('./api/board/board.routes.js');
-// const connectSockets = require('./api/socket/socket.routes.js');
+const connectSockets = require('./api/socket/socket.routes.js');
 
 app.use(cookieParser());
 app.use(bodyParser.json());
@@ -27,7 +27,7 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.resolve(__dirname, 'public')));
 } else {
     const corsOptions = {
-        origin: ['http://10.100.102.4:8081', 'http://localhost:8081', 'http://10.100.102.4:3000', 'http://localhost:3000'],
+        origin: ['http://10.100.102.4:8081', 'http://localhost:8081', 'http://10.100.102.4:3000', 'http://localhost:3000', 'http://10.100.102.5:8080', 'http://localhost:8080'],
         credentials: true
     };
     app.use(cors(corsOptions));
@@ -37,7 +37,8 @@ if (process.env.NODE_ENV === 'production') {
 // app.use('/api/auth', authRoutes)
 // app.use('/api/user', userRoutes)
 app.use('/api/board', boardRoutes);
-// connectSockets(io);
+connectSockets(io);
+
 
 const logger = require('./services/logger.service')
 const port = process.env.PORT || 3000;
