@@ -3,16 +3,18 @@
     <div>{{checklist.name}}</div>
     <button @click="removeChecklist">X</button>
 
+    <el-progress :percentage="progress"></el-progress>
+
     <div class="todos" v-for="todo in checklist.todos" :key="todo.id">
       <label>
-        <input type="checkbox" v-model="todo.isDone" @change="updateTodo" />
+        <input type="checkbox" v-model="todo.isDone" @change="updateTodo(todo)" />
         {{todo.text}}
       </label>
     </div>
 
     <div v-if="!isAddTodo" @click="toggleAddTodo">Add an item</div>
     <div v-else>
-      <input type="text" placeholder="Add an item" v-model="todo.text" />
+      <input type="text" placeholder="Add an item" v-model="newTodo.text" />
       <button @click="addTodo">Add</button>
       <button @click="toggleAddTodo">X</button>
     </div>
@@ -28,7 +30,7 @@ export default {
   data() {
     return {
       isAddTodo: false,
-      todo: { text: "", isDone: false }
+      newTodo: { text: "", isDone: false }
     };
   },
   methods: {
@@ -42,10 +44,27 @@ export default {
       this.$emit(
         "add-todo",
         this.checklist.id,
-        JSON.parse(JSON.stringify(this.todo))
+        JSON.parse(JSON.stringify(this.newTodo))
       );
+      this.newTodo = { text: "", isDone: false };
     },
-    updateTodo() {}
+    updateTodo(todo) {
+      this.$emit(
+        "update-todo",
+        this.checklist.id,
+        JSON.parse(JSON.stringify(todo))
+      );
+    }
+  },
+  computed: {
+    progress() {
+      const todos = this.checklist.todos.length;
+      if (todos !== 0) {
+        const doneTodos = this.checklist.todos.filter(todo => todo.isDone);
+        console.log(doneTodos.length);
+        return Math.round((doneTodos.length / todos) * 100);
+      } else return 0;
+    }
   }
 };
 </script>

@@ -95,7 +95,7 @@ export default {
       this.$emit("update-list", this.list);
     },
     setColor(color) {
-      this.list.bakegroundColor = color;
+      this.list.backgroundColor = color;
       this.$emit("update-list", this.list);
     },
     setSort(sortBy) {
