@@ -261,10 +261,11 @@ export default {
       this.saveTask();
     },
     async copyTask() {
-      const taskData = { newTask: this.task, taskListId: this.list.id };
+      const task = JSON.parse(JSON.stringify(this.task));
+      const taskData = { newTask: task, taskListId: this.list.id };
       try {
         await this.$store.dispatch({
-          type: "addTask",
+          type: "copyTask",
           taskData
         });
       } catch (err) {

@@ -147,10 +147,19 @@ export default {
             const savedBoard = await boardService.save(context.state.board);
             return savedBoard;
         },
-        async uploadImg(context, {ev}) {
+        async uploadImg(context, { ev }) {
             const res = await utilService.uploadImg(ev);
             const { url } = res;
-            return url;      
+            return url;
+        },
+        async copyTask(context, { taskData }) {
+            taskData.newTask.id = utilService.makeId();
+            context.commit({
+                type: 'addTask',
+                taskData
+            });
+            const savedBoard = await boardService.save(context.state.board);
+            return savedBoard;
         }
     }
 }
