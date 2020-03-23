@@ -79,7 +79,7 @@ function getEmptyTask() {
         activitiesLog: [],
         cover: "",
         attachment: {},
-        checkList: []
+        checklists: []
     }
 }
 
