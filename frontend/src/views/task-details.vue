@@ -57,6 +57,7 @@
               :checklist="checklist"
               @remove-checklist="removeChecklist"
               @add-todo="addTodo"
+              @update-todo="updateTodo"
             ></checklist-details>
           </div>
           <div v-if="task.createdAt" class="created-at">Created at: {{task.createdAt | dueDate}}</div>
@@ -260,10 +261,11 @@ export default {
       this.saveTask();
     },
     async copyTask() {
-      const taskData = { newTask: this.task, taskListId: this.list.id };
+      const task = JSON.parse(JSON.stringify(this.task));
+      const taskData = { newTask: task, taskListId: this.list.id };
       try {
         await this.$store.dispatch({
-          type: "addTask",
+          type: "copyTask",
           taskData
         });
       } catch (err) {
@@ -309,6 +311,17 @@ export default {
         checklist => checklist.id === checklistId
       );
       this.task.checklists[checklistIndex].todos.push(todo);
+      this.saveTask();
+    },
+    updateTodo(checklistId, currTodo) {
+      const checklistIndex = this.task.checklists.findIndex(
+        checklist => checklist.id === checklistId
+      );
+      const todos = this.task.checklists[checklistIndex].todos;
+      const todoIndex = todos.findIndex(todo => todo.id === currTodo.id);
+
+      this.task.checklists[checklistIndex].todos.splice(todoIndex, 1, currTodo);
+      this.saveTask();
     },
     setColor(color) {
       this.task.backgroundColor = color;

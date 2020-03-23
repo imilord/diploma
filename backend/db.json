@@ -62,40 +62,6 @@
               "checklists": []
             },
             {
-              "id": "UpOYM",
-              "name": "tesst!!!",
-              "description": "test test test!!!!!",
-              "dueDate": 1583186400000,
-              "createdAt": "",
-              "members": [],
-              "labels": [
-                {
-                  "color": "#c377e0",
-                  "title": ""
-                },
-                {
-                  "color": "#0098b7",
-                  "title": ""
-                },
-                {
-                  "color": "#f2d600",
-                  "title": ""
-                }
-              ],
-              "comments": [
-                {
-                  "createdBy": "",
-                  "txt": "",
-                  "createdAt": ""
-                }
-              ],
-              "activitiesLog": [],
-              "cover": "http://res.cloudinary.com/dcwrnwtiu/image/upload/v1584902534/peumsbb8deuorq5hjrl4.jpg",
-              "attachment": {},
-              "checklists": [],
-              "backgroundColor": "linear-gradient(0.25turn, rgb(63, 135, 166), rgb(235, 248, 225), rgb(246, 157, 60))"
-            },
-            {
               "id": "3td8M",
               "name": "tosofi",
               "description": "",
@@ -113,7 +79,24 @@
               "activitiesLog": [],
               "cover": "",
               "attachment": {},
-              "checklists": []
+              "checklists": [
+                {
+                  "id": "ipxKA",
+                  "name": "Checklist",
+                  "todos": [
+                    {
+                      "text": "grdy",
+                      "isDone": false,
+                      "id": "dNmVz"
+                    },
+                    {
+                      "text": "rdyd",
+                      "isDone": false,
+                      "id": "GozH4"
+                    }
+                  ]
+                }
+              ]
             },
             {
               "id": "Ofw7Y",
@@ -199,7 +182,6 @@
                 }
               ],
               "activitiesLog": [],
-              "cover": "",
               "attachment": {},
               "checklists": []
             },
@@ -370,6 +352,52 @@
               "cover": "",
               "attachment": {},
               "checklists": []
+            },
+            {
+              "id": "goP35",
+              "name": "hjftj",
+              "description": "",
+              "dueDate": "",
+              "createdAt": 1584952349635,
+              "members": [],
+              "labels": [],
+              "comments": [
+                {
+                  "createdBy": "",
+                  "txt": "",
+                  "createdAt": ""
+                }
+              ],
+              "activitiesLog": [],
+              "cover": "",
+              "attachment": {},
+              "checkList": []
+            },
+            {
+              "id": "uQtzp",
+              "name": "hgdh",
+              "description": "",
+              "dueDate": "",
+              "createdAt": 1584952397666,
+              "members": [],
+              "labels": [],
+              "comments": [
+                {
+                  "createdBy": "",
+                  "txt": "",
+                  "createdAt": ""
+                }
+              ],
+              "activitiesLog": [],
+              "cover": "",
+              "attachment": {},
+              "checklists": [
+                {
+                  "id": "RYKHA",
+                  "name": "Checklist",
+                  "todos": []
+                }
+              ]
             }
           ],
           "backgroundColor": "rgb(254, 255, 174)"
