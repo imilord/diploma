@@ -36,7 +36,7 @@
       "description": "Final project in coding academy",
       "taskLists": [
         {
-          "id": "4",
+          "id": "1",
           "name": "Doing",
           "backgroundColor": "rgb(221, 170, 255)",
           "sortBy": "old",
@@ -233,7 +233,7 @@
           ]
         },
         {
-          "id": "1",
+          "id": "2",
           "name": "To do",
           "sortBy": "name",
           "tasks": [
@@ -332,7 +332,67 @@
               "activitiesLog": [],
               "cover": "http://res.cloudinary.com/dcwrnwtiu/image/upload/v1584909393/renj3esr2q5alouhqbc9.jpg",
               "attachment": {},
-              "checkList": [],
+              "checklists": [],
+              "backgroundColor": "linear-gradient(120deg, rgb(246, 211, 101) 0%, rgb(253, 160, 133) 100%)"
+            },
+            {
+              "id": "7b0DG",
+              "name": "m j jk",
+              "description": "",
+              "dueDate": 1583791200000,
+              "createdAt": 1584908882942,
+              "members": [],
+              "labels": [
+                {
+                  "color": "#eb5a46",
+                  "title": ""
+                },
+                {
+                  "color": "#0079bf",
+                  "title": ""
+                }
+              ],
+              "comments": [
+                {
+                  "createdBy": "",
+                  "txt": "",
+                  "createdAt": ""
+                }
+              ],
+              "activitiesLog": [],
+              "cover": "http://res.cloudinary.com/dcwrnwtiu/image/upload/v1584909393/renj3esr2q5alouhqbc9.jpg",
+              "attachment": {},
+              "checklists": [],
+              "backgroundColor": "linear-gradient(120deg, rgb(246, 211, 101) 0%, rgb(253, 160, 133) 100%)"
+            },
+            {
+              "id": "7b0DG",
+              "name": "m j jk",
+              "description": "",
+              "dueDate": 1583791200000,
+              "createdAt": 1584908882942,
+              "members": [],
+              "labels": [
+                {
+                  "color": "#eb5a46",
+                  "title": ""
+                },
+                {
+                  "color": "#0079bf",
+                  "title": ""
+                }
+              ],
+              "comments": [
+                {
+                  "createdBy": "",
+                  "txt": "",
+                  "createdAt": ""
+                }
+              ],
+              "activitiesLog": [],
+              "cover": "http://res.cloudinary.com/dcwrnwtiu/image/upload/v1584909393/renj3esr2q5alouhqbc9.jpg",
+              "attachment": {},
+              "checklists": [],
               "backgroundColor": "linear-gradient(120deg, rgb(246, 211, 101) 0%, rgb(253, 160, 133) 100%)"
             }
           ],
