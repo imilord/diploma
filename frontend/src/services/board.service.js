@@ -1,7 +1,7 @@
 import httpService from './http.service.js';
 import { utilService } from './util.service.js';
 
-const endpoint = 'boards';
+const endpoint = 'board';
 
 export const boardService = {
     query,
