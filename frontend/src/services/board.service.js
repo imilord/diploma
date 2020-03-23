@@ -46,7 +46,7 @@ function getEmptyBoard() {
             name: "",
             img: ""
         },
-        dueDate: "",
+        dueDate: null,
         description: "",
         taskLists: []
     }
@@ -67,7 +67,7 @@ function getEmptyTask() {
         id: utilService.makeId(),
         name: "",
         description: "",
-        dueDate: "",
+        dueDate: null,
         createdAt: Date.now(),
         members: [],
         labels: [],
