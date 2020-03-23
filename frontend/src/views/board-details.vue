@@ -19,7 +19,7 @@
 <script>
 import boardNav from "../components/board-nav.vue";
 import tasklistList from "../components/tasklists-list.vue";
-// import socketService from "../services/socket.service.js";
+import socketService from "../services/socket.service.js";
 
 export default {
   name: "board-details",
@@ -60,10 +60,10 @@ export default {
       boardId
     });
     this.board = JSON.parse(JSON.stringify(board));
-    // socketService.setup();
-    // socketService.emit("board topic", this.board._id);
-    // socketService.on("topic-loaded", this.loadBoard);
-    // socketService.on("update newBoard", this.loadBoard);
+    socketService.setup();
+    socketService.emit("board topic", this.board._id);
+    socketService.on("topic-loaded", this.loadBoard);
+    socketService.on("update newBoard", this.loadBoard);
   },
   watch: {
     "$route.params": async function() {
