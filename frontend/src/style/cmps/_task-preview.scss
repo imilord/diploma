@@ -25,7 +25,7 @@
         }
 
         .task-name {
-            margin-bottom: rem(10px);
+            // margin-bottom: rem(10px);
         }
 
         .labels {
@@ -34,13 +34,15 @@
 
             .label {
                 min-width: rem(40px);
-                height: rem(20px);
+                height: rem(25px);
                 margin-right: rem(5px);
+                margin-bottom: rem(8px);
                 border-radius: rem(3px);
                 text-align: center;
 
                 .label-title {
                     padding: rem(8px);
+                    text-justify: distribute-all-lines;
                     font-size: 0.8rem;
                 }
             }
