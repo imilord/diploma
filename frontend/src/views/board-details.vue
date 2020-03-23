@@ -59,7 +59,6 @@ export default {
     this.board = JSON.parse(JSON.stringify(board));
     socketService.setup();
     socketService.emit("board topic", this.board._id);
-    // socketService.emit("topic-loaded", this.loadBoard);
     socketService.on("update newBoard", this.loadBoard);
   },  
   watch: {
