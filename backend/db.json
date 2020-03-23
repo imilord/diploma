@@ -36,172 +36,11 @@
       "description": "Final project in coding academy",
       "taskLists": [
         {
-          "id": "1",
-          "name": "To do",
-          "backgroundColor": "rgb(254, 255, 174)",
-          "sortBy": "name",
-          "tasks": [
-            {
-              "id": "3",
-              "name": "To rest!!",
-              "description": "Go outside",
-              "dueDate": 1583791200000,
-              "createdAt": 1584625897171,
-              "members": [
-                {
-                  "id": "2",
-                  "name": "Daniel",
-                  "img": ""
-                }
-              ],
-              "labels": [],
-              "comments": [
-                {
-                  "createdBy": "",
-                  "txt": "",
-                  "createdAt": ""
-                }
-              ],
-              "activitiesLog": [],
-              "cover": "",
-              "attachment": {},
-              "checklists": [
-                {
-                  "id": "8WbUL",
-                  "name": "Checklist",
-                  "todos": [
-                    {
-                      "text": "AAA",
-                      "isDone": false,
-                      "id": "WxyXV"
-                    },
-                    {
-                      "text": "NNN",
-                      "isDone": true,
-                      "id": "t2A4q"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "id": "yio73",
-          "name": "Done",
-          "backgroundColor": "rgb(183, 255, 174)",
+          "id": "4",
+          "name": "Doing",
+          "backgroundColor": "rgb(221, 170, 255)",
           "sortBy": "old",
           "tasks": [
-            {
-              "id": "1zYeW",
-              "name": "To do",
-              "description": "",
-              "dueDate": "",
-              "createdAt": 1584882449392,
-              "members": [],
-              "labels": [],
-              "comments": [
-                {
-                  "createdBy": "",
-                  "txt": "",
-                  "createdAt": ""
-                }
-              ],
-              "activitiesLog": [],
-              "cover": "",
-              "attachment": {},
-              "checklists": [
-                {
-                  "id": "yy4er",
-                  "name": "Checklist",
-                  "todos": [
-                    {
-                      "text": "aaa",
-                      "isDone": false,
-                      "id": "jsjl3"
-                    },
-                    {
-                      "text": "bbb",
-                      "isDone": false,
-                      "id": "shVny"
-                    },
-                    {
-                      "text": "ccc",
-                      "isDone": false,
-                      "id": "LJ72k"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "id": "JVw26",
-              "name": "To do",
-              "description": "",
-              "dueDate": "",
-              "createdAt": 1584882472605,
-              "members": [],
-              "labels": [],
-              "comments": [
-                {
-                  "createdBy": "",
-                  "txt": "",
-                  "createdAt": ""
-                }
-              ],
-              "activitiesLog": [],
-              "cover": "",
-              "attachment": {},
-              "checklists": [
-                {
-                  "id": "B2O7H",
-                  "name": "Checklist",
-                  "todos": [
-                    {
-                      "text": "AAA",
-                      "isDone": true,
-                      "id": "yxHZ7"
-                    },
-                    {
-                      "text": "BBB",
-                      "isDone": true,
-                      "id": "GgXZQ"
-                    },
-                    {
-                      "text": "CCC",
-                      "isDone": false,
-                      "id": "eBaNr"
-                    },
-                    {
-                      "text": "DDD",
-                      "isDone": true,
-                      "id": "tEpRG"
-                    }
-                  ]
-                },
-                {
-                  "id": "otg0i",
-                  "name": "Checklist2",
-                  "todos": [
-                    {
-                      "text": "AAA",
-                      "isDone": false,
-                      "id": "mzREy"
-                    },
-                    {
-                      "text": "BBB",
-                      "isDone": true,
-                      "id": "T2BuH"
-                    },
-                    {
-                      "text": "CCC",
-                      "isDone": false,
-                      "id": "v2Fu7"
-                    }
-                  ]
-                }
-              ]
-            },
             {
               "id": "eDzgO",
               "name": "ddf",
@@ -275,7 +114,7 @@
                 },
                 {
                   "color": "#f2d600",
-                  "title": ""
+                  "title": "ggdtrg"
                 }
               ],
               "comments": [
@@ -392,6 +231,112 @@
               "backgroundColor": "linear-gradient(0.25turn, rgb(63, 135, 166), rgb(235, 248, 225), rgb(246, 157, 60))"
             }
           ]
+        },
+        {
+          "id": "1",
+          "name": "To do",
+          "sortBy": "name",
+          "tasks": [
+            {
+              "id": "VXeeV",
+              "name": "vfgves",
+              "description": "",
+              "dueDate": "",
+              "createdAt": "",
+              "members": [],
+              "labels": [],
+              "comments": [
+                {
+                  "createdBy": "",
+                  "txt": "",
+                  "createdAt": ""
+                }
+              ],
+              "activitiesLog": [],
+              "cover": "",
+              "attachment": {},
+              "checklists": []
+            },
+            {
+              "id": "JVw26",
+              "name": "To do",
+              "description": "",
+              "dueDate": "",
+              "createdAt": 1584882472605,
+              "members": [],
+              "labels": [],
+              "comments": [
+                {
+                  "createdBy": "",
+                  "txt": "",
+                  "createdAt": ""
+                }
+              ],
+              "activitiesLog": [],
+              "cover": "",
+              "attachment": {},
+              "checklists": []
+            },
+            {
+              "id": "eDzgO",
+              "name": "ddf",
+              "description": "",
+              "dueDate": "",
+              "createdAt": 1584885938841,
+              "members": [],
+              "labels": [],
+              "comments": [
+                {
+                  "createdBy": "",
+                  "txt": "",
+                  "createdAt": ""
+                }
+              ],
+              "activitiesLog": [],
+              "cover": "",
+              "attachment": {},
+              "checklists": []
+            }
+          ],
+          "backgroundColor": "rgb(174, 212, 255)"
+        },
+        {
+          "id": "yio73",
+          "name": "Done",
+          "sortBy": "old",
+          "tasks": [
+            {
+              "id": "7b0DG",
+              "name": "m j jk",
+              "description": "",
+              "dueDate": 1583791200000,
+              "createdAt": 1584908882942,
+              "members": [],
+              "labels": [
+                {
+                  "color": "#eb5a46",
+                  "title": ""
+                },
+                {
+                  "color": "#0079bf",
+                  "title": ""
+                }
+              ],
+              "comments": [
+                {
+                  "createdBy": "",
+                  "txt": "",
+                  "createdAt": ""
+                }
+              ],
+              "activitiesLog": [],
+              "cover": "http://res.cloudinary.com/dcwrnwtiu/image/upload/v1584909393/renj3esr2q5alouhqbc9.jpg",
+              "attachment": {},
+              "checkList": [],
+              "backgroundColor": "linear-gradient(120deg, rgb(246, 211, 101) 0%, rgb(253, 160, 133) 100%)"
+            }
+          ],
+          "backgroundColor": "#ebecf0"
         }
       ]
     }

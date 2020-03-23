@@ -1,48 +1,67 @@
 .task-preview {
-    display: flex;
-    font-size: rem(15px);
+    background-color: $clr-text-nav;
+    border-radius: rem(3px);
+    min-height: rem(20px);
+    box-shadow: 0 rem(1px) 0 rgba(9,30,66,.25);
+    text-decoration: none;
+    margin: 0 rem(4px) rem(8px) rem(1px);
+    padding: rem(5px);
+    padding-bottom: rem(12px);
+    cursor: pointer;
+
+
     .task-container {
         text-decoration: none;
         width: 100%;
-        color: black;
+        color: $clr-text;
+
         .cover-img-container {
             text-align: center;
-            margin-bottom: rem(15px);
-            margin-top: rem(15px);
+
             .cover-img {
-                width: 80%;
+                width: 100%;
+                border-radius: rem(3px);
             }
         }
-        .tesk-name {
-            margin-bottom: rem(15px);
+
+        .task-name {
+            margin-bottom: rem(10px);
         }
+
         .labels {
             display: flex;
-            margin-bottom: rem(15px);
             flex-wrap: wrap;
+
             .label {
                 min-width: rem(40px);
-                min-height: rem(20px);
-                display: inline-block;
-                margin-left: rem(5px);
-                border-radius: rem(5px);
+                height: rem(20px);
+                margin-right: rem(5px);
+                border-radius: rem(3px);
                 text-align: center;
-                margin-bottom: rem(5px);
+
                 .label-title {
                     padding: rem(8px);
-                    font-size: 0.9rem;
+                    font-size: 0.8rem;
                 }
             }
         }
+
         .members {
             margin-bottom: rem(15px);
+
             .member {
                 width: rem(30px)!important;
                 height: rem(30px)!important;
             }
         }
         .due-date {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
     }
+}
+
+.task-preview-placeholder {
+    background-color: $clr-nav-item-hover;
+    border-radius: rem(3px);
+    margin: 0 rem(4px) rem(8px) rem(1px);
 }
