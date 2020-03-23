@@ -1,6 +1,6 @@
 import { boardService } from '../services/board.service.js';
 import { utilService } from '../services/util.service.js';
-import socketService from '../services/socket.service.js';
+import socketService from "../services/socket.service.js";
 
 export default {
     state: {
@@ -106,6 +106,7 @@ export default {
                 taskData
             });
             const savedBoard = await boardService.save(context.state.board);
+            socketService.emit("update board", savedBoard);
             return savedBoard;
         },
         async addTasksList(context, { listData }) {
@@ -114,6 +115,7 @@ export default {
                 listData
             });
             const savedBoard = await boardService.save(context.state.board);
+            socketService.emit("update board", savedBoard);
             return savedBoard;
         },
         async updateBoard(context, { board }) {
@@ -121,8 +123,8 @@ export default {
                 type: 'updateBoard',
                 board
             });
+            socketService.emit("update board", board);
             const savedBoard = await boardService.save(board);
-            socketService.emit("update board", savedBoard);
             return savedBoard;
         },
         async updateTask(context, { task }) {
@@ -130,7 +132,8 @@ export default {
                 type: 'updateTask',
                 task
             });
-            await boardService.save(context.state.board);
+            const board = await boardService.save(context.state.board);
+            socketService.emit("update board", board);
             return task;
         },
         async deleteTask(context, { task }) {
@@ -138,7 +141,9 @@ export default {
                 type: 'deleteTask',
                 task
             });
+
             const savedBoard = await boardService.save(context.state.board);
+            socketService.emit("update board", savedBoard);
             return savedBoard;
         },
         async deleteList(context, { listId }) {
@@ -146,7 +151,9 @@ export default {
                 type: 'deleteList',
                 listId
             });
+
             const savedBoard = await boardService.save(context.state.board);
+            socketService.emit("update board", savedBoard);
             return savedBoard;
         },
         async uploadImg(context, { ev }) {
@@ -160,7 +167,9 @@ export default {
                 type: 'addTask',
                 taskData
             });
+
             const savedBoard = await boardService.save(context.state.board);
+            socketService.emit("update board", savedBoard);
             return savedBoard;
         }
     }

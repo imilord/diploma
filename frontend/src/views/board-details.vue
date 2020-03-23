@@ -33,7 +33,7 @@ export default {
   methods: {
     updateLocalBoard(board) {
       this.board = board;
-      this.reload += 1;
+      // this.reload += 1;
     },
     async updateBoard() {
       const board = JSON.parse(JSON.stringify(this.board));
@@ -50,6 +50,10 @@ export default {
     updateLists(lists) {
       this.board.taskLists = lists;
       this.updateBoard();
+    },
+    loadBoard(board) {
+      this.board = board;
+      this.reload += 1;
     }
   },
   async created() {
@@ -61,11 +65,11 @@ export default {
     this.board = JSON.parse(JSON.stringify(board));
     socketService.setup();
     socketService.emit("board topic", boardId);
-    socketService.on("update newBoard", this.updateLocalBoard);
+    socketService.on("update newBoard", this.loadBoard);
   },
   destroyed() {
     socketService.terminate();
-    socketService.off("update newBoard", this.updateLocalBoard);
+    socketService.off("update newBoard", this.loadBoard);
   },
   watch: {
     "$route.params": async function() {
