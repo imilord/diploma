@@ -1,6 +1,6 @@
 import { boardService } from '../services/board.service.js';
 import { utilService } from '../services/util.service.js';
-// import socketService from '../services/socket.service.js';
+import socketService from '../services/socket.service.js';
 
 export default {
     state: {
@@ -122,7 +122,7 @@ export default {
                 board
             });
             const savedBoard = await boardService.save(board);
-            // socketService.emit("update board", savedBoard);
+            socketService.emit("update board", savedBoard);
             return savedBoard;
         },
         async updateTask(context, { task }) {
