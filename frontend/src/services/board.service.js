@@ -48,7 +48,8 @@ function getEmptyBoard() {
         },
         dueDate: null,
         description: "",
-        taskLists: []
+        taskLists: [],
+        activitieslog: []
     }
 }
 
@@ -76,7 +77,7 @@ function getEmptyTask() {
             txt: "",
             createdAt: ""
         }],
-        activitiesLog: [],
+        activitieslog: [],
         cover: "",
         attachment: {},
         checklists: []

@@ -8,6 +8,7 @@ export default {
         currTask: null,
         currList: null,
         currChecklist: null,
+        currActivitylog: null,
         currId: ''
     },
     getters: {
@@ -22,6 +23,9 @@ export default {
         },
         currId(state) {
             return state.currId;
+        },
+        currActivitylog(state) {
+            return state.currActivitylog;
         }
     },
     mutations: {
@@ -32,6 +36,9 @@ export default {
         setEmptyTasksList(state) {
             const list = boardService.getEmptyTasksList();
             state.currList = list;
+        },
+        getTaskActivitylog(state, { taskId }) {
+            state.currActivitylog = state.board.activitieslog.filter(activity => activity.taskId === taskId);
         },
         setEmptyChecklist(state) {
             const checklist = boardService.getEmptyChecklist();
@@ -92,6 +99,10 @@ export default {
         getId(state) {
             const id = utilService.makeId();
             state.currId = id
+        },
+        updateActivitieslog(state, { activitylog }) {
+            activitylog.user = this.state.userStore.loggedinUser;
+            state.board.activitieslog.unshift(activitylog);
         }
     },
     actions: {

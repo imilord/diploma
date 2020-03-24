@@ -37,13 +37,25 @@ export default {
     };
   },
   methods: {
-    onDrop(dropResult) {
-      console.log(dropResult);
+    async onDrop(dropResult) {
       this.tasks = applyDrag(this.tasks, dropResult);
-      this.$emit("update-tasks", this.tasks);
+      if (
+        (dropResult.removedIndex >= 0 && dropResult.removedIndex !== null) ||
+        (dropResult.addedIndex >= 0 && dropResult.addedIndex !== null)
+      ) {
+        await this.$emit("update-tasks", this.tasks);
+        if (dropResult.removedIndex >= 0 && dropResult.removedIndex !== null) {
+          this.$emit("upadte-activitylog", dropResult.payload.id);
+        }
+      }
     },
     getChildPayload(index) {
       return this.tasks[index];
+    }
+  },
+  watch: {
+    allTasks: function(newVal) {
+      this.tasks = newVal;
     }
   },
   components: {

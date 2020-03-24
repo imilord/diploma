@@ -8,7 +8,6 @@ function connectSockets(io) {
             }
             socket.join(boardId)
             socket.myBoard = boardId;
-            console.log(  socket.myBoard)
         })
         socket.on('update board', board => {
             io.to(socket.myBoard).emit('update newBoard', board)
