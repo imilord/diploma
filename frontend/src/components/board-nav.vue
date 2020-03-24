@@ -18,7 +18,7 @@
     </ul>
     <div>
       <button>Settings</button>
-      <button>Activity Log</button>
+      <button @click="$emit('open-activitylog')">Activity Log</button>
     </div>
   </section>
 </template>

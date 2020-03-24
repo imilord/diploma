@@ -1,16 +1,19 @@
 <template>
-  <section class="board-details" v-if="board" :key="reload">
+  <section class="board-details" v-if="board">
     <board-nav
       :boardName="board.name"
       :members="board.members"
       :dueDate="board.dueDate"
       :creator="board.creator"
+      @open-activitylog="toggleActivitylog"
     ></board-nav>
+    <activitylog v-if="isOpenActivitylog" :activitieslog="board.activitieslog"></activitylog>
     <tasklist-list
       :taskLists="board.taskLists"
       :boardId="board._id"
       @update-board="updateLocalBoard"
       @update-lists="updateLists"
+      @upadte-activitylog="upadteActivitylog"
     ></tasklist-list>
     <router-view></router-view>
   </section>
@@ -19,6 +22,7 @@
 <script>
 import boardNav from "../components/board-nav.vue";
 import tasklistList from "../components/tasklists-list.vue";
+import activitylog from '../components/activitylog.vue';
 import socketService from "../services/socket.service.js";
 
 export default {
@@ -27,13 +31,13 @@ export default {
     return {
       board: null,
       isTaskOpen: false,
-      reload: 0
+      isDrop: true,
+      isOpenActivitylog: false
     };
   },
   methods: {
     updateLocalBoard(board) {
       this.board = board;
-      // this.reload += 1;
     },
     async updateBoard() {
       const board = JSON.parse(JSON.stringify(this.board));
@@ -45,15 +49,22 @@ export default {
         "update board",
         JSON.parse(JSON.stringify(this.board))
       );
-      console.log("send");
     },
     updateLists(lists) {
       this.board.taskLists = lists;
       this.updateBoard();
     },
-    loadBoard(board) {
-      this.board = board;
-      this.reload += 1;
+    upadteActivitylog(activitylog) {
+      this.$store.commit({
+        type: "updateActivitieslog",
+        activitylog
+      });
+
+      this.board.activitieslog.unshift(activitylog);
+      this.updateBoard();
+    },
+    toggleActivitylog() {
+      this.isOpenActivitylog = !this.isOpenActivitylog;
     }
   },
   async created() {
@@ -65,11 +76,11 @@ export default {
     this.board = JSON.parse(JSON.stringify(board));
     socketService.setup();
     socketService.emit("board topic", this.board._id);
-    socketService.on("update newBoard", this.loadBoard);
+    socketService.on("update newBoard", this.updateLocalBoard);
   },
   destroyed() {
     socketService.terminate();
-    socketService.off("update newBoard", this.loadBoard);
+    socketService.off("update newBoard", this.updateLocalBoard);
   },
   watch: {
     "$route.params": async function() {
@@ -80,12 +91,12 @@ export default {
       });
       this.board = JSON.parse(JSON.stringify(board));
       socketService.emit("board topic", boardId);
-      this.reload += 1;
     }
   },
   components: {
     boardNav,
-    tasklistList
+    tasklistList,
+    activitylog
   }
 };
 </script>

@@ -63,6 +63,13 @@
           <div v-if="task.createdAt" class="created-at">Created at: {{task.createdAt | dueDate}}</div>
           <div v-if="task.dueDate" class="due-date">Due date: {{task.dueDate | dueDate}}</div>
         </div>
+        <div>
+          <button
+            class="main-btn"
+            @click="toggleActivitylog"
+          >Show details</button>
+          <activitylog v-if="isOpenActivitylog" :activitieslog="activitieslog"></activitylog>
+        </div>
       </section>
       <section class="task-buttons">
         <h4>Add to task</h4>
@@ -136,6 +143,8 @@ import checklistPicker from "../components/checklist-picker.vue";
 import colorPickerMedium from "../components/‏‏color-picker-medium.vue";
 import avatar from "vue-avatar";
 import checklistDetails from "../components/checklist-details.vue";
+import activitylog from "../components/activitylog.vue";
+import moment from "moment";
 
 export default {
   name: "task-details",
@@ -143,6 +152,7 @@ export default {
     return {
       task: null,
       list: null,
+      activitieslog: null,
       isLabelsSelected: false,
       isDueToSelected: false,
       isOpenDescription: false,
@@ -150,6 +160,7 @@ export default {
       isOpenCover: false,
       isOpenChecklist: false,
       isColorPickerOpen: false,
+      isOpenActivitylog: false,
       newChecklist: null
     };
   },
@@ -163,16 +174,34 @@ export default {
       this.task = JSON.parse(JSON.stringify(this.$store.getters.currTask));
       this.list = JSON.parse(JSON.stringify(this.$store.getters.currList));
     },
+    getTaskActivitylog() {
+      this.$store.commit({
+        type: "getTaskActivitylog",
+        taskId: this.task.id
+      });
+
+      this.activitieslog = JSON.parse(
+        JSON.stringify(this.$store.getters.currActivitylog)
+      );
+    },
     async addLabel(newLabel) {
       this.task.labels.push(newLabel);
-      this.saveTask();
+      const activitylog = this.createActivitylog(
+        `added label to ${this.task.name}`
+      );
+      this.saveTask(activitylog);
+      this.getTaskActivitylog();
     },
     async removeLabel(labelToRemove) {
       const labelIndex = this.task.labels.findIndex(
         label => label.color === labelToRemove.color
       );
       this.task.labels.splice(labelIndex, 1);
-      this.saveTask();
+      const activitylog = this.createActivitylog(
+        `removed label from ${this.task.name}`
+      );
+      this.saveTask(activitylog);
+      this.getTaskActivitylog();
     },
     async updateLabel(labelToUpdate) {
       const labelIndex = this.task.labels.findIndex(
@@ -185,7 +214,11 @@ export default {
         this.addLabel(labelToUpdate);
       }
 
-      this.saveTask();
+      const activitylog = this.createActivitylog(
+        `updated label in ${this.task.name}`
+      );
+      this.saveTask(activitylog);
+      this.getTaskActivitylog();
     },
     toggleLabelPicker() {
       this.isLabelsSelected = !this.isLabelsSelected;
@@ -212,11 +245,26 @@ export default {
     toggleColorPicker() {
       this.isColorPickerOpen = !this.isColorPickerOpen;
     },
+    toggleActivitylog() {
+      this.isOpenActivitylog = !this.isOpenActivitylog;
+    },
     changeDate(newDate) {
       this.task.dueDate = newDate;
-      this.saveTask();
+      const dueDate = moment(new Date(this.task.dueDate)).format("MMM Do YY");
+      const activitylog = this.createActivitylog(
+        `changed the due date of ${this.task.name} to ${dueDate}`
+      );
+      this.saveTask(activitylog);
+      this.getTaskActivitylog();
     },
-    async saveTask() {
+    async saveTask(activitylog = null) {
+      if (activitylog) {
+        this.$store.commit({
+          type: "updateActivitieslog",
+          activitylog
+        });
+      }
+
       try {
         const task = await this.$store.dispatch({
           type: "updateTask",
@@ -229,6 +277,13 @@ export default {
     },
     async deleteTask() {
       try {
+        const activitylog = this.createActivitylog(
+          `removed task ${this.task.name}`
+        );
+        this.$store.commit({
+          type: "updateActivitieslog",
+          activitylog
+        });
         await this.$store.dispatch({
           type: "deleteTask",
           task: this.task
@@ -245,22 +300,45 @@ export default {
       this.$router.push(`/board/${boardId}`);
     },
     saveDescription() {
-      this.saveTask();
+      const activitylog = this.createActivitylog(
+        `updated description in ${this.task.name} to ${this.task.description}`
+      );
+      this.saveTask(activitylog);
       this.toggleDescription();
+      this.getTaskActivitylog();
     },
     saveName() {
-      this.saveTask();
+      const activitylog = this.createActivitylog(
+        `updated task name to ${this.task.name}`
+      );
+      this.saveTask(activitylog);
       this.toggleName();
+      this.getTaskActivitylog();
     },
     updateCover(url) {
+      const activitylog = this.createActivitylog(
+        `added cover in ${this.task.name}`
+      );
       this.task.cover = url;
-      this.saveTask();
+      this.saveTask(activitylog);
+      this.getTaskActivitylog();
     },
     removeCover() {
+      const activitylog = this.createActivitylog(
+        `removed cover in ${this.task.name}`
+      );
       this.task.cover = "";
-      this.saveTask();
+      this.saveTask(activitylog);
+      this.getTaskActivitylog();
     },
     async copyTask() {
+      const activitylog = this.createActivitylog(`copy task ${this.task.name}`);
+
+      this.$store.commit({
+        type: "updateActivitieslog",
+        activitylog
+      });
+
       const task = JSON.parse(JSON.stringify(this.task));
       const taskData = { newTask: task, taskListId: this.list.id };
       try {
@@ -271,18 +349,24 @@ export default {
       } catch (err) {
         console.log("Err in addTask");
       }
+
+      this.getTaskActivitylog();
     },
     async addChecklist(title) {
       if (!title) return;
       this.newChecklist.name = title;
       const checklist = this.newChecklist;
       this.task.checklists.push(checklist);
-      this.saveTask();
+      const activitylog = this.createActivitylog(
+        `added checklist in ${this.task.name}`
+      );
+      this.saveTask(activitylog);
       this.toggleChecklist();
+      this.getTaskActivitylog();
     },
     async getEmptyChecklist() {
       try {
-        await this.$store.commit({
+        this.$store.commit({
           type: "setEmptyChecklist"
         });
 
@@ -298,7 +382,11 @@ export default {
         checklist => checklist.id === checklistId
       );
       this.task.checklists.splice(checklistIndex, 1);
-      this.saveTask();
+      const activitylog = this.createActivitylog(
+        `removed checklist from ${this.task.name}`
+      );
+      this.saveTask(activitylog);
+      this.getTaskActivitylog();
     },
     addTodo(checklistId, todo) {
       this.$store.commit({
@@ -311,7 +399,12 @@ export default {
         checklist => checklist.id === checklistId
       );
       this.task.checklists[checklistIndex].todos.push(todo);
-      this.saveTask();
+
+      const activitylog = this.createActivitylog(
+        `added item to checklist in ${this.task.name}`
+      );
+      this.saveTask(activitylog);
+      this.getTaskActivitylog();
     },
     updateTodo(checklistId, currTodo) {
       const checklistIndex = this.task.checklists.findIndex(
@@ -321,16 +414,43 @@ export default {
       const todoIndex = todos.findIndex(todo => todo.id === currTodo.id);
 
       this.task.checklists[checklistIndex].todos.splice(todoIndex, 1, currTodo);
-      this.saveTask();
+
+      let activitylog;
+
+      if (currTodo.isDone) {
+        activitylog = this.createActivitylog(
+          `completed ${currTodo.text} on ${this.task.name}`
+        );
+      } else {
+        activitylog = this.createActivitylog(
+          `incomplete ${currTodo.text} on ${this.task.name}`
+        );
+      }
+
+      this.saveTask(activitylog);
+      this.getTaskActivitylog();
     },
     setColor(color) {
       this.task.backgroundColor = color;
-      this.saveTask();
+
+      const activitylog = this.createActivitylog(
+        `changed the background of ${this.task.name}`
+      );
+      this.saveTask(activitylog);
+      this.getTaskActivitylog();
+    },
+    createActivitylog(txt) {
+      return {
+        txt,
+        createdAt: Date.now(),
+        taskId: this.task.id
+      };
     }
   },
   created() {
     const taskId = this.$route.params.taskId;
     this.getListAndTask(taskId);
+    this.getTaskActivitylog();
   },
   components: {
     labelPicker,
@@ -339,7 +459,8 @@ export default {
     checklistPicker,
     avatar,
     checklistDetails,
-    colorPickerMedium
+    colorPickerMedium,
+    activitylog
   }
 };
 </script>

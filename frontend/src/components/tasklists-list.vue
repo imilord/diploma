@@ -6,12 +6,11 @@
       :get-child-payload="getChildPayload"
       :drop-placeholder="dropPlaceholderOptions"
     >
-      <draggable v-for="list in lists" :key="list.id">
+      <draggable v-for="list in lists" :key="list.id" @update-board="updateBoard" @update-list="updateList">
         <tasklist-preview
           :taskList="list"
           :boardId="boardId"
-          @update-board="updateBoard"
-          @update-list="updateList"
+          @upadte-activitylog="upadteActivitylog"
         ></tasklist-preview>
       </draggable>
       <div class="tasklist-preview">
@@ -64,10 +63,20 @@ export default {
     },
     async addList() {
       if (!this.newList.name) return;
+      const activitylog = this.createActivitylog(
+        `added list ${this.newList.name} to this board`
+      );
+
+      this.$store.commit({
+        type: "updateActivitieslog",
+        activitylog
+      });
+
       const board = await this.$store.dispatch({
         type: "addTasksList",
         listData: this.newList
       });
+
       this.lists = board.taskLists;
       this.getEmptyList();
       this.isAddListOpen = !this.isAddListOpen;
@@ -84,11 +93,36 @@ export default {
       this.$emit("update-lists", this.lists);
     },
     getChildPayload(index) {
-      return this.taskLists[index];
+      return this.lists[index];
+    },
+    upadteActivitylog(taskId, fromList) {
+      this.lists.forEach(list => {
+        const task = list.tasks.find(task => task.id === taskId);
+
+        if (task) {
+          const activitylog = this.createActivitylog(
+            `move task ${task.name} from list ${fromList} to ${list.name}`
+          );
+
+          this.$emit("upadte-activitylog", activitylog);
+        }
+      });
+    },
+    createActivitylog(txt) {
+      return {
+        txt,
+        createdAt: Date.now()
+      };
     }
   },
   created() {
     this.getEmptyList();
+  },
+  watch: {
+    taskLists: function(newVal) {
+      this.isDrop = true;
+      this.lists = newVal;
+    }
   },
   components: {
     tasklistPreview,
