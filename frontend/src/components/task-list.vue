@@ -38,6 +38,7 @@ export default {
   },
   methods: {
     onDrop(dropResult) {
+      console.log(dropResult);
       this.tasks = applyDrag(this.tasks, dropResult);
       this.$emit("update-tasks", this.tasks);
     },
