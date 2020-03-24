@@ -22,6 +22,7 @@
         :allTasks="list.tasks"
         :boardId="boardId"
         @update-tasks="updateTasks"
+        @upadte-activitylog="upadteActivitylog"
       ></task-list>
     </main>
     <footer>
@@ -60,16 +61,35 @@ export default {
   },
   methods: {
     async deleteList() {
+      const activitylog = this.createActivitylog(
+        `removed list ${this.list.name}`
+      );
+
+      this.$store.commit({
+        type: "updateActivitieslog",
+        activitylog
+      });
+
       const board = await this.$store.dispatch({
         type: "deleteList",
-        listId: this.taskList.id
+        listId: this.list.id
       });
       this.isSettingsOpen = !this.isSettingsOpen;
       this.$emit("update-board", board);
     },
     async addTask() {
       if (!this.newTask.name) return;
-      const taskData = { newTask: this.newTask, taskListId: this.taskList.id };
+
+      const activitylog = this.createActivitylog(
+        `added task ${this.newTask.name} to ${this.list.name}`
+      );
+
+      this.$store.commit({
+        type: "updateActivitieslog",
+        activitylog
+      });
+
+      const taskData = { newTask: this.newTask, taskListId: this.list.id };
       const board = await this.$store.dispatch({
         type: "addTask",
         taskData
@@ -80,7 +100,7 @@ export default {
       this.isAddTaskOpen = !this.isAddTaskOpen;
     },
     async getEmptyTask() {
-      await this.$store.commit({
+      this.$store.commit({
         type: "setEmptyTask"
       });
 
@@ -91,10 +111,27 @@ export default {
       this.$emit("update-list", this.list);
     },
     updateListName(name) {
+      const activitylog = this.createActivitylog(
+        `updated list name from ${this.list.name} to ${name}`
+      );
+
+      this.$store.commit({
+        type: "updateActivitieslog",
+        activitylog
+      });
       this.list.name = name;
       this.$emit("update-list", this.list);
     },
     setColor(color) {
+      const activitylog = this.createActivitylog(
+        `changed the background of ${this.list.name}`
+      );
+
+      this.$store.commit({
+        type: "updateActivitieslog",
+        activitylog
+      });
+
       this.list.backgroundColor = color;
       this.$emit("update-list", this.list);
     },
@@ -120,6 +157,20 @@ export default {
         }
       }
       this.$emit("update-list", this.list);
+    },
+    upadteActivitylog(taskId) {
+      this.$emit("upadte-activitylog", taskId, this.list.name);
+    },
+    createActivitylog(txt) {
+      return {
+        txt,
+        createdAt: Date.now()
+      };
+    }
+  },
+  watch: {
+    taskList: function(newVal) {
+      this.list = newVal;
     }
   },
   created() {

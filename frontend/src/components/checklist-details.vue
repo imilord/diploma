@@ -61,7 +61,6 @@ export default {
       const todos = this.checklist.todos.length;
       if (todos !== 0) {
         const doneTodos = this.checklist.todos.filter(todo => todo.isDone);
-        console.log(doneTodos.length);
         return Math.round((doneTodos.length / todos) * 100);
       } else return 0;
     }

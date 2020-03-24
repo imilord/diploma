@@ -1,5 +1,7 @@
 <template>
-<section></section>
+<section class="home-page">
+  <router-link :to="'/board/5e78800c1c9d4400007ad7ba'">kslrgjsjgk</router-link>
+</section>
 </template>
 
 <script>
@@ -10,3 +12,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+.home-page{
+  margin-top: 200px;
+}
+</style>
