@@ -11,7 +11,7 @@
       </li>
       <li>
         <ul>
-          <li class="member" v-for="member in members" :key="member.id">{{member.name}}</li>
+          <li class="member" v-for="member in members" :key="member._id">{{member.username}}</li>
         </ul>
       </li>
       <li>{{dueDate | dueDate}}</li>
