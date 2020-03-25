@@ -4,7 +4,9 @@
       <button class="close-btn" @click="closeTaskEdit">X</button>
       <div v-if="task.cover" class="cover-container">
         <img class="cover-img" :src="task.cover" />
-        <button @click="removeCover">Remove cover</button>
+        <div>
+          <button @click="removeCover">Remove cover</button>
+        </div>
       </div>
     </div>
     <div class="details-container">
@@ -98,6 +100,10 @@
             ></due-date-picker>
           </div>
           <div>
+            <button class="main-btn" @click="toggleAddMember">Members</button>
+            <!-- <member-picker v-if="isAddMember" :members="task.members"></member-picker> -->
+          </div>
+          <div>
             <button class="main-btn" @click="toggleCover">
               <i class="el-icon-picture-outline"></i> Cover
             </button>
@@ -140,6 +146,7 @@ import dueDatePicker from "../components/due-date-picker.vue";
 import coverPicker from "../components/cover-picker.vue";
 import checklistPicker from "../components/checklist-picker.vue";
 import colorPickerMedium from "../components/‏‏color-picker-medium.vue";
+// import memberPicker from "../components/member-picker.vue";
 import avatar from "vue-avatar";
 import checklistDetails from "../components/checklist-details.vue";
 import activitylog from "../components/activitylog.vue";
@@ -161,6 +168,7 @@ export default {
       isOpenChecklist: false,
       isColorPickerOpen: false,
       isOpenActivitylog: false,
+      isAddMember: false,
       newChecklist: null
     };
   },
@@ -252,6 +260,9 @@ export default {
     },
     toggleActivitylog() {
       this.isOpenActivitylog = !this.isOpenActivitylog;
+    },
+    toggleAddMember() {
+      this.isAddMember = !this.isAddMember;
     },
     changeDate(newDate) {
       this.task.dueDate = newDate;
@@ -504,6 +515,7 @@ export default {
     checklistDetails,
     colorPickerMedium,
     activitylog
+    // memberPicker
   }
 };
 </script>
