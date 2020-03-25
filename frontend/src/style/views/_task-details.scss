@@ -83,8 +83,9 @@
                         }
                     }
                     .description-txt {
-                        background-color: rgb(204, 201, 201);
+                        background-color: $clr7;
                         padding: rem(10px);
+                        border-radius: rem(3px);
                         cursor: pointer;
                     }
                 }
