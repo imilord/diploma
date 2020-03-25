@@ -1,5 +1,5 @@
 <template>
-  <section class="board-details" v-if="board" :style="{backgroundColor: board.style.color}">
+  <section class="board-details" v-if="board" :style="{background: boardStyle}">
     <board-nav
       :boardName="board.name"
       :members="board.members"
@@ -48,6 +48,15 @@ export default {
       isOpenActivitylog: false,
       isOpenBoardSetting: false
     };
+  },
+  computed: {
+    boardStyle() {
+      var style;
+      if (this.board.style.color) style = this.board.style.color;
+      else if (this.board.style.url)
+        style = `url("${this.board.style.url}") no-repeat fixed 100%`;
+      return style;
+    }
   },
   methods: {
     updateLocalBoard(board) {
@@ -101,8 +110,8 @@ export default {
     socketService.on("update newBoard", this.updateLocalBoard);
   },
   destroyed() {
+    socketService.off("update newBoard", this.updateLocalBoard);
     socketService.terminate();
-    // socketService.off("update newBoard", this.updateLocalBoard);
   },
   watch: {
     "$route.params": async function() {

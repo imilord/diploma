@@ -4,7 +4,7 @@
     right: 0;
     top: 40px;
     height: calc(100% - 40px);
-    background-color: white;
+    background-color: $clr8;
     width: 340px;
     box-shadow: 0 12px 24px -6px rgba(9, 30, 66, 0.25), 0 0 0 1px rgba(9, 30, 66, 0.08);
     overflow-y: auto;
@@ -52,5 +52,17 @@
                 margin-right: rem(10px);
             }
         }
+    }
+    
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+    &::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background: $clr3;
+    }
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: $clr6;
     }
 }
