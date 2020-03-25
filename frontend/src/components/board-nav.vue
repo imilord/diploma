@@ -17,8 +17,8 @@
       <li>{{dueDate | dueDate}}</li>
     </ul>
     <div>
-      <button>Settings</button>
-      <button @click="$emit('open-activitylog')">Activity Log</button>
+      <button @click="$emit('toggle-settings')">Settings</button>
+      <button @click="$emit('toggle-activitylog')">Activity Log</button>
     </div>
   </section>
 </template>

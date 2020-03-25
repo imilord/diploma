@@ -5,11 +5,15 @@
       :members="board.members"
       :dueDate="board.dueDate"
       :creator="board.creator"
-      @open-activitylog="toggleActivitylog"
+      @toggle-activitylog="toggleActivitylog"
+      @toggle-settings="toggleSettings"
     ></board-nav>
-    <activitylog v-if="isOpenActivitylog" class="main-activitylog" 
-    :activitieslog="board.activitieslog"
-    @close-activitylog="toggleActivitylog"
+    <board-settings v-if="isOpenBoardSetting" :board="board" @toggle-settings="toggleSettings"></board-settings>
+    <activitylog
+      v-if="isOpenActivitylog"
+      class="main-activitylog"
+      :activitieslog="board.activitieslog"
+      @close-activitylog="toggleActivitylog"
     ></activitylog>
     <tasklist-list
       :taskLists="board.taskLists"
@@ -25,7 +29,8 @@
 <script>
 import boardNav from "../components/board-nav.vue";
 import tasklistList from "../components/tasklists-list.vue";
-import activitylog from '../components/activitylog.vue';
+import activitylog from "../components/activitylog.vue";
+import boardSettings from "../components/board-settings.vue";
 import socketService from "../services/socket.service.js";
 
 export default {
@@ -35,7 +40,8 @@ export default {
       board: null,
       isTaskOpen: false,
       isDrop: true,
-      isOpenActivitylog: false
+      isOpenActivitylog: false,
+      isOpenBoardSetting: false
     };
   },
   methods: {
@@ -68,6 +74,12 @@ export default {
     },
     toggleActivitylog() {
       this.isOpenActivitylog = !this.isOpenActivitylog;
+    },
+    toggleSettings() {
+      this.isOpenBoardSetting = !this.isOpenBoardSetting;
+    },
+    setBgc(bgc) {
+      console.log("rr", bgc);
     }
   },
   async created() {
@@ -99,7 +111,8 @@ export default {
   components: {
     boardNav,
     tasklistList,
-    activitylog
+    activitylog,
+    boardSettings
   }
 };
 </script>
