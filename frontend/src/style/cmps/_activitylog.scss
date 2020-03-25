@@ -1,0 +1,56 @@
+.main-activitylog {
+    position: fixed;
+    z-index: 10;
+    right: 0;
+    top: 40px;
+    height: calc(100% - 40px);
+    background-color: white;
+    width: 340px;
+    box-shadow: 0 12px 24px -6px rgba(9, 30, 66, 0.25), 0 0 0 1px rgba(9, 30, 66, 0.08);
+    overflow-y: auto;
+    font-size: rem(14px);
+    color: $clr2;
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .close-activitylog {
+            margin-right: rem(10px);
+            background: none;
+            border: none;
+        }
+        .activity-title {
+            margin: rem(10px);
+            font-weight: unset;
+            span {
+                margin-left: rem(8px);
+            }
+            .activities-icon {
+                font-size: 0.9rem;
+            }
+        }
+    }
+    .activities {
+        list-style-type: none;
+        padding: 0;
+        margin-left: rem(15px);
+        .activity {
+            display: flex;
+            margin-bottom: rem(5px);
+            .username {
+                font-weight: bold;
+            }
+            .due-date {
+                font-size: rem(12px);
+                color: $clr9;
+            }
+            .avatar {
+                background-color: $clr10!important;
+                color: $clr11!important;
+                width: 32px!important;
+                height: 32px!important;
+                margin-right: rem(10px);
+            }
+        }
+    }
+}

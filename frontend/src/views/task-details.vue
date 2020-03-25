@@ -2,7 +2,7 @@
   <section class="task-details" v-if="task">
     <div class="header">
       <button class="close-btn" @click="closeTaskEdit">X</button>
-      <div v-if="task.cover">
+      <div v-if="task.cover" class="cover-container">
         <img class="cover-img" :src="task.cover" />
         <button @click="removeCover">Remove cover</button>
       </div>
@@ -13,6 +13,7 @@
         <input v-else type="text" v-model="task.name" @blur="saveName" />
         <div class="list-name">In list {{list.name}}</div>
         <div class="main-data">
+          <h4>Labels</h4>
           <div v-if="task.labels.length > 0" class="labels">
             <span
               v-for="label in task.labels"
@@ -39,7 +40,7 @@
             <h4>Description</h4>
             <div
               v-if="!isOpenDescription"
-              class="description-txt"
+              class="edit-area description-txt"
               @click="toggleDescription"
             >{{(task.description) ? task.description : 'Add a more detailed description'}}</div>
             <div v-else class="edit-description">
@@ -55,6 +56,7 @@
               v-for="checklist in task.checklists"
               :key="checklist.id"
               :checklist="checklist"
+              @update-checklist="updateChecklist"
               @remove-checklist="removeChecklist"
               @add-todo="addTodo"
               @update-todo="updateTodo"
@@ -64,10 +66,7 @@
           <div v-if="task.dueDate" class="due-date">Due date: {{task.dueDate | dueDate}}</div>
         </div>
         <div>
-          <button
-            class="main-btn"
-            @click="toggleActivitylog"
-          >Show details</button>
+          <button class="main-btn" @click="toggleActivitylog">Show details</button>
           <activitylog v-if="isOpenActivitylog" :activitieslog="activitieslog"></activitylog>
         </div>
       </section>
@@ -144,6 +143,7 @@ import colorPickerMedium from "../components/‏‏color-picker-medium.vue";
 import avatar from "vue-avatar";
 import checklistDetails from "../components/checklist-details.vue";
 import activitylog from "../components/activitylog.vue";
+import socketService from "../services/socket.service.js";
 import moment from "moment";
 
 export default {
@@ -189,6 +189,8 @@ export default {
       const activitylog = this.createActivitylog(
         `added label to ${this.task.name}`
       );
+
+      socketService.emit("add activitylog", activitylog);
       this.saveTask(activitylog);
       this.getTaskActivitylog();
     },
@@ -200,6 +202,7 @@ export default {
       const activitylog = this.createActivitylog(
         `removed label from ${this.task.name}`
       );
+      socketService.emit("add activitylog", activitylog);
       this.saveTask(activitylog);
       this.getTaskActivitylog();
     },
@@ -217,6 +220,8 @@ export default {
       const activitylog = this.createActivitylog(
         `updated label in ${this.task.name}`
       );
+
+      socketService.emit("add activitylog", activitylog);
       this.saveTask(activitylog);
       this.getTaskActivitylog();
     },
@@ -254,6 +259,8 @@ export default {
       const activitylog = this.createActivitylog(
         `changed the due date of ${this.task.name} to ${dueDate}`
       );
+
+      socketService.emit("add activitylog", activitylog);
       this.saveTask(activitylog);
       this.getTaskActivitylog();
     },
@@ -303,6 +310,8 @@ export default {
       const activitylog = this.createActivitylog(
         `updated description in ${this.task.name} to ${this.task.description}`
       );
+
+      socketService.emit("add activitylog", activitylog);
       this.saveTask(activitylog);
       this.toggleDescription();
       this.getTaskActivitylog();
@@ -311,6 +320,8 @@ export default {
       const activitylog = this.createActivitylog(
         `updated task name to ${this.task.name}`
       );
+
+      socketService.emit("add activitylog", activitylog);
       this.saveTask(activitylog);
       this.toggleName();
       this.getTaskActivitylog();
@@ -319,7 +330,9 @@ export default {
       const activitylog = this.createActivitylog(
         `added cover in ${this.task.name}`
       );
+
       this.task.cover = url;
+      socketService.emit("add activitylog", activitylog);
       this.saveTask(activitylog);
       this.getTaskActivitylog();
     },
@@ -327,7 +340,9 @@ export default {
       const activitylog = this.createActivitylog(
         `removed cover in ${this.task.name}`
       );
+
       this.task.cover = "";
+      socketService.emit("add activitylog", activitylog);
       this.saveTask(activitylog);
       this.getTaskActivitylog();
     },
@@ -347,7 +362,7 @@ export default {
           taskData
         });
       } catch (err) {
-        console.log("Err in addTask");
+        console.log("Err in copyTask");
       }
 
       this.getTaskActivitylog();
@@ -355,11 +370,12 @@ export default {
     async addChecklist(title) {
       if (!title) return;
       this.newChecklist.name = title;
-      const checklist = this.newChecklist;
-      this.task.checklists.push(checklist);
+      this.task.checklists.push(this.newChecklist);
       const activitylog = this.createActivitylog(
         `added checklist in ${this.task.name}`
       );
+
+      socketService.emit("add activitylog", activitylog);
       this.saveTask(activitylog);
       this.toggleChecklist();
       this.getTaskActivitylog();
@@ -377,6 +393,14 @@ export default {
         console.log("Err in getEmptyChecklist");
       }
     },
+    updateChecklist(checklist) {
+      const checklistIndex = this.task.checklists.findIndex(
+        currChecklist => currChecklist.id === checklist.id
+      );
+
+      this.task.checklists.splice(checklistIndex, 1, checklist);
+      this.saveTask();
+    },
     removeChecklist(checklistId) {
       const checklistIndex = this.task.checklists.findIndex(
         checklist => checklist.id === checklistId
@@ -385,6 +409,8 @@ export default {
       const activitylog = this.createActivitylog(
         `removed checklist from ${this.task.name}`
       );
+
+      socketService.emit("add activitylog", activitylog);
       this.saveTask(activitylog);
       this.getTaskActivitylog();
     },
@@ -403,6 +429,8 @@ export default {
       const activitylog = this.createActivitylog(
         `added item to checklist in ${this.task.name}`
       );
+
+      socketService.emit("add activitylog", activitylog);
       this.saveTask(activitylog);
       this.getTaskActivitylog();
     },
@@ -427,6 +455,7 @@ export default {
         );
       }
 
+      socketService.emit("add activitylog", activitylog);
       this.saveTask(activitylog);
       this.getTaskActivitylog();
     },
@@ -436,6 +465,8 @@ export default {
       const activitylog = this.createActivitylog(
         `changed the background of ${this.task.name}`
       );
+
+      socketService.emit("add activitylog", activitylog);
       this.saveTask(activitylog);
       this.getTaskActivitylog();
     },
@@ -445,12 +476,24 @@ export default {
         createdAt: Date.now(),
         taskId: this.task.id
       };
+    },
+    addActivity(newActivitylog) {
+      this.saveTask(newActivitylog);
+      this.getTaskActivitylog();
     }
   },
   created() {
     const taskId = this.$route.params.taskId;
     this.getListAndTask(taskId);
     this.getTaskActivitylog();
+
+    socketService.setup();
+    socketService.emit("task topic", this.task.id);
+    socketService.on("activitylog updated", this.addActivity);
+  },
+  destroyed() {
+    // socketService.terminate();
+    // socketService.off("activitylog updated", this.addActivity);
   },
   components: {
     labelPicker,

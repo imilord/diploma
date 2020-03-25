@@ -9,9 +9,21 @@ function connectSockets(io) {
             socket.join(boardId)
             socket.myBoard = boardId;
         })
+
         socket.on('update board', board => {
             io.to(socket.myBoard).emit('update newBoard', board)
         })
 
+        socket.on('task topic', taskId => {
+            if (socket.myTask) {
+                socket.leave(socket.myTask)
+            }
+            socket.join(taskId)
+            socket.myTask = taskId;
+        })
+
+        socket.on('add activitylog', activitieslog => {
+            io.to(socket.myBoard).emit('activitylog updated', activitieslog)
+        })
     })
 }

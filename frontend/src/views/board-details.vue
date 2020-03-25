@@ -8,8 +8,13 @@
       @toggle-activitylog="toggleActivitylog"
       @toggle-settings="toggleSettings"
     ></board-nav>
-    <activitylog v-if="isOpenActivitylog" :activitieslog="board.activitieslog"></activitylog>
     <board-settings v-if="isOpenBoardSetting" :board="board" @toggle-settings="toggleSettings"></board-settings>
+    <activitylog
+      v-if="isOpenActivitylog"
+      class="main-activitylog"
+      :activitieslog="board.activitieslog"
+      @close-activitylog="toggleActivitylog"
+    ></activitylog>
     <tasklist-list
       :taskLists="board.taskLists"
       :boardId="board._id"
