@@ -10,6 +10,7 @@
     .checklist-name {
       margin: rem(6px);
       text-transform: none;
+      cursor: pointer;
     }
 
     .remove-checklist-btn {
@@ -24,10 +25,41 @@
     padding-bottom: rem(5px);
   }
 
+  .done {
+    .el-progress-bar__inner {
+      background-color: rgb(35, 190, 55);
+    }
+  }
+
+  .todos {
+    display: flex;
+    justify-content: space-between;
+
+    .remove-todo {
+      border: none;
+      background-color: transparent;
+      display: none;
+    }
+
+    &:hover {
+      background-color: $clr7;
+      border-radius: 3px;
+
+      .remove-todo {
+        display: inline-block;
+      }
+    }
+
+    > * {
+      padding: 6px 0;
+      cursor: pointer;
+    }
+  }
+
   .add-item {
     border-radius: 3px;
     padding: rem(6px) rem(12px);
-    margin-bottom: rem(8px);
+    margin: rem(8px);
     display: inline-block;
     width: 110px;
   }

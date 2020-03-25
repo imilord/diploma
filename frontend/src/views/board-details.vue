@@ -1,5 +1,5 @@
 <template>
-  <section class="board-details" v-if="board">
+  <section class="board-details" v-if="board" :style="{backgroundColor: board.style.color}">
     <board-nav
       :boardName="board.name"
       :members="board.members"
@@ -8,7 +8,12 @@
       @toggle-activitylog="toggleActivitylog"
       @toggle-settings="toggleSettings"
     ></board-nav>
-    <board-settings v-if="isOpenBoardSetting" :board="board" @toggle-settings="toggleSettings"></board-settings>
+    <board-settings
+      v-if="isOpenBoardSetting"
+      :board="board"
+      @toggle-settings="toggleSettings"
+      @set-bgc="setBgc"
+    ></board-settings>
     <activitylog
       v-if="isOpenActivitylog"
       class="main-activitylog"
@@ -79,7 +84,9 @@ export default {
       this.isOpenBoardSetting = !this.isOpenBoardSetting;
     },
     setBgc(bgc) {
-      console.log("rr", bgc);
+      this.board.style = bgc;
+      console.log(this.board);
+      this.updateBoard();
     }
   },
   async created() {
@@ -95,7 +102,7 @@ export default {
   },
   destroyed() {
     socketService.terminate();
-    socketService.off("update newBoard", this.updateLocalBoard);
+    // socketService.off("update newBoard", this.updateLocalBoard);
   },
   watch: {
     "$route.params": async function() {

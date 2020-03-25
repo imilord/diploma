@@ -17,14 +17,6 @@
                 width: 50%;
             }
         }
-        .close-btn {
-            position: absolute;
-            top: 0;
-            right: 0;
-            margin: rem(5px);
-            background: none;
-            border: none;
-        }
     }
     .details-container {
         display: flex;
@@ -86,6 +78,33 @@
                         background-color: $clr7;
                         padding: rem(10px);
                         border-radius: rem(3px);
+                        cursor: pointer;
+                    }
+                }
+                .created-at {
+                    margin-bottom: rem(20px);
+                }
+                .due-date {
+                    margin-bottom: rem(20px);
+                }
+                .description-content {
+                    margin-bottom: rem(30px);
+                    .edit-description {
+                        display: flex;
+                        flex-direction: column;
+                        .description {
+                            resize: none;
+                            margin-bottom: rem(10px);
+                        }
+                        .description-btns {
+                            button {
+                                margin: rem(5px);
+                            }
+                        }
+                    }
+                    .description-txt {
+                        background-color: rgb(204, 201, 201);
+                        padding: rem(10px);
                         cursor: pointer;
                     }
                 }
