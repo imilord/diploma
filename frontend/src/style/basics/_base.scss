@@ -10,10 +10,9 @@ body {
     "Helvetica Neue", sans-serif;
   font-size: rem(15px);
   line-height: rem(20px);
-  // background: transparent;
-  background-color: pink;
+  background: transparent;
   overflow-x: auto;
-  overflow-y: auto;
+  // overflow-y: hidden;
   &::-webkit-scrollbar {
     height: 12px;
     // padding-bottom: 5px;

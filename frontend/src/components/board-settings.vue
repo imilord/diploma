@@ -18,7 +18,7 @@
     </main>
 
     <section>
-      <color-picker-big v-if="isColorPickerOpen"></color-picker-big>
+      <color-picker-big v-if="isColorPickerOpen" @set-bgc="setBgc"></color-picker-big>
     </section>
   </div>
 </template>
@@ -35,13 +35,12 @@ export default {
       isColorPickerOpen: false
     };
   },
-  mathods: {
+  methods: {
     closeSettings() {
       this.$emit("close-settings");
     },
     setBgc(bgc) {
-      console.log(bgc, "fff");
-      //   this.$emit("set-bgc", color);
+      this.$emit("set-bgc", bgc);
     }
   },
   created() {
