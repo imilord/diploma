@@ -1,6 +1,6 @@
 <template>
   <div class="color-picker-big">
-    <div class="options" v-if="!isOptionOpen">
+    <div class="options" v-if="!isOptionOpen" @click="setBgc">
       <div class="option" @click="openImgOption">
         <div class="img photos-img"></div>
         <div class="title">Photos</div>
@@ -88,8 +88,7 @@ export default {
     setBgc(type, value) {
       if (type === "color") this.currBgc.color = value;
       if (type === "img") this.currBgc.url = value;
-      console.log(this.currBgc);
-      this.$emit("set-bgc", { ...this.currBgc });
+      this.$emit("set-bgc", this.currBgc);
     }
   }
 };
