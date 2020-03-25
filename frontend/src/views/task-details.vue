@@ -143,6 +143,7 @@ import colorPickerMedium from "../components/‏‏color-picker-medium.vue";
 import avatar from "vue-avatar";
 import checklistDetails from "../components/checklist-details.vue";
 import activitylog from "../components/activitylog.vue";
+import socketService from "../services/socket.service.js";
 import moment from "moment";
 
 export default {
@@ -188,6 +189,8 @@ export default {
       const activitylog = this.createActivitylog(
         `added label to ${this.task.name}`
       );
+
+      socketService.emit("add activitylog", activitylog);
       this.saveTask(activitylog);
       this.getTaskActivitylog();
     },
@@ -199,6 +202,7 @@ export default {
       const activitylog = this.createActivitylog(
         `removed label from ${this.task.name}`
       );
+      socketService.emit("add activitylog", activitylog);
       this.saveTask(activitylog);
       this.getTaskActivitylog();
     },
@@ -216,6 +220,8 @@ export default {
       const activitylog = this.createActivitylog(
         `updated label in ${this.task.name}`
       );
+
+      socketService.emit("add activitylog", activitylog);
       this.saveTask(activitylog);
       this.getTaskActivitylog();
     },
@@ -253,6 +259,8 @@ export default {
       const activitylog = this.createActivitylog(
         `changed the due date of ${this.task.name} to ${dueDate}`
       );
+
+      socketService.emit("add activitylog", activitylog);
       this.saveTask(activitylog);
       this.getTaskActivitylog();
     },
@@ -302,6 +310,8 @@ export default {
       const activitylog = this.createActivitylog(
         `updated description in ${this.task.name} to ${this.task.description}`
       );
+
+      socketService.emit("add activitylog", activitylog);
       this.saveTask(activitylog);
       this.toggleDescription();
       this.getTaskActivitylog();
@@ -310,6 +320,8 @@ export default {
       const activitylog = this.createActivitylog(
         `updated task name to ${this.task.name}`
       );
+
+      socketService.emit("add activitylog", activitylog);
       this.saveTask(activitylog);
       this.toggleName();
       this.getTaskActivitylog();
@@ -318,7 +330,9 @@ export default {
       const activitylog = this.createActivitylog(
         `added cover in ${this.task.name}`
       );
+
       this.task.cover = url;
+      socketService.emit("add activitylog", activitylog);
       this.saveTask(activitylog);
       this.getTaskActivitylog();
     },
@@ -326,7 +340,9 @@ export default {
       const activitylog = this.createActivitylog(
         `removed cover in ${this.task.name}`
       );
+
       this.task.cover = "";
+      socketService.emit("add activitylog", activitylog);
       this.saveTask(activitylog);
       this.getTaskActivitylog();
     },
@@ -346,7 +362,7 @@ export default {
           taskData
         });
       } catch (err) {
-        console.log("Err in addTask");
+        console.log("Err in copyTask");
       }
 
       this.getTaskActivitylog();
@@ -358,6 +374,8 @@ export default {
       const activitylog = this.createActivitylog(
         `added checklist in ${this.task.name}`
       );
+
+      socketService.emit("add activitylog", activitylog);
       this.saveTask(activitylog);
       this.toggleChecklist();
       this.getTaskActivitylog();
@@ -391,6 +409,8 @@ export default {
       const activitylog = this.createActivitylog(
         `removed checklist from ${this.task.name}`
       );
+
+      socketService.emit("add activitylog", activitylog);
       this.saveTask(activitylog);
       this.getTaskActivitylog();
     },
@@ -409,6 +429,8 @@ export default {
       const activitylog = this.createActivitylog(
         `added item to checklist in ${this.task.name}`
       );
+
+      socketService.emit("add activitylog", activitylog);
       this.saveTask(activitylog);
       this.getTaskActivitylog();
     },
@@ -433,6 +455,7 @@ export default {
         );
       }
 
+      socketService.emit("add activitylog", activitylog);
       this.saveTask(activitylog);
       this.getTaskActivitylog();
     },
@@ -442,6 +465,8 @@ export default {
       const activitylog = this.createActivitylog(
         `changed the background of ${this.task.name}`
       );
+
+      socketService.emit("add activitylog", activitylog);
       this.saveTask(activitylog);
       this.getTaskActivitylog();
     },
@@ -451,12 +476,24 @@ export default {
         createdAt: Date.now(),
         taskId: this.task.id
       };
+    },
+    addActivity(newActivitylog) {
+      this.saveTask(newActivitylog);
+      this.getTaskActivitylog();
     }
   },
   created() {
     const taskId = this.$route.params.taskId;
     this.getListAndTask(taskId);
     this.getTaskActivitylog();
+
+    socketService.setup();
+    socketService.emit("task topic", this.task.id);
+    socketService.on("activitylog updated", this.addActivity);
+  },
+  destroyed() {
+    // socketService.terminate();
+    // socketService.off("activitylog updated", this.addActivity);
   },
   components: {
     labelPicker,

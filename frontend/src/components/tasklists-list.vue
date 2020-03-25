@@ -106,8 +106,7 @@ export default {
 
         if (task) {
           const activitylog = this.createActivitylog(
-            `move task ${task.name} from list ${fromList} to ${list.name}`,
-            taskId
+            `move task ${task.name} from list ${fromList} to ${list.name}`,taskId
           );
 
           this.$emit("upadte-activitylog", activitylog);
