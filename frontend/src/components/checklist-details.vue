@@ -1,18 +1,27 @@
 <template>
   <section class="checklist-details">
     <div class="checklist-header">
-      <h4 class="checklist-name">{{checklist.name}}</h4>
+      <h4
+        v-if="!isOpenChangeName"
+        class="checklist-name"
+        @click="toggleChangeName"
+      >{{checklist.name}}</h4>
+      <div v-else class="change-checklist-name">
+        <input type="text" v-model="checklist.name" />
+        <button @click="changeChecklistName">Save</button>
+        <button @click="toggleChangeName">X</button>
+      </div>
       <button class="remove-checklist-btn" @click="removeChecklist">Delete</button>
     </div>
 
-    <el-progress :percentage="progress"></el-progress>
+    <el-progress :class="{ 'done': progress===100 }" :percentage="progress"></el-progress>
 
     <div class="todos" v-for="todo in checklist.todos" :key="todo.id">
       <label>
         <input type="checkbox" v-model="todo.isDone" @change="updateTodo(todo)" />
         {{todo.text}}
       </label>
-      <button @click="removeTodo(todo)">X</button>
+      <button class="remove-todo el-icon-close icon" @click="removeTodo(todo)"></button>
     </div>
 
     <div class="edit-area add-item" v-if="!isAddTodo" @click="toggleAddTodo">Add an item</div>
@@ -33,7 +42,8 @@ export default {
   data() {
     return {
       isAddTodo: false,
-      newTodo: { text: "", isDone: false }
+      newTodo: { text: "", isDone: false },
+      isOpenChangeName: false
     };
   },
   methods: {
@@ -42,6 +52,9 @@ export default {
     },
     removeChecklist() {
       this.$emit("remove-checklist", this.checklist.id);
+    },
+    toggleChangeName() {
+      this.isOpenChangeName = !this.isOpenChangeName;
     },
     addTodo() {
       this.$emit(
@@ -64,6 +77,10 @@ export default {
       );
       this.checklist.todos.splice(todoIndex, 1);
       this.$emit("update-checklist", this.checklist);
+    },
+    changeChecklistName() {
+      this.$emit("update-checklist", this.checklist);
+      this.toggleChangeName();
     }
   },
   computed: {
