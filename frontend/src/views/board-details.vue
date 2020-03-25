@@ -7,7 +7,10 @@
       :creator="board.creator"
       @open-activitylog="toggleActivitylog"
     ></board-nav>
-    <activitylog v-if="isOpenActivitylog" :activitieslog="board.activitieslog"></activitylog>
+    <activitylog v-if="isOpenActivitylog" class="main-activitylog" 
+    :activitieslog="board.activitieslog"
+    @close-activitylog="toggleActivitylog"
+    ></activitylog>
     <tasklist-list
       :taskLists="board.taskLists"
       :boardId="board._id"
