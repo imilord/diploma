@@ -6,7 +6,12 @@
       :get-child-payload="getChildPayload"
       :drop-placeholder="dropPlaceholderOptions"
     >
-      <draggable v-for="list in lists" :key="list.id" @update-board="updateBoard" @update-list="updateList">
+      <draggable
+        v-for="list in lists"
+        :key="list.id"
+        @update-board="updateBoard"
+        @update-list="updateList"
+      >
         <tasklist-preview
           :taskList="list"
           :boardId="boardId"
