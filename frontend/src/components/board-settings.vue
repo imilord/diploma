@@ -8,10 +8,7 @@
     </header>
 
     <main>
-      <button>Change board name</button>
-      <!-- <div class="name-editor" v-if="isNameEditorOpen">
-        <input type="text" v-model="name" @change="updateListName" />
-      </div>-->
+      <button @click="isNameEditorOpen=!isNameEditorOpen">Change board name</button>
       <button @click="isColorPickerOpen=!isColorPickerOpen">Change background</button>
       <button>Search tasks</button>
       <button>Delete board</button>
@@ -19,6 +16,10 @@
 
     <section>
       <color-picker-large v-if="isColorPickerOpen" @set-bgc="setBgc"></color-picker-large>
+      <div class="name-editor" v-if="isNameEditorOpen">
+        <input type="text" v-model="name" :placeholder="board.name" />
+        <button>Save</button>
+      </div>
     </section>
   </div>
 </template>
@@ -32,7 +33,8 @@ export default {
   },
   data() {
     return {
-      isColorPickerOpen: false
+      isColorPickerOpen: false,
+      isNameEditorOpen: false
     };
   },
   methods: {
