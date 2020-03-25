@@ -1,5 +1,6 @@
 .task-details {
     position: absolute;
+    background-color: #f4f5f7;
     left: 50%;
     top: 0;
     transform: translate(-50%, 0%);
@@ -8,8 +9,10 @@
     margin-top: rem(80px);
     font-size: rem(14px);
     .header {
-        .cover-img {
-            width: 50%;
+        .cover-container {
+            .cover-img {
+                width: 50%;
+            }
         }
         .close-btn {
             position: absolute;

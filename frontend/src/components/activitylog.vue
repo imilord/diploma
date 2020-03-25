@@ -2,7 +2,7 @@
   <section v-if="activitieslog">
     <header>
     <h2 class="activity-title">
-      <font-awesome-icon icon="tasks" />
+      <font-awesome-icon icon="tasks" class="activities-icon" />
       <span>Activity</span>
     </h2>
     <button @click="$emit('close-activitylog')" class="close-activitylog">X</button>
