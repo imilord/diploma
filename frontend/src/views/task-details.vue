@@ -4,7 +4,7 @@
       <button class="close-btn" @click="closeTaskEdit">X</button>
       <div v-if="task.cover" class="cover-container">
         <img class="cover-img" :src="task.cover" />
-        <button @click="removeCover">Remove cover</button>
+        <div><button @click="removeCover">Remove cover</button></div>
       </div>
     </div>
     <div class="details-container">
