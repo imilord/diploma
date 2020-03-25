@@ -54,7 +54,7 @@ export default {
       var style;
       if (this.board.style.color) style = this.board.style.color;
       else if (this.board.style.url)
-        style = `url("${this.board.style.url}") top left/cover top left `;
+        style = `url("${this.board.style.url}") no-repeat fixed center`;
       return style;
     }
   },

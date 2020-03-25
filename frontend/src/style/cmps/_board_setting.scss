@@ -1,0 +1,57 @@
+.board-settings {
+  position: fixed;
+  z-index: 10;
+  right: 0;
+  top: 40px;
+  height: calc(100% - 40px);
+  background-color: $clr8;
+  width: 340px;
+  padding: 0 15px;
+  box-shadow: 0 12px 24px -6px rgba(9, 30, 66, 0.25), 0 0 0 1px rgba(9, 30, 66, 0.08);
+  overflow-y: auto;
+  font-size: rem(14px);
+  color: $clr2;
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    margin: 5px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    font-weight: bold;;
+  }
+  
+  main {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 0;
+    margin: 5px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+      button {
+        text-align: left;
+        padding: rem(5px) rem(10px);
+        border: none;
+        background-color: transparent;
+
+      &:hover {
+            background-color: $clr6;
+            border-radius: rem(1px);
+      }
+    }
+  }
+  
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: $clr3;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: $clr6;
+  }
+
+}
