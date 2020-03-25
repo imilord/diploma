@@ -28,7 +28,7 @@
         class="color"
         v-for="img in imgs"
         :key="img"
-        :style="{ 'background-image': 'url(' + img + ')' }"
+        :style="{ 'background-image': 'url(' + img + ') cover' }"
         @click="setBgc('img', img)"
       ></div>
     </div>
