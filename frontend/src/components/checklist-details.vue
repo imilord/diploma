@@ -1,7 +1,9 @@
 <template>
-  <section class="checlist-details">
-    <div>{{checklist.name}}</div>
-    <button @click="removeChecklist">X</button>
+  <section class="checklist-details">
+    <div class="checklist-header">
+      <h4 class="checklist-name">{{checklist.name}}</h4>
+      <button class="remove-checklist-btn" @click="removeChecklist">Delete</button>
+    </div>
 
     <el-progress :percentage="progress"></el-progress>
 
@@ -10,9 +12,10 @@
         <input type="checkbox" v-model="todo.isDone" @change="updateTodo(todo)" />
         {{todo.text}}
       </label>
+      <button @click="removeTodo(todo)">X</button>
     </div>
 
-    <div v-if="!isAddTodo" @click="toggleAddTodo">Add an item</div>
+    <div class="edit-area add-item" v-if="!isAddTodo" @click="toggleAddTodo">Add an item</div>
     <div v-else>
       <input type="text" placeholder="Add an item" v-model="newTodo.text" />
       <button @click="addTodo">Add</button>
@@ -54,6 +57,13 @@ export default {
         this.checklist.id,
         JSON.parse(JSON.stringify(todo))
       );
+    },
+    removeTodo(todo) {
+      const todoIndex = this.checklist.todos.findIndex(
+        currTodo => currTodo.id === todo.id
+      );
+      this.checklist.todos.splice(todoIndex, 1);
+      this.$emit("update-checklist", this.checklist);
     }
   },
   computed: {

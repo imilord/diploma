@@ -13,6 +13,7 @@
         <input v-else type="text" v-model="task.name" @blur="saveName" />
         <div class="list-name">In list {{list.name}}</div>
         <div class="main-data">
+          <h4>Labels</h4>
           <div v-if="task.labels.length > 0" class="labels">
             <span
               v-for="label in task.labels"
@@ -39,7 +40,7 @@
             <h4>Description</h4>
             <div
               v-if="!isOpenDescription"
-              class="description-txt"
+              class="edit-area description-txt"
               @click="toggleDescription"
             >{{(task.description) ? task.description : 'Add a more detailed description'}}</div>
             <div v-else class="edit-description">
@@ -55,6 +56,7 @@
               v-for="checklist in task.checklists"
               :key="checklist.id"
               :checklist="checklist"
+              @update-checklist="updateChecklist"
               @remove-checklist="removeChecklist"
               @add-todo="addTodo"
               @update-todo="updateTodo"
@@ -368,8 +370,7 @@ export default {
     async addChecklist(title) {
       if (!title) return;
       this.newChecklist.name = title;
-      const checklist = this.newChecklist;
-      this.task.checklists.push(checklist);
+      this.task.checklists.push(this.newChecklist);
       const activitylog = this.createActivitylog(
         `added checklist in ${this.task.name}`
       );
@@ -391,6 +392,14 @@ export default {
       } catch (err) {
         console.log("Err in getEmptyChecklist");
       }
+    },
+    updateChecklist(checklist) {
+      const checklistIndex = this.task.checklists.findIndex(
+        currChecklist => currChecklist.id === checklist.id
+      );
+
+      this.task.checklists.splice(checklistIndex, 1, checklist);
+      this.saveTask();
     },
     removeChecklist(checklistId) {
       const checklistIndex = this.task.checklists.findIndex(
