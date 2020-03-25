@@ -1,7 +1,8 @@
 import io from 'socket.io-client';
 const BASE_URL = process.env.NODE_ENV === 'production' ?
     '/' :
-    'mongodb://localhost:27017'
+    '//localhost:3000'
+
 var socket;
 
 export default {

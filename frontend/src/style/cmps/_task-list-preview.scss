@@ -3,9 +3,9 @@
     margin-top: 80px;
 
     .tasklist-preview {
-        color: $clr-text;
+        color: $clr2;
         max-height: 100%;
-        background-color: $clr-nav-item-bgc;
+        background-color: $clr4;
         border-radius: rem(3px);
         width: rem(275px);
         margin: 0 rem(4px);
@@ -25,7 +25,7 @@
             }
 
             button.settings-btn {
-                color: $clr-text;
+                color: $clr2;
                 height: rem(30px);
                 width: rem(30px);
                 padding: rem(6px);
@@ -34,7 +34,7 @@
                 background-color: transparent;
 
                 &:hover {
-                    background-color: $clr-nav-item-hover;
+                    background-color: $clr3;
                     border-radius: rem(3px);
                 }
             }
@@ -49,11 +49,11 @@
             }
             &::-webkit-scrollbar-track {
                 border-radius: 10px;
-                background: $clr-nav-item-hover; 
+                background: $clr3; 
             }
             &::-webkit-scrollbar-thumb {
                 border-radius: rem(10px);
-                background: $clr-scrollbar; 
+                background: $clr6; 
             }
 
         }
@@ -61,7 +61,7 @@
 }
 
 // .tasklist-preview-placeholder {
-//     background-color: $clr-nav-item-hover;
+//     background-color: $clr3;
 //     border-radius: rem(3px);
 //     margin: rem(4px);
 //     padding: 0;
