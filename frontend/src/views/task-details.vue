@@ -12,7 +12,7 @@
     <div class="details-container">
       <section class="task-data">
         <h2 v-if="!isOpenName" @click="toggle('isOpenName')">{{task.name}}</h2>
-        <input v-else type="text" v-model="task.name" @blur="saveName" />
+        <input v-else type="text" v-model="task.name" @blur="saveName" @keyup.enter="saveName" />
         <div class="list-name">In list {{list.name}}</div>
         <div class="main-data">
           <h4>Labels</h4>

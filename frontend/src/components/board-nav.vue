@@ -7,12 +7,15 @@
         @click.stop="titleClicked = !titleClicked"
       >{{boardName}}</li>
       <li class="board-name" v-if="titleClicked">
-        <input type="text" :placeholder="boardName" v-model="newBoardName" @submit="changeName" />
+        <input type="text" v-model="newBoardName" @blur="changeName" @keyup.enter="changeName" />
       </li>
-      <li>
-        <ul>
-          <li class="member" v-for="member in members" :key="member._id">{{member.username}}</li>
-        </ul>
+      <li v-if="members">
+        <avatar
+          v-for="member in members"
+          :key="member._id"
+          :username="member.username"
+          class="member"
+        ></avatar>
       </li>
       <li>{{dueDate | dueDate}}</li>
     </ul>
@@ -24,6 +27,7 @@
 </template>
 
 <script>
+import avatar from "vue-avatar";
 export default {
   name: "board-nav",
   props: {
@@ -40,9 +44,18 @@ export default {
   },
   methods: {
     changeName() {
-      console.log(this.newBoardName);
-      // this.$emit
+      this.titleClicked = false;
+      this.$emit(
+        "update-boardname",
+        JSON.parse(JSON.stringify(this.newBoardName))
+      );
     }
+  },
+  created() {
+    this.newBoardName = this.boardName;
+  },
+  components: {
+    avatar
   }
 };
 </script>
