@@ -13,10 +13,10 @@ export default {
     },
     getters: {
         currTask(state) {
-            return state.currTask;
+            return JSON.parse(JSON.stringify(state.currTask));
         },
         currList(state) {
-            return state.currList;
+            return JSON.parse(JSON.stringify(state.currList));
         },
         currChecklist(state) {
             return state.currChecklist;
@@ -25,7 +25,10 @@ export default {
             return state.currId;
         },
         currActivitylog(state) {
-            return state.currActivitylog;
+            return JSON.parse(JSON.stringify(state.currActivitylog));
+        },
+        boardMembers(state) {
+            return state.board.members;
         }
     },
     mutations: {

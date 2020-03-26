@@ -1,6 +1,6 @@
 <template>
-  <div class="color-picker-big">
-    <div class="options" v-if="!isOptionOpen" @click="setBgc">
+  <div class="color-picker-large">
+    <div class="options" v-if="!isOptionOpen">
       <div class="option" @click="openImgOption">
         <div class="img photos-img"></div>
         <div class="title">Photos</div>
@@ -11,10 +11,10 @@
       </div>
     </div>
 
-    <div class="options-color" v-if="isOptionColorOpen">
-      <!-- <button>Back</button> -->
+    <button v-if="isOptionOpen" @click="backToOptions">Back</button>
+    <div class="options-bgc" v-if="isOptionColorOpen">
       <div
-        class="color"
+        class="bgc"
         v-for="color in colors"
         :key="color"
         :style="{backgroundColor: color}"
@@ -22,10 +22,9 @@
       ></div>
     </div>
 
-    <div class="options-color" v-if="isOptionImgOpen">
-      <!-- <button>Back</button> -->
+    <div class="options-bgc" v-if="isOptionImgOpen">
       <div
-        class="color"
+        class="bgc"
         v-for="img in imgs"
         :key="img"
         :style="{ 'background-image': 'url(' + img + ')' }"
@@ -58,6 +57,8 @@ export default {
         "#111"
       ],
       imgs: [
+        "https://images.pexels.com/photos/1563356/pexels-photo-1563356.jpeg",
+        "https://images.unsplash.com/photo-1474540412665-1cdae210ae6b",
         "https://cdn.pixabay.com/photo/2014/09/14/18/04/dandelion-445228_1280.jpg",
         "https://cdn.pixabay.com/photo/2016/01/08/11/57/butterfly-1127666_960_720.jpg",
         "https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832_960_720.jpg",
@@ -85,6 +86,11 @@ export default {
       this.isOptionColorOpen = false;
       this.isOptionImgOpen = true;
     },
+    backToOptions() {
+      this.isOptionOpen = false;
+      this.isOptionColorOpen = false;
+      this.isOptionImgOpen = false;
+    },
     setBgc(type, value) {
       if (type === "color") this.currBgc.color = value;
       if (type === "img") this.currBgc.url = value;
@@ -93,44 +99,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.color-picker-big .options {
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.color-picker-big .options .option {
-  width: 45%;
-  cursor: pointer;
-}
-
-.color-picker-big .options .option .img {
-  border-radius: 8px;
-  height: 96px;
-  width: 100%;
-  background-size: cover;
-}
-
-.color-picker-big .options .option .photos-img {
-  background-image: url(https://a.trellocdn.com/prgb/dist/images/photos-thumbnail@3x.48948499e309aef794d7.jpg);
-}
-
-.color-picker-big .colors-img {
-  background-image: url(https://a.trellocdn.com/prgb/dist/images/colors@2x.864f4df15d825e89e199.jpg);
-}
-
-.color-picker-big .options-color {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-}
-
-.color-picker-big .options-color .color {
-  border-radius: 8px;
-  height: 96px;
-  width: 47%;
-  background-size: cover;
-  margin: 3px 0;
-}
-</style>

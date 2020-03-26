@@ -43,3 +43,46 @@
     }
 
 }
+
+
+.color-picker-large {
+
+  .options {
+    display: flex;
+    justify-content: space-evenly;
+
+    .option {
+      width: 45%;
+      cursor: pointer;
+
+      .img {
+        border-radius: 8px;
+        height: 96px;
+        width: 100%;
+        background-size: cover;
+      }
+
+      .photos-img {
+        background-image: url(https://a.trellocdn.com/prgb/dist/images/photos-thumbnail@3x.48948499e309aef794d7.jpg);
+      }
+
+      .colors-img {
+        background-image: url(https://a.trellocdn.com/prgb/dist/images/colors@2x.864f4df15d825e89e199.jpg);
+      }
+    }
+  }
+
+  .options-bgc {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+    .bgc {
+      border-radius: 8px;
+      height: 96px;
+      width: 47%;
+      background-size: cover;
+      margin: 3px 0;
+    }
+  }
+}

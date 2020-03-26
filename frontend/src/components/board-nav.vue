@@ -7,11 +7,11 @@
         @click.stop="titleClicked = !titleClicked"
       >{{boardName}}</li>
       <li class="board-name" v-if="titleClicked">
-        <input type="text" placeholder="boardName" v-model="newBoardName" />
+        <input type="text" :placeholder="boardName" v-model="newBoardName" @submit="changeName" />
       </li>
       <li>
         <ul>
-          <li class="member" v-for="member in members" :key="member.id">{{member.name}}</li>
+          <li class="member" v-for="member in members" :key="member._id">{{member.username}}</li>
         </ul>
       </li>
       <li>{{dueDate | dueDate}}</li>
@@ -37,6 +37,12 @@ export default {
       titleClicked: false,
       newBoardName: ""
     };
+  },
+  methods: {
+    changeName() {
+      console.log(this.newBoardName);
+      // this.$emit
+    }
   }
 };
 </script>

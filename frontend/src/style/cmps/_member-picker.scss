@@ -1,0 +1,50 @@
+.member-picker {
+    position: absolute;
+    background-color: $clr1;
+    left: 35%;
+    transform: translate(35%, 0%);
+    z-index: 1;
+    padding: rem(20px);
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    color: $clr11;
+    h2,
+    h3 {
+        margin: 0;
+        font-weight: normal;
+    }
+    header {
+        margin-bottom: rem(10px);
+        .member-title {
+            font-size: rem(14px);
+        }
+        .close-btn {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: rem(5px);
+            background: none;
+            border: none;
+        }
+    }
+    .board-member-title {
+        font-size: rem(12px);
+        text-transform: uppercase;
+    }
+    .members {
+        list-style-type: none;
+        padding: 0;
+        .member {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            .member-avatar {
+                width: rem(30px) !important;
+                height: rem(30px) !important;
+                font-size: rem(12px) !important;
+                margin-right: rem(10px);
+            }
+        }
+    }
+}

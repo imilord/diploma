@@ -1,21 +1,32 @@
 .task-details {
-  position: absolute;
-  background-color: $clr8;
-  left: 50%;
-  top: 0;
-  transform: translate(-50%, 0%);
-  z-index: 1;
-  padding: rem(20px);
-  margin-top: rem(80px);
-  font-size: rem(14px);
-  .header {
-    .close-btn {
-      position: absolute;
-      top: 0;
-      right: 0;
-      margin: rem(5px);
-      background: none;
-      border: none;
+    position: absolute;
+    background-color: $clr8;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, 0%);
+    z-index: 1;
+    padding: rem(20px);
+    margin-top: rem(80px);
+    font-size: rem(14px);
+    overflow-y: auto;
+    height: 85vh;
+    .header {
+        .cover-container {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            .cover-img {
+                width: 50%;
+            }
+        }
+        .close-btn {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: rem(5px);
+            background: none;
+            border: none;
+        }
     }
     .cover-container {
       display: flex;
@@ -148,5 +159,20 @@
         text-align: left;
       }
     }
+<<<<<<< HEAD
   }
 }
+=======
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+    &::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background: $clr3;
+    }
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: $clr6;
+    }
+}
+>>>>>>> 2603cebabdef6fd8bc9a1ba6877db41d7470064e

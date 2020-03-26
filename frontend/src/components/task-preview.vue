@@ -16,11 +16,11 @@
           </span>
         </div>
         <div class="task-name">{{task.name}}</div>
-        <div class="members">
+        <div class="members" v-if="task.members">
           <avatar
             v-for="member in task.members"
-            :key="member.id"
-            :username="member.name"
+            :key="member._id"
+            :username="member.username"
             class="member"
           ></avatar>
         </div>
