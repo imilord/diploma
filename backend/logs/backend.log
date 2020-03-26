@@ -20,3 +20,58 @@ Wed, 25 Mar 2020 09:34:22 GMT - Info - Server is running on port: 3000
 Wed, 25 Mar 2020 09:38:06 GMT - Info - Server is running on port: 3000
 Wed, 25 Mar 2020 09:48:11 GMT - Info - Server is running on port: 3000
 Wed, 25 Mar 2020 11:58:16 GMT - Info - Server is running on port: 3000
+Thu, 26 Mar 2020 10:49:07 GMT - Info - Server is running on port: 3000
+Thu, 26 Mar 2020 12:22:32 GMT - Info - Server is running on port: 3000
+Thu, 26 Mar 2020 12:27:30 GMT - Debug - lian@gmail.com, Lian hirsh, 123
+Thu, 26 Mar 2020 12:27:30 GMT - Debug - auth.service - signup with email: lian@gmail.com, username: Lian hirsh
+Thu, 26 Mar 2020 12:27:31 GMT - Debug - auth.route - new account created: {"email":"lian@gmail.com","password":"$2b$10$uVB3PUZ.pDXVFNXno9o3gupWVY652yFHuOpvjRQptH98OHUENnv96","username":"Lian hirsh","_id":"5e7c9fb3c2a92610ac10ce03"}
+Thu, 26 Mar 2020 12:27:31 GMT - Debug - auth.service - login with email: lian@gmail.com
+Thu, 26 Mar 2020 12:29:23 GMT - Debug - lian@gmail.com, Lian hirsh, 123
+Thu, 26 Mar 2020 12:29:23 GMT - Debug - auth.service - signup with email: lian@gmail.com, username: Lian hirsh
+Thu, 26 Mar 2020 12:29:24 GMT - Debug - auth.route - new account created: {"email":"lian@gmail.com","password":"$2b$10$7DiTCGELoMdt0ZSiDwqwg.mB7ttkXMzWuH1.WSUpBWiSnoM4lG7lu","username":"Lian hirsh","_id":"5e7ca024c2a92610ac10ce04"}
+Thu, 26 Mar 2020 12:29:24 GMT - Debug - auth.service - login with email: lian@gmail.com
+Thu, 26 Mar 2020 12:30:24 GMT - Debug - lian@gmail.com, Lian hirsh, 123
+Thu, 26 Mar 2020 12:30:24 GMT - Debug - auth.service - signup with email: lian@gmail.com, username: Lian hirsh
+Thu, 26 Mar 2020 12:30:25 GMT - Debug - auth.route - new account created: {"email":"lian@gmail.com","password":"$2b$10$Xr7zVtqRET4LdbDA8y2SNO15bv7yZi0faNX7NvWNmoiOUYPwvV46K","username":"Lian hirsh","_id":"5e7ca060c2a92610ac10ce05"}
+Thu, 26 Mar 2020 12:30:25 GMT - Debug - auth.service - login with email: lian@gmail.com
+Thu, 26 Mar 2020 12:32:26 GMT - Debug - lian@gmail.com, Lian hirsh, 123
+Thu, 26 Mar 2020 12:32:26 GMT - Debug - auth.service - signup with email: lian@gmail.com, username: Lian hirsh
+Thu, 26 Mar 2020 12:32:27 GMT - Debug - auth.route - new account created: {"email":"lian@gmail.com","password":"$2b$10$mdqRpvKibVSvbpx.zDJfQ.80C34XJBZD8gdxMBemAwIGWWnnpUw.a","username":"Lian hirsh","_id":"5e7ca0dbc2a92610ac10ce06"}
+Thu, 26 Mar 2020 12:32:27 GMT - Debug - auth.service - login with email: lian@gmail.com
+Thu, 26 Mar 2020 12:33:27 GMT - Debug - lian@gmail.com, Lian hirsh, 123
+Thu, 26 Mar 2020 12:33:27 GMT - Debug - auth.service - signup with email: lian@gmail.com, username: Lian hirsh
+Thu, 26 Mar 2020 12:33:27 GMT - Debug - auth.route - new account created: {"email":"lian@gmail.com","password":"$2b$10$xHAvfpRJzwfQOH6mozidEOvj8KjxZfL6dAVB024AkvKs1b5jhE9Iy","username":"Lian hirsh","_id":"5e7ca117c2a92610ac10ce07"}
+Thu, 26 Mar 2020 12:33:27 GMT - Debug - auth.service - login with email: lian@gmail.com
+Thu, 26 Mar 2020 12:34:18 GMT - Debug - ella@gmail.com, Ella, 123
+Thu, 26 Mar 2020 12:34:18 GMT - Debug - auth.service - signup with email: ella@gmail.com, username: Ella
+Thu, 26 Mar 2020 12:34:19 GMT - Debug - auth.route - new account created: {"email":"ella@gmail.com","password":"$2b$10$MHGgUP/6JKtjRkr/U5Cnt.p9.OxXSTK1waLCz2NuenvGrZ1oGYUva","username":"Ella","_id":"5e7ca14ac2a92610ac10ce08"}
+Thu, 26 Mar 2020 12:34:19 GMT - Debug - auth.service - login with email: ella@gmail.com
+Thu, 26 Mar 2020 12:37:34 GMT - Debug - lian@gmail.com, Lian, 123
+Thu, 26 Mar 2020 12:37:34 GMT - Debug - auth.service - signup with email: lian@gmail.com, username: Lian
+Thu, 26 Mar 2020 12:37:34 GMT - Debug - auth.route - new account created: {"email":"lian@gmail.com","password":"$2b$10$lC.nNtgekSo6jt4jBEpcduY7Ut6JvXX7W03/WHrwvUwK3n4IYMvb2","username":"Lian","_id":"5e7ca20ec2a92610ac10ce09"}
+Thu, 26 Mar 2020 12:37:34 GMT - Debug - auth.service - login with email: lian@gmail.com
+Thu, 26 Mar 2020 12:38:01 GMT - Info - Server is running on port: 3000
+Thu, 26 Mar 2020 12:38:27 GMT - Debug - lian@gmail.com, Lian, 123
+Thu, 26 Mar 2020 12:38:27 GMT - Debug - auth.service - signup with email: lian@gmail.com, username: Lian
+Thu, 26 Mar 2020 12:38:29 GMT - Debug - auth.route - new account created: {"email":"lian@gmail.com","password":"$2b$10$h6JCz9nmG.edFCuBZxp9Fuji8atd.ErAH9HQxkAQF3Z7MVAVuVAqS","username":"Lian","imgUrl":"","_id":"5e7ca244274b9d033897f2d0"}
+Thu, 26 Mar 2020 12:38:29 GMT - Debug - auth.service - login with email: lian@gmail.com
+Thu, 26 Mar 2020 12:39:14 GMT - Debug - ella@gmail.com, ella, 123
+Thu, 26 Mar 2020 12:39:14 GMT - Debug - auth.service - signup with email: ella@gmail.com, username: ella
+Thu, 26 Mar 2020 12:39:15 GMT - Debug - auth.route - new account created: {"email":"ella@gmail.com","password":"$2b$10$16S9.prY5TV.NKtVCw2Ieucd.cxr0rifz6Q0NGOupryCwwH2TDu4O","username":"ella","imgUrl":"","_id":"5e7ca273274b9d033897f2d1"}
+Thu, 26 Mar 2020 12:39:15 GMT - Debug - auth.service - login with email: ella@gmail.com
+Thu, 26 Mar 2020 12:41:04 GMT - Debug - ronen@gmail.com, Ronen, 123
+Thu, 26 Mar 2020 12:41:04 GMT - Debug - auth.service - signup with email: ronen@gmail.com, username: Ronen
+Thu, 26 Mar 2020 12:41:04 GMT - Debug - auth.route - new account created: {"email":"ronen@gmail.com","password":"$2b$10$dJR3fOWU/V242pdCXFBli.AFf4vT7McIzjwZ3UnBM6hqZ07U3AUY6","username":"Ronen","imgUrl":"http://res.cloudinary.com/dcwrnwtiu/image/upload/v1585226447/pezk6qirc7ivqtjukc1f.jpg","_id":"5e7ca2e0274b9d033897f2d2"}
+Thu, 26 Mar 2020 12:41:04 GMT - Debug - auth.service - login with email: ronen@gmail.com
+Thu, 26 Mar 2020 12:42:19 GMT - Debug - Ella@gmail.com, Ella, 123
+Thu, 26 Mar 2020 12:42:19 GMT - Debug - auth.service - signup with email: Ella@gmail.com, username: Ella
+Thu, 26 Mar 2020 12:42:20 GMT - Debug - auth.route - new account created: {"email":"Ella@gmail.com","password":"$2b$10$Q/QoNqAtb/5Y7D72v031SOptDtmj5FWCiPun7LUoeT4oIfta3qFxO","username":"Ella","imgUrl":"http://res.cloudinary.com/dcwrnwtiu/image/upload/v1585226539/vl7e5gcihzxvsticnsvz.jpg","_id":"5e7ca32c274b9d033897f2d3"}
+Thu, 26 Mar 2020 12:42:20 GMT - Debug - auth.service - login with email: Ella@gmail.com
+Thu, 26 Mar 2020 12:44:59 GMT - Debug - ella@gmail.com, Ella, 123
+Thu, 26 Mar 2020 12:44:59 GMT - Debug - auth.service - signup with email: ella@gmail.com, username: Ella
+Thu, 26 Mar 2020 12:45:00 GMT - Debug - auth.route - new account created: {"email":"ella@gmail.com","password":"$2b$10$eL7wLveZxEieE.BKUECfceaQW.Ozl4iMDb86gmAuKMabapgep7zhm","username":"Ella","imgUrl":"","_id":"5e7ca3cc274b9d033897f2d4"}
+Thu, 26 Mar 2020 12:45:00 GMT - Debug - auth.service - login with email: ella@gmail.com
+Thu, 26 Mar 2020 12:52:05 GMT - Debug - lian@gmail.com, Lian, 456
+Thu, 26 Mar 2020 12:52:05 GMT - Debug - auth.service - signup with email: lian@gmail.com, username: Lian
+Thu, 26 Mar 2020 12:52:06 GMT - Debug - auth.route - new account created: {"email":"lian@gmail.com","password":"$2b$10$ZuZl3mKQveddjUvlnMzlsOBc0iDbSQz1ku8FHEopsoLt9ZyH0YwcO","username":"Lian","imgUrl":"","_id":"5e7ca575274b9d033897f2d5"}
+Thu, 26 Mar 2020 12:52:06 GMT - Debug - auth.service - login with email: lian@gmail.com

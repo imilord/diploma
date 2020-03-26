@@ -10,12 +10,10 @@
         <input type="text" v-model="newBoardName" @blur="changeName" @keyup.enter="changeName" />
       </li>
       <li v-if="members">
-        <avatar
-          v-for="member in members"
-          :key="member._id"
-          :username="member.username"
-          class="member"
-        ></avatar>
+        <div v-for="member in members" :key="member._id">
+          <img v-if="member.imgUrl" :src="member.imgUrl" class="member-img"/>
+          <avatar v-else :username="member.username" class="member"></avatar>
+        </div>
       </li>
       <li>{{dueDate | dueDate}}</li>
     </ul>

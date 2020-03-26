@@ -29,13 +29,11 @@
           </div>
           <div class="members">
             <h4>Members</h4>
-            <div v-if="task.members !== undefined && task.members.length > 0">
-              <avatar
-                v-for="member in task.members"
-                :key="member._id"
-                :username="member.username"
-                class="member"
-              ></avatar>
+            <div v-if="task.members !== undefined && task.members.length > 0" @click="toggle('isAddMember')">
+              <div v-for="member in task.members" :key="member._id">
+                <img v-if="member.imgUrl" :src="member.imgUrl" class="member-img"/>
+                <avatar v-else :username="member.username" class="member"></avatar>
+              </div>
             </div>
           </div>
           <div class="description-content">
@@ -112,11 +110,11 @@
             <button class="main-btn" @click="toggle('isOpenCover')">
               <i class="el-icon-picture-outline"></i> Cover
             </button>
-            <cover-picker
+            <img-picker
               v-if="isOpenCover"
-              @update-cover="updateCover"
-              @close-cover-picker="toggle('isOpenCover')"
-            ></cover-picker>
+              @update-img="updateCover"
+              @close-img-picker="toggle('isOpenCover')"
+            ></img-picker>
           </div>
           <button class="main-btn" @click="copyTask">Copy</button>
           <div>
@@ -148,7 +146,7 @@
 <script>
 import labelPicker from "../components/label-picker.vue";
 import dueDatePicker from "../components/due-date-picker.vue";
-import coverPicker from "../components/cover-picker.vue";
+import imgPicker from "../components/img-picker.vue";
 import checklistPicker from "../components/checklist-picker.vue";
 import colorPickerMedium from "../components/‏‏color-picker-medium.vue";
 import memberPicker from "../components/member-picker.vue";
@@ -213,9 +211,10 @@ export default {
       try {
         const task = await this.$store.dispatch({
           type: "updateTask",
-          task: this.task
+          task: JSON.parse(JSON.stringify(this.task))
         });
-        this.task = JSON.parse(JSON.stringify(task));
+
+        this.task = task;
       } catch (err) {
         console.log("Err in updateTask");
       }
@@ -434,15 +433,11 @@ export default {
       if (memberIdx === -1) {
         this.task.members.push(member);
 
-        activitylog = this.createActivitylog(
-          `joined to ${this.task.name}`
-        );
+        activitylog = this.createActivitylog(`joined to ${this.task.name}`);
       } else {
         this.task.members.splice(memberIdx, 1);
 
-        activitylog = this.createActivitylog(
-          `left from ${this.task.name}`
-        );
+        activitylog = this.createActivitylog(`left from ${this.task.name}`);
       }
 
       this.saveTaskData(activitylog);
@@ -489,7 +484,7 @@ export default {
   components: {
     labelPicker,
     dueDatePicker,
-    coverPicker,
+    imgPicker,
     checklistPicker,
     avatar,
     checklistDetails,

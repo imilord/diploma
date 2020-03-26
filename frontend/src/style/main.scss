@@ -6,6 +6,7 @@
 // BASICS
 @import "basics/base.scss";
 @import "basics/layout.scss";
+@import "basics/helpers.scss";
 // COMPONENTS
 @import "cmps/color-picker.scss";
 @import "cmps/main-nav.scss";
@@ -23,3 +24,4 @@
 @import "cmps/checklist-details.scss";
 //VIEWS
 @import "./views/task-details.scss";
+@import "./views/user-auth.scss";

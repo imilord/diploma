@@ -17,12 +17,10 @@
         </div>
         <div class="task-name">{{task.name}}</div>
         <div class="members" v-if="task.members">
-          <avatar
-            v-for="member in task.members"
-            :key="member._id"
-            :username="member.username"
-            class="member"
-          ></avatar>
+          <div v-for="member in task.members" :key="member._id">
+            <img v-if="member.imgUrl" :src="member.imgUrl" class="member-img"/>
+            <avatar v-else :username="member.username" class="member"></avatar>
+          </div>
         </div>
         <div v-if="task.dueDate" class="due-date">{{task.dueDate | dueDate}}</div>
       </div>

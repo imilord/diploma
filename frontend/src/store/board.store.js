@@ -148,7 +148,7 @@ export default {
             });
             const board = await boardService.save(context.state.board);
             socketService.emit("update board", board);
-            return task;
+            return JSON.parse(JSON.stringify(task));
         },
         async deleteTask(context, { task }) {
             context.commit({

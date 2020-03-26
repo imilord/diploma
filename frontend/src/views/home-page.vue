@@ -1,6 +1,6 @@
 <template>
 <section class="home-page">
-  <router-link :to="'/board/5e78800c1c9d4400007ad7ba'">kslrgjsjgk</router-link>
+  <router-link :to="'/board/5e78800c1c9d4400007ad7ba'">To the board</router-link>
 </section>
 </template>
 

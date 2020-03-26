@@ -2,36 +2,29 @@
     background-color: $clr1;
     border-radius: rem(3px);
     min-height: rem(20px);
-    box-shadow: 0 rem(1px) 0 rgba(9,30,66,.25);
+    box-shadow: 0 rem(1px) 0 rgba(9, 30, 66, .25);
     text-decoration: none;
     margin: 0 rem(4px) rem(8px) rem(1px);
     padding: rem(5px);
     padding-bottom: rem(12px);
     cursor: pointer;
-
-
     .task-container {
         text-decoration: none;
         width: 100%;
         color: $clr2;
-
         .cover-img-container {
             text-align: center;
-
             .cover-img {
                 width: 100%;
                 border-radius: rem(3px);
             }
         }
-
         .task-name {
             // margin-bottom: rem(10px);
         }
-
         .labels {
             display: flex;
             flex-wrap: wrap;
-
             .label {
                 min-width: rem(40px);
                 height: rem(25px);
@@ -39,7 +32,6 @@
                 margin-bottom: rem(8px);
                 border-radius: rem(3px);
                 text-align: center;
-
                 .label-title {
                     padding: rem(8px);
                     text-justify: distribute-all-lines;
@@ -47,14 +39,8 @@
                 }
             }
         }
-
         .members {
             margin-bottom: rem(15px);
-
-            .member {
-                width: rem(30px)!important;
-                height: rem(30px)!important;
-            }
         }
         .due-date {
             font-size: 0.8rem;

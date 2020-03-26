@@ -6,7 +6,7 @@
       <li>Login</li>
       <li>Sign Up</li>
       <li>User setting</li>
-      <li>Logout</li>
+      <li @click="$emit('logout')">Logout</li>
     </ul>
   </section>
 </template>
