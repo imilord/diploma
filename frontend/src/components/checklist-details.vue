@@ -19,7 +19,11 @@
     <div class="todos" v-for="todo in checklist.todos" :key="todo.id">
       <div>
         <el-checkbox v-model="todo.isDone" @change="updateTodo(todo)"></el-checkbox>
-        <div class="checklist-todo" v-if="!currTodoId" @click="setCurrTodoId(todo)">{{todo.text}}</div>
+        <div
+          class="checklist-todo"
+          v-if="currTodoId !== todo.id"
+          @click="setCurrTodoId(todo)"
+        >{{todo.text}}</div>
         <div class="checklist-todo" v-if="currTodoId === todo.id">
           <input type="text" v-model="todo.text" />
           <button @click="changeTodoName(todo)">Save</button>

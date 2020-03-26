@@ -15,7 +15,21 @@
             <span class="label-title" v-if="label.title">{{label.title}}</span>
           </span>
         </div>
+
         <div class="task-name">{{task.name}}</div>
+
+        <div class="due-date" v-if="task.dueDate">
+          <span class="due-date-icon el-icon-time"></span>
+          <span v-if="task.dueDate">{{task.dueDate | dueDate}}</span>
+        </div>
+
+        <div class="checklist" v-if="task.checklists.length>0">
+          <span class="checklist-icon el-icon-document-checked"></span>
+          <span>{{doneTodosAmount}}</span>
+          <span>/</span>
+          <span>{{todosAmount}}</span>
+        </div>
+
         <div class="members" v-if="task.members">
           <avatar
             v-for="member in task.members"
@@ -24,7 +38,6 @@
             class="member"
           ></avatar>
         </div>
-        <div v-if="task.dueDate" class="due-date">{{task.dueDate | dueDate}}</div>
       </div>
     </router-link>
   </section>
@@ -37,6 +50,24 @@ export default {
   props: {
     task: Object,
     boardId: String
+  },
+  computed: {
+    doneTodosAmount() {
+      var doneTodos = 0;
+      this.task.checklists.forEach(checklist => {
+        doneTodos += checklist.todos.filter(todo => todo.isDone).length;
+      });
+
+      return doneTodos;
+    },
+    todosAmount() {
+      var todos = 0;
+      this.task.checklists.forEach(checklist => {
+        todos += checklist.todos.length;
+      });
+
+      return todos;
+    }
   },
   components: {
     avatar

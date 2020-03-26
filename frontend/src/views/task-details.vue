@@ -213,7 +213,7 @@ export default {
       try {
         const task = await this.$store.dispatch({
           type: "updateTask",
-          task: this.task
+          task: JSON.parse(JSON.stringify(this.task))
         });
         this.task = JSON.parse(JSON.stringify(task));
       } catch (err) {
@@ -222,6 +222,10 @@ export default {
     },
     toggle(type) {
       this[type] = !this[type];
+
+      if (type === "isOpenChecklist") {
+        this.getEmptyChecklist();
+      }
     },
     async addLabel(newLabel) {
       this.task.labels.push(newLabel);
@@ -434,20 +438,16 @@ export default {
       if (memberIdx === -1) {
         this.task.members.push(member);
 
-        activitylog = this.createActivitylog(
-          `joined to ${this.task.name}`
-        );
+        activitylog = this.createActivitylog(`joined to ${this.task.name}`);
       } else {
         this.task.members.splice(memberIdx, 1);
 
-        activitylog = this.createActivitylog(
-          `left from ${this.task.name}`
-        );
+        activitylog = this.createActivitylog(`left from ${this.task.name}`);
       }
 
       this.saveTaskData(activitylog);
     },
-    async getEmptyChecklist() {
+    getEmptyChecklist() {
       try {
         this.$store.commit({
           type: "setEmptyChecklist"
@@ -456,6 +456,7 @@ export default {
         this.newChecklist = JSON.parse(
           JSON.stringify(this.$store.getters.currChecklist)
         );
+        console.log("new", this.newChecklist);
       } catch (err) {
         console.log("Err in getEmptyChecklist");
       }

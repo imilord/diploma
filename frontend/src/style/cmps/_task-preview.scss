@@ -1,69 +1,88 @@
 .task-preview {
-    background-color: $clr1;
-    border-radius: rem(3px);
-    min-height: rem(20px);
-    box-shadow: 0 rem(1px) 0 rgba(9,30,66,.25);
+  background-color: $clr1;
+  border-radius: rem(3px);
+  min-height: rem(20px);
+  box-shadow: 0 rem(1px) 0 rgba(9, 30, 66, 0.25);
+  text-decoration: none;
+  margin: 0 rem(4px) rem(8px) rem(1px);
+  padding: rem(5px);
+  padding-bottom: rem(12px);
+  cursor: pointer;
+
+  .task-container {
     text-decoration: none;
-    margin: 0 rem(4px) rem(8px) rem(1px);
-    padding: rem(5px);
-    padding-bottom: rem(12px);
-    cursor: pointer;
+    width: 100%;
+    color: $clr2;
 
+    .cover-img-container {
+      text-align: center;
 
-    .task-container {
-        text-decoration: none;
+      .cover-img {
         width: 100%;
-        color: $clr2;
-
-        .cover-img-container {
-            text-align: center;
-
-            .cover-img {
-                width: 100%;
-                border-radius: rem(3px);
-            }
-        }
-
-        .task-name {
-            // margin-bottom: rem(10px);
-        }
-
-        .labels {
-            display: flex;
-            flex-wrap: wrap;
-
-            .label {
-                min-width: rem(40px);
-                height: rem(25px);
-                margin-right: rem(5px);
-                margin-bottom: rem(8px);
-                border-radius: rem(3px);
-                text-align: center;
-
-                .label-title {
-                    padding: rem(8px);
-                    text-justify: distribute-all-lines;
-                    font-size: 0.8rem;
-                }
-            }
-        }
-
-        .members {
-            margin-bottom: rem(15px);
-
-            .member {
-                width: rem(30px)!important;
-                height: rem(30px)!important;
-            }
-        }
-        .due-date {
-            font-size: 0.8rem;
-        }
+        border-radius: rem(3px);
+      }
     }
+
+    .task-name {
+      margin-bottom: rem(4px);
+    }
+
+    .labels {
+      display: flex;
+      flex-wrap: wrap;
+
+      .label {
+        min-width: rem(40px);
+        height: rem(25px);
+        margin-right: rem(5px);
+        margin-bottom: rem(8px);
+        border-radius: rem(3px);
+        text-align: center;
+
+        .label-title {
+          padding: rem(8px);
+          text-justify: distribute-all-lines;
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    .members {
+      margin-top: rem(10px);
+
+      .member {
+        width: rem(27px) !important;
+        height: rem(27px) !important;
+        font-size: 15px !important;
+      }
+    }
+
+    .due-date {
+      font-size: rem(13px);
+      padding: rem(3px);
+      display: inline;
+      margin: 0 rem(6px) rem(6px) 0;
+
+      .due-date-icon {
+        margin-right: rem(3px);
+      }
+    }
+
+    .checklist {
+      font-size: rem(13px);
+      padding: rem(3px);
+      display: inline;
+      margin: 0 rem(6px) rem(6px) 0;
+
+      .checklist-icon {
+        margin-right: rem(3px);
+      }
+    }
+  }
 }
 
 .task-preview-placeholder {
-    background-color: $clr3;
-    border-radius: rem(3px);
-    margin: 0 rem(4px) rem(8px) rem(1px);
+  background-color: $clr3;
+  border-radius: rem(3px);
+  margin: 0 rem(4px) rem(8px) rem(1px);
 }
