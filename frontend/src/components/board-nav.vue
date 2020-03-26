@@ -57,7 +57,6 @@ export default {
   },
   created() {
     this.newBoardName = this.boardName;
-    console.log(this.creator);
   },
   components: {
     avatar

@@ -68,3 +68,55 @@
     background: $clr6;
   }
 }
+
+@media (max-width: $break-wide) {
+  .home-page {
+    img {
+      max-width: 750px;
+    }
+  }
+}
+
+@media (max-width: $break-normal) {
+  .home-page {
+    padding-left: 30px;
+    padding-right: 30px;
+
+    img {
+      max-width: 580px;
+    }
+  }
+}
+
+@media (max-width: $break-narrow) {
+  .home-page {
+    padding-left: 18px;
+    padding-right: 18px;
+
+    img {
+      max-width: 420px;
+    }
+
+    .search {
+    width: 150px;
+
+    input {
+      width: 115px;
+      height: 20px;
+    }
+  }
+
+  .board-preview {
+    width: 150px;
+    height: 80px;
+  }
+}
+}
+
+@media (max-width: $break-narrow-s) {
+  .home-page {
+    img {
+      max-width: 320px;
+    }
+  }
+}
