@@ -2,7 +2,9 @@
   <section class="main-nav container">
     <div class="logo">WorkFlow</div>
     <ul>
-      <li>Boards</li>
+      <li>
+        <router-link to="/">Boards</router-link>
+      </li>
       <li>Login</li>
       <li>Sign Up</li>
       <li>User setting</li>

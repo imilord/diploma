@@ -11,7 +11,7 @@
       <button @click="isNameEditorOpen=!isNameEditorOpen">Change board name</button>
       <button @click="isColorPickerOpen=!isColorPickerOpen">Change background</button>
       <button>Search tasks</button>
-      <button>Delete board</button>
+      <button @click="isDeleteQuestOpen=!isDeleteQuestOpen">Delete board</button>
     </main>
 
     <section>
@@ -19,6 +19,11 @@
       <div class="name-editor" v-if="isNameEditorOpen">
         <input type="text" v-model="name" :placeholder="board.name" />
         <button>Save</button>
+      </div>
+      <div v-if="isDeleteQuestOpen">
+        <div>Are you sure?</div>
+        <button @click="isDeleteQuestOpen=!isDeleteQuestOpen">No</button>
+        <button @click="deleteBoard">Yes, delete this board</button>
       </div>
     </section>
   </div>
@@ -34,7 +39,8 @@ export default {
   data() {
     return {
       isColorPickerOpen: false,
-      isNameEditorOpen: false
+      isNameEditorOpen: false,
+      isDeleteQuestOpen: false
     };
   },
   methods: {
@@ -43,10 +49,10 @@ export default {
     },
     setBgc(bgc) {
       this.$emit("set-bgc", bgc);
+    },
+    deleteBoard() {
+      this.$emit("delete-board");
     }
-  },
-  created() {
-    console.log(this.board);
   },
   components: {
     colorPickerLarge

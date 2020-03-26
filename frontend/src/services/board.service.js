@@ -37,10 +37,10 @@ function save(board) {
 
 function getEmptyBoard() {
     return {
-        name: "",
+        name: "New Board",
         members: [],
         tags: [],
-        style: { "color": "white", "url": "" },
+        style: { "color": "rgb(189, 191, 192)", "url": "" },
         creator: {
             id: "",
             name: "",

@@ -4,6 +4,7 @@ import socketService from "../services/socket.service.js";
 
 export default {
     state: {
+        boards: null,
         board: null,
         currTask: null,
         currList: null,
@@ -29,6 +30,9 @@ export default {
         },
         boardMembers(state) {
             return state.board.members;
+        },
+        board(state) {
+            return state.board;
         }
     },
     mutations: {
@@ -39,6 +43,10 @@ export default {
         setEmptyTasksList(state) {
             const list = boardService.getEmptyTasksList();
             state.currList = list;
+        },
+        setEmptyBoard(state) {
+            const board = boardService.getEmptyBoard();
+            state.board = board;
         },
         getTaskActivitylog(state, { taskId }) {
             state.currActivitylog = state.board.activitieslog.filter(activity => activity.taskId === taskId);
@@ -56,6 +64,9 @@ export default {
                     return;
                 }
             }
+        },
+        setBoards(state, { boards }) {
+            state.boards = boards;
         },
         setBoard(state, { board }) {
             state.board = board;
@@ -99,6 +110,9 @@ export default {
                 return;
             }
         },
+        deleteBoard(state) {
+            state.board = null
+        },
         getId(state) {
             const id = utilService.makeId();
             state.currId = id
@@ -109,6 +123,11 @@ export default {
         }
     },
     actions: {
+        async loadBoards(context) {
+            const boards = await boardService.query();
+            context.commit({ type: 'setBoards', boards });
+            return boards;
+        },
         async loadBoard(context, { boardId }) {
             const board = await boardService.getById(boardId);
             context.commit({ type: 'setBoard', board });
@@ -131,6 +150,11 @@ export default {
             const savedBoard = await boardService.save(context.state.board);
             socketService.emit("update board", savedBoard);
             return savedBoard;
+        },
+        async addNewBoard(context) {
+            const savedBoard = await boardService.save(context.state.board);
+            context.commit({ type: 'setBoard', savedBoard });
+            return savedBoard._id
         },
         async updateBoard(context, { board }) {
             context.commit({
@@ -170,6 +194,14 @@ export default {
             socketService.emit("update board", savedBoard);
             return savedBoard;
         },
+        async deleteBoard(context, { boardId }) {
+            context.commit({
+                type: 'deleteBoard',
+                boardId
+            });
+            await boardService.remove(boardId);
+            return boardId
+        }, 
         async uploadImg(context, { ev }) {
             const res = await utilService.uploadImg(ev);
             const { url } = res;

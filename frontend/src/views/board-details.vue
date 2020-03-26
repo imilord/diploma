@@ -14,6 +14,7 @@
       :board="board"
       @toggle-settings="toggleSettings"
       @set-bgc="setBgc"
+      @delete-board="deleteBoard"
     ></board-settings>
     <activitylog
       v-if="isOpenActivitylog"
@@ -95,8 +96,14 @@ export default {
     },
     setBgc(bgc) {
       this.board.style = bgc;
-      console.log(this.board);
       this.updateBoard();
+    },
+    async deleteBoard() {
+      await this.$store.dispatch({
+        type: "deleteBoard",
+        boardId: this.board._id
+      });
+      this.$router.push(`/`);
     },
     async updateBoardname(newBoardname) {
       this.board.name = newBoardname;
