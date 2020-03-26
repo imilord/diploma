@@ -12,7 +12,7 @@
     <div class="details-container">
       <section class="task-data">
         <h2 v-if="!isOpenName" @click="toggle('isOpenName')">{{task.name}}</h2>
-        <input v-else type="text" v-model="task.name" @blur="saveName" />
+        <input v-else type="text" v-model="task.name" @blur="saveName" @keyup.enter="saveName" />
         <div class="list-name">In list {{list.name}}</div>
         <div class="main-data">
           <h4>Labels</h4>
@@ -29,13 +29,14 @@
           </div>
           <div class="members">
             <h4>Members</h4>
-            <div v-if="task.members !== undefined && task.members.length > 0">
-              <avatar
-                v-for="member in task.members"
-                :key="member._id"
-                :username="member.username"
-                class="member"
-              ></avatar>
+            <div
+              v-if="task.members !== undefined && task.members.length > 0"
+              @click="toggle('isAddMember')"
+            >
+              <div v-for="member in task.members" :key="member._id">
+                <img v-if="member.imgUrl" :src="member.imgUrl" class="member-img" />
+                <avatar v-else :username="member.username" class="member"></avatar>
+              </div>
             </div>
           </div>
           <div class="description-content">
@@ -100,7 +101,8 @@
             ></due-date-picker>
           </div>
           <div>
-            <button class="main-btn" @click="toggle('isAddMember')">Members</button>
+            <button class="main-btn" @click="toggle('isAddMember')">
+              <i class="el-icon-user"></i> Members</button>
             <member-picker
               v-if="isAddMember"
               :members="boardMembers"
@@ -109,16 +111,17 @@
             ></member-picker>
           </div>
           <div>
-            <button class="main-btn" @click="toggle('isOpenCover')">
-              <i class="el-icon-picture-outline"></i> Cover
-            </button>
-            <cover-picker
-              v-if="isOpenCover"
-              @update-cover="updateCover"
-              @close-cover-picker="toggle('isOpenCover')"
-            ></cover-picker>
+            <label for="add-img" class="cover-content">
+              <div class="main-btn">
+                <i class="el-icon-picture-outline"></i>
+                <span> Cover</span>
+              </div>
+              <input id="add-img" type="file" @change="addImg" class="cover-input" />
+            </label>
           </div>
-          <button class="main-btn" @click="copyTask">Copy</button>
+          <button class="main-btn" @click="copyTask">
+            <i class="el-icon-document-copy"></i> Copy
+          </button>
           <div>
             <button class="main-btn" @click="toggle('isOpenChecklist')">
               <i class="el-icon-document-checked"></i> Checklist
@@ -148,7 +151,6 @@
 <script>
 import labelPicker from "../components/label-picker.vue";
 import dueDatePicker from "../components/due-date-picker.vue";
-import coverPicker from "../components/cover-picker.vue";
 import checklistPicker from "../components/checklist-picker.vue";
 import colorPickerMedium from "../components/‏‏color-picker-medium.vue";
 import memberPicker from "../components/member-picker.vue";
@@ -215,7 +217,8 @@ export default {
           type: "updateTask",
           task: JSON.parse(JSON.stringify(this.task))
         });
-        this.task = JSON.parse(JSON.stringify(task));
+
+        this.task = task;
       } catch (err) {
         console.log("Err in updateTask");
       }
@@ -310,6 +313,14 @@ export default {
 
       this.saveTaskData(activitylog);
       this.toggle("isOpenDescription");
+    },
+    async addImg(ev) {
+      const url = await this.$store.dispatch({
+        type: "uploadImg",
+        ev
+      });
+
+      this.updateCover(url);
     },
     updateCover(url) {
       const activitylog = this.createActivitylog(
@@ -490,7 +501,6 @@ export default {
   components: {
     labelPicker,
     dueDatePicker,
-    coverPicker,
     checklistPicker,
     avatar,
     checklistDetails,

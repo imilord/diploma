@@ -14,3 +14,20 @@
 .ratio-poster {
     @include aspect-ratio(100, 150);
 }
+
+.member {
+    padding: 0 rem(6px);
+    width: 32px !important;
+    height: 32px!important;
+    font-size: rem(12px) !important;
+    background-color: $clr10 !important;
+    color: $clr11 !important;
+}
+
+.member-img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: rem(10px);
+}

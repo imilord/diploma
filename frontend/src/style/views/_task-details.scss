@@ -37,6 +37,7 @@
     }
   }
 }
+
 .details-container {
   display: flex;
   align-items: center;
@@ -73,10 +74,6 @@
       }
       .members {
         margin-bottom: rem(30px);
-        .member {
-          width: rem(30px) !important;
-          height: rem(30px) !important;
-        }
       }
       .description-content {
         margin-bottom: rem(30px);
@@ -157,6 +154,15 @@
       margin-bottom: rem(8px);
       width: rem(160px);
       text-align: left;
+    }
+    .cover-content {
+      cursor: pointer;
+      .cover-input {
+        display: block;
+        visibility: hidden;
+        width: 0;
+        height: 0;
+      }
     }
   }
   &::-webkit-scrollbar {

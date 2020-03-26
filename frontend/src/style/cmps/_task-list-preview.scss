@@ -10,7 +10,9 @@
         border-radius: rem(3px);
         width: rem(275px);
         margin: 0 rem(4px);
-        padding: rem(8px);
+        padding: rem(8px) rem(4px) rem(8px) rem(7px);
+        // padding-left: rem(7px);
+        // padding-right: rem(4px);
         position: relative;
 
         header {
