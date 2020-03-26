@@ -7,6 +7,7 @@
       :creator="board.creator"
       @toggle-activitylog="toggleActivitylog"
       @toggle-settings="toggleSettings"
+      @update-boardname="updateBoardname"
     ></board-nav>
     <board-settings
       v-if="isOpenBoardSetting"
@@ -96,6 +97,13 @@ export default {
       this.board.style = bgc;
       console.log(this.board);
       this.updateBoard();
+    },
+    async updateBoardname(newBoardname) {
+      this.board.name = newBoardname;
+      await this.$store.dispatch({
+        type: "updateBoard",
+        board: this.board
+      });
     }
   },
   async created() {
