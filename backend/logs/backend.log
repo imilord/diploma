@@ -22,3 +22,82 @@ Wed, 25 Mar 2020 09:48:11 GMT - Info - Server is running on port: 3000
 Wed, 25 Mar 2020 11:58:16 GMT - Info - Server is running on port: 3000
 Thu, 26 Mar 2020 08:38:16 GMT - Info - Server is running on port: 3000
 Thu, 26 Mar 2020 10:09:14 GMT - Info - Server is running on port: 3000
+Thu, 26 Mar 2020 15:38:26 GMT - Debug - lian@gmail.com, Lian, 1234
+Thu, 26 Mar 2020 15:38:26 GMT - Debug - auth.service - signup with email: lian@gmail.com, username: Lian
+Thu, 26 Mar 2020 15:38:27 GMT - Debug - auth.route - new account created: {"email":"lian@gmail.com","password":"$2b$10$PTrJeuUnGxOpRGMc1Kxuzu/N3lEv2XAVInNorh9yKiZZRffZj4GVi","username":"Lian","imgUrl":"","_id":"5e7ccc723db16822a8aa8567"}
+Thu, 26 Mar 2020 15:38:27 GMT - Debug - auth.service - login with email: lian@gmail.com
+Thu, 26 Mar 2020 15:38:27 GMT - Error - [SIGNUP] Invalid email or password
+Thu, 26 Mar 2020 15:39:03 GMT - Debug - auth.service - login with email: lian@gmail.com
+Thu, 26 Mar 2020 15:45:25 GMT - Debug - auth.service - login with email: lian@gmail.com
+Thu, 26 Mar 2020 15:48:34 GMT - Debug - auth.service - login with email: lian@gmail.com
+Thu, 26 Mar 2020 16:02:18 GMT - Debug - auth.service - login with email: lian@gmail.com
+Thu, 26 Mar 2020 16:05:10 GMT - Debug - auth.service - login with email: lian@gmail.com
+Thu, 26 Mar 2020 16:05:38 GMT - Info - Server is running on port: 3000
+Thu, 26 Mar 2020 16:06:10 GMT - Debug - auth.service - login with email: lian@gmail.com
+Thu, 26 Mar 2020 16:09:33 GMT - Info - Server is running on port: 3000
+Thu, 26 Mar 2020 16:09:59 GMT - Debug - auth.service - login with email: lian@gmail.com
+Thu, 26 Mar 2020 16:18:39 GMT - Info - Server is running on port: 3000
+Thu, 26 Mar 2020 16:19:17 GMT - Debug - auth.service - login with email: lian@gmail.com
+Thu, 26 Mar 2020 16:20:30 GMT - Debug - auth.service - login with email: lian@gmail.com
+Thu, 26 Mar 2020 16:20:45 GMT - Info - Server is running on port: 3000
+Thu, 26 Mar 2020 16:21:04 GMT - Debug - auth.service - login with email: lian@gmail.com
+Thu, 26 Mar 2020 16:21:47 GMT - Info - Server is running on port: 3000
+Thu, 26 Mar 2020 16:22:05 GMT - Debug - auth.service - login with email: lian@gmail.com
+Thu, 26 Mar 2020 16:22:11 GMT - Debug - auth.service - login with email: lian@gmail.com
+Thu, 26 Mar 2020 16:23:37 GMT - Debug - auth.service - login with email: lian@gmail.com
+Thu, 26 Mar 2020 16:23:54 GMT - Info - Server is running on port: 3000
+Thu, 26 Mar 2020 16:24:15 GMT - Debug - auth.service - login with email: lian@gmail.com
+Thu, 26 Mar 2020 16:25:02 GMT - Info - Server is running on port: 3000
+Thu, 26 Mar 2020 16:25:19 GMT - Debug - auth.service - login with email: lian@gmail.com
+Thu, 26 Mar 2020 16:25:38 GMT - Info - Server is running on port: 3000
+Thu, 26 Mar 2020 16:26:37 GMT - Info - Server is running on port: 3000
+Thu, 26 Mar 2020 16:28:03 GMT - Debug - lian@gmail.com, lian, 123
+Thu, 26 Mar 2020 16:28:03 GMT - Debug - auth.service - signup with email: lian@gmail.com, username: lian
+Thu, 26 Mar 2020 16:28:08 GMT - Debug - auth.route - new account created: {"email":"lian@gmail.com","password":"$2b$10$nwZqBHxrsnuyLQB.VTcsuOOFLdO1ShYf.VdPeg4BDEbcX8WU.iwdu","username":"lian","imgUrl":"","_id":"5e7cd817592dd53a80cf1a35"}
+Thu, 26 Mar 2020 16:28:08 GMT - Debug - auth.service - login with email: lian@gmail.com
+Thu, 26 Mar 2020 16:33:58 GMT - Info - Server is running on port: 3000
+Thu, 26 Mar 2020 16:40:25 GMT - Debug - auth.service - login with email: lian@gmail.com
+Thu, 26 Mar 2020 16:48:00 GMT - Debug - lian@gmail.com, lili, 1234
+Thu, 26 Mar 2020 16:48:00 GMT - Debug - auth.service - signup with email: lian@gmail.com, username: lili
+Thu, 26 Mar 2020 16:48:00 GMT - Debug - auth.route - new account created: {"email":"lian@gmail.com","password":"$2b$10$pyX6cuRRtcA1oeC8qwIasu0m7ZM6LgqMym9dim.ZriLCzi3ZgPFUC","username":"lili","imgUrl":"","_id":"5e7cdcc07fdf8a277c8d9cfb"}
+Thu, 26 Mar 2020 16:48:00 GMT - Debug - auth.service - login with email: lian@gmail.com
+Thu, 26 Mar 2020 16:48:00 GMT - Error - [SIGNUP] Invalid email or password
+Thu, 26 Mar 2020 16:48:38 GMT - Info - Server is running on port: 3000
+Thu, 26 Mar 2020 16:48:58 GMT - Debug - lian@gmail.com, lili, 123
+Thu, 26 Mar 2020 16:48:58 GMT - Debug - auth.service - signup with email: lian@gmail.com, username: lili
+Thu, 26 Mar 2020 16:49:03 GMT - Error - [SIGNUP] TypeError: collection.some is not a function
+Thu, 26 Mar 2020 16:50:08 GMT - Info - Server is running on port: 3000
+Thu, 26 Mar 2020 16:50:40 GMT - Debug - lian@gmail.com, dcsd, 123
+Thu, 26 Mar 2020 16:50:40 GMT - Debug - auth.service - signup with email: lian@gmail.com, username: dcsd
+Thu, 26 Mar 2020 16:50:42 GMT - Error - [SIGNUP] TypeError: collection.toArray is not a function
+Thu, 26 Mar 2020 16:51:12 GMT - Info - Server is running on port: 3000
+Thu, 26 Mar 2020 16:51:25 GMT - Debug - lian@gmail.com, adfa, 123
+Thu, 26 Mar 2020 16:51:25 GMT - Debug - auth.service - signup with email: lian@gmail.com, username: adfa
+Thu, 26 Mar 2020 16:51:26 GMT - Error - [SIGNUP] TypeError: collection.toArray is not a function
+Thu, 26 Mar 2020 16:53:36 GMT - Info - Server is running on port: 3000
+Thu, 26 Mar 2020 16:53:52 GMT - Debug - lian@gmail.com, vdf, 123
+Thu, 26 Mar 2020 16:53:52 GMT - Debug - auth.service - signup with email: lian@gmail.com, username: vdf
+Thu, 26 Mar 2020 16:53:54 GMT - Error - [SIGNUP] TypeError: collection.toArray is not a function
+Thu, 26 Mar 2020 16:57:04 GMT - Info - Server is running on port: 3000
+Thu, 26 Mar 2020 16:58:39 GMT - Debug - lian@gmail.com, dscsd, 123
+Thu, 26 Mar 2020 16:58:39 GMT - Debug - auth.service - signup with email: lian@gmail.com, username: dscsd
+Thu, 26 Mar 2020 16:58:41 GMT - Error - [SIGNUP] TypeError: collection.toArray is not a function
+Thu, 26 Mar 2020 16:59:13 GMT - Info - Server is running on port: 3000
+Thu, 26 Mar 2020 16:59:29 GMT - Debug - lian@gmail.com, fvf, svsf
+Thu, 26 Mar 2020 16:59:29 GMT - Debug - auth.service - signup with email: lian@gmail.com, username: fvf
+Thu, 26 Mar 2020 16:59:30 GMT - Error - [SIGNUP] ReferenceError: Cannot access 'user' before initialization
+Thu, 26 Mar 2020 17:04:13 GMT - Debug - lian@gmail.com, dffd, fdf
+Thu, 26 Mar 2020 17:05:34 GMT - Debug - auth.service - signup with email: lian@gmail.com, username: dffd
+Thu, 26 Mar 2020 17:05:34 GMT - Debug - lian@gmail.com, dffd, fd
+Thu, 26 Mar 2020 17:05:34 GMT - Debug - auth.service - signup with email: lian@gmail.com, username: dffd
+Thu, 26 Mar 2020 17:05:34 GMT - Debug - lian@gmail.com, dffd, fd
+Thu, 26 Mar 2020 17:05:34 GMT - Debug - auth.service - signup with email: lian@gmail.com, username: dffd
+Thu, 26 Mar 2020 17:05:34 GMT - Error - [SIGNUP] ReferenceError: Cannot access 'user' before initialization
+Thu, 26 Mar 2020 17:05:34 GMT - Error - [SIGNUP] ReferenceError: Cannot access 'user' before initialization
+Thu, 26 Mar 2020 17:05:34 GMT - Error - [SIGNUP] ReferenceError: Cannot access 'user' before initialization
+Thu, 26 Mar 2020 17:07:29 GMT - Debug - lian@gmail.com, dss, dc
+Thu, 26 Mar 2020 17:07:29 GMT - Debug - auth.service - signup with email: lian@gmail.com, username: dss
+Thu, 26 Mar 2020 17:07:29 GMT - Error - [SIGNUP] ReferenceError: Cannot access 'user' before initialization
+Thu, 26 Mar 2020 17:10:36 GMT - Debug - lian@gmail.com, fsf, fs
+Thu, 26 Mar 2020 17:10:36 GMT - Debug - auth.service - signup with email: lian@gmail.com, username: fsf
+Thu, 26 Mar 2020 17:10:37 GMT - Error - [SIGNUP] ReferenceError: Cannot access 'user' before initialization

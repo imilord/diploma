@@ -62,8 +62,15 @@ async function getByEmail(email) {
 async function add(user) {
     const collection = await dbService.getCollection('user')
     try {
-        await collection.insertOne(user);
-        return user;
+        const email = user.email;
+        const user = await collection.findOne({ email });
+
+        if (!user) {
+            await collection.insertOne(user);
+            return user;
+        } else {
+            throw new Error;
+        }
     } catch (err) {
         console.log(`ERROR: cannot insert user`)
         throw err;

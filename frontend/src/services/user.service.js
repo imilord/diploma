@@ -10,12 +10,16 @@ export default {
 }
 
 async function login(userCred) {
-    const user = await httpService.post('auth/login', userCred)
+    const user = await httpService.post('auth/login', userCred);
     return _handleLogin(user)
 }
 async function signup(userCred) {
-    const user = await httpService.post('auth/signup', userCred)
-    return _handleLogin(user)
+    const user = await httpService.post('auth/signup', userCred);
+    if (user) {
+        return _handleLogin(user)
+    } else {
+        return null;
+    }
 }
 async function logout() {
     await httpService.post('auth/logout');

@@ -65,6 +65,8 @@ export default {
 
       if (user) {
         this.$router.push("/");
+      }else{
+        this.msg = "Email Address is Already Registered";
       }
     },
     async addImg(ev) {
