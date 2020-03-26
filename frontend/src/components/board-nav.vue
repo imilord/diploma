@@ -9,9 +9,15 @@
       <li class="board-name" v-if="titleClicked">
         <input type="text" v-model="newBoardName" @blur="changeName" @keyup.enter="changeName" />
       </li>
+      <li v-if="creator.name">
+        <div :key="creator._id">
+          <img v-if="creator.imgUrl" :src="creator.imgUrl" class="member-img" />
+          <avatar v-else :username="creator.username" class="member"></avatar>
+        </div>
+      </li>
       <li v-if="members">
         <div v-for="member in members" :key="member._id">
-          <img v-if="member.imgUrl" :src="member.imgUrl" class="member-img"/>
+          <img v-if="member.imgUrl" :src="member.imgUrl" class="member-img" />
           <avatar v-else :username="member.username" class="member"></avatar>
         </div>
       </li>
@@ -51,6 +57,7 @@ export default {
   },
   created() {
     this.newBoardName = this.boardName;
+    console.log(this.creator);
   },
   components: {
     avatar

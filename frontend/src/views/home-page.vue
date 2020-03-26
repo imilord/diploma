@@ -1,8 +1,11 @@
 <template>
   <section class="home-page">
-    <header>HOME PAGE</header>
+    <header>
+      <img src="../assets/img/header.jpg" />
+    </header>
     <main v-if="boards">
-      <div>
+      <div class="search">
+        <i class="el-icon-search"></i>
         <input type="text" placeholder="Search board" v-model="searchKeyword" />
       </div>
       <div
