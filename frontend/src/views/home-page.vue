@@ -9,7 +9,7 @@
         class="board-preview"
         v-for="board in boardBySearch"
         :key="board._id"
-        :style="{background: board.style.color || 'url(' + board.style.url + ') '}"
+        :style="{background: board.style.color || 'url(' + board.style.url + ')'}"
       >
         <router-link :to="'/board/' + board._id ">
           <button>{{board.name}}</button>
