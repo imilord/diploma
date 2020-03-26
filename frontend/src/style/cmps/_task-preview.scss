@@ -33,16 +33,16 @@
 
       .label {
         min-width: rem(40px);
-        height: rem(25px);
+        height: rem(22px);
         margin-right: rem(5px);
         margin-bottom: rem(8px);
         border-radius: rem(3px);
         text-align: center;
 
         .label-title {
-          padding: rem(8px);
-          text-justify: distribute-all-lines;
           font-size: 0.8rem;
+          color: $clr1;
+          font-weight: bold;
         }
       }
     }
@@ -79,4 +79,14 @@
   background-color: $clr3;
   border-radius: rem(3px);
   margin: 0 rem(4px) rem(8px) rem(1px);
+}
+
+.card-ghost {
+  transition: transform 0.15s ease;
+  transform: rotateZ(8deg);
+}
+
+.card-ghost-drop {
+  transition: transform 0.18s ease-in-out;
+  transform: rotateZ(0deg);
 }

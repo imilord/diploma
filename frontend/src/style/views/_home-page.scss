@@ -12,7 +12,7 @@
     filter: hue-rotate(170deg);
   }
   .search {
-    background-color: white;
+    background-color: $clr8;
     width: 194px;
     margin: 5px;
     padding: 0 5px;
@@ -20,12 +20,14 @@
     border: none;
 
     input {
+      background-color: $clr8;
       width: 155px;
       height: 25px;
       margin: 5px;
       padding-left: 5px;
       margin-left: 5px;
       border: none;
+      outline: none;
     }
   }
 
