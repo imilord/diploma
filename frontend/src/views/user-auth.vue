@@ -15,14 +15,19 @@
       <br />
       <input type="text" v-model="signupCred.username" placeholder="Username" />
       <br />
-      <img-picker @update-img="updateImg"></img-picker>
+      <label for="add-img">
+        <div>
+          <i class="el-icon-picture-outline"></i>
+          <span>Add image</span>
+        </div>
+        <input id="add-img" type="file" @change="addImg" class="img-input" />
+      </label>
       <button>Signup</button>
     </form>
   </section>
 </template>
 
 <script>
-import imgPicker from "../components/img-picker.vue";
 
 export default {
   name: "user-auth",
@@ -62,13 +67,24 @@ export default {
         this.$router.push("/");
       }
     },
-    updateImg(url) {
+    async addImg(ev) {
+      const url = await this.$store.dispatch({
+        type: "uploadImg",
+        ev
+      });
+
       this.signupCred.imgUrl = url;
     }
-  },
-  components: {
-    imgPicker
   }
 };
 </script>
+
+<style scoped>
+.img-input {
+  display: block;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+</style>
 

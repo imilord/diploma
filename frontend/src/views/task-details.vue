@@ -29,9 +29,12 @@
           </div>
           <div class="members">
             <h4>Members</h4>
-            <div v-if="task.members !== undefined && task.members.length > 0" @click="toggle('isAddMember')">
+            <div
+              v-if="task.members !== undefined && task.members.length > 0"
+              @click="toggle('isAddMember')"
+            >
               <div v-for="member in task.members" :key="member._id">
-                <img v-if="member.imgUrl" :src="member.imgUrl" class="member-img"/>
+                <img v-if="member.imgUrl" :src="member.imgUrl" class="member-img" />
                 <avatar v-else :username="member.username" class="member"></avatar>
               </div>
             </div>
@@ -98,7 +101,8 @@
             ></due-date-picker>
           </div>
           <div>
-            <button class="main-btn" @click="toggle('isAddMember')">Members</button>
+            <button class="main-btn" @click="toggle('isAddMember')">
+              <i class="el-icon-user"></i> Members</button>
             <member-picker
               v-if="isAddMember"
               :members="boardMembers"
@@ -107,16 +111,17 @@
             ></member-picker>
           </div>
           <div>
-            <button class="main-btn" @click="toggle('isOpenCover')">
-              <i class="el-icon-picture-outline"></i> Cover
-            </button>
-            <img-picker
-              v-if="isOpenCover"
-              @update-img="updateCover"
-              @close-img-picker="toggle('isOpenCover')"
-            ></img-picker>
+            <label for="add-img" class="cover-content">
+              <div class="main-btn">
+                <i class="el-icon-picture-outline"></i>
+                <span> Cover</span>
+              </div>
+              <input id="add-img" type="file" @change="addImg" class="cover-input" />
+            </label>
           </div>
-          <button class="main-btn" @click="copyTask">Copy</button>
+          <button class="main-btn" @click="copyTask">
+            <i class="el-icon-document-copy"></i> Copy
+          </button>
           <div>
             <button class="main-btn" @click="toggle('isOpenChecklist')">
               <i class="el-icon-document-checked"></i> Checklist
@@ -146,7 +151,6 @@
 <script>
 import labelPicker from "../components/label-picker.vue";
 import dueDatePicker from "../components/due-date-picker.vue";
-import imgPicker from "../components/img-picker.vue";
 import checklistPicker from "../components/checklist-picker.vue";
 import colorPickerMedium from "../components/‏‏color-picker-medium.vue";
 import memberPicker from "../components/member-picker.vue";
@@ -305,6 +309,14 @@ export default {
 
       this.saveTaskData(activitylog);
       this.toggle("isOpenDescription");
+    },
+    async addImg(ev) {
+      const url = await this.$store.dispatch({
+        type: "uploadImg",
+        ev
+      });
+
+      this.updateCover(url);
     },
     updateCover(url) {
       const activitylog = this.createActivitylog(
@@ -484,7 +496,6 @@ export default {
   components: {
     labelPicker,
     dueDatePicker,
-    imgPicker,
     checklistPicker,
     avatar,
     checklistDetails,
