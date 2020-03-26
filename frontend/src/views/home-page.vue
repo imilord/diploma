@@ -52,7 +52,6 @@ export default {
   },
   methods: {
     async addNewBoard() {
-      console.log(this.emptyBoard);
       const boardId = await this.$store.dispatch({
         type: "addNewBoard"
       });
