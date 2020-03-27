@@ -145,3 +145,9 @@ Fri, 27 Mar 2020 22:57:10 GMT - Error - [SIGNUP] Error
 Fri, 27 Mar 2020 23:02:43 GMT - Debug - barbara@gmail.com, e, 1234e
 Fri, 27 Mar 2020 23:02:43 GMT - Debug - auth.service - signup with email: barbara@gmail.com, username: e
 Fri, 27 Mar 2020 23:02:43 GMT - Error - [SIGNUP] Error
+Fri, 27 Mar 2020 23:14:59 GMT - Debug - barbara@gmail.com, f, ff
+Fri, 27 Mar 2020 23:14:59 GMT - Debug - auth.service - signup with email: barbara@gmail.com, username: f
+Fri, 27 Mar 2020 23:15:00 GMT - Debug - barbara@gmail.com, f, ff
+Fri, 27 Mar 2020 23:15:00 GMT - Debug - auth.service - signup with email: barbara@gmail.com, username: f
+Fri, 27 Mar 2020 23:15:00 GMT - Error - [SIGNUP] Error
+Fri, 27 Mar 2020 23:15:00 GMT - Error - [SIGNUP] Error

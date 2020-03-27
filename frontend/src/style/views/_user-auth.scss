@@ -33,7 +33,11 @@
             .msg {
                 position: absolute;
                 top: 180px;
-                left: 90px;
+                left: 0; 
+                right: 0; 
+                margin-left: auto; 
+                margin-right: auto; 
+                width: 100%;
              }
         }
         button.not-member {
