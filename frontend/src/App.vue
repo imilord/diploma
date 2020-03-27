@@ -1,6 +1,6 @@
 <template>
   <section>
-    <main-nav :user="user" @logout="doLogout"></main-nav>
+    <main-nav :user="user" @logout="doLogout" :class="{ isTaskOpen: isTaskOpen }"></main-nav>
     <router-view></router-view>
   </section>
 </template>
@@ -11,7 +11,8 @@ import mainNav from "./components/main-nav.vue";
 export default {
   data() {
     return {
-      user: JSON.parse(JSON.stringify(this.$store.getters.loggedinUser))
+      user: JSON.parse(JSON.stringify(this.$store.getters.loggedinUser)),
+      isTaskOpen: false
     };
   },
   methods: {
@@ -22,7 +23,9 @@ export default {
     }
   },
   watch: {
-    "$route.params": function() {
+    "$route.params": function(newVal) {
+      if (newVal.taskId) this.isTaskOpen = true;
+      if (!newVal.taskId) this.isTaskOpen = false;
       this.user = JSON.parse(JSON.stringify(this.$store.getters.loggedinUser));
     }
   },
@@ -31,3 +34,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.isTaskOpen {
+  display: none;
+}
+</style>

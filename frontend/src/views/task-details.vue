@@ -1,153 +1,156 @@
 <template>
-  <section class="task-details" v-if="task">
-    <div class="header">
-      <button class="close-btn" @click="closeTaskEdit">X</button>
-      <div v-if="task.cover" class="cover-container">
-        <img class="cover-img" :src="task.cover" />
-        <div>
-          <button @click="removeCover">Remove cover</button>
+  <section class="screen">
+    <!-- <div class="screen"></div> -->
+    <section class="task-details" v-if="task">
+      <div class="header">
+        <button class="close-btn" @click="closeTaskEdit">X</button>
+        <div v-if="task.cover" class="cover-container">
+          <img class="cover-img" :src="task.cover" />
+          <div>
+            <button @click="removeCover">Remove cover</button>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="details-container">
-      <section class="task-data">
-        <h2 v-if="!isOpenName" @click="toggle('isOpenName')">{{task.name}}</h2>
-        <input v-else type="text" v-model="task.name" @blur="saveName" @keyup.enter="saveName" />
-        <div class="list-name">In list {{list.name}}</div>
-        <div class="main-data">
-          <h4>Labels</h4>
-          <div v-if="task.labels.length > 0" class="labels">
-            <span
-              v-for="label in task.labels"
-              :key="label.id"
-              :style="{backgroundColor:label.color}"
-              class="label"
-              @click="toggle('isLabelsSelected')"
-            >
-              <span class="label-title" v-if="label.title">{{label.title}}</span>
-            </span>
-          </div>
-          <div class="members">
-            <h4>Members</h4>
-            <div
-              v-if="task.members !== undefined && task.members.length > 0"
-              @click="toggle('isAddMember')"
-            >
-              <div v-for="member in task.members" :key="member._id">
-                <img v-if="member.imgUrl" :src="member.imgUrl" class="member-img" />
-                <avatar v-else :username="member.username" class="member"></avatar>
+      <div class="details-container">
+        <section class="task-data">
+          <h2 v-if="!isOpenName" @click="toggle('isOpenName')">{{task.name}}</h2>
+          <input v-else type="text" v-model="task.name" @blur="saveName" @keyup.enter="saveName" />
+          <div class="list-name">In list {{list.name}}</div>
+          <div class="main-data">
+            <h4>Labels</h4>
+            <div v-if="task.labels.length > 0" class="labels">
+              <span
+                v-for="label in task.labels"
+                :key="label.id"
+                :style="{backgroundColor:label.color}"
+                class="label"
+                @click="toggle('isLabelsSelected')"
+              >
+                <span class="label-title" v-if="label.title">{{label.title}}</span>
+              </span>
+            </div>
+            <div class="members">
+              <h4>Members</h4>
+              <div
+                v-if="task.members !== undefined && task.members.length > 0"
+                @click="toggle('isAddMember')"
+              >
+                <div v-for="member in task.members" :key="member._id">
+                  <img v-if="member.imgUrl" :src="member.imgUrl" class="member-img" />
+                  <avatar v-else :username="member.username" class="member"></avatar>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="description-content">
-            <h4>Description</h4>
-            <div
-              v-if="!isOpenDescription"
-              class="edit-area description-txt"
-              @click="toggle('isOpenDescription')"
-            >{{(task.description) ? task.description : 'Add a more detailed description'}}</div>
-            <div v-else class="edit-description">
-              <textarea class="description" rows="4" cols="50" v-model="task.description"></textarea>
-              <div class="description-btns">
-                <button @click="saveDescription">Save</button>
-                <button @click="toggle('isOpenDescription')">X</button>
+            <div class="description-content">
+              <h4>Description</h4>
+              <div
+                v-if="!isOpenDescription"
+                class="edit-area description-txt"
+                @click="toggle('isOpenDescription')"
+              >{{(task.description) ? task.description : 'Add a more detailed description'}}</div>
+              <div v-else class="edit-description">
+                <textarea class="description" rows="4" cols="50" v-model="task.description"></textarea>
+                <div class="description-btns">
+                  <button @click="saveDescription">Save</button>
+                  <button @click="toggle('isOpenDescription')">X</button>
+                </div>
               </div>
             </div>
+            <div class="checklists-content">
+              <checklist-details
+                v-for="checklist in task.checklists"
+                :key="checklist.id"
+                :checklist="checklist"
+                @update-checklist="updateChecklist"
+                @remove-checklist="removeChecklist"
+                @add-todo="addTodo"
+                @update-todo="updateTodo"
+              ></checklist-details>
+            </div>
+            <div v-if="task.createdAt" class="created-at">Created at: {{task.createdAt | dueDate}}</div>
+            <div v-if="task.dueDate" class="due-date">Due date: {{task.dueDate | dueDate}}</div>
           </div>
-          <div class="checklists-content">
-            <checklist-details
-              v-for="checklist in task.checklists"
-              :key="checklist.id"
-              :checklist="checklist"
-              @update-checklist="updateChecklist"
-              @remove-checklist="removeChecklist"
-              @add-todo="addTodo"
-              @update-todo="updateTodo"
-            ></checklist-details>
-          </div>
-          <div v-if="task.createdAt" class="created-at">Created at: {{task.createdAt | dueDate}}</div>
-          <div v-if="task.dueDate" class="due-date">Due date: {{task.dueDate | dueDate}}</div>
-        </div>
-        <div>
-          <button class="main-btn" @click="toggle('isOpenActivitylog')">Show details</button>
-          <activitylog v-if="isOpenActivitylog" :activitieslog="activitieslog"></activitylog>
-        </div>
-      </section>
-      <section class="task-buttons">
-        <h4>Add to task</h4>
-        <div class="main-buttons">
           <div>
-            <button class="main-btn" @click="toggle('isLabelsSelected')">
-              <i class="el-icon-price-tag"></i> Labels
+            <button class="main-btn" @click="toggle('isOpenActivitylog')">Show details</button>
+            <activitylog v-if="isOpenActivitylog" :activitieslog="activitieslog"></activitylog>
+          </div>
+        </section>
+        <section class="task-buttons">
+          <h4>Add to task</h4>
+          <div class="main-buttons">
+            <div>
+              <button class="main-btn" @click="toggle('isLabelsSelected')">
+                <i class="el-icon-price-tag"></i> Labels
+              </button>
+              <label-picker
+                v-if="isLabelsSelected"
+                :selectedLabels="task.labels"
+                @add-label="addLabel"
+                @remove-label="removeLabel"
+                @update-label="updateLabel"
+                @close-labels="toggle('isLabelsSelected')"
+              ></label-picker>
+            </div>
+            <div>
+              <button class="main-btn" @click="toggle('isDueToSelected')">
+                <i class="el-icon-time"></i> Due date
+              </button>
+              <due-date-picker
+                class="due-date-picker"
+                v-if="isDueToSelected"
+                :dueDate="task.dueDate"
+                @close-due-date="toggle('isDueToSelected')"
+                @date-change="changeDate"
+              ></due-date-picker>
+            </div>
+            <div>
+              <button class="main-btn" @click="toggle('isAddMember')">
+                <i class="el-icon-user"></i> Members
+              </button>
+              <member-picker
+                v-if="isAddMember"
+                :members="boardMembers"
+                @close-member-picker="toggle('isAddMember')"
+                @update-member="updateMember"
+              ></member-picker>
+            </div>
+            <div>
+              <label for="add-img" class="cover-content">
+                <div class="main-btn">
+                  <i class="el-icon-picture-outline"></i>
+                  <span>Cover</span>
+                </div>
+                <input id="add-img" type="file" @change="addImg" class="cover-input" />
+              </label>
+            </div>
+            <button class="main-btn" @click="copyTask">
+              <i class="el-icon-document-copy"></i> Copy
             </button>
-            <label-picker
-              v-if="isLabelsSelected"
-              :selectedLabels="task.labels"
-              @add-label="addLabel"
-              @remove-label="removeLabel"
-              @update-label="updateLabel"
-              @close-labels="toggle('isLabelsSelected')"
-            ></label-picker>
+            <div>
+              <button class="main-btn" @click="toggle('isOpenChecklist')">
+                <i class="el-icon-document-checked"></i> Checklist
+              </button>
+              <checklist-picker
+                v-if="isOpenChecklist"
+                @add-checklist="addChecklist"
+                @close-checklist-picker="toggle('isOpenChecklist')"
+              ></checklist-picker>
+            </div>
+            <div>
+              <button class="main-btn" @click="toggle('isColorPickerOpen')">
+                <i class="el-icon-edit"></i> Change color
+              </button>
+              <color-picker-medium v-if="isColorPickerOpen" @set-color="setColor"></color-picker-medium>
+            </div>
+            <div>
+              <button class="main-btn" @click="deleteTask()">
+                <i class="el-icon-delete"></i> Delete
+              </button>
+            </div>
           </div>
-          <div>
-            <button class="main-btn" @click="toggle('isDueToSelected')">
-              <i class="el-icon-time"></i> Due date
-            </button>
-            <due-date-picker
-              class="due-date-picker"
-              v-if="isDueToSelected"
-              :dueDate="task.dueDate"
-              @close-due-date="toggle('isDueToSelected')"
-              @date-change="changeDate"
-            ></due-date-picker>
-          </div>
-          <div>
-            <button class="main-btn" @click="toggle('isAddMember')">
-              <i class="el-icon-user"></i> Members
-            </button>
-            <member-picker
-              v-if="isAddMember"
-              :members="boardMembers"
-              @close-member-picker="toggle('isAddMember')"
-              @update-member="updateMember"
-            ></member-picker>
-          </div>
-          <div>
-            <label for="add-img" class="cover-content">
-              <div class="main-btn">
-                <i class="el-icon-picture-outline"></i>
-                <span>Cover</span>
-              </div>
-              <input id="add-img" type="file" @change="addImg" class="cover-input" />
-            </label>
-          </div>
-          <button class="main-btn" @click="copyTask">
-            <i class="el-icon-document-copy"></i> Copy
-          </button>
-          <div>
-            <button class="main-btn" @click="toggle('isOpenChecklist')">
-              <i class="el-icon-document-checked"></i> Checklist
-            </button>
-            <checklist-picker
-              v-if="isOpenChecklist"
-              @add-checklist="addChecklist"
-              @close-checklist-picker="toggle('isOpenChecklist')"
-            ></checklist-picker>
-          </div>
-          <div>
-            <button class="main-btn" @click="toggle('isColorPickerOpen')">
-              <i class="el-icon-edit"></i> Change color
-            </button>
-            <color-picker-medium v-if="isColorPickerOpen" @set-color="setColor"></color-picker-medium>
-          </div>
-          <div>
-            <button class="main-btn" @click="deleteTask()">
-              <i class="el-icon-delete"></i> Delete
-            </button>
-          </div>
-        </div>
-      </section>
-    </div>
+        </section>
+      </div>
+    </section>
   </section>
 </template>
 <script>
