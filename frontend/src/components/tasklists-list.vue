@@ -19,12 +19,14 @@
         ></tasklist-preview>
       </draggable>
       <div class="tasklist-preview">
-        <button v-if="!isAddListOpen" @click="isAddListOpen=!isAddListOpen">Add new list</button>
+        <button v-if="!isAddListOpen" @click="isAddListOpen=!isAddListOpen" class="new-add-btn">
+          <font-awesome-icon class="new-add-btn" icon="plus" />Add new list
+        </button>
         <div v-else>
           <form @submit.prevent="addList">
-            <input type="text" placeholder="Add list title" v-model="newList.name" />
+            <input type="text" placeholder="Add list title" v-model="newList.name" class="board" />
             <br />
-            <button>Add List</button>
+            <button class="add-btn">Add List</button>
             <button @click.stop="isAddListOpen=!isAddListOpen">X</button>
           </form>
         </div>
@@ -106,7 +108,8 @@ export default {
 
         if (task) {
           const activitylog = this.createActivitylog(
-            `move task ${task.name} from list ${fromList} to ${list.name}`,taskId
+            `move task ${task.name} from list ${fromList} to ${list.name}`,
+            taskId
           );
 
           this.$emit("upadte-activitylog", activitylog);
