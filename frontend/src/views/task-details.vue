@@ -118,7 +118,7 @@
               <due-date-picker
                 class="due-date-picker"
                 v-if="isDueToSelected"
-                :dueDate="task.dueDate"
+                :dueDate="task.dueDate ? task.dueDate : Date.now()"
                 @close-due-date="toggle('isDueToSelected')"
                 @date-change="changeDate"
               ></due-date-picker>

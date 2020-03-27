@@ -1,11 +1,30 @@
 <template>
   <div class="board-settings">
     <header>
-      <p>Board Actions</p>
+      <div>
+        <font-awesome-icon :icon="[ 'fab', 'trello' ]" />
+        <span>Board Actions</span>
+      </div>
       <button class="close-btn" @click="$emit('toggle-settings')">
         <font-awesome-icon icon="times" />
       </button>
     </header>
+
+    <section v-if="isMobile" class="mobile-mode">
+      <div v-if="board.creator.name">
+        <div :key="board.creator._id">
+          <img v-if="board.creator.img" :src="board.creator.img" class="member-img" />
+          <avatar v-else :username="board.creator.name" class="member"></avatar>
+        </div>
+      </div>
+      <div v-if="board.members">
+        <div v-for="member in board.members" :key="member._id">
+          <img v-if="member.imgUrl" :src="member.imgUrl" class="member-img" />
+          <avatar v-else :username="member.username" class="member"></avatar>
+        </div>
+      </div>
+      <div v-if="board.dueDate">{{board.dueDate | dueDate}}</div>
+    </section>
 
     <main>
       <button @click="isNameEditorOpen=!isNameEditorOpen">Change board name</button>
@@ -38,6 +57,7 @@
 </template>
 
 <script>
+import avatar from "vue-avatar";
 import colorPickerLarge from "./color-picker-large.vue";
 import dueDatePicker from "./due-date-picker.vue";
 
@@ -51,10 +71,14 @@ export default {
       isNameEditorOpen: false,
       isDeleteQuestOpen: false,
       isDueDateOpen: false,
+      isMobile: false,
       newName: ""
     };
   },
   methods: {
+    isMobileDevice() {
+      return window.innerWidth < 500;
+    },
     closeSettings() {
       this.$emit("close-settings");
     },
@@ -71,7 +95,12 @@ export default {
       this.$emit("update-boardname", this.newName);
     }
   },
+  created() {
+    console.log(this.board);
+    this.isMobile = this.isMobileDevice();
+  },
   components: {
+    avatar,
     colorPickerLarge,
     dueDatePicker
   }

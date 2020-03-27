@@ -3,7 +3,7 @@
     <header>
       <p>List Actions</p>
       <button class="settings-btn" @click="closeSettings">
-        <i class="el-icon-close icon"></i>
+        <font-awesome-icon icon="times" />
       </button>
     </header>
 

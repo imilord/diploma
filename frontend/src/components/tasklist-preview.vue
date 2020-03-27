@@ -26,12 +26,18 @@
       ></task-list>
     </main>
     <footer>
-      <button v-if="!isAddTaskOpen" @click="isAddTaskOpen=!isAddTaskOpen" class="new-add-btn">
+      <button v-if="!isAddTaskOpen" @click="toggleAddTask" class="new-add-btn">
         <font-awesome-icon class="new-add-btn" icon="plus" />Add new task
       </button>
       <div v-else>
         <form @submit.prevent="addTask">
-          <input type="text" placeholder="Enter new task" v-model="newTask.name" class="board" />
+          <input
+            ref="title"
+            type="text"
+            placeholder="Enter new task"
+            v-model="newTask.name"
+            class="board"
+          />
           <br />
           <div class="add-control-btns">
             <button class="add-btn">Add Task</button>
@@ -80,6 +86,12 @@ export default {
       });
       this.isSettingsOpen = !this.isSettingsOpen;
       this.$emit("update-board", board);
+    },
+    toggleAddTask() {
+      this.isAddTaskOpen = !this.isAddTaskOpen;
+      setTimeout(() => {
+        this.$refs.title.focus();
+      }, 50);
     },
     async addTask() {
       if (!this.newTask.name) return;

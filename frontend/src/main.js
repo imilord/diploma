@@ -10,10 +10,13 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faTasks, faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
-// import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faTasks, faPlus, faTimes, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faTrello } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-library.add(faTasks, faPlus, faTimes)
+
+library.add(faTasks, faPlus, faTimes, faSearch)
+library.add(faTrello)
+
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 Vue.use(VCalendar);
