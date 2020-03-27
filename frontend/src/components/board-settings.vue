@@ -11,12 +11,12 @@
     </header>
 
     <section v-if="isMobile" class="mobile-mode">
-      <div v-if="board.creator.name">
+      <!-- <div v-if="board.creator.name">
         <div :key="board.creator._id">
           <img v-if="board.creator.img" :src="board.creator.img" class="member-img" />
           <avatar v-else :username="board.creator.name" class="member"></avatar>
         </div>
-      </div>
+      </div>-->
       <div v-if="board.members">
         <div v-for="member in board.members" :key="member._id">
           <img v-if="member.imgUrl" :src="member.imgUrl" class="member-img" />
@@ -96,7 +96,6 @@ export default {
     }
   },
   created() {
-    console.log(this.board);
     this.isMobile = this.isMobileDevice();
   },
   components: {

@@ -9,12 +9,12 @@
       <li class="board-name" v-if="titleClicked">
         <input type="text" v-model="newBoardName" @blur="changeName" @keyup.enter="changeName" />
       </li>
-      <li v-if="creator.name && !isMobile">
+      <!-- <li v-if="creator.name && !isMobile">
         <div :key="creator._id">
           <img v-if="creator.imgUrl" :src="creator.imgUrl" class="member-img" />
           <avatar v-else :username="creator.username" class="member"></avatar>
         </div>
-      </li>
+      </li>-->
       <li v-if="members && !isMobile">
         <div v-for="member in members" :key="member._id">
           <img v-if="member.imgUrl" :src="member.imgUrl" class="member-img" />

@@ -124,3 +124,7 @@ Fri, 27 Mar 2020 07:45:41 GMT - Debug - auth.service - login with email: ronen@g
 Fri, 27 Mar 2020 07:46:36 GMT - Debug - auth.service - login with email: ronen@gmail.com
 Fri, 27 Mar 2020 07:47:30 GMT - Debug - auth.service - login with email: ronen@gmail.com
 
+Fri, 27 Mar 2020 16:27:57 GMT - Debug - daniel@gmal.com, daniel, 123
+Fri, 27 Mar 2020 16:27:57 GMT - Debug - auth.service - signup with email: daniel@gmal.com, username: daniel
+Fri, 27 Mar 2020 16:27:57 GMT - Debug - auth.route - new account created: {"email":"daniel@gmal.com","password":"$2b$10$SydO6dCo5TWRjYjNs3mUeumfKR5Iuq7cBJVy.RCzgw.dljrufO0La","username":"daniel","imgUrl":"","_id":"5e7e298d7c446c4c5481cf92"}
+Fri, 27 Mar 2020 16:27:57 GMT - Debug - auth.service - login with email: daniel@gmal.com
