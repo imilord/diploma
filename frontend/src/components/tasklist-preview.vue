@@ -33,8 +33,12 @@
         <form @submit.prevent="addTask">
           <input type="text" placeholder="Enter new task" v-model="newTask.name" class="board" />
           <br />
-          <button class="add-btn">Add Task</button>
-          <button @click.stop="isAddTaskOpen=!isAddTaskOpen">X</button>
+          <div class="add-control-btns">
+            <button class="add-btn">Add Task</button>
+            <button @click.stop="isAddTaskOpen=!isAddTaskOpen" class="close-btn">
+              <font-awesome-icon icon="times" />
+            </button>
+          </div>
         </form>
       </div>
     </footer>

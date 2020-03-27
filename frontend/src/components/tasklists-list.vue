@@ -26,8 +26,12 @@
           <form @submit.prevent="addList">
             <input type="text" placeholder="Add list title" v-model="newList.name" class="board" />
             <br />
-            <button class="add-btn">Add List</button>
-            <button @click.stop="isAddListOpen=!isAddListOpen">X</button>
+            <div class="add-control-btns">
+              <button class="add-btn">Add List</button>
+              <button @click.stop="isAddListOpen=!isAddListOpen" class="close-btn">
+                <font-awesome-icon icon="times" />
+              </button>
+            </div>
           </form>
         </div>
       </div>
