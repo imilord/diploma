@@ -1,6 +1,6 @@
 <template>
-  <section class="screen">
-    <section class="task-details" v-if="task">
+  <section class="screen" @click="closeTaskEdit">
+    <section class="task-details" v-if="task" @click.stop>
       <div class="header">
         <button class="close-btn" @click="closeTaskEdit">X</button>
         <div v-if="task.cover" class="cover-container">
@@ -320,7 +320,7 @@ export default {
       );
 
       this.saveTaskData(activitylog);
-      this.toggle("isOpenName");
+      this.toggle("isOpenDescription");
     },
     saveName() {
       const activitylog = this.createActivitylog(
@@ -328,7 +328,7 @@ export default {
       );
 
       this.saveTaskData(activitylog);
-      this.toggle("isOpenDescription");
+      this.toggle("isOpenName");
     },
     async addImg(ev) {
       const url = await this.$store.dispatch({
