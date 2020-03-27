@@ -2,8 +2,8 @@
   <div class="board-settings">
     <header>
       <p>Board Actions</p>
-      <button class="settings-btn" @click="$emit('toggle-settings')">
-        <i class="el-icon-close icon"></i>
+      <button class="close-btn" @click="$emit('toggle-settings')">
+        <font-awesome-icon icon="times" />
       </button>
     </header>
 

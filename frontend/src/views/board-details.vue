@@ -21,6 +21,7 @@
     <activitylog
       v-if="isOpenActivitylog"
       class="main-activitylog"
+      :isMain="true"
       :activitieslog="board.activitieslog"
       @close-activitylog="toggleActivitylog"
     ></activitylog>
