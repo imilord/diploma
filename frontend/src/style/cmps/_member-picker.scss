@@ -1,47 +1,51 @@
 .member-picker {
+  position: absolute;
+  background-color: $clr1;
+  left: 80%;
+  transform: translate(-50%, 0%);
+  z-index: 1;
+  padding: rem(20px);
+  min-width: 300px;
+  border-radius: 3px;
+  box-shadow: 0 0.0625rem 0 rgba(9, 30, 66, 0.25);
+
+  h2 {
+    text-align: center;
+    margin-bottom: rem(20px);
+    font-weight: normal;
+    font-size: rem(16px);
+  }
+
+  .board-member-title {
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: rem(12px);
+    color: $clr9;
+    letter-spacing: 0.04em;
+  }
+
+  .close-btn {
     position: absolute;
-    background-color: $clr1;
-    left: 35%;
-    transform: translate(35%, 0%);
-    z-index: 1;
-    padding: rem(20px);
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    color: $clr11;
-    h2,
-    h3 {
-        margin: 0;
-        font-weight: normal;
+    top: 0;
+    right: 0;
+    margin: rem(5px);
+    background: none;
+    border: none;
+  }
+
+  .members {
+    list-style-type: none;
+    padding: 0;
+
+    .member-content {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      .member,
+      .member-img {
+        margin-right: rem(10px);
+      }
     }
-    header {
-        margin-bottom: rem(10px);
-        .member-title {
-            font-size: rem(14px);
-        }
-        .close-btn {
-            position: absolute;
-            top: 0;
-            right: 0;
-            margin: rem(5px);
-            background: none;
-            border: none;
-        }
-    }
-    .board-member-title {
-        font-size: rem(12px);
-        text-transform: uppercase;
-    }
-    .members {
-        list-style-type: none;
-        padding: 0;
-        .member-content {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            .member {
-                margin-right: rem(10px);
-            }
-        }
-    }
+  }
 }

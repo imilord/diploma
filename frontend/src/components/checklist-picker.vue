@@ -1,9 +1,12 @@
 <template>
   <section class="checklist-picker">
     <button class="close-btn" @click="$emit('close-checklist-picker')">X</button>
-    <div>Add Checklist</div>
-    <input type="text" :placeholder="title" v-model="title" />
-    <button @click="saveTitle">Add</button>
+    <h2>Add Checklist</h2>
+    <label>
+      <div>Title</div>
+      <input class="task" type="text" ref="input" :placeholder="title" v-model="title" />
+    </label>
+    <button class="add-btn" @click="saveTitle">Add</button>
   </section>
 </template>
 
@@ -19,6 +22,10 @@ export default {
     saveTitle() {
       this.$emit("add-checklist", JSON.parse(JSON.stringify(this.title)));
     }
+  },
+  mounted() {
+    this.$refs.input.focus();
+    this.$refs.input.setSelectionRange(0, this.title.length);
   }
 };
 </script>
