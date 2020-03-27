@@ -18,3 +18,16 @@
         margin-bottom: rem(30px);
     }
 }
+
+.due-date-picker-board {
+    margin: 8%;
+    header {
+        display: none;
+
+        .close-btn,
+        h2 {
+            display: none;
+        }
+
+    }
+}

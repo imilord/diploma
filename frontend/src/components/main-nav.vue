@@ -5,9 +5,19 @@
       <li>
         <router-link to="/">Boards</router-link>
       </li>
-      <li><router-link to="/auth">Login</router-link></li>
-      <li>User setting</li>
-      <li @click="$emit('logout')">Logout</li>
+      <li v-if="user.username === 'guest'">
+        <router-link to="/auth">Login</router-link>
+      </li>
+      <li v-if="user.username !== 'guest'">User setting</li>
+      <li v-if="user.username !== 'guest'" @click="$emit('logout')">Logout</li>
     </ul>
   </section>
 </template>
+
+<script>
+export default {
+  props: {
+    user: Object
+  }
+};
+</script>

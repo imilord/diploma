@@ -29,6 +29,11 @@
             &:hover {
                 background-color: $clr3;
             }
+
+            a {
+                text-decoration: none;
+                color: $clr1;
+            }
         }
     }
 }

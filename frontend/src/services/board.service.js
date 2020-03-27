@@ -46,7 +46,7 @@ function getEmptyBoard() {
             name: "",
             img: ""
         },
-        dueDate: null,
+        dueDate: Date.now(),
         description: "",
         taskLists: [],
         activitieslog: []
@@ -77,7 +77,6 @@ function getEmptyTask() {
             txt: "",
             createdAt: ""
         }],
-        activitieslog: [],
         cover: "",
         attachment: {},
         checklists: []

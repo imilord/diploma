@@ -4,7 +4,7 @@
       :get-child-payload="getChildPayload"
       group-name="column"
       @drop="onDrop"
-      drag-class="card-gohst"
+      drag-class="card-ghost"
       drop-class="card-ghost-drop"
       :drop-placeholder="dropPlaceholderOptions"
     >
@@ -65,15 +65,3 @@ export default {
   }
 };
 </script>
-
-<style>
-.card-ghost {
-  transition: transform 0.18s ease;
-  transform: rotateZ(5deg);
-}
-
-.card-ghost-drop {
-  transition: transform 0.18s ease-in-out;
-  transform: rotateZ(0deg);
-}
-</style>

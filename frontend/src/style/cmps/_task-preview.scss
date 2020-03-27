@@ -33,17 +33,33 @@
 
       .label {
         min-width: rem(40px);
-        height: rem(25px);
+        height: rem(10px);
         margin-right: rem(5px);
         margin-bottom: rem(8px);
         border-radius: rem(3px);
         text-align: center;
+        transition: 0.5s;
 
         .label-title {
-          padding: rem(8px);
-          text-justify: distribute-all-lines;
           font-size: 0.8rem;
+          color: $clr1;
+          font-weight: bold;
         }
+      }
+
+      .label-text {
+        height: rem(25px);
+      }
+
+      .fade-enter-active {
+        transition: opacity 0.8s;
+      }
+      .fade-leave-active {
+        opacity: 0;
+      }
+      .fade-enter,
+      .fade-leave-to {
+        opacity: 0;
       }
     }
 
@@ -62,6 +78,12 @@
       }
     }
 
+    .over-due {
+      background-color: #ec9488;
+      border-radius: 3px;
+      color: #fff;
+    }
+
     .checklist {
       font-size: rem(13px);
       padding: rem(3px);
@@ -72,6 +94,13 @@
         margin-right: rem(3px);
       }
     }
+
+    .done-todos {
+      background-color: #61bd4f;
+      color: #fff;
+      border-radius: 3px;
+      padding: rem(4px);
+    }
   }
 }
 
@@ -79,4 +108,14 @@
   background-color: $clr3;
   border-radius: rem(3px);
   margin: 0 rem(4px) rem(8px) rem(1px);
+}
+
+.card-ghost {
+  transition: transform 0.15s ease;
+  transform: rotateZ(8deg);
+}
+
+.card-ghost-drop {
+  transition: transform 0.18s ease-in-out;
+  transform: rotateZ(0deg);
 }

@@ -94,6 +94,7 @@
               <i class="el-icon-time"></i> Due date
             </button>
             <due-date-picker
+              class="due-date-picker"
               v-if="isDueToSelected"
               :dueDate="task.dueDate"
               @close-due-date="toggle('isDueToSelected')"

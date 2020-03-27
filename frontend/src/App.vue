@@ -1,6 +1,6 @@
 <template>
   <section>
-    <main-nav @logout="doLogout"></main-nav>
+    <main-nav :user="user" @logout="doLogout"></main-nav>
     <router-view></router-view>
   </section>
 </template>
@@ -9,11 +9,16 @@
 import mainNav from "./components/main-nav.vue";
 
 export default {
-  methods:{
+  data() {
+    return {
+      user: JSON.parse(JSON.stringify(this.$store.getters.loggedinUser))
+    };
+  },
+  methods: {
     doLogout() {
       this.$store.dispatch({ type: "logout" });
       this.$router.push("/");
-    },
+    }
   },
   components: {
     mainNav
