@@ -270,22 +270,13 @@ export default {
       this.saveTaskData(activitylog);
     },
     async updateAllTitles(selectedLabel) {
-      if (selectedLabel.title) {
-        this.list.tasks.forEach(task => {
-          task.labels.forEach(label => {
-            if (label.color === selectedLabel.color)
-              task.title = selectedLabel.title;
-          });
-        });
-      }
-
       try {
         await this.$store.dispatch({
-          type: "updateList",
-          list: this.list
+          type: "updateTitles",
+          label: selectedLabel
         });
       } catch (err) {
-        console.log("Err in updateList");
+        console.log("Err in updateTitles");
       }
     },
     changeDate(newDate) {

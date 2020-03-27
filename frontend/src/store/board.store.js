@@ -110,10 +110,18 @@ export default {
                 return;
             }
         },
-        updateList(state, { list }) {
-            const listIdx = state.board.taskLists.findIndex(currList => currList.id === list.id);
-            console.log(listIdx)
-            state.board.taskLists.splice(listIdx, 1, list);
+        updateTitles(state, { label }) {
+            console.log(label)
+            state.board.taskLists.forEach(list => {
+                list.tasks.forEach(task => {
+                    task.labels.forEach(currLabel => {
+                        if (label.color === currLabel.color) {
+                            currLabel.title = label.title;
+                            console.log('label')
+                        }
+                    });
+                });
+            })
         },
         deleteBoard(state) {
             state.board = null
@@ -223,10 +231,11 @@ export default {
             socketService.emit("update board", savedBoard);
             return savedBoard;
         },
-        async updateList(context, { list }) {
+        async updateTitles(context, { label }) {
+            console.log(label, 'label')
             context.commit({
-                type: 'updateList',
-                list
+                type: 'updateTitles',
+                label
             });
 
             const savedBoard = await boardService.save(context.state.board);
