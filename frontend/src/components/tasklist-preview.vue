@@ -26,14 +26,14 @@
       ></task-list>
     </main>
     <footer>
-      <button v-if="!isAddTaskOpen" @click="isAddTaskOpen=!isAddTaskOpen">
-        <i class="el-icon-plus icon"></i> Add new task
+      <button v-if="!isAddTaskOpen" @click="isAddTaskOpen=!isAddTaskOpen" class="new-add-btn">
+        <font-awesome-icon class="new-add-btn" icon="plus" />Add new task
       </button>
       <div v-else>
         <form @submit.prevent="addTask">
-          <input type="text" placeholder="Enter new task" v-model="newTask.name" />
+          <input type="text" placeholder="Enter new task" v-model="newTask.name" class="board" />
           <br />
-          <button>Add task</button>
+          <button class="add-btn">Add Task</button>
           <button @click.stop="isAddTaskOpen=!isAddTaskOpen">X</button>
         </form>
       </div>

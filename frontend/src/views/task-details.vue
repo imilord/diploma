@@ -94,6 +94,7 @@
             <activitylog v-if="isOpenActivitylog" :activitieslog="activitieslog"></activitylog>
           </div>
         </section>
+
         <section class="task-buttons">
           <h4>Add to task</h4>
           <div class="main-buttons">

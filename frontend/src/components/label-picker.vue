@@ -6,20 +6,36 @@
     </header>
     <main>
       <section v-if="!isAddTitle">
-        <div class="label-content" v-for="labelColor in Object.keys(allLabelsMap)" :key="labelColor">
+        <div
+          class="label-content"
+          v-for="labelColor in Object.keys(allLabelsMap)"
+          :key="labelColor"
+        >
           <span
             class="label"
             :style="{backgroundColor:labelColor}"
             @click="updateLabels(labelColor)"
           >
-            <span v-if="isSelectedLabel(labelColor)">V</span>
-            <span v-if="allLabelsMap[labelColor]" class="label-title">{{allLabelsMap[labelColor]}}</span>
+            <span class="label-title" v-if="allLabelsMap[labelColor]">{{allLabelsMap[labelColor]}}</span>
+            <span class="check-title el-icon-check" v-if="isSelectedLabel(labelColor)"></span>
           </span>
-          <button @click="toggleAddTitle(labelColor)">Add title</button>
+          <button
+            class="add-title-btn el-icon-edit"
+            title="Add title"
+            @click="toggleAddTitle(labelColor)"
+          ></button>
         </div>
       </section>
-      <form v-else @submit.prevent="saveTitle">
-        <input type="text" placeholder="Enter title..." maxlength="10" v-model="allLabelsMap[currLabelColor]" />
+
+      <form class="title-form" v-else @submit.prevent="saveTitle">
+        <div class="header">Add title</div>
+        <input
+        class="task"
+          type="text"
+          placeholder="Enter title..."
+          maxlength="10"
+          v-model="allLabelsMap[currLabelColor]"
+        />
         <button>Save</button>
       </form>
     </main>
@@ -52,7 +68,7 @@ export default {
       const label = this.selectedLabels.find(
         selectedLabel => selectedLabel.color === labelColor
       );
-      
+
       if (label) {
         this.allLabelsMap[labelColor] = label.title;
 
