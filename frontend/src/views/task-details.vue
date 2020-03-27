@@ -14,7 +14,14 @@
         <section class="task-data">
           <div>
             <h2 v-if="!isOpenName" @click.stop="toggle('isOpenName')">{{task.name}}</h2>
-            <input v-else type="text" v-model="task.name" @blur="saveName" @keyup.enter="saveName" />
+            <input
+              class="task"
+              v-else
+              type="text"
+              v-model="task.name"
+              @blur="saveName"
+              @keyup.enter="saveName"
+            />
           </div>
           <div class="list-name">In list {{list.name}}</div>
           <div class="main-data">

@@ -30,6 +30,7 @@
       <form class="title-form" v-else @submit.prevent="saveTitle">
         <div class="header">Add title</div>
         <input
+        class="task"
           type="text"
           placeholder="Enter title..."
           maxlength="10"

@@ -7,7 +7,7 @@
         @click="toggleChangeName"
       >{{checklist.name}}</h4>
       <div v-else class="change-checklist-name">
-        <input type="text" v-model="checklist.name" />
+        <input class="task" type="text" v-model="checklist.name" />
         <button @click="changeChecklistName">Save</button>
         <button @click="toggleChangeName">X</button>
       </div>
@@ -25,7 +25,7 @@
           @click="setCurrTodoId(todo)"
         >{{todo.text}}</div>
         <div class="checklist-todo" v-if="currTodoId === todo.id">
-          <input type="text" v-model="todo.text" />
+          <input class="task" type="text" v-model="todo.text" />
           <button @click="changeTodoName(todo)">Save</button>
           <button @click="setCurrTodoId()">X</button>
         </div>
@@ -35,7 +35,7 @@
 
     <div class="edit-area add-item" v-if="!isAddTodo" @click="toggleAddTodo">Add an item</div>
     <div v-else>
-      <input type="text" placeholder="Add an item" v-model="newTodo.text" />
+      <input class="task" type="text" placeholder="Add an item" v-model="newTodo.text" />
     </div>
     <div v-if="isAddTodo">
       <button @click="addTodo">Add</button>
