@@ -1,11 +1,11 @@
 <template>
   <section class="checklist-details">
     <div class="checklist-header">
-      <h4
-        class="checklist-name"
-        v-if="!isOpenChangeName"
-        @click="toggleChangeName"
-      >{{checklist.name}}</h4>
+        <h4
+          class="checklist-name"
+          v-if="!isOpenChangeName"
+          @click="toggleChangeName"
+        ><i class="el-icon-circle-check check-icon"></i> {{checklist.name}}</h4>
       <div v-else class="change-checklist-name">
         <input class="task" type="text" v-model="checklist.name" />
         <button @click="changeChecklistName">Save</button>
@@ -26,7 +26,7 @@
         >{{todo.text}}</div>
         <div class="checklist-todo" v-if="currTodoId === todo.id">
           <input class="task" type="text" v-model="todo.text" />
-          <button @click="changeTodoName(todo)">Save</button>
+          <button @click="changeTodoName(todo)" class="add-btn">Save</button>
           <button @click="setCurrTodoId()">X</button>
         </div>
       </div>
@@ -38,7 +38,7 @@
       <input class="task" type="text" placeholder="Add an item" v-model="newTodo.text" />
     </div>
     <div v-if="isAddTodo">
-      <button @click="addTodo">Add</button>
+      <button @click="addTodo" class="add-btn">Add</button>
       <button @click="toggleAddTodo">X</button>
     </div>
   </section>

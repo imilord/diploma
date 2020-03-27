@@ -17,6 +17,7 @@
             <div>
               <h2 v-if="!isOpenName" @click.stop="toggle('isOpenName')">{{task.name}}</h2>
               <input
+                class="task"
                 v-else
                 type="text"
                 v-model="task.name"
@@ -27,7 +28,7 @@
           </div>
           <div class="list-name">In list {{list.name}}</div>
           <div class="main-data">
-            <section class="member-labels">
+            <section class="member-labels-date">
               <div>
                 <div class="members">
                   <h4 v-if="task.members.length > 0" class="sub-titles">Members</h4>
@@ -56,6 +57,10 @@
                   </span>
                 </div>
               </div>
+              <div>
+                <h4 v-if="task.dueDate" class="sub-titles">Due date</h4>
+                <div v-if="task.dueDate" class="due-date">{{task.dueDate | dueDate}}</div>
+              </div>
             </section>
             <div class="description-content">
               <div class="description-title">
@@ -70,7 +75,7 @@
               <div v-else class="edit-description">
                 <textarea class="description" rows="4" cols="50" v-model="task.description"></textarea>
                 <div class="description-btns">
-                  <button @click="saveDescription">Save</button>
+                  <button @click="saveDescription" class="add-btn">Save</button>
                   <button @click="toggle('isOpenDescription')">X</button>
                 </div>
               </div>
@@ -86,12 +91,10 @@
                 @update-todo="updateTodo"
               ></checklist-details>
             </div>
-            <div v-if="task.createdAt" class="created-at">Created at: {{task.createdAt | dueDate}}</div>
-            <div v-if="task.dueDate" class="due-date">Due date: {{task.dueDate | dueDate}}</div>
           </div>
           <div>
             <button class="main-btn" @click="toggle('isOpenActivitylog')">Show details</button>
-            <activitylog v-if="isOpenActivitylog" :activitieslog="activitieslog"></activitylog>
+            <activitylog v-if="isOpenActivitylog" class="task-activitylog" :activitieslog="activitieslog"></activitylog>
           </div>
         </section>
 

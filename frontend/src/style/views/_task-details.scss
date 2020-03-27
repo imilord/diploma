@@ -1,56 +1,40 @@
-    .screen {
-        width: 100vw;
-        height: 100vh;
-        position: fixed;
-        z-index: 900;
+.screen {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 900;
+    top: 0;
+    background-color: $clr12;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+    &::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: $clr5;
+    }
+    .task-details {
+        position: absolute;
+        z-index: 999;
+        background-color: $clr8;
+        left: 50%;
         top: 0;
-        background-color: $clr12;
-        overflow-y: auto;
-        &::-webkit-scrollbar {
-            width: 10px;
+        transform: translate(-50%, 0%);
+        padding: rem(20px);
+        margin-top: rem(80px);
+        font-size: rem(14px);
+        color: $clr2;
+        width: 700px;
+        // height: 85vh;
+        .icon {
+            margin-right: rem(10px);
+            font-size: rem(20px);
         }
-        &::-webkit-scrollbar-track {
-            border-radius: 10px;
-            background: transparent;
-        }
-        &::-webkit-scrollbar-thumb {
-            border-radius: 10px;
-            background: $clr5;
-        }
-        .task-details {
-            position: absolute;
-            z-index: 999;
-            background-color: $clr8;
-            left: 50%;
-            top: 0;
-            transform: translate(-50%, 0%);
-            padding: rem(20px);
-            margin-top: rem(80px);
-            font-size: rem(14px);
-            color: $clr2;
-            // height: 85vh;
-            .icon {
-                margin-right: rem(10px);
-                font-size: rem(20px);
-            }
-            .header {
-                .cover-container {
-                    display: flex;
-                    align-items: flex-end;
-                    justify-content: space-between;
-                    .cover-img {
-                        width: 50%;
-                    }
-                }
-                .close-btn {
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    margin: rem(5px);
-                    background: none;
-                    border: none;
-                }
-            }
+        .header {
             .cover-container {
                 display: flex;
                 align-items: flex-end;
@@ -58,6 +42,22 @@
                 .cover-img {
                     width: 50%;
                 }
+            }
+            .close-btn {
+                position: absolute;
+                top: 0;
+                right: 0;
+                margin: rem(5px);
+                background: none;
+                border: none;
+            }
+        }
+        .cover-container {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            .cover-img {
+                width: 50%;
             }
         }
         .details-container {
@@ -95,17 +95,21 @@
                         font-weight: 500;
                         letter-spacing: .04em;
                     }
-                    .member-labels {
+                    .member-labels-date {
                         display: flex;
                         margin-bottom: rem(25px);
                         padding-left: rem(20px);
                         .labels {
                             display: flex;
+                            margin-right: rem(20px);
+                            max-width: 160px;
+                            flex-wrap: wrap;
                             .label {
                                 min-width: rem(40px);
                                 height: rem(22px);
                                 display: inline-block;
                                 margin-left: rem(5px);
+                                margin-bottom: rem(5px);
                                 border-radius: rem(3px);
                                 text-align: center;
                                 .label-title {
@@ -130,6 +134,7 @@
                         .edit-description {
                             display: flex;
                             flex-direction: column;
+                            margin-left: rem(28px);
                             .description {
                                 resize: none;
                                 margin-bottom: rem(10px);
@@ -141,51 +146,14 @@
                             }
                         }
                         .description-txt {
-                            background-color: clr10;
                             padding: rem(10px);
                             border-radius: rem(3px);
                             cursor: pointer;
+                            width: 320px;
+                            margin-left: rem(28px);
                         }
                     }
-                    .created-at {
-                        margin-bottom: rem(20px);
-                    }
-                    .due-date {
-                        margin-bottom: rem(20px);
-                    }
-                    .description-content {
-                        margin-bottom: rem(30px);
-                        .edit-description {
-                            display: flex;
-                            flex-direction: column;
-                            .description {
-                                resize: none;
-                                margin-bottom: rem(10px);
-                            }
-                            .description-btns {
-                                button {
-                                    margin: rem(5px);
-                                }
-                            }
-                        }
-                        .description-txt {
-                            background-color: rgb(204, 201, 201);
-                            padding: rem(10px);
-                            cursor: pointer;
-                        }
-                    }
-                    .created-at {
-                        margin-bottom: rem(20px);
-                    }
-                    .due-date {
-                        margin-bottom: rem(20px);
-                    }
-                }
-                .created-at {
-                    margin-bottom: rem(20px);
-                }
-                .due-date {
-                    margin-bottom: rem(20px);
+                    .task-activitylog {}
                 }
             }
             .task-buttons {
@@ -217,3 +185,4 @@
             }
         }
     }
+}
