@@ -110,6 +110,11 @@ export default {
                 return;
             }
         },
+        updateList(state, { list }) {
+            const listIdx = state.board.taskLists.findIndex(currList => currList.id === list.id);
+            console.log(listIdx)
+            state.board.taskLists.splice(listIdx, 1, list);
+        },
         deleteBoard(state) {
             state.board = null
         },
@@ -201,7 +206,7 @@ export default {
             });
             await boardService.remove(boardId);
             return boardId
-        }, 
+        },
         async uploadImg(context, { ev }) {
             const res = await utilService.uploadImg(ev);
             const { url } = res;
@@ -212,6 +217,16 @@ export default {
             context.commit({
                 type: 'addTask',
                 taskData
+            });
+
+            const savedBoard = await boardService.save(context.state.board);
+            socketService.emit("update board", savedBoard);
+            return savedBoard;
+        },
+        async updateList(context, { list }) {
+            context.commit({
+                type: 'updateList',
+                list
             });
 
             const savedBoard = await boardService.save(context.state.board);

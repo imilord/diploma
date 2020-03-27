@@ -102,7 +102,8 @@
           </div>
           <div>
             <button class="main-btn" @click="toggle('isAddMember')">
-              <i class="el-icon-user"></i> Members</button>
+              <i class="el-icon-user"></i> Members
+            </button>
             <member-picker
               v-if="isAddMember"
               :members="boardMembers"
@@ -114,7 +115,7 @@
             <label for="add-img" class="cover-content">
               <div class="main-btn">
                 <i class="el-icon-picture-outline"></i>
-                <span> Cover</span>
+                <span>Cover</span>
               </div>
               <input id="add-img" type="file" @change="addImg" class="cover-input" />
             </label>
@@ -253,6 +254,8 @@ export default {
         label => label.color === labelToUpdate.color
       );
 
+      this.updateAllTitles(labelToUpdate);
+
       if (labelIndex !== -1) {
         this.task.labels.splice(labelIndex, 1, labelToUpdate);
       } else {
@@ -264,6 +267,25 @@ export default {
       );
 
       this.saveTaskData(activitylog);
+    },
+    async updateAllTitles(selectedLabel) {
+      if (selectedLabel.title) {
+        this.list.tasks.forEach(task => {
+          task.labels.forEach(label => {
+            if (label.color === selectedLabel.color)
+              task.title = selectedLabel.title;
+          });
+        });
+      }
+
+      try {
+        await this.$store.dispatch({
+          type: "updateList",
+          list: this.list
+        });
+      } catch (err) {
+        console.log("Err in updateList");
+      }
     },
     changeDate(newDate) {
       this.task.dueDate = newDate;
