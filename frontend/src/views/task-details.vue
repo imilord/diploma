@@ -318,7 +318,7 @@ export default {
       );
 
       this.saveTaskData(activitylog);
-      this.toggle("isOpenName");
+      this.toggle("isOpenDescription");
     },
     saveName() {
       const activitylog = this.createActivitylog(
@@ -326,7 +326,7 @@ export default {
       );
 
       this.saveTaskData(activitylog);
-      this.toggle("isOpenDescription");
+      this.toggle("isOpenName");
     },
     async addImg(ev) {
       const url = await this.$store.dispatch({
