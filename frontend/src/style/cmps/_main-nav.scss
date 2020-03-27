@@ -18,6 +18,7 @@
     ul {
         list-style: none;
         display: flex;
+        padding-inline-start: 0;
 
         li {
             cursor: pointer;
@@ -36,4 +37,14 @@
             }
         }
     }
+}
+
+@media (max-width: $break-narrow-s) {
+  .main-nav {
+    ul {
+      li {
+        padding: rem(2px) rem(4px);
+      }
+    }
+  }
 }

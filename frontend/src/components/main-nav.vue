@@ -8,7 +8,7 @@
       <li v-if="user.username === 'guest'">
         <router-link to="/auth">Login</router-link>
       </li>
-      <li v-if="user.username !== 'guest'">User setting</li>
+      <li v-if="user.username !== 'guest'">My profile</li>
       <li v-if="user.username !== 'guest'" @click="$emit('logout')">Logout</li>
     </ul>
   </section>
