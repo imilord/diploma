@@ -1,6 +1,6 @@
 .tasklist-list {
     height: 100vh;
-    padding-top: 100px;
+    padding-top: 90px;
 
 
     .tasklist-preview {
@@ -59,6 +59,10 @@
                 background: $clr6; 
             }
 
+        }
+        
+        footer {
+            margin-bottom: rem(5px);
         }
     }
 }
