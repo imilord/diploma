@@ -1,6 +1,5 @@
 <template>
   <section class="screen">
-    <!-- <div class="screen"></div> -->
     <section class="task-details" v-if="task">
       <div class="header">
         <button class="close-btn" @click="closeTaskEdit">X</button>
