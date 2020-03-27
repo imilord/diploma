@@ -123,3 +123,8 @@ Fri, 27 Mar 2020 07:35:30 GMT - Debug - auth.service - login with email: ronen@g
 Fri, 27 Mar 2020 07:45:41 GMT - Debug - auth.service - login with email: ronen@gmail.com
 Fri, 27 Mar 2020 07:46:36 GMT - Debug - auth.service - login with email: ronen@gmail.com
 Fri, 27 Mar 2020 07:47:30 GMT - Debug - auth.service - login with email: ronen@gmail.com
+Fri, 27 Mar 2020 07:59:27 GMT - Info - Server is running on port: 3000
+Fri, 27 Mar 2020 08:01:59 GMT - Debug - ella.brazlev@gmail.com, ellaB, 12345
+Fri, 27 Mar 2020 08:01:59 GMT - Debug - auth.service - signup with email: ella.brazlev@gmail.com, username: ellaB
+Fri, 27 Mar 2020 08:02:01 GMT - Debug - auth.route - new account created: {"email":"ella.brazlev@gmail.com","password":"$2b$10$tZSc6TIZuqucPN22Q5F3tOKoLbfbiQK2rOEIhC8LcuPzwYphEcgAG","username":"ellaB","imgUrl":"","_id":"5e7db2f90432e95dfc48888b"}
+Fri, 27 Mar 2020 08:02:01 GMT - Debug - auth.service - login with email: ella.brazlev@gmail.com
