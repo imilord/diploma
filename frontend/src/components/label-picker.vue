@@ -4,6 +4,7 @@
       <button class="close-btn" @click="$emit('close-labels')">X</button>
       <h2>Labels</h2>
     </header>
+
     <main>
       <section v-if="!isAddTitle">
         <div
@@ -28,15 +29,18 @@
       </section>
 
       <form class="title-form" v-else @submit.prevent="saveTitle">
-        <div class="header">Add title</div>
+        <div class="selected-color el-icon-check" :style="{backgroundColor:currLabelColor}"></div>
+        <div class="form-header">Add a title</div>
         <input
-        class="task"
+          class="task"
           type="text"
           placeholder="Enter title..."
           maxlength="10"
           v-model="allLabelsMap[currLabelColor]"
         />
-        <button>Save</button>
+        <div class="form-btn">
+          <button class="add-btn">Save</button>
+        </div>
       </form>
     </main>
   </section>

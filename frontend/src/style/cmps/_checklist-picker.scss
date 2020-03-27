@@ -2,11 +2,15 @@
   position: absolute;
   background-color: $clr1;
   left: 80%;
-  // top: 20%;
   transform: translate(-50%, 0%);
   z-index: 1;
   padding: rem(20px);
-  text-align: center;
+  min-width: 300px;
+  border-radius: 3px;
+  box-shadow: 0 0.0625rem 0 rgba(9, 30, 66, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   > * {
     margin-bottom: rem(10px);
@@ -19,5 +23,17 @@
     margin: rem(5px);
     background: none;
     border: none;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: rem(20px);
+    font-weight: normal;
+    font-size: rem(16px);
+  }
+
+  label div {
+    color: $clr9;
+    margin-bottom: rem(3px);
   }
 }
