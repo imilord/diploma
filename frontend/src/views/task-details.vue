@@ -94,6 +94,7 @@
               <i class="el-icon-time"></i> Due date
             </button>
             <due-date-picker
+              class="due-date-picker"
               v-if="isDueToSelected"
               :dueDate="task.dueDate"
               @close-due-date="toggle('isDueToSelected')"
@@ -102,7 +103,8 @@
           </div>
           <div>
             <button class="main-btn" @click="toggle('isAddMember')">
-              <i class="el-icon-user"></i> Members</button>
+              <i class="el-icon-user"></i> Members
+            </button>
             <member-picker
               v-if="isAddMember"
               :members="boardMembers"
@@ -114,7 +116,7 @@
             <label for="add-img" class="cover-content">
               <div class="main-btn">
                 <i class="el-icon-picture-outline"></i>
-                <span> Cover</span>
+                <span>Cover</span>
               </div>
               <input id="add-img" type="file" @change="addImg" class="cover-input" />
             </label>

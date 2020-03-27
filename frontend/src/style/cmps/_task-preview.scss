@@ -41,9 +41,9 @@
         transition: 0.5s;
 
         .label-title {
-          padding: rem(8px);
-          text-justify: distribute-all-lines;
           font-size: 0.8rem;
+          color: $clr1;
+          font-weight: bold;
         }
       }
 
@@ -108,4 +108,14 @@
   background-color: $clr3;
   border-radius: rem(3px);
   margin: 0 rem(4px) rem(8px) rem(1px);
+}
+
+.card-ghost {
+  transition: transform 0.15s ease;
+  transform: rotateZ(8deg);
+}
+
+.card-ghost-drop {
+  transition: transform 0.18s ease-in-out;
+  transform: rotateZ(0deg);
 }

@@ -101,3 +101,5 @@ Thu, 26 Mar 2020 17:07:29 GMT - Error - [SIGNUP] ReferenceError: Cannot access '
 Thu, 26 Mar 2020 17:10:36 GMT - Debug - lian@gmail.com, fsf, fs
 Thu, 26 Mar 2020 17:10:36 GMT - Debug - auth.service - signup with email: lian@gmail.com, username: fsf
 Thu, 26 Mar 2020 17:10:37 GMT - Error - [SIGNUP] ReferenceError: Cannot access 'user' before initialization
+Thu, 26 Mar 2020 22:03:41 GMT - Error - Cannot get boards
+Thu, 26 Mar 2020 22:03:46 GMT - Error - Cannot get boards

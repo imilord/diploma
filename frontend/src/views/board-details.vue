@@ -15,6 +15,8 @@
       @toggle-settings="toggleSettings"
       @set-bgc="setBgc"
       @delete-board="deleteBoard"
+      @change-date="changeDate"
+      @update-boardname="updateBoardname"
     ></board-settings>
     <activitylog
       v-if="isOpenActivitylog"
@@ -96,6 +98,10 @@ export default {
     },
     setBgc(bgc) {
       this.board.style = bgc;
+      this.updateBoard();
+    },
+    changeDate(newDate) {
+      this.board.dueDate = newDate;
       this.updateBoard();
     },
     async deleteBoard() {

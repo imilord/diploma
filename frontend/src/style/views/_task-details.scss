@@ -62,13 +62,15 @@
         display: flex;
         .label {
           min-width: rem(40px);
-          min-height: rem(30px);
+          height: rem(22px);
           display: inline-block;
           margin-left: rem(5px);
           border-radius: rem(5px);
           text-align: center;
           .label-title {
-            padding: rem(5px);
+            font-size: 0.8rem;
+            color: $clr1;
+            font-weight: bold;
           }
         }
       }

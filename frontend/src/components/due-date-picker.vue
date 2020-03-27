@@ -1,5 +1,5 @@
 <template>
-  <section class="due-date-picker">
+  <section>
     <header>
       <h2>Change due date</h2>
       <button class="close-btn" @click="$emit('close-due-date')">X</button>
@@ -20,10 +20,10 @@ export default {
       selectedDate: null
     };
   },
-  methods:{
-    saveDate(){
+  methods: {
+    saveDate() {
       const date = new Date(this.selectedDate).getTime();
-      this.$emit('date-change', JSON.parse(JSON.stringify(date)));
+      this.$emit("date-change", JSON.parse(JSON.stringify(date)));
     }
   },
   created() {
