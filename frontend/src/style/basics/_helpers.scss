@@ -70,3 +70,16 @@ input.task {
     outline-color: $clr9;
 }
 
+.close-btn {
+    border: none;
+    background-color: transparent;
+    color: $clr9;
+    font-size: rem(20px);
+    height: 34px;
+    display: inline-block;
+}
+
+.add-control-btns{
+    display: flex;
+    align-items: flex-end;
+}
