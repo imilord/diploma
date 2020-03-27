@@ -111,13 +111,15 @@ export default {
             }
         },
         updateTitles(state, { label }) {
-            console.log(label)
             state.board.taskLists.forEach(list => {
                 list.tasks.forEach(task => {
                     task.labels.forEach(currLabel => {
                         if (label.color === currLabel.color) {
-                            currLabel.title = label.title;
-                            console.log('label')
+                            if (label.title) {
+                                currLabel.title = label.title;
+                            } else {
+                                label.title = currLabel.title;
+                            }
                         }
                     });
                 });
@@ -232,7 +234,6 @@ export default {
             return savedBoard;
         },
         async updateTitles(context, { label }) {
-            console.log(label, 'label')
             context.commit({
                 type: 'updateTitles',
                 label

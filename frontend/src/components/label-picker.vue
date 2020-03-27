@@ -52,6 +52,7 @@ export default {
       const label = this.selectedLabels.find(
         selectedLabel => selectedLabel.color === labelColor
       );
+      
       if (label) {
         this.allLabelsMap[labelColor] = label.title;
 

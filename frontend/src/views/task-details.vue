@@ -237,7 +237,7 @@ export default {
       const activitylog = this.createActivitylog(
         `added label to ${this.task.name}`
       );
-
+      this.updateAllTitles(newLabel);
       this.saveTaskData(activitylog);
     },
     async removeLabel(labelToRemove) {
