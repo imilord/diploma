@@ -44,11 +44,12 @@
           font-size: 0.8rem;
           color: $clr1;
           font-weight: bold;
+          padding: rem(5px);
         }
       }
 
       .label-text {
-        height: rem(25px);
+        height: rem(22px);
       }
 
       .fade-enter-active {
