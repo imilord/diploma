@@ -63,9 +63,9 @@ async function add(user) {
     const collection = await dbService.getCollection('user')
     try {
         const email = user.email;
-        const user = await collection.findOne({ email });
+        const oldUser = await collection.findOne({ email });
 
-        if (!user) {
+        if (!oldUser) {
             await collection.insertOne(user);
             return user;
         } else {

@@ -28,7 +28,6 @@
 </template>
 
 <script>
-
 export default {
   name: "user-auth",
   data() {
@@ -45,7 +44,16 @@ export default {
         return (this.msg = "Please enter user/password");
       }
 
-      await this.$store.dispatch({ type: "login", userCred: credential });
+      const user = await this.$store.dispatch({
+        type: "login",
+        userCred: credential
+      });
+
+      if (user) {
+        this.$router.push("/");
+      } else {
+        this.msg = "Email address or password is incorrect";
+      }
       this.loginCred = {};
     },
     async doSignup() {
@@ -65,7 +73,7 @@ export default {
 
       if (user) {
         this.$router.push("/");
-      }else{
+      } else {
         this.msg = "Email Address is Already Registered";
       }
     },

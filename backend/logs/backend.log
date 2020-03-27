@@ -103,3 +103,20 @@ Thu, 26 Mar 2020 17:10:36 GMT - Debug - auth.service - signup with email: lian@g
 Thu, 26 Mar 2020 17:10:37 GMT - Error - [SIGNUP] ReferenceError: Cannot access 'user' before initialization
 Thu, 26 Mar 2020 22:03:41 GMT - Error - Cannot get boards
 Thu, 26 Mar 2020 22:03:46 GMT - Error - Cannot get boards
+Fri, 27 Mar 2020 07:25:31 GMT - Debug - ronen@gmail.com, ronen, 123
+Fri, 27 Mar 2020 07:25:31 GMT - Debug - auth.service - signup with email: ronen@gmail.com, username: ronen
+Fri, 27 Mar 2020 07:25:31 GMT - Error - [SIGNUP] ReferenceError: Cannot access 'user' before initialization
+Fri, 27 Mar 2020 07:26:38 GMT - Info - Server is running on port: 3000
+Fri, 27 Mar 2020 07:26:58 GMT - Debug - ronen@gmail.com, fbdfb, 123
+Fri, 27 Mar 2020 07:26:58 GMT - Debug - auth.service - signup with email: ronen@gmail.com, username: fbdfb
+Fri, 27 Mar 2020 07:26:59 GMT - Error - [SIGNUP] ReferenceError: Cannot access 'user' before initialization
+Fri, 27 Mar 2020 07:27:50 GMT - Info - Server is running on port: 3000
+Fri, 27 Mar 2020 07:28:12 GMT - Debug - ronen@gmail.com, fgse, 123
+Fri, 27 Mar 2020 07:28:12 GMT - Debug - auth.service - signup with email: ronen@gmail.com, username: fgse
+Fri, 27 Mar 2020 07:28:14 GMT - Error - [SIGNUP] ReferenceError: Cannot access 'user' before initialization
+Fri, 27 Mar 2020 07:32:33 GMT - Info - Server is running on port: 3000
+Fri, 27 Mar 2020 07:33:43 GMT - Debug - ronen@gmail.com, ronen, 123
+Fri, 27 Mar 2020 07:33:43 GMT - Debug - auth.service - signup with email: ronen@gmail.com, username: ronen
+Fri, 27 Mar 2020 07:33:45 GMT - Debug - auth.route - new account created: {"email":"ronen@gmail.com","password":"$2b$10$UKYE9ksj0gf9uKkcEk2dIORc8c6cfnIaMv/6.W4ONKwHUD1SgKPVW","username":"ronen","imgUrl":"","_id":"5e7dac584a37982fccc69037"}
+Fri, 27 Mar 2020 07:33:45 GMT - Debug - auth.service - login with email: ronen@gmail.com
+Fri, 27 Mar 2020 07:35:30 GMT - Debug - auth.service - login with email: ronen@gmail.com
