@@ -11,11 +11,11 @@
   }
   &::-webkit-scrollbar-track {
     border-radius: 10px;
-    background: $clr3;
+    background: transparent;
   }
   &::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background: $clr6;
+    background: $clr5;
   }
 
   .task-details {

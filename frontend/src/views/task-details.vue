@@ -12,7 +12,7 @@
       </div>
       <div class="details-container">
         <section class="task-data">
-          <h2 v-if="!isOpenName" @click="toggle('isOpenName')">{{task.name}}</h2>
+          <h2 v-if="!isOpenName" @click="isOpenName = true">{{task.name}}</h2>
           <input v-else type="text" v-model="task.name" @blur="saveName" @keyup.enter="saveName" />
           <div class="list-name">In list {{list.name}}</div>
           <div class="main-data">
@@ -327,8 +327,9 @@ export default {
         `updated task name to ${this.task.name}`
       );
 
+      this.isOpenName = false;
+      console.log(this.isOpenName);
       this.saveTaskData(activitylog);
-      this.toggle("isOpenName");
     },
     async addImg(ev) {
       const url = await this.$store.dispatch({
