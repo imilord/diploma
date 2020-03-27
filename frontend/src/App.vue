@@ -17,11 +17,12 @@ export default {
   methods: {
     doLogout() {
       this.$store.dispatch({ type: "logout" });
+      this.user = JSON.parse(JSON.stringify(this.$store.getters.loggedinUser));
       this.$router.push("/");
     }
   },
   watch: {
-    "$route.params": () => {
+    "$route.params": function() {
       this.user = JSON.parse(JSON.stringify(this.$store.getters.loggedinUser));
     }
   },
