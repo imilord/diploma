@@ -1,7 +1,6 @@
 <template>
   <section>
-    <!-- <div v-if="isTaskOpen" class="screen"></div> -->
-    <main-nav :user="user" @logout="doLogout"></main-nav>
+    <main-nav :user="user" @logout="doLogout" :class="{ isTaskOpen: isTaskOpen }"></main-nav>
     <router-view></router-view>
   </section>
 </template>
@@ -37,12 +36,7 @@ export default {
 </script>
 
 <style scoped>
-.screen {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  z-index: 40;
-  top: 0;
-  overflow-y: auto;
+.isTaskOpen {
+  display: none;
 }
 </style>
