@@ -103,3 +103,10 @@ Thu, 26 Mar 2020 17:10:36 GMT - Debug - auth.service - signup with email: lian@g
 Thu, 26 Mar 2020 17:10:37 GMT - Error - [SIGNUP] ReferenceError: Cannot access 'user' before initialization
 Thu, 26 Mar 2020 22:03:41 GMT - Error - Cannot get boards
 Thu, 26 Mar 2020 22:03:46 GMT - Error - Cannot get boards
+Fri, 27 Mar 2020 06:43:32 GMT - Info - Server is running on port: 3000
+Fri, 27 Mar 2020 06:44:13 GMT - Debug - auth.service - login with email: lian@gmain.com
+Fri, 27 Mar 2020 06:46:33 GMT - Debug - barbara@gmail.com, barbara, 1234
+Fri, 27 Mar 2020 06:46:33 GMT - Debug - auth.service - signup with email: barbara@gmail.com, username: barbara
+Fri, 27 Mar 2020 06:46:33 GMT - Error - [SIGNUP] ReferenceError: Cannot access 'user' before initialization
+Fri, 27 Mar 2020 06:55:53 GMT - Info - Server is running on port: 3000
+Fri, 27 Mar 2020 06:57:50 GMT - Info - Server is running on port: 3000

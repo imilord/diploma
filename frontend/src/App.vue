@@ -20,6 +20,11 @@ export default {
       this.$router.push("/");
     }
   },
+  watch: {
+    "$route.params": () => {
+      this.user = JSON.parse(JSON.stringify(this.$store.getters.loggedinUser));
+    }
+  },
   components: {
     mainNav
   }

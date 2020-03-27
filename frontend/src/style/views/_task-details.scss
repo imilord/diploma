@@ -65,12 +65,13 @@
           height: rem(22px);
           display: inline-block;
           margin-left: rem(5px);
-          border-radius: rem(5px);
+          border-radius: rem(3px);
           text-align: center;
           .label-title {
             font-size: 0.8rem;
             color: $clr1;
             font-weight: bold;
+            padding: rem(5px);
           }
         }
       }
