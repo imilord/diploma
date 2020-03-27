@@ -15,7 +15,7 @@
           <avatar v-else :username="creator.username" class="member"></avatar>
         </div>
       </li>-->
-      <li v-if="members && !isMobile">
+      <li v-if="members && !isMobile" class="members">
         <div v-for="member in members" :key="member._id">
           <img v-if="member.imgUrl" :src="member.imgUrl" class="member-img" />
           <avatar v-else :username="member.username" class="member"></avatar>
@@ -56,7 +56,7 @@ export default {
       );
     },
     isMobileDevice() {
-      return window.innerWidth < 500;
+      return window.innerWidth < 550;
     }
   },
   created() {

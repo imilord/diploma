@@ -36,10 +36,19 @@
                 background-color: $clr3;
             }
         }
-        .member {
+
+        .members {
+            display: flex;
+            margin-left: rem(8px);
+
+        .member,
+        .memner-img {
+            margin: 0 rem(10px);
             &:hover {
                 background-color: transparent;
             }
+        }
+
         }
     }
     button {

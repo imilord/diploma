@@ -1,6 +1,5 @@
 <template>
   <section>
-    <font-awesome-icon icon="user-secret" />
     <main-nav :user="user" @logout="doLogout" :class="{ isTaskOpen: isTaskOpen }"></main-nav>
     <router-view></router-view>
   </section>

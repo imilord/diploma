@@ -9,22 +9,27 @@
       @toggle-settings="toggleSettings"
       @update-boardname="updateBoardname"
     ></board-nav>
-    <board-settings
-      v-if="isOpenBoardSetting"
-      :board="board"
-      @toggle-settings="toggleSettings"
-      @set-bgc="setBgc"
-      @delete-board="deleteBoard"
-      @change-date="changeDate"
-      @update-boardname="updateBoardname"
-    ></board-settings>
-    <activitylog
-      v-if="isOpenActivitylog"
-      class="main-activitylog"
-      :isMain="true"
-      :activitieslog="board.activitieslog"
-      @close-activitylog="toggleActivitylog"
-    ></activitylog>
+    <transition name="slide" appear>
+      <board-settings
+        v-if="isOpenBoardSetting"
+        :board="board"
+        :class="{'board-settings-open': isOpenBoardSetting}"
+        @toggle-settings="toggleSettings"
+        @set-bgc="setBgc"
+        @delete-board="deleteBoard"
+        @change-date="changeDate"
+        @update-boardname="updateBoardname"
+      ></board-settings>
+    </transition>
+    <transition name="slide" appear>
+      <activitylog
+        v-if="isOpenActivitylog"
+        class="main-activitylog"
+        :isMain="true"
+        :activitieslog="board.activitieslog"
+        @close-activitylog="toggleActivitylog"
+      ></activitylog>
+    </transition>
     <tasklist-list
       :taskLists="board.taskLists"
       :boardId="board._id"
