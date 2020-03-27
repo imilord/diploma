@@ -18,7 +18,7 @@
           @upadte-activitylog="upadteActivitylog"
         ></tasklist-preview>
       </draggable>
-      <div class="tasklist-preview" :class="{newListBgc : isAddListOpen}">
+      <div class="tasklist-preview hover-class" :class="{newListBgc : isAddListOpen}">
         <button v-if="!isAddListOpen" @click="toggleAddList" class="new-add-btn">
           <font-awesome-icon class="new-add-btn" icon="plus" />Add new list
         </button>

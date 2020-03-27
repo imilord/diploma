@@ -25,7 +25,7 @@
         @upadte-activitylog="upadteActivitylog"
       ></task-list>
     </main>
-    <footer>
+    <footer :class="{'hover-class': !isAddTaskOpen}">
       <button v-if="!isAddTaskOpen" @click="toggleAddTask" class="new-add-btn">
         <font-awesome-icon class="new-add-btn" icon="plus" />Add new task
       </button>

@@ -12,6 +12,9 @@
         margin: 0 rem(4px);
         padding: rem(8px) rem(4px) rem(8px) rem(7px);
         position: relative;
+        // &:hover {
+        //     background-color: $clr3;
+        // }
 
         header {
             display: flex;
@@ -60,19 +63,27 @@
         }
         
         footer {
-            margin-bottom: rem(5px);
+            padding: 6px 0 8px;
+            margin-right: 4px;
+                .hover-class {
+                &:hover {
+                    background-color: $clr3;
+            }
+        }
+
+            
         }
     }
+    .hover-class {
+        &:hover {
+            background-color: $clr3;
+    }
+
+}
     .newListBgc {
         background-color: rgb(235, 236, 240);
+        &:hover {
+            background-color: rgb(235, 236, 240);
+        }
     }
 }
-
-// .tasklist-preview-placeholder {
-//     background-color: $clr3;
-//     border-radius: rem(3px);
-//     margin: rem(4px);
-//     padding: 0;
-//     // max-height: 400px;
-// }
-
