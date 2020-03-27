@@ -1,6 +1,6 @@
 <template>
   <section class="screen" @click="closeTaskEdit">
-    <section class="task-details" v-if="task" @click.stop="">
+    <section class="task-details" v-if="task" @click.stop>
       <div class="header">
         <button class="close-btn" @click="closeTaskEdit">X</button>
         <div v-if="task.cover" class="cover-container">
@@ -12,8 +12,10 @@
       </div>
       <div class="details-container">
         <section class="task-data">
-          <h2 v-if="!isOpenName" @click="toggle('isOpenName')">{{task.name}}</h2>
-          <input v-else type="text" v-model="task.name" @blur="saveName" @keyup.enter="saveName" />
+          <div>
+            <h2 v-if="!isOpenName" @click.stop="toggle('isOpenName')">{{task.name}}</h2>
+            <input v-else type="text" v-model="task.name" @blur="saveName" @keyup.enter="saveName" />
+          </div>
           <div class="list-name">In list {{list.name}}</div>
           <div class="main-data">
             <h4>Labels</h4>
@@ -327,8 +329,8 @@ export default {
         `updated task name to ${this.task.name}`
       );
 
+      this.isOpenName = false;
       this.saveTaskData(activitylog);
-      this.toggle("isOpenName");
     },
     async addImg(ev) {
       const url = await this.$store.dispatch({
