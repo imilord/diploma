@@ -1,82 +1,71 @@
 .checklist-details {
-  margin-bottom: rem(30px);
-
-  .checklist-header {
-    display: flex;
-    justify-content: space-between;
-    padding: rem(8px) 0;
-    margin-bottom: rem(4px);
-
-    .checklist-name {
-      margin: rem(6px);
-      text-transform: none;
-      cursor: pointer;
+    margin-bottom: rem(30px);
+    .checklist-header {
+        display: flex;
+        justify-content: space-between;
+        padding: rem(8px) 0;
+        margin-bottom: rem(4px);
+        .checklist-name {
+            margin: rem(6px);
+            text-transform: none;
+            cursor: pointer;
+        }
+        .remove-checklist-btn {
+            background-color: $clr7;
+            border: none;
+            border-radius: 3px;
+            padding: rem(6px) rem(12px);
+        }
+        .check-icon {
+            font-size: rem(20px);
+            margin-right: rem(5px);
+        }
     }
-
-    .remove-checklist-btn {
-      background-color: $clr7;
-      border: none;
-      border-radius: 3px;
-      padding: rem(6px) rem(12px);
+    .el-progress {
+        padding-bottom: rem(5px);
     }
-  }
-
-  .el-progress {
-    padding-bottom: rem(5px);
-  }
-
-  .done {
-    .el-progress-bar__inner {
-      background-color: rgb(35, 190, 55);
+    .done {
+        .el-progress-bar__inner {
+            background-color: rgb(35, 190, 55);
+        }
     }
-  }
-
-  .todos {
-    display: flex;
-    justify-content: space-between;
-    align-content: flex-start;
-
-    .remove-todo {
-      border: none;
-      background-color: transparent;
-      display: none;
-      padding-right: 7px;
+    .todos {
+        display: flex;
+        justify-content: space-between;
+        align-content: flex-start;
+        .remove-todo {
+            border: none;
+            background-color: transparent;
+            display: none;
+            padding-right: 7px;
+        }
+        &:hover {
+            background-color: $clr7;
+            border-radius: 3px;
+            .remove-todo {
+                display: inline-block;
+            }
+        }
+        >* {
+            padding: 6px 0;
+            cursor: pointer;
+        }
+        .checklist-todo {
+            display: inline-block;
+            padding-left: rem(10px);
+        }
+        .el-checkbox {
+            justify-self: flex-start;
+        }
+        .todo-controls {
+            padding-left: 24px;
+        }
     }
-
-    &:hover {
-      background-color: $clr7;
-      border-radius: 3px;
-
-      .remove-todo {
+    .add-item {
+        border-radius: 3px;
+        padding: rem(6px) rem(12px);
+        margin: rem(8px);
         display: inline-block;
-      }
+        width: 110px;
     }
-
-    > * {
-      padding: 6px 0;
-      cursor: pointer;
-    }
-
-    .checklist-todo {
-      display: inline-block;
-      padding-left: rem(10px);
-    }
-
-    .el-checkbox {
-      justify-self: flex-start;
-    }
-
-    .todo-controls {
-      padding-left: 24px;
-    }
-  }
-
-  .add-item {
-    border-radius: 3px;
-    padding: rem(6px) rem(12px);
-    margin: rem(8px);
-    display: inline-block;
-    width: 110px;
-  }
-
 }
