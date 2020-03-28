@@ -1,0 +1,29 @@
+// SETUP
+@import "setup/typography";
+@import "setup/variables";
+@import "setup/mixins";
+@import "setup/functions";
+// BASICS
+@import "basics/base.scss";
+@import "basics/layout.scss";
+@import "basics/helpers.scss";
+// COMPONENTS
+@import "cmps/color-picker.scss";
+@import "cmps/main-nav.scss";
+@import "cmps/board-nav.scss";
+@import "cmps/task-list-preview.scss";
+@import "cmps/activitylog.scss";
+@import "cmps/member-picker.scss";
+// @import 'cmps/task_preview.scss';
+@import "cmps/task-preview.scss";
+@import "cmps/list-settings.scss";
+@import "cmps/board_setting";
+@import "cmps/label-picker.scss";
+@import "cmps/due-date-picker.scss";
+@import "cmps/checklist-picker.scss";
+@import "cmps/checklist-details.scss";
+@import "cmps/user-profile.scss";
+//VIEWS
+@import "./views/task-details.scss";
+@import "./views/user-auth.scss";
+@import "./views/home-page";
