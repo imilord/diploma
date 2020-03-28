@@ -47,6 +47,9 @@
     line-height: 20px;
     border-radius: 3px;
     font-weight: 500;
+    &:hover {
+        background-color: $clr12;
+    }
 }
 
 input.board {
@@ -77,6 +80,9 @@ input.task {
     font-size: rem(20px);
     height: 34px;
     display: inline-block;
+    &:hover {
+        color: $clr12;
+    }
 }
 
 .add-control-btns{

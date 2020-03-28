@@ -51,8 +51,8 @@
           ></due-date-picker>
           <div v-if="isDeleteQuestOpen">
             <div>Are you sure?</div>
-            <button @click="isDeleteQuestOpen=!isDeleteQuestOpen">No</button>
-            <button @click="deleteBoard">Yes, delete this board</button>
+            <button class="add-btn" @click="isDeleteQuestOpen=!isDeleteQuestOpen">No</button>
+            <button class="add-btn" @click="deleteBoard">Yes, delete this board</button>
           </div>
         </section>
       </div>
