@@ -5,7 +5,8 @@ if (sessionStorage.user) localLoggedinUser = JSON.parse(sessionStorage.user);
 
 export default {
     state: {
-        loggedinUser: localLoggedinUser
+        loggedinUser: localLoggedinUser,
+        users: []
     },
     getters: {
         loggedinUser(state) {
@@ -19,6 +20,9 @@ export default {
             } else {
                 state.loggedinUser = localLoggedinUser;
             }
+        },
+        setUsers(state, { users }) {
+            state.users = users;
         }
     },
     actions: {
@@ -36,6 +40,11 @@ export default {
         async logout(context) {
             await userService.logout();
             context.commit({ type: 'setUser', user: { username: 'guest' } });
+        },
+        async getUsers(context) {
+            const users = await userService.getUsers();
+            context.commit({ type: 'setUsers', users });
+            return users;
         }
     }
 }

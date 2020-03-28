@@ -1,7 +1,10 @@
 <template>
   <section class="label-picker">
     <header>
-      <button class="close-btn" @click="$emit('close-labels')">X</button>
+      <button class="close-btn" v-if="!isAddTitle" @click="$emit('close-labels')">
+        <font-awesome-icon icon="times" />
+      </button>
+      <button class="close-btn" v-else @click="toggleAddTitle()">X</button>
       <h2>Labels</h2>
     </header>
 
@@ -75,7 +78,6 @@ export default {
 
       if (label) {
         this.allLabelsMap[labelColor] = label.title;
-
         return true;
       }
 
@@ -101,7 +103,7 @@ export default {
         this.$emit("add-label", newSelectedLabel);
       }
     },
-    toggleAddTitle(labelColor) {
+    toggleAddTitle(labelColor = null) {
       this.isAddTitle = !this.isAddTitle;
       this.currLabelColor = labelColor;
     },

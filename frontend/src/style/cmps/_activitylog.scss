@@ -11,7 +11,6 @@
     font-size: rem(14px);
     color: $clr2;
     padding: 0 15px;
-
     &::-webkit-scrollbar {
         width: 10px;
     }
@@ -23,7 +22,21 @@
         border-radius: 10px;
         background: $clr6;
     }
-
+    .task-activitylog {
+        max-height: 200px;
+        overflow-y: auto;
+        &::-webkit-scrollbar {
+            width: rem(8px);
+        }
+        &::-webkit-scrollbar-track {
+            border-radius: 10px;
+            background: $clr3;
+        }
+        &::-webkit-scrollbar-thumb {
+            border-radius: rem(10px);
+            background: $clr6;
+        }
+    }
     header {
         display: flex;
         justify-content: space-between;
@@ -32,7 +45,6 @@
         padding: 5px 0;
         margin: 5px 0;
         height: 60px;
-    
         .close-activitylog {
             margin-right: rem(10px);
             background: none;
@@ -41,51 +53,53 @@
         .activity-title {
             font-weight: bold;
             font-size: 1.1rem;
-    
             span {
                 margin-left: rem(8px);
             }
         }
     }
-
-}
-
-
-.activities {
-    list-style-type: none;
-    padding: 0;
-    margin-left: rem(5px);
-    .activity {
-        display: flex;
-        margin-bottom: rem(10px);
-        .username {
-            font-weight: bold;
-        }
-        .due-date {
-            font-size: rem(12px);
-            color: $clr9;
-        }
-        .avatar,
-        .member-img {
-            background-color: $clr10!important;
-            color: $clr2!important;
-            width: 32px!important;
-            height: 32px!important;
-            margin-right: rem(10px);
+    .activities {
+        list-style-type: none;
+        padding: 0;
+        margin-left: rem(5px);
+        .activity {
+            display: flex;
+            margin-bottom: rem(10px);
+            .username {
+                font-weight: bold;
+            }
+            .due-date {
+                font-size: rem(12px);
+                color: $clr9;
+            }
+            .avatar,
+            .member-img {
+                background-color: $clr10!important;
+                color: $clr2!important;
+                width: 32px!important;
+                height: 32px!important;
+                margin-right: rem(10px);
+            }
         }
     }
 }
 
-.slide-enter-active, .slide-leave-active {
-  transition: width .5s;
-}
-.slide-enter, .slide-leave-to {
-  width: 0;
+.slide-enter-active,
+.slide-leave-active {
+    transition: width .5s;
 }
 
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+.slide-enter,
+.slide-leave-to {
+    width: 0;
 }
-.fade-enter, .fade-leave-to {
-  opacity: 0;
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity .5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
 }
