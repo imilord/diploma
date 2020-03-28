@@ -29,6 +29,11 @@
             </div>
           </div>
           <div class="list-name">In list {{list.name}}</div>
+          <div>
+            <input type="checkbox" name="isDone" v-model="task.status.isDone" @input="updatsStatus" />
+            <label for="isDone">Completed task</label>
+          </div>
+          <br />
           <div class="main-data">
             <section class="member-labels-date">
               <div>
@@ -221,6 +226,7 @@ export default {
       task: null,
       list: null,
       activitieslog: null,
+      loggedinUser: null,
       isLabelsSelected: false,
       isDueToSelected: false,
       isOpenDescription: false,
@@ -387,6 +393,23 @@ export default {
       );
 
       this.isOpenName = false;
+      this.saveTaskData(activitylog);
+    },
+    updatsStatus() {
+      var activitylog;
+      if (this.task.status.isDone) {
+        this.task.status.member = {};
+        this.task.status.date = null;
+        activitylog = this.createActivitylog(
+          `incompleted task ${this.task.name}`
+        );
+      } else {
+        this.task.status.member = JSON.parse(JSON.stringify(this.loggedinUser));
+        this.task.status.date = Date.now();
+        activitylog = this.createActivitylog(
+          `completed task ${this.task.name}`
+        );
+      }
       this.saveTaskData(activitylog);
     },
     async addImg(ev) {
@@ -575,6 +598,7 @@ export default {
     this.getListAndTask(taskId);
     this.getTaskActivitylog();
     this.boardMembers = this.$store.getters.boardMembers;
+    this.loggedinUser = this.$store.getters.loggedinUser;
 
     socketService.setup();
     socketService.emit("task topic", this.task.id);

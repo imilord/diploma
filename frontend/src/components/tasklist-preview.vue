@@ -16,7 +16,7 @@
         @set-sort="setSort"
       ></list-settings>
     </header>
-    <main>
+    <main :class="{'mobile-mode': isMobile}">
       <task-list
         class="task-list"
         :allTasks="list.tasks"
@@ -63,6 +63,7 @@ export default {
   },
   data() {
     return {
+      isMobile: false,
       isSettingsOpen: false,
       isAddTaskOpen: false,
       newTask: null,
@@ -182,6 +183,12 @@ export default {
         txt,
         createdAt: Date.now()
       };
+    },
+    isMobileDevice() {
+      return (
+        typeof window.orientation !== "undefined" ||
+        navigator.userAgent.indexOf("IEMobile") !== -1
+      );
     }
   },
   watch: {
@@ -191,6 +198,7 @@ export default {
   },
   created() {
     this.getEmptyTask();
+    this.isMobile = this.isMobileDevice();
   },
   components: {
     taskList,

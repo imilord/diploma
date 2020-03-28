@@ -67,10 +67,16 @@
             padding: rem(5px) rem(10px);
             border: none;
             background-color: transparent;
+                    color: $clr2;
+
             &:hover {
                 background-color: $clr6;
                 border-radius: rem(1px);
             }
+                    a {
+          text-decoration: none;
+          color: $clr2;
+        }
         }
     }
     &::-webkit-scrollbar {
