@@ -18,13 +18,19 @@
           @upadte-activitylog="upadteActivitylog"
         ></tasklist-preview>
       </draggable>
-      <div class="tasklist-preview">
-        <button v-if="!isAddListOpen" @click="isAddListOpen=!isAddListOpen" class="new-add-btn">
+      <div class="tasklist-preview hover-class" :class="{newListBgc : isAddListOpen}">
+        <button v-if="!isAddListOpen" @click="toggleAddList" class="new-add-btn">
           <font-awesome-icon class="new-add-btn" icon="plus" />Add new list
         </button>
         <div v-else>
           <form @submit.prevent="addList">
-            <input type="text" placeholder="Add list title" v-model="newList.name" class="board" />
+            <input
+              ref="title"
+              type="text"
+              placeholder="Add list title"
+              v-model="newList.name"
+              class="board"
+            />
             <br />
             <div class="add-control-btns">
               <button class="add-btn">Add List</button>
@@ -71,6 +77,12 @@ export default {
     onDrop(dropResult) {
       this.lists = applyDrag(this.lists, dropResult);
       this.updateList();
+    },
+    toggleAddList() {
+      this.isAddListOpen = !this.isAddListOpen;
+      setTimeout(() => {
+        this.$refs.title.focus();
+      }, 50);
     },
     async addList() {
       if (!this.newList.name) return;

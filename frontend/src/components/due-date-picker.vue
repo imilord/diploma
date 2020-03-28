@@ -1,11 +1,11 @@
 <template>
   <section>
     <header>
-      <h2>Change due date</h2>
+      <h2>Change Due Date</h2>
       <button class="close-btn" @click="$emit('close-due-date')">X</button>
     </header>
     <v-date-picker class="calender" v-model="selectedDate" mode="single" is-inline />
-    <button @click="saveDate">Save</button>
+    <button class="add-btn" @click="saveDate">Save</button>
   </section>
 </template>
 

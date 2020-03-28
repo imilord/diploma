@@ -103,6 +103,10 @@
       padding: rem(4px);
     }
   }
+
+    &:hover {
+    background-color: $clr3;
+  }
 }
 
 .task-preview-placeholder {

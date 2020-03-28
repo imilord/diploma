@@ -1,29 +1,41 @@
 <template>
   <section class="user-auth">
-    <h2>{{msg}}</h2>
-    <form @submit.prevent="doLogin">
-      <input type="email" v-model="loginCred.email" placeholder="Email" />
-      <br />
-      <input type="password" v-model="loginCred.password" placeholder="Password" />
-      <br />
-      <button>Login</button>
-    </form>
-    <form @submit.prevent="doSignup">
-      <input type="email" v-model="signupCred.email" placeholder="Email" />
-      <br />
-      <input type="password" v-model="signupCred.password" placeholder="Password" />
-      <br />
-      <input type="text" v-model="signupCred.username" placeholder="Username" />
-      <br />
-      <label for="add-img">
-        <div>
-          <i class="el-icon-picture-outline"></i>
-          <span>Add image</span>
-        </div>
-        <input id="add-img" type="file" @change="addImg" class="img-input" />
-      </label>
-      <button>Signup</button>
-    </form>
+    <div class="login" v-if="isLogin">
+      <h4>Welcome Back</h4>
+      <form @submit.prevent="doLogin">
+        <input type="email" v-model="loginCred.email" placeholder="Email" />
+        <br />
+        <input type="password" v-model="loginCred.password" placeholder="Password" />
+        <br />
+        <button class="add-btn">Login</button>
+        <div class="msg">{{msg}}</div>
+      </form>
+      <button @click="isLogin=false" class="not-member">
+        Not a member? Create your account
+        <span>here</span>
+      </button>
+    </div>
+
+    <div class="signup" v-else>
+      <h4>Hello, nice meeting you</h4>
+      <form @submit.prevent="doSignup">
+        <input type="email" v-model="signupCred.email" placeholder="Email" />
+        <br />
+        <input type="password" v-model="signupCred.password" placeholder="Password" />
+        <br />
+        <input type="text" v-model="signupCred.username" placeholder="Username" />
+        <br />
+        <label for="add-img">
+          <div>
+            <i class="el-icon-picture-outline"></i>
+            <span>Add image</span>
+          </div>
+          <input id="add-img" type="file" @change="addImg" class="img-input" />
+        </label>
+        <button class="add-btn">Signup</button>
+        <div class="msg">{{msg}}</div>
+      </form>
+    </div>
   </section>
 </template>
 
@@ -32,6 +44,7 @@ export default {
   name: "user-auth",
   data() {
     return {
+      isLogin: true,
       signupCred: {},
       loginCred: {},
       msg: ""

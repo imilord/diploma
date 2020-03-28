@@ -123,19 +123,30 @@ Fri, 27 Mar 2020 07:35:30 GMT - Debug - auth.service - login with email: ronen@g
 Fri, 27 Mar 2020 07:45:41 GMT - Debug - auth.service - login with email: ronen@gmail.com
 Fri, 27 Mar 2020 07:46:36 GMT - Debug - auth.service - login with email: ronen@gmail.com
 Fri, 27 Mar 2020 07:47:30 GMT - Debug - auth.service - login with email: ronen@gmail.com
-
-Fri, 27 Mar 2020 16:00:07 GMT - Info - Server is running on port: 3000
-Fri, 27 Mar 2020 18:02:56 GMT - Info - Server is running on port: 3000
-Fri, 27 Mar 2020 18:03:42 GMT - Info - Server is running on port: 3000
-Fri, 27 Mar 2020 18:11:10 GMT - Info - Server is running on port: 3000
-Fri, 27 Mar 2020 18:11:33 GMT - Info - Server is running on port: 3000
-Fri, 27 Mar 2020 18:13:31 GMT - Info - Server is running on port: 3000
-Fri, 27 Mar 2020 18:19:49 GMT - Info - Server is running on port: 3000
-Fri, 27 Mar 2020 18:23:14 GMT - Info - Server is running on port: 3000
-Fri, 27 Mar 2020 18:26:02 GMT - Info - Server is running on port: 3000
-Fri, 27 Mar 2020 18:29:37 GMT - Info - Server is running on port: 3000
-Fri, 27 Mar 2020 18:31:40 GMT - Info - Server is running on port: 3000
-Fri, 27 Mar 2020 18:33:10 GMT - Info - Server is running on port: 3000
-Fri, 27 Mar 2020 18:34:23 GMT - Info - Server is running on port: 3000
-Sat, 28 Mar 2020 06:28:44 GMT - Debug - auth.service - login with email: ronen@gmail.com
-Sat, 28 Mar 2020 06:41:13 GMT - Debug - auth.service - login with email: ronen@gmail.com
+Fri, 27 Mar 2020 16:27:57 GMT - Debug - daniel@gmal.com, daniel, 123
+Fri, 27 Mar 2020 16:27:57 GMT - Debug - auth.service - signup with email: daniel@gmal.com, username: daniel
+Fri, 27 Mar 2020 16:27:57 GMT - Debug - auth.route - new account created: {"email":"daniel@gmal.com","password":"$2b$10$SydO6dCo5TWRjYjNs3mUeumfKR5Iuq7cBJVy.RCzgw.dljrufO0La","username":"daniel","imgUrl":"","_id":"5e7e298d7c446c4c5481cf92"}
+Fri, 27 Mar 2020 16:27:57 GMT - Debug - auth.service - login with email: daniel@gmal.com
+Fri, 27 Mar 2020 18:15:36 GMT - Info - Server is running on port: 3000
+Fri, 27 Mar 2020 18:21:50 GMT - Info - Server is running on port: 3000
+Fri, 27 Mar 2020 18:29:52 GMT - Info - Server is running on port: 3000
+Fri, 27 Mar 2020 22:53:35 GMT - Debug - auth.service - login with email: daniel@gmal.com
+Fri, 27 Mar 2020 22:54:20 GMT - Debug - barbara@gmail.com, barbara, 1234
+Fri, 27 Mar 2020 22:54:20 GMT - Debug - auth.service - signup with email: barbara@gmail.com, username: barbara
+Fri, 27 Mar 2020 22:54:21 GMT - Debug - auth.route - new account created: {"email":"barbara@gmail.com","password":"$2b$10$ksuV6PgNpBWufIosxkxHQeQbAdVamv.V7IN2z/MDdKwDaEAFSxxu.","username":"barbara","imgUrl":"http://res.cloudinary.com/dcwrnwtiu/image/upload/v1585349658/tnkel456iz0s7mykua9r.jpg","_id":"5e7e841d16f0af45704ca22d"}
+Fri, 27 Mar 2020 22:54:21 GMT - Debug - auth.service - login with email: barbara@gmail.com
+Fri, 27 Mar 2020 22:56:26 GMT - Debug - auth.service - login with email: barbara@gmail.com
+Fri, 27 Mar 2020 22:56:34 GMT - Debug - auth.service - login with email: barbara@gmail.com
+Fri, 27 Mar 2020 22:56:52 GMT - Debug - auth.service - login with email: barbara@gmail.com
+Fri, 27 Mar 2020 22:57:09 GMT - Debug - barbara@gmail.com, dd, 111
+Fri, 27 Mar 2020 22:57:09 GMT - Debug - auth.service - signup with email: barbara@gmail.com, username: dd
+Fri, 27 Mar 2020 22:57:10 GMT - Error - [SIGNUP] Error
+Fri, 27 Mar 2020 23:02:43 GMT - Debug - barbara@gmail.com, e, 1234e
+Fri, 27 Mar 2020 23:02:43 GMT - Debug - auth.service - signup with email: barbara@gmail.com, username: e
+Fri, 27 Mar 2020 23:02:43 GMT - Error - [SIGNUP] Error
+Fri, 27 Mar 2020 23:14:59 GMT - Debug - barbara@gmail.com, f, ff
+Fri, 27 Mar 2020 23:14:59 GMT - Debug - auth.service - signup with email: barbara@gmail.com, username: f
+Fri, 27 Mar 2020 23:15:00 GMT - Debug - barbara@gmail.com, f, ff
+Fri, 27 Mar 2020 23:15:00 GMT - Debug - auth.service - signup with email: barbara@gmail.com, username: f
+Fri, 27 Mar 2020 23:15:00 GMT - Error - [SIGNUP] Error
+Fri, 27 Mar 2020 23:15:00 GMT - Error - [SIGNUP] Error

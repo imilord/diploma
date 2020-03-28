@@ -9,13 +9,7 @@
       <li class="board-name" v-if="titleClicked">
         <input type="text" v-model="newBoardName" @blur="changeName" @keyup.enter="changeName" />
       </li>
-      <li v-if="creator.name">
-        <div :key="creator._id">
-          <img v-if="creator.imgUrl" :src="creator.imgUrl" class="member-img" />
-          <avatar v-else :username="creator.username" class="member"></avatar>
-        </div>
-      </li>
-      <li v-if="members" class="members">
+      <li v-if="members && !isMobile" class="members">
         <div v-for="member in members" :key="member._id">
           <img v-if="member.imgUrl" :src="member.imgUrl" class="member-img" />
           <avatar v-else :username="member.username" class="member"></avatar>
@@ -24,7 +18,7 @@
           <font-awesome-icon class="new-add-btn" icon="plus" />
         </span>
       </li>
-      <li>{{dueDate | dueDate}}</li>
+      <li v-if="dueDate && !isMobile">{{dueDate | dueDate}}</li>
     </ul>
     <div>
       <button @click="$emit('toggle-settings')">Settings</button>
@@ -46,7 +40,8 @@ export default {
   data() {
     return {
       titleClicked: false,
-      newBoardName: ""
+      newBoardName: "",
+      isMobile: false
     };
   },
   methods: {
@@ -56,10 +51,14 @@ export default {
         "update-boardname",
         JSON.parse(JSON.stringify(this.newBoardName))
       );
+    },
+    isMobileDevice() {
+      return window.innerWidth < 550;
     }
   },
   created() {
     this.newBoardName = this.boardName;
+    this.isMobile = this.isMobileDevice();
   },
   components: {
     avatar
