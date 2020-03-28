@@ -176,3 +176,5 @@ Sat, 28 Mar 2020 13:52:25 GMT - Debug - auth.service - login with email: ella@gm
 Sat, 28 Mar 2020 13:56:59 GMT - Debug - auth.service - login with email: ella@gmail.com
 Sat, 28 Mar 2020 13:59:53 GMT - Debug - auth.service - login with email: ella@gmail.com
 Sat, 28 Mar 2020 14:07:06 GMT - Info - Server is running on port: 3000
+Sat, 28 Mar 2020 14:25:14 GMT - Debug - auth.service - login with email: ella@gmail.com
+Sat, 28 Mar 2020 14:25:26 GMT - Debug - auth.service - login with email: ella@gmail.com
