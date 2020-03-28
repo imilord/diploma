@@ -15,9 +15,10 @@
     margin-top: 0;
 
     h2 {
+      text-align: center;
+      margin: 0;
       font-weight: normal;
       font-size: rem(16px);
-      margin: auto;
       padding-bottom: rem(10px);
     }
 
@@ -26,8 +27,6 @@
       top: 0;
       right: 0;
       margin: rem(5px);
-      background: none;
-      border: none;
     }
   }
 
@@ -51,6 +50,7 @@
       .member,
       .member-img {
         margin-right: rem(10px);
+        margin-bottom: rem(5px);
       }
     }
   }
