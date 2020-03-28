@@ -59,7 +59,13 @@
                 border-radius: rem(10px);
                 background: $clr6; 
             }
+        }
 
+        main.mobile-mode {
+            max-height: calc(100vh - 300px);
+            &::-webkit-scrollbar {
+                width: rem(12px);
+            }
         }
         
         footer {
