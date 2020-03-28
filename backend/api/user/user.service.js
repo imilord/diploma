@@ -5,7 +5,7 @@ module.exports = {
     query,
     getById,
     getByEmail,
-    // update,
+    update,
     add
 }
 
@@ -46,18 +46,19 @@ async function getByEmail(email) {
     }
 }
 
-// async function update(user) {
-//     const collection = await dbService.getCollection('user')
-//     user._id = ObjectId(user._id);
+async function update(user) {
+    console.log(user)
+    const collection = await dbService.getCollection('user')
+    user._id = ObjectId(user._id);
 
-//     try {
-//         await collection.replaceOne({ "_id": user._id }, { $set: user })
-//         return user
-//     } catch (err) {
-//         console.log(`ERROR: cannot update user ${user._id}`)
-//         throw err;
-//     }
-// }
+    try {
+        await collection.replaceOne({ "_id": user._id }, { $set: user })
+        return user
+    } catch (err) {
+        console.log(`ERROR: cannot update user ${user._id}`)
+        throw err;
+    }
+}
 
 async function add(user) {
     const collection = await dbService.getCollection('user')

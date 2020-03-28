@@ -1,94 +1,113 @@
 .board-settings {
-  position: fixed;
-  z-index: 10;
-  right: 0;
-  top: 40px;
-  height: calc(100% - 40px);
-  background-color: $clr8;
-  width: 340px;
-  padding: 0 15px;
-  box-shadow: 0 12px 24px -6px rgba(9, 30, 66, 0.25), 0 0 0 1px rgba(9, 30, 66, 0.08);
-  overflow-y: auto;
-  font-size: rem(14px);
-  color: $clr2;
-
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px 0;
-    margin: 5px 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    font-weight: bold;
-    font-size: 1.1rem;
-    height: 60px;
-
-    span {
-      margin-left: rem(8px);
-    }
-  }
-
-  .mobile-mode {
-    display: flex;
-    align-items: center;
-    padding: rem(10px) 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-
-    .members {
-      display: flex;
-      margin-right: rem(15px);
-      margin-top: rem(5px);
-    }
-  }
-  
-  main {
-    display: flex;
-    flex-direction: column;
-    padding: 5px 0;
-    margin: 5px 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-
-      button {
-        text-align: left;
-        padding: rem(5px) rem(10px);
-        border: none;
-        background-color: transparent;
-        color: $clr2;
-        &:hover {
-          background-color: $clr6;
-          border-radius: rem(1px);
+    position: fixed;
+    z-index: 10;
+    right: 0;
+    top: 40px;
+    height: calc(100% - 40px);
+    background-color: $clr8;
+    width: 340px;
+    padding: 0 15px;
+    box-shadow: 0 12px 24px -6px rgba(9, 30, 66, 0.25), 0 0 0 1px rgba(9, 30, 66, 0.08);
+    overflow-y: auto;
+    font-size: rem(14px);
+    color: $clr2;
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px 0;
+        margin: 5px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        font-weight: bold;
+        font-size: 1.1rem;
+        height: 60px;
+        span {
+            margin-left: rem(8px);
         }
-        a {
+    }
+    .mobile-mode {
+        display: flex;
+        align-items: center;
+        padding: rem(10px) 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        .members {
+            display: flex;
+            margin-right: rem(15px);
+            margin-top: rem(5px);
+            .add-member-btn {
+                background-color: $clr13;
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                padding: rem(5px);
+                text-align: center;
+                margin-left: rem(5px);
+                cursor: pointer;
+                >* {
+                    margin: 0;
+                    padding: 0;
+                }
+                &:hover {
+                    background-color: $clr9;
+                    >* {
+                        color: $clr1;
+                    }
+                }
+            }
+        }
+    }
+    main {
+        display: flex;
+        flex-direction: column;
+        padding: 5px 0;
+        margin: 5px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        button {
+            text-align: left;
+            padding: rem(5px) rem(10px);
+            border: none;
+            background-color: transparent;
+                    color: $clr2;
+
+            &:hover {
+                background-color: $clr6;
+                border-radius: rem(1px);
+            }
+                    a {
           text-decoration: none;
           color: $clr2;
         }
+        }
     }
-  }
-  
-  &::-webkit-scrollbar {
-    width: 10px;
-  }
-  &::-webkit-scrollbar-track {
-    border-radius: 10px;
-    background: transparent;
-  }
-  &::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background: $clr6;
-  }
-
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+    &::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: $clr6;
+    }
 }
 
-.slide-enter-active, .slide-leave-active {
-  transition: width .5s;
-}
-.slide-enter, .slide-leave-to {
-  width: 0;
+.slide-enter-active,
+.slide-leave-active {
+    transition: width .5s;
 }
 
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+.slide-enter,
+.slide-leave-to {
+    width: 0;
 }
-.fade-enter, .fade-leave-to {
-  opacity: 0;
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity .5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
 }

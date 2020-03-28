@@ -18,9 +18,21 @@
               <img v-if="member.imgUrl" :src="member.imgUrl" class="member-img" />
               <avatar v-else :username="member.username" class="member"></avatar>
             </div>
+            <span class="add-member-btn" @click="addMember">
+              <font-awesome-icon class="new-add-btn" icon="plus" />
+            </span>
           </div>
           <div v-if="board.dueDate">{{board.dueDate | dueDate}}</div>
         </section>
+
+        <add-member
+          v-if="isAddMember"
+          :users="users"
+          :members="board.members"
+          @add-new-member="addNewMember"
+          @remove-member="removeMember"
+          @close-add-member="isAddMember=false"
+        ></add-member>
 
         <main>
           <button @click="isNameEditorOpen=!isNameEditorOpen">Change board name</button>
@@ -61,6 +73,7 @@
 import avatar from "vue-avatar";
 import colorPickerLarge from "./color-picker-large.vue";
 import dueDatePicker from "./due-date-picker.vue";
+import addMember from './add-member.vue';
 
 export default {
   props: {
@@ -74,6 +87,8 @@ export default {
       isDeleteQuestOpen: false,
       isDueDateOpen: false,
       isMobile: false,
+      isAddMember: false,
+      users: [],
       newName: ""
     };
   },
@@ -98,6 +113,40 @@ export default {
     },
     changeName() {
       this.$emit("update-boardname", this.newName);
+    },
+    async addMember() {
+      const users = await this.$store.dispatch({
+        type: "getUsers"
+      });
+
+      this.isAddMember = true;
+      this.users = users;
+    },
+    async addNewMember(user) {
+      const member = {
+        _id: user._id,
+        username: user.username,
+        imgUrl: user.imgUrl
+      };
+
+      this.board.members.push(member);
+
+      await this.$store.dispatch({
+        type: "updateBoard",
+        board: this.board
+      });
+    },
+    async removeMember(member) {
+      const memberIdx = this.board.members.findIndex(
+        currMember => currMember._id === member._id
+      );
+
+      this.board.members.splice(memberIdx, 1);
+
+      await this.$store.dispatch({
+        type: "updateBoard",
+        board: this.board
+      });
     }
   },
   created() {
@@ -109,7 +158,8 @@ export default {
   components: {
     avatar,
     colorPickerLarge,
-    dueDatePicker
+    dueDatePicker,
+    addMember
   }
 };
 </script>

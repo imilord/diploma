@@ -280,7 +280,7 @@ export default {
 
         this.task = task;
       } catch (err) {
-        console.log("Err in updateTask");
+        // console.log("Err in updateTask");
       }
     },
     toggle(type) {
@@ -334,7 +334,7 @@ export default {
           label: selectedLabel
         });
       } catch (err) {
-        console.log("Err in updateTitles");
+        // console.log("Err in updateTitles");
       }
     },
     changeDate(newDate) {
@@ -372,7 +372,7 @@ export default {
           this.$router.push(`/board/${boardId}`);
         }, 3000);
       } catch (err) {
-        console.log("Err in deleteTask");
+        // console.log("Err in deleteTask");
       }
     },
     closeTaskEdit() {
@@ -458,7 +458,7 @@ export default {
         };
         eventBus.$emit("show-msg", msg);
       } catch (err) {
-        console.log("Err in copyTask");
+        // console.log("Err in copyTask");
       }
 
       this.getTaskActivitylog();
@@ -571,9 +571,9 @@ export default {
         this.newChecklist = JSON.parse(
           JSON.stringify(this.$store.getters.currChecklist)
         );
-        console.log("new", this.newChecklist);
+
       } catch (err) {
-        console.log("Err in getEmptyChecklist");
+        // console.log("Err in getEmptyChecklist");
       }
     },
     createActivitylog(txt) {

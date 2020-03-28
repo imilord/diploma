@@ -6,9 +6,11 @@
         {{checklist.name}}
       </h4>
       <div v-else class="change-checklist-name">
-        <input class="task" type="text" v-model="checklist.name" />
-        <button @click="changeChecklistName">Save</button>
-        <button @click="toggleChangeName">X</button>
+        <input class="task" type="text" v-model="checklist.name" @keyup.enter="changeChecklistName" />
+        <button class="add-btn" @click="changeChecklistName">Save</button>
+        <button class="close-btn" @click="toggleChangeName">
+          <font-awesome-icon icon="times" />
+        </button>
       </div>
       <button class="remove-checklist-btn" @click="removeChecklist">Delete</button>
     </div>
@@ -23,13 +25,18 @@
           v-if="currTodoId !== todo.id"
           @click="setCurrTodoId(todo)"
         >{{todo.text}}</div>
+
         <div class="checklist-todo" v-if="currTodoId === todo.id">
-          <input class="task" type="text" v-model="todo.text" />
-          <button @click="changeTodoName(todo)" class="add-btn">Save</button>
-          <button @click="setCurrTodoId()">X</button>
+          <input class="task" type="text" v-model="todo.text" @keyup.enter="changeTodoName(todo)" />
+          <button class="add-btn" @click="changeTodoName(todo)">Save</button>
+          <button class="close-btn" @click="setCurrTodoId()">
+            <font-awesome-icon icon="times" />
+          </button>
         </div>
       </div>
-      <button class="remove-todo el-icon-close icon" v-if="!currTodoId" @click="removeTodo(todo)"></button>
+      <button class="close-btn remove-todo" v-if="!currTodoId" @click="removeTodo(todo)">
+        <font-awesome-icon icon="times" />
+      </button>
     </div>
 
     <div class="edit-area add-item" v-if="!isAddTodo" @click="toggleAddTodo">Add an item</div>
@@ -44,7 +51,9 @@
     </div>
     <div v-if="isAddTodo">
       <button @click="addTodo" class="add-btn">Add</button>
-      <button @click="toggleAddTodo">X</button>
+      <button class="close-btn" @click="toggleAddTodo">
+        <font-awesome-icon icon="times" />
+      </button>
     </div>
   </section>
 </template>

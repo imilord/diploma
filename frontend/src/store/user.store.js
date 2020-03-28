@@ -35,7 +35,6 @@ export default {
             const user = await userService.signup(userCred);
             context.commit({ type: 'setUser', user });
             return user;
-
         },
         async logout(context) {
             await userService.logout();
@@ -45,6 +44,11 @@ export default {
             const users = await userService.getUsers();
             context.commit({ type: 'setUsers', users });
             return users;
+        },
+        async updateUser(context, {user}) {
+            user = await userService.update(user);
+            context.commit({type: 'setUser', user})
+            return user;
         }
     }
 }

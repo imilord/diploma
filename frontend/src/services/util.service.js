@@ -22,22 +22,22 @@ function uploadImg(ev) {
     formData.append('upload_preset', 'fy4cqrtq'); // second parameter is the upload preset
 
     return fetch(UPLOAD_URL, {
-        method: 'POST',
-        body: formData
-    })
+            method: 'POST',
+            body: formData
+        })
         .then(res => res.json())
         .then(res => {
-            console.log(res)
+            // console.log(res)
             return res
         })
         .catch(err => console.error(err))
 }
 
 function getRandomColor() {
-      var Characters = "0123456789ABCDEF";
-      var color = "#";
-      for (var i = 0; i < 6; i++) {
+    var Characters = "0123456789ABCDEF";
+    var color = "#";
+    for (var i = 0; i < 6; i++) {
         color += Characters[Math.floor(Math.random() * 16)];
-      }
-      return color;
     }
+    return color;
+}

@@ -1,26 +1,31 @@
 <template>
   <section class="add-member">
     <header>
-      <button>
+      <button class="close-btn" @click="$emit('close-add-member')">
         <font-awesome-icon icon="times" />
       </button>
       <h2>Invite To Board</h2>
     </header>
     <main>
       <input
+        class="task"
         type="text"
         placeholder="Email address or name"
         v-model="search"
-        @keyup.enter="addUser"
+        @input="searchUser"
       />
       <div class="users">
-        <div v-for="user in users" :key="user._id" @click="updateUser(user)">
-          <div>
-            <img v-if="user.imgUrl" :src="user.imgUrl" class="member-img" />
-            <avatar v-else :username="user.username" class="avatar"></avatar>
+        <div v-for="user in searchedUsers" :key="user._id" @click="updateUser(user)">
+          <div class="user">
+            <div>
+              <img v-if="user.imgUrl" :src="user.imgUrl" class="member-img" />
+              <avatar v-else :username="user.username" class="member"></avatar>
+            </div>
+            <div>
+              <span class="username">{{user.username}}</span>
+              <span v-if="isUserJoined(user._id)" class="joined">(Joined)</span>
+            </div>
           </div>
-          <span>{{user.username}}</span>
-          <span v-if="isUserJoined(user._id)">(Joined)</span>
         </div>
       </div>
     </main>
@@ -37,7 +42,8 @@ export default {
   },
   data() {
     return {
-      search: ""
+      search: "",
+      searchedUsers: this.users
     };
   },
   methods: {
@@ -54,6 +60,18 @@ export default {
       } else {
         this.$emit("add-new-member", user);
       }
+    },
+    searchUser() {
+      this.searchedUsers = this.users.filter(currUser => {
+        const userName = currUser.username.toLowerCase();
+        const searchUser = this.search.toLowerCase();
+        return userName.includes(searchUser);
+      });
+    }
+  },
+  watch: {
+    users: function(newVal) {
+      this.searchedUsers = newVal;
     }
   },
   components: {
