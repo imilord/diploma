@@ -62,9 +62,9 @@
         }
 
         main.mobile-mode {
-            max-height: calc(100vh - 350px);
+            max-height: calc(100vh - 300px);
             &::-webkit-scrollbar {
-                width: rem(15px);
+                width: rem(12px);
             }
         }
         
