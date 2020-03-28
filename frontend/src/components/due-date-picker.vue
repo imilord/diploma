@@ -2,10 +2,16 @@
   <section>
     <header>
       <h2>Change Due Date</h2>
-      <button class="close-btn" @click="$emit('close-due-date')">X</button>
+      <button class="close-btn" @click="$emit('close-due-date')">
+        <font-awesome-icon icon="times" />
+      </button>
     </header>
+
     <v-date-picker class="calender" v-model="selectedDate" mode="single" is-inline />
-    <button class="add-btn" @click="saveDate">Save</button>
+
+    <div class="btn-container">
+      <button class="add-btn" @click="saveDate">Save</button>
+    </div>
   </section>
 </template>
 

@@ -1,11 +1,10 @@
 <template>
   <section class="checklist-details">
     <div class="checklist-header">
-        <h4
-          class="checklist-name"
-          v-if="!isOpenChangeName"
-          @click="toggleChangeName"
-        ><i class="el-icon-circle-check check-icon"></i> {{checklist.name}}</h4>
+      <h4 class="checklist-name" v-if="!isOpenChangeName" @click="toggleChangeName">
+        <i class="el-icon-circle-check check-icon"></i>
+        {{checklist.name}}
+      </h4>
       <div v-else class="change-checklist-name">
         <input class="task" type="text" v-model="checklist.name" />
         <button @click="changeChecklistName">Save</button>
@@ -35,7 +34,13 @@
 
     <div class="edit-area add-item" v-if="!isAddTodo" @click="toggleAddTodo">Add an item</div>
     <div v-else>
-      <input class="task" type="text" placeholder="Add an item" v-model="newTodo.text" />
+      <input
+        class="task"
+        type="text"
+        placeholder="Add an item"
+        v-model="newTodo.text"
+        @keyup.enter="addTodo"
+      />
     </div>
     <div v-if="isAddTodo">
       <button @click="addTodo" class="add-btn">Add</button>

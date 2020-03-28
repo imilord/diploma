@@ -2,7 +2,9 @@
   <section class="screen" @click="closeTaskEdit">
     <section class="task-details" v-if="task" @click.stop>
       <div class="header">
-        <button class="close-btn close-task" @click="closeTaskEdit"><font-awesome-icon icon="times" /></button>
+        <button class="close-btn close-task" @click="closeTaskEdit">
+          <font-awesome-icon icon="times" />
+        </button>
         <div v-if="task.cover" class="cover-container">
           <div class="img-container">
             <img class="cover-img" :src="task.cover" />
@@ -36,12 +38,12 @@
                     v-if="task.members !== undefined && task.members.length > 0"
                     @click="toggle('isAddMember')"
                   >
-                  <div class="members">
-                    <div v-for="member in task.members" :key="member._id">
-                      <img v-if="member.imgUrl" :src="member.imgUrl" class="member-img" />
-                      <avatar v-else :username="member.username" class="member"></avatar>
+                    <div class="members">
+                      <div v-for="member in task.members" :key="member._id">
+                        <img v-if="member.imgUrl" :src="member.imgUrl" class="member-img" />
+                        <avatar v-else :username="member.username" class="member"></avatar>
+                      </div>
                     </div>
-                  </div>
                   </div>
                 </div>
               </div>
@@ -78,7 +80,9 @@
                 <textarea class="description" v-model="task.description"></textarea>
                 <div class="description-btns">
                   <button @click="saveDescription" class="add-btn">Save</button>
-                  <button @click="toggle('isOpenDescription')" class="close-btn close-task"><font-awesome-icon icon="times" /></button>
+                  <button @click="toggle('isOpenDescription')" class="close-btn close-task">
+                    <font-awesome-icon icon="times" />
+                  </button>
                 </div>
               </div>
             </div>
@@ -178,7 +182,11 @@
               <button class="main-btn task-btn" @click="toggle('isColorPickerOpen')">
                 <i class="el-icon-edit"></i> Change color
               </button>
-              <color-picker-medium v-if="isColorPickerOpen" @set-color="setColor"></color-picker-medium>
+              <color-picker-medium
+                v-if="isColorPickerOpen"
+                @set-color="setColor"
+                @close-color-picker="toggle('isColorPickerOpen')"
+              ></color-picker-medium>
             </div>
             <div>
               <button class="main-btn task-btn" @click="deleteTask()">
@@ -189,6 +197,7 @@
         </section>
       </div>
     </section>
+    <user-msg></user-msg>
   </section>
 </template>
 <script>
@@ -202,6 +211,8 @@ import checklistDetails from "../components/checklist-details.vue";
 import activitylog from "../components/activitylog.vue";
 import socketService from "../services/socket.service.js";
 import moment from "moment";
+import { eventBus } from "../services/event-bus.service.js";
+import userMsg from "../components/user-msg.vue";
 
 export default {
   name: "task-details",
@@ -338,13 +349,22 @@ export default {
           type: "updateActivitieslog",
           activitylog
         });
+
         await this.$store.dispatch({
           type: "deleteTask",
           task: this.task
         });
 
-        const boardId = this.$route.params.id;
-        this.$router.push(`/board/${boardId}`);
+        const msg = {
+          txt: `The task '${this.task.name}' has been successfully deleted`,
+          type: "success"
+        };
+        eventBus.$emit("show-msg", msg);
+
+        setTimeout(() => {
+          const boardId = this.$route.params.id;
+          this.$router.push(`/board/${boardId}`);
+        }, 3000);
       } catch (err) {
         console.log("Err in deleteTask");
       }
@@ -408,6 +428,12 @@ export default {
           type: "copyTask",
           taskData
         });
+
+        const msg = {
+          txt: `The task '${this.task.name}' has been successfully copied`,
+          type: "success"
+        };
+        eventBus.$emit("show-msg", msg);
       } catch (err) {
         console.log("Err in copyTask");
       }
@@ -566,7 +592,8 @@ export default {
     checklistDetails,
     colorPickerMedium,
     activitylog,
-    memberPicker
+    memberPicker,
+    userMsg
   }
 };
 </script>
