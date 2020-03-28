@@ -1,14 +1,22 @@
 <template>
   <section class="member-picker">
     <header>
+      <button class="close-btn" @click="$emit('close-member-picker')">
+        <font-awesome-icon icon="times" />
+      </button>
       <h2 class="member-title">Members</h2>
-      <button class="close-btn" @click="$emit('close-member-picker')">X</button>
     </header>
+
     <h3 class="board-member-title">Board members</h3>
     <ul class="members">
-      <li v-for="member in members" :key="member._id" class="member-content" @click="updateMember(member)">
+      <li
+        v-for="member in members"
+        :key="member._id"
+        class="member-content"
+        @click="updateMember(member)"
+      >
         <div>
-          <img v-if="member.imgUrl" :src="member.imgUrl" class="member-img"/>
+          <img v-if="member.imgUrl" :src="member.imgUrl" class="member-img" />
           <avatar v-else :username="member.username" class="member"></avatar>
         </div>
         <div>{{member.username}}</div>

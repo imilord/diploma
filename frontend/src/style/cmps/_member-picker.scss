@@ -9,11 +9,26 @@
   border-radius: 3px;
   box-shadow: 0 0.0625rem 0 rgba(9, 30, 66, 0.25);
 
-  h2 {
-    text-align: center;
-    margin-bottom: rem(20px);
-    font-weight: normal;
-    font-size: rem(16px);
+  header {
+    border-bottom: 1px solid rgba(9, 30, 66, 0.13);
+    margin: rem(20px);
+    margin-top: 0;
+
+    h2 {
+      font-weight: normal;
+      font-size: rem(16px);
+      margin: auto;
+      padding-bottom: rem(10px);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: rem(5px);
+      background: none;
+      border: none;
+    }
   }
 
   .board-member-title {
@@ -22,15 +37,6 @@
     font-size: rem(12px);
     color: $clr9;
     letter-spacing: 0.04em;
-  }
-
-  .close-btn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin: rem(5px);
-    background: none;
-    border: none;
   }
 
   .members {

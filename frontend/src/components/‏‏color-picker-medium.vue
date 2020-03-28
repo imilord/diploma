@@ -1,14 +1,23 @@
 <template>
-  <div class="color-picker-medium">
-    <div
-      v-for="color in colors"
-      :style="{background: color}"
-      :class="{'active': color === currColor}"
-      :key="color"
-      class="color"
-      @click="setColor(color)"
-    ></div>
-  </div>
+  <section class="color-picker-medium-content">
+    <header>
+      <button class="close-btn" @click="$emit('close-color-picker')">
+        <font-awesome-icon icon="times" />
+      </button>
+      <h2>Change the task color</h2>
+    </header>
+
+    <div class="color-picker-medium">
+      <div
+        v-for="color in colors"
+        :style="{background: color}"
+        :class="{'active': color === currColor}"
+        :key="color"
+        class="color"
+        @click="setColor(color)"
+      ></div>
+    </div>
+  </section>
 </template>
 
 <script>

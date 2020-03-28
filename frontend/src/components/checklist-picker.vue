@@ -1,12 +1,19 @@
 <template>
   <section class="checklist-picker">
-    <button class="close-btn" @click="$emit('close-checklist-picker')">X</button>
-    <h2>Add Checklist</h2>
-    <label>
-      <div>Title</div>
-      <input class="task" type="text" ref="input" :placeholder="title" v-model="title" />
-    </label>
-    <button class="add-btn" @click="saveTitle">Add</button>
+    <header>
+      <button class="close-btn" @click="$emit('close-checklist-picker')">
+        <font-awesome-icon icon="times" />
+      </button>
+      <h2>Add Checklist</h2>
+    </header>
+
+    <div class="main">
+      <label>
+        <div>Title</div>
+        <input class="task" type="text" ref="input" :placeholder="title" v-model="title" />
+      </label>
+      <button class="add-btn" @click="saveTitle">Add</button>
+    </div>
   </section>
 </template>
 

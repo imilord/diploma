@@ -1,188 +1,198 @@
 .screen {
-    width: 100vw;
-    height: 100vh;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 900;
+  top: 0;
+  background-color: $clr12;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: $clr5;
+  }
+  .msg-container {
     position: fixed;
-    z-index: 900;
+    bottom: 0;
+    right: 0;
+    background-color: $clr10;
+    padding: 10px;
+    border-radius: 3px;
+    z-index: 1000;
+  }
+  .task-details {
+    position: absolute;
+    z-index: 999;
+    background-color: $clr8;
+    left: 50%;
     top: 0;
-    background-color: $clr12;
-    overflow-y: auto;
-    &::-webkit-scrollbar {
-        width: 10px;
+    transform: translate(-50%, 0%);
+    padding: rem(20px);
+    margin-top: rem(80px);
+    font-size: rem(14px);
+    color: $clr2;
+    width: 700px;
+    // height: 85vh;
+    .icon {
+      margin-right: rem(10px);
+      font-size: rem(20px);
     }
-    &::-webkit-scrollbar-track {
-        border-radius: 10px;
-        background: transparent;
-    }
-    &::-webkit-scrollbar-thumb {
-        border-radius: 10px;
-        background: $clr5;
-    }
-    .task-details {
+    .header {
+      .cover-container {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        .cover-img {
+          width: 50%;
+        }
+      }
+      .close-btn {
         position: absolute;
-        z-index: 999;
-        background-color: $clr8;
-        left: 50%;
         top: 0;
-        transform: translate(-50%, 0%);
-        padding: rem(20px);
-        margin-top: rem(80px);
-        font-size: rem(14px);
-        color: $clr2;
-        width: 700px;
-        // height: 85vh;
-        .icon {
-            margin-right: rem(10px);
-            font-size: rem(20px);
-        }
-        .header {
-            .cover-container {
-                display: flex;
-                align-items: flex-end;
-                justify-content: space-between;
-                .cover-img {
-                    width: 50%;
-                }
-            }
-            .close-btn {
-                position: absolute;
-                top: 0;
-                right: 0;
-                margin: rem(5px);
-                background: none;
-                border: none;
-            }
-        }
-        .cover-container {
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            .cover-img {
-                width: 50%;
-            }
-        }
-        .details-container {
-            display: flex;
-            align-items: center;
-            .task-data {
-                margin: rem(20px);
-                min-height: 100%;
-                .task-name {
-                    display: flex;
-                    align-items: center;
-                    margin-bottom: rem(10px);
-                    h2 {
-                        margin: 0;
-                        font-weight: 500;
-                        cursor: pointer;
-                        font-size: rem(20px);
-                    }
-                }
-                .list-name {
-                    margin-left: rem(20px);
-                    color: $clr9;
-                    margin-bottom: rem(30px);
-                }
-                .main-data {
-                    h4 {
-                        font-weight: 500;
-                        text-transform: uppercase;
-                        margin: 0;
-                    }
-                    .sub-titles {
-                        color: $clr9;
-                        margin-bottom: rem(5px);
-                        font-size: rem(12px);
-                        font-weight: 500;
-                        letter-spacing: .04em;
-                    }
-                    .member-labels-date {
-                        display: flex;
-                        margin-bottom: rem(25px);
-                        padding-left: rem(20px);
-                        .labels {
-                            display: flex;
-                            margin-right: rem(20px);
-                            max-width: 160px;
-                            flex-wrap: wrap;
-                            .label {
-                                min-width: rem(40px);
-                                height: rem(22px);
-                                display: inline-block;
-                                margin-left: rem(5px);
-                                margin-bottom: rem(5px);
-                                border-radius: rem(3px);
-                                text-align: center;
-                                .label-title {
-                                    font-size: rem(14px);
-                                    color: $clr1;
-                                    font-weight: bold;
-                                    padding: rem(5px);
-                                }
-                            }
-                        }
-                        .members {
-                            margin-right: rem(20px);
-                        }
-                    }
-                    .description-content {
-                        margin-bottom: rem(30px);
-                        .description-title {
-                            display: flex;
-                            align-items: center;
-                            margin-bottom: rem(10px);
-                        }
-                        .edit-description {
-                            display: flex;
-                            flex-direction: column;
-                            margin-left: rem(28px);
-                            .description {
-                                resize: none;
-                                margin-bottom: rem(10px);
-                            }
-                            .description-btns {
-                                button {
-                                    margin: rem(5px);
-                                }
-                            }
-                        }
-                        .description-txt {
-                            padding: rem(10px);
-                            border-radius: rem(3px);
-                            cursor: pointer;
-                            width: 320px;
-                            margin-left: rem(28px);
-                        }
-                    }
-                    .task-activitylog {}
-                }
-            }
-            .task-buttons {
-                margin: rem(20px);
-                min-height: 100%;
-                h4 {
-                    font-weight: normal;
-                    text-transform: uppercase;
-                    margin: 0;
-                    margin-bottom: rem(10px);
-                }
-                .main-btn {
-                    border: none;
-                    border-radius: rem(3px);
-                    height: rem(30px);
-                    margin-bottom: rem(8px);
-                    width: rem(160px);
-                    text-align: left;
-                }
-                .cover-content {
-                    cursor: pointer;
-                    .cover-input {
-                        display: block;
-                        visibility: hidden;
-                        width: 0;
-                        height: 0;
-                    }
-                }
-            }
-        }
+        right: 0;
+        margin: rem(5px);
+        background: none;
+        border: none;
+      }
     }
+    .cover-container {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      .cover-img {
+        width: 50%;
+      }
+    }
+    .details-container {
+      display: flex;
+      align-items: center;
+      .task-data {
+        margin: rem(20px);
+        min-height: 100%;
+        .task-name {
+          display: flex;
+          align-items: center;
+          margin-bottom: rem(10px);
+          h2 {
+            margin: 0;
+            font-weight: 500;
+            cursor: pointer;
+            font-size: rem(20px);
+          }
+        }
+        .list-name {
+          margin-left: rem(20px);
+          color: $clr9;
+          margin-bottom: rem(30px);
+        }
+        .main-data {
+          h4 {
+            font-weight: 500;
+            text-transform: uppercase;
+            margin: 0;
+          }
+          .sub-titles {
+            color: $clr9;
+            margin-bottom: rem(5px);
+            font-size: rem(12px);
+            font-weight: 500;
+            letter-spacing: 0.04em;
+          }
+          .member-labels-date {
+            display: flex;
+            margin-bottom: rem(25px);
+            padding-left: rem(20px);
+            .labels {
+              display: flex;
+              margin-right: rem(20px);
+              max-width: 160px;
+              flex-wrap: wrap;
+              .label {
+                min-width: rem(40px);
+                height: rem(22px);
+                display: inline-block;
+                margin-left: rem(5px);
+                margin-bottom: rem(5px);
+                border-radius: rem(3px);
+                text-align: center;
+                .label-title {
+                  font-size: rem(14px);
+                  color: $clr1;
+                  font-weight: bold;
+                  padding: rem(5px);
+                }
+              }
+            }
+            .members {
+              margin-right: rem(20px);
+            }
+          }
+          .description-content {
+            margin-bottom: rem(30px);
+            .description-title {
+              display: flex;
+              align-items: center;
+              margin-bottom: rem(10px);
+            }
+            .edit-description {
+              display: flex;
+              flex-direction: column;
+              margin-left: rem(28px);
+              .description {
+                resize: none;
+                margin-bottom: rem(10px);
+              }
+              .description-btns {
+                button {
+                  margin: rem(5px);
+                }
+              }
+            }
+            .description-txt {
+              padding: rem(10px);
+              border-radius: rem(3px);
+              cursor: pointer;
+              width: 320px;
+              margin-left: rem(28px);
+            }
+          }
+          .task-activitylog {
+          }
+        }
+      }
+      .task-buttons {
+        margin: rem(20px);
+        min-height: 100%;
+        h4 {
+          font-weight: normal;
+          text-transform: uppercase;
+          margin: 0;
+          margin-bottom: rem(10px);
+        }
+        .main-btn {
+          border: none;
+          border-radius: rem(3px);
+          height: rem(30px);
+          margin-bottom: rem(8px);
+          width: rem(160px);
+          text-align: left;
+        }
+        .cover-content {
+          cursor: pointer;
+          .cover-input {
+            display: block;
+            visibility: hidden;
+            width: 0;
+            height: 0;
+          }
+        }
+      }
+    }
+  }
 }

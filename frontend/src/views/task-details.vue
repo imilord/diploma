@@ -94,7 +94,11 @@
           </div>
           <div>
             <button class="main-btn" @click="toggle('isOpenActivitylog')">Show details</button>
-            <activitylog v-if="isOpenActivitylog" class="task-activitylog" :activitieslog="activitieslog"></activitylog>
+            <activitylog
+              v-if="isOpenActivitylog"
+              class="task-activitylog"
+              :activitieslog="activitieslog"
+            ></activitylog>
           </div>
         </section>
 
@@ -163,7 +167,11 @@
               <button class="main-btn" @click="toggle('isColorPickerOpen')">
                 <i class="el-icon-edit"></i> Change color
               </button>
-              <color-picker-medium v-if="isColorPickerOpen" @set-color="setColor"></color-picker-medium>
+              <color-picker-medium
+                v-if="isColorPickerOpen"
+                @set-color="setColor"
+                @close-color-picker="toggle('isColorPickerOpen')"
+              ></color-picker-medium>
             </div>
             <div>
               <button class="main-btn" @click="deleteTask()">
@@ -174,6 +182,7 @@
         </section>
       </div>
     </section>
+    <user-msg></user-msg>
   </section>
 </template>
 <script>
@@ -187,6 +196,8 @@ import checklistDetails from "../components/checklist-details.vue";
 import activitylog from "../components/activitylog.vue";
 import socketService from "../services/socket.service.js";
 import moment from "moment";
+import { eventBus } from "../services/event-bus.service.js";
+import userMsg from "../components/user-msg.vue";
 
 export default {
   name: "task-details",
@@ -323,13 +334,22 @@ export default {
           type: "updateActivitieslog",
           activitylog
         });
+
         await this.$store.dispatch({
           type: "deleteTask",
           task: this.task
         });
 
-        const boardId = this.$route.params.id;
-        this.$router.push(`/board/${boardId}`);
+        const msg = {
+          txt: `The task '${this.task.name}' has been successfully deleted`,
+          type: "success"
+        };
+        eventBus.$emit("show-msg", msg);
+
+        setTimeout(() => {
+          const boardId = this.$route.params.id;
+          this.$router.push(`/board/${boardId}`);
+        }, 3000);
       } catch (err) {
         console.log("Err in deleteTask");
       }
@@ -393,6 +413,12 @@ export default {
           type: "copyTask",
           taskData
         });
+
+        const msg = {
+          txt: `The task '${this.task.name}' has been successfully copied`,
+          type: "success"
+        };
+        eventBus.$emit("show-msg", msg);
       } catch (err) {
         console.log("Err in copyTask");
       }
@@ -546,7 +572,8 @@ export default {
     checklistDetails,
     colorPickerMedium,
     activitylog,
-    memberPicker
+    memberPicker,
+    userMsg
   }
 };
 </script>
