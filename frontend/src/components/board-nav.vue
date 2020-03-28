@@ -21,7 +21,7 @@
       <li v-if="dueDate && !isMobile">{{dueDate | dueDate}}</li>
     </ul>
     <div>
-      <button @click="$emit('toggle-settings')">Settings</button>
+      <button @click="$emit('toggle-settings')">Menu</button>
       <button @click="$emit('toggle-activitylog')">Activity Log</button>
     </div>
   </section>

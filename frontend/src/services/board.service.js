@@ -79,7 +79,12 @@ function getEmptyTask() {
         }],
         cover: "",
         attachment: {},
-        checklists: []
+        checklists: [],
+        status: {
+            isDone: false,
+            member: {},
+            date: null
+        }
     }
 }
 
