@@ -2,12 +2,12 @@
   <section class="screen" @click="closeTaskEdit">
     <section class="task-details" v-if="task" @click.stop>
       <div class="header">
-        <button class="close-btn" @click="closeTaskEdit">X</button>
+        <button class="close-btn close-task" @click="closeTaskEdit"><font-awesome-icon icon="times" /></button>
         <div v-if="task.cover" class="cover-container">
-          <img class="cover-img" :src="task.cover" />
-          <div>
-            <button @click="removeCover">Remove cover</button>
+          <div class="img-container">
+            <img class="cover-img" :src="task.cover" />
           </div>
+          <button @click="removeCover" class="task-btn cover-btn">Remove cover</button>
         </div>
       </div>
       <div class="details-container">
@@ -30,21 +30,23 @@
           <div class="main-data">
             <section class="member-labels-date">
               <div>
-                <div class="members">
-                  <h4 v-if="task.members.length > 0" class="sub-titles">Members</h4>
+                <div class="members-content">
+                  <h3 v-if="task.members.length > 0" class="sub-titles">Members</h3>
                   <div
                     v-if="task.members !== undefined && task.members.length > 0"
                     @click="toggle('isAddMember')"
                   >
+                  <div class="members">
                     <div v-for="member in task.members" :key="member._id">
                       <img v-if="member.imgUrl" :src="member.imgUrl" class="member-img" />
                       <avatar v-else :username="member.username" class="member"></avatar>
                     </div>
                   </div>
+                  </div>
                 </div>
               </div>
               <div>
-                <h4 v-if="task.labels.length > 0" class="sub-titles">Labels</h4>
+                <h3 v-if="task.labels.length > 0" class="sub-titles">Labels</h3>
                 <div v-if="task.labels.length > 0" class="labels">
                   <span
                     v-for="label in task.labels"
@@ -58,7 +60,7 @@
                 </div>
               </div>
               <div>
-                <h4 v-if="task.dueDate" class="sub-titles">Due date</h4>
+                <h3 v-if="task.dueDate" class="sub-titles">Due date</h3>
                 <div v-if="task.dueDate" class="due-date">{{task.dueDate | dueDate}}</div>
               </div>
             </section>
@@ -73,10 +75,10 @@
                 @click="toggle('isOpenDescription')"
               >{{(task.description) ? task.description : 'Add a more detailed description'}}</div>
               <div v-else class="edit-description">
-                <textarea class="description" rows="4" cols="50" v-model="task.description"></textarea>
+                <textarea class="description" v-model="task.description"></textarea>
                 <div class="description-btns">
                   <button @click="saveDescription" class="add-btn">Save</button>
-                  <button @click="toggle('isOpenDescription')">X</button>
+                  <button @click="toggle('isOpenDescription')" class="close-btn close-task"><font-awesome-icon icon="times" /></button>
                 </div>
               </div>
             </div>
@@ -93,8 +95,21 @@
             </div>
           </div>
           <div>
-            <button class="main-btn" @click="toggle('isOpenActivitylog')">Show details</button>
-            <activitylog v-if="isOpenActivitylog" class="task-activitylog" :activitieslog="activitieslog"></activitylog>
+            <div class="activity-header">
+              <div class="activity-title-content">
+                <font-awesome-icon icon="tasks" class="icon" />
+                <h4 class="activity-title">Activity</h4>
+              </div>
+              <button
+                class="show-btn task-btn"
+                @click="toggle('isOpenActivitylog')"
+              >{{activityDetails}}</button>
+            </div>
+            <activitylog
+              v-if="isOpenActivitylog"
+              class="task-activitylog"
+              :activitieslog="activitieslog"
+            ></activitylog>
           </div>
         </section>
 
@@ -102,7 +117,7 @@
           <h4>Add to task</h4>
           <div class="main-buttons">
             <div>
-              <button class="main-btn" @click="toggle('isLabelsSelected')">
+              <button class="main-btn task-btn" @click="toggle('isLabelsSelected')">
                 <i class="el-icon-price-tag"></i> Labels
               </button>
               <label-picker
@@ -115,7 +130,7 @@
               ></label-picker>
             </div>
             <div>
-              <button class="main-btn" @click="toggle('isDueToSelected')">
+              <button class="main-btn task-btn" @click="toggle('isDueToSelected')">
                 <i class="el-icon-time"></i> Due date
               </button>
               <due-date-picker
@@ -127,7 +142,7 @@
               ></due-date-picker>
             </div>
             <div>
-              <button class="main-btn" @click="toggle('isAddMember')">
+              <button class="main-btn task-btn" @click="toggle('isAddMember')">
                 <i class="el-icon-user"></i> Members
               </button>
               <member-picker
@@ -139,18 +154,18 @@
             </div>
             <div>
               <label for="add-img" class="cover-content">
-                <div class="main-btn">
-                  <i class="el-icon-picture-outline"></i>
+                <div class="cover-btn task-btn">
+                  <i class="el-icon-picture-outline cover-icon"></i>
                   <span>Cover</span>
                 </div>
                 <input id="add-img" type="file" @change="addImg" class="cover-input" />
               </label>
             </div>
-            <button class="main-btn" @click="copyTask">
+            <button class="main-btn task-btn" @click="copyTask">
               <i class="el-icon-document-copy"></i> Copy
             </button>
             <div>
-              <button class="main-btn" @click="toggle('isOpenChecklist')">
+              <button class="main-btn task-btn" @click="toggle('isOpenChecklist')">
                 <i class="el-icon-document-checked"></i> Checklist
               </button>
               <checklist-picker
@@ -160,13 +175,13 @@
               ></checklist-picker>
             </div>
             <div>
-              <button class="main-btn" @click="toggle('isColorPickerOpen')">
+              <button class="main-btn task-btn" @click="toggle('isColorPickerOpen')">
                 <i class="el-icon-edit"></i> Change color
               </button>
               <color-picker-medium v-if="isColorPickerOpen" @set-color="setColor"></color-picker-medium>
             </div>
             <div>
-              <button class="main-btn" @click="deleteTask()">
+              <button class="main-btn task-btn" @click="deleteTask()">
                 <i class="el-icon-delete"></i> Delete
               </button>
             </div>
@@ -522,6 +537,11 @@ export default {
     addActivity(newActivitylog) {
       this.saveTask(newActivitylog);
       this.getTaskActivitylog();
+    }
+  },
+  computed: {
+    activityDetails() {
+      return this.isOpenActivitylog ? "Hide Details" : "Show Details";
     }
   },
   created() {

@@ -19,9 +19,10 @@
     padding: 0 rem(6px);
     width: 32px !important;
     height: 32px!important;
-    font-size: rem(12px) !important;
+    font-size: rem(14px) !important;
     background-color: $clr10 !important;
     color: $clr11 !important;
+    margin-left: rem(5px);
 }
 
 .member-img {
@@ -79,7 +80,7 @@ input.task {
     display: inline-block;
 }
 
-.add-control-btns{
+.add-control-btns {
     display: flex;
     align-items: flex-end;
 }

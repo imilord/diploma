@@ -15,6 +15,12 @@
             border: none;
             border-radius: 3px;
             padding: rem(6px) rem(12px);
+            color: $clr2;
+            transition: .3s;
+            background-color: $clr14;
+            &:hover {
+                background-color: $clr13;
+            }
         }
         .check-icon {
             font-size: rem(20px);
@@ -23,6 +29,7 @@
     }
     .el-progress {
         padding-bottom: rem(5px);
+        padding-left: rem(20px);
     }
     .done {
         .el-progress-bar__inner {
@@ -33,6 +40,7 @@
         display: flex;
         justify-content: space-between;
         align-content: flex-start;
+        padding-left: rem(20px);
         .remove-todo {
             border: none;
             background-color: transparent;
@@ -65,7 +73,14 @@
         border-radius: 3px;
         padding: rem(6px) rem(12px);
         margin: rem(8px);
+        margin-left: rem(20px);
         display: inline-block;
         width: 110px;
+        color: $clr2;
+        transition: .3s;
+        background-color: $clr14;
+        &:hover {
+            background-color: $clr13;
+        }
     }
 }

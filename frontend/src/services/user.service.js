@@ -5,8 +5,8 @@ export default {
     logout,
     signup,
     // update,
-    getById
-
+    getById,
+    getUsers
 }
 
 async function login(userCred) {
@@ -30,9 +30,9 @@ async function logout() {
 //     return httpService.put(`user/${user._id}`, user)
 // }
 
-// function getUsers() {
-//     return httpService.get('user')
-// }
+function getUsers() {
+    return httpService.get('user');
+}
 
 function getById(userId) {
     return httpService.get(`user/${userId}`)

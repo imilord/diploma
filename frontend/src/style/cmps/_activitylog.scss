@@ -23,6 +23,22 @@
     }
 }
 
+.task-activitylog {
+    max-height: 200px;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+        width: rem(8px);
+    }
+    &::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background: $clr3;
+    }
+    &::-webkit-scrollbar-thumb {
+        border-radius: rem(10px);
+        background: $clr6;
+    }
+}
+
 header {
     display: flex;
     justify-content: space-between;

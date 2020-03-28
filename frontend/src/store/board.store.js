@@ -46,6 +46,12 @@ export default {
         },
         setEmptyBoard(state) {
             const board = boardService.getEmptyBoard();
+            const loggedinUser = JSON.parse(JSON.stringify(this.state.userStore.loggedinUser));
+            board.members.push({
+                _id: loggedinUser._id,
+                username: loggedinUser.username,
+                imgUrl: loggedinUser.imgUrl
+            });
             state.board = board;
         },
         getTaskActivitylog(state, { taskId }) {
