@@ -1,126 +1,110 @@
 .task-preview {
-  background-color: $clr1;
-  border-radius: rem(3px);
-  min-height: rem(20px);
-  box-shadow: 0 rem(1px) 0 rgba(9, 30, 66, 0.25);
-  text-decoration: none;
-  margin: 0 rem(4px) rem(8px) rem(1px);
-  padding: rem(5px);
-  padding-bottom: rem(12px);
-  cursor: pointer;
-
-  .task-container {
+    background-color: $clr1;
+    border-radius: rem(3px);
+    min-height: rem(20px);
+    box-shadow: 0 rem(1px) 0 rgba(9, 30, 66, 0.25);
     text-decoration: none;
-    width: 100%;
-    color: $clr2;
-
-    .cover-img-container {
-      text-align: center;
-
-      .cover-img {
+    margin: 0 rem(4px) rem(8px) rem(1px);
+    padding: rem(5px);
+    padding-bottom: rem(12px);
+    cursor: pointer;
+    .task-container {
+        text-decoration: none;
         width: 100%;
-        border-radius: rem(3px);
-      }
-    }
-
-    .task-name {
-      margin-bottom: rem(4px);
-    }
-
-    .labels {
-      display: flex;
-      flex-wrap: wrap;
-
-      .label {
-        min-width: rem(40px);
-        height: rem(10px);
-        margin-right: rem(5px);
-        margin-bottom: rem(8px);
-        border-radius: rem(3px);
-        text-align: center;
-        transition: 0.5s;
-
-        .label-title {
-          font-size: 0.8rem;
-          color: $clr1;
-          font-weight: bold;
-          padding: rem(5px);
+        color: $clr2;
+        .cover-img-container {
+            text-align: center;
+            .cover-img {
+                width: 100%;
+                border-radius: rem(3px);
+            }
         }
-      }
-
-      .label-text {
-        height: rem(22px);
-      }
-
-      .fade-enter-active {
-        transition: opacity 0.8s;
-      }
-      .fade-leave-active {
-        opacity: 0;
-      }
-      .fade-enter,
-      .fade-leave-to {
-        opacity: 0;
-      }
+        .task-name {
+            margin-bottom: rem(4px);
+        }
+        .labels {
+            display: flex;
+            flex-wrap: wrap;
+            .label {
+                min-width: rem(40px);
+                height: rem(10px);
+                margin-right: rem(5px);
+                margin-bottom: rem(8px);
+                border-radius: rem(3px);
+                text-align: center;
+                transition: 0.5s;
+                .label-title {
+                    font-size: 0.8rem;
+                    color: $clr1;
+                    font-weight: bold;
+                    padding: rem(5px);
+                }
+            }
+            .label-text {
+                height: rem(22px);
+            }
+            .fade-enter-active {
+                transition: opacity 0.8s;
+            }
+            .fade-leave-active {
+                opacity: 0;
+            }
+            .fade-enter,
+            .fade-leave-to {
+                opacity: 0;
+            }
+        }
+        .members {
+            margin-top: rem(10px);
+            display: flex;
+        }
+        .due-date {
+            font-size: rem(13px);
+            padding: rem(3px);
+            display: inline;
+            margin: 0 rem(6px) rem(6px) 0;
+            .due-date-icon {
+                margin-right: rem(3px);
+            }
+        }
+        .over-due {
+            background-color: #eb5a46;
+            border-radius: 3px;
+            color: #fff;
+        }
+        .checklist {
+            font-size: rem(13px);
+            padding: rem(3px);
+            display: inline;
+            margin: 0 rem(6px) rem(6px) 0;
+            .checklist-icon {
+                margin-right: rem(3px);
+            }
+        }
+        .done-todos {
+            background-color: #61bd4f;
+            color: #fff;
+            border-radius: 3px;
+            padding: rem(4px);
+        }
     }
-
-    .members {
-      margin-top: rem(10px);
-    }
-
-    .due-date {
-      font-size: rem(13px);
-      padding: rem(3px);
-      display: inline;
-      margin: 0 rem(6px) rem(6px) 0;
-
-      .due-date-icon {
-        margin-right: rem(3px);
-      }
-    }
-
-    .over-due {
-      background-color: #eb5a46;
-      border-radius: 3px;
-      color: #fff;
-    }
-
-    .checklist {
-      font-size: rem(13px);
-      padding: rem(3px);
-      display: inline;
-      margin: 0 rem(6px) rem(6px) 0;
-
-      .checklist-icon {
-        margin-right: rem(3px);
-      }
-    }
-
-    .done-todos {
-      background-color: #61bd4f;
-      color: #fff;
-      border-radius: 3px;
-      padding: rem(4px);
-    }
-  }
-
     &:hover {
-    background-color: $clr3;
-  }
+        background-color: $clr3;
+    }
 }
 
 .task-preview-placeholder {
-  background-color: $clr3;
-  border-radius: rem(3px);
-  margin: 0 rem(4px) rem(8px) rem(1px);
+    background-color: $clr3;
+    border-radius: rem(3px);
+    margin: 0 rem(4px) rem(8px) rem(1px);
 }
 
 .card-ghost {
-  transition: transform 0.15s ease;
-  transform: rotateZ(8deg);
+    transition: transform 0.15s ease;
+    transform: rotateZ(8deg);
 }
 
 .card-ghost-drop {
-  transition: transform 0.18s ease-in-out;
-  transform: rotateZ(0deg);
+    transition: transform 0.18s ease-in-out;
+    transform: rotateZ(0deg);
 }

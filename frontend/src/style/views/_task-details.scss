@@ -30,7 +30,6 @@
         font-size: rem(14px);
         color: $clr2;
         width: 700px;
-        // height: 85vh;
         .icon {
             margin-right: rem(10px);
             font-size: rem(20px);
@@ -117,6 +116,8 @@
                         display: flex;
                         margin-bottom: rem(25px);
                         padding-left: rem(20px);
+                        max-width: 300px;
+                        flex-wrap: wrap;
                         .labels {
                             display: flex;
                             margin-right: rem(20px);
@@ -142,8 +143,6 @@
                             margin-right: rem(20px);
                             .members {
                                 display: flex;
-                                max-width: rem(70px);
-                                flex-wrap: nowrap;
                                 .member {
                                     margin-top: rem(5px);
                                 }
