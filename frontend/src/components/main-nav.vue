@@ -45,3 +45,8 @@ export default {
   }
 };
 </script>
+<style scoped>
+.logo{
+  width: 40%;
+}
+</style>
