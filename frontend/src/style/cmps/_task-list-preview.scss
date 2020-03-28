@@ -46,7 +46,7 @@
 
         main {
             max-height: calc(100vh - 225px);
-            overflow-y: auto;
+            overflow-y: scroll;
             margin-bottom: rem(8px);
             &::-webkit-scrollbar {
                 width: rem(8px);
@@ -62,7 +62,7 @@
         }
 
         main.mobile-mode {
-            max-height: calc(100vh - 300px);
+            max-height: calc(100vh - 325px);
             &::-webkit-scrollbar {
                 width: rem(12px);
             }
