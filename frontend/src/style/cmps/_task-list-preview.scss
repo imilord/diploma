@@ -46,7 +46,7 @@
 
         main {
             max-height: calc(100vh - 225px);
-            overflow-y: scroll;
+            overflow-y: auto;
             margin-bottom: rem(8px);
             &::-webkit-scrollbar {
                 width: rem(8px);
