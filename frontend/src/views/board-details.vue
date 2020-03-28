@@ -16,6 +16,7 @@
       :members="board.members"
       @add-new-member="addNewMember"
       @remove-member="removeMember"
+      @close-add-member="isAddMember=false"
     ></add-member>
     <transition name="slide" appear>
       <board-settings
@@ -156,8 +157,6 @@ export default {
         type: "updateBoard",
         board: this.board
       });
-
-      console.log(this.board.members);
     },
     async removeMember(member) {
       const memberIdx = this.board.members.findIndex(

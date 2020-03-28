@@ -21,13 +21,15 @@ function uploadImg(ev) {
     formData.append('upload_preset', 'fy4cqrtq'); // second parameter is the upload preset
 
     return fetch(UPLOAD_URL, {
-        method: 'POST',
-        body: formData
-    })
+            method: 'POST',
+            body: formData
+        })
         .then(res => res.json())
         .then(res => {
-            console.log(res)
+            // console.log(res)
             return res
         })
-        .catch(err => console.error(err))
+        .catch(
+            // console.log(err)
+        )
 }

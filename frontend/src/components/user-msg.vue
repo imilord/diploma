@@ -22,7 +22,6 @@ export default {
     }
   },
   created() {
-    console.log("hi");
     eventBus.$on("show-msg", msg => {
       this.msg = msg;
       setInterval(() => {

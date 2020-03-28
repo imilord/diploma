@@ -3,6 +3,7 @@
     .checklist-header {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         padding: rem(8px) 0;
         margin-bottom: rem(4px);
         .checklist-name {
