@@ -127,3 +127,6 @@ Sat, 28 Mar 2020 12:03:10 GMT - Info - Server is running on port: 3000
 Sat, 28 Mar 2020 14:30:10 GMT - Debug - auth.service - login with email: ronen@gmail.com
 Sat, 28 Mar 2020 14:58:14 GMT - Info - Server is running on port: 3000
 Sat, 28 Mar 2020 15:01:11 GMT - Debug - auth.service - login with email: daniel@gmal.com
+Sat, 28 Mar 2020 19:41:47 GMT - Error - Cannot get boards
+Sat, 28 Mar 2020 19:42:06 GMT - Info - Server is running on port: 3000
+Sat, 28 Mar 2020 21:22:01 GMT - Info - Server is running on port: 3000

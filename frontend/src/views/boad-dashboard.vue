@@ -10,11 +10,11 @@
     </div>
     <div class="charts">
       <div class="chart">
-        <h4>Mapping tasks per lists:</h4>
+        <h4>Tasks count per lists (total and completed):</h4>
         <pai-chart v-if="loaded" :chartdata="paiChartdata"></pai-chart>
       </div>
       <div class="chart">
-        <h4>Mapping tasks per board members:</h4>
+        <h4>Tasks status per member:</h4>
         <bar-chart v-if="loaded" :chartdata="lineChartdata" :options="options"></bar-chart>
       </div>
     </div>
@@ -138,10 +138,11 @@ export default {
                     mapMember.allTasks++;
                 });
                 if (task.status.isDone) {
-                  completedTasksCount++;
                   mapMembersTasks.forEach(mapMember => {
-                    if (mapMember.username === task.status.member.username)
+                    if (mapMember.username === task.status.member.username) {
                       mapMember.doneTasks++;
+                      completedTasksCount++;
+                    }
                   });
                 }
               });
