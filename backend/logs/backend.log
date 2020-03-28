@@ -125,3 +125,5 @@ Fri, 27 Mar 2020 07:46:36 GMT - Debug - auth.service - login with email: ronen@g
 Fri, 27 Mar 2020 07:47:30 GMT - Debug - auth.service - login with email: ronen@gmail.com
 Sat, 28 Mar 2020 12:03:10 GMT - Info - Server is running on port: 3000
 Sat, 28 Mar 2020 14:30:10 GMT - Debug - auth.service - login with email: ronen@gmail.com
+Sat, 28 Mar 2020 16:25:42 GMT - Info - Server is running on port: 3000
+Sat, 28 Mar 2020 16:33:45 GMT - Info - Server is running on port: 3000

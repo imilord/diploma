@@ -1,6 +1,6 @@
 <template>
   <section class="main-nav container">
-    <div class="logo">WorkFlow</div>
+    <div class="logo-conteiner"><img class="logo-img" src="../imgs/logo.png"/></div>
     <ul>
       <li>
         <router-link to="/">Boards</router-link>
@@ -46,7 +46,10 @@ export default {
 };
 </script>
 <style scoped>
-.logo{
-  width: 40%;
+.logo-conteiner{
+  margin-top: 10px;
+}
+.logo-img{
+  width: 200px;
 }
 </style>
