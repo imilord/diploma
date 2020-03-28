@@ -6,6 +6,7 @@ async function getUser(req, res) {
 }
 
 async function getUsers(req, res) {
+    console.log('yayy')
     console.log(req.query);
     const users = await userService.query(req.query)
     res.send(users)

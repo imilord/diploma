@@ -8,23 +8,36 @@
       @toggle-activitylog="toggleActivitylog"
       @toggle-settings="toggleSettings"
       @update-boardname="updateBoardname"
+      @add-member="addMember"
     ></board-nav>
-    <board-settings
-      v-if="isOpenBoardSetting"
-      :board="board"
-      @toggle-settings="toggleSettings"
-      @set-bgc="setBgc"
-      @delete-board="deleteBoard"
-      @change-date="changeDate"
-      @update-boardname="updateBoardname"
-    ></board-settings>
-    <activitylog
-      v-if="isOpenActivitylog"
-      class="main-activitylog"
-      :isMain="true"
-      :activitieslog="board.activitieslog"
-      @close-activitylog="toggleActivitylog"
-    ></activitylog>
+    <add-member
+      v-if="isAddMember"
+      :users="users"
+      :members="board.members"
+      @add-new-member="addNewMember"
+      @remove-member="removeMember"
+    ></add-member>
+    <transition name="slide" appear>
+      <board-settings
+        v-if="isOpenBoardSetting"
+        :board="board"
+        :class="{'board-settings-open': isOpenBoardSetting}"
+        @toggle-settings="toggleSettings"
+        @set-bgc="setBgc"
+        @delete-board="deleteBoard"
+        @change-date="changeDate"
+        @update-boardname="updateBoardname"
+      ></board-settings>
+    </transition>
+    <transition name="slide" appear>
+      <activitylog
+        v-if="isOpenActivitylog"
+        class="main-activitylog"
+        :isMain="true"
+        :activitieslog="board.activitieslog"
+        @close-activitylog="toggleActivitylog"
+      ></activitylog>
+    </transition>
     <tasklist-list
       :taskLists="board.taskLists"
       :boardId="board._id"
@@ -41,6 +54,7 @@ import boardNav from "../components/board-nav.vue";
 import tasklistList from "../components/tasklists-list.vue";
 import activitylog from "../components/activitylog.vue";
 import boardSettings from "../components/board-settings.vue";
+import addMember from "../components/add-member.vue";
 import socketService from "../services/socket.service.js";
 
 export default {
@@ -51,7 +65,9 @@ export default {
       isTaskOpen: false,
       isDrop: true,
       isOpenActivitylog: false,
-      isOpenBoardSetting: false
+      isOpenBoardSetting: false,
+      isAddMember: false,
+      users: []
     };
   },
   computed: {
@@ -118,6 +134,42 @@ export default {
         type: "updateBoard",
         board: this.board
       });
+    },
+    async addMember() {
+      const users = await this.$store.dispatch({
+        type: "getUsers"
+      });
+
+      this.isAddMember = true;
+      this.users = users;
+    },
+    async addNewMember(user) {
+      const member = {
+        _id: user._id,
+        username: user.username,
+        imgUrl: user.imgUrl
+      };
+
+      this.board.members.push(member);
+
+      await this.$store.dispatch({
+        type: "updateBoard",
+        board: this.board
+      });
+
+      console.log(this.board.members);
+    },
+    async removeMember(member) {
+      const memberIdx = this.board.members.findIndex(
+        currMember => currMember._id === member._id
+      );
+
+      this.board.members.splice(memberIdx, 1);
+
+      await this.$store.dispatch({
+        type: "updateBoard",
+        board: this.board
+      });
     }
   },
   async created() {
@@ -150,7 +202,8 @@ export default {
     boardNav,
     tasklistList,
     activitylog,
-    boardSettings
+    boardSettings,
+    addMember
   }
 };
 </script>

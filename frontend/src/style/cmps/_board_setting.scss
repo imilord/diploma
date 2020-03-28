@@ -34,9 +34,10 @@
     padding: rem(10px) 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 
-
-    div {
-      margin: 0 5px ;
+    .members {
+      display: flex;
+      margin-right: rem(15px);
+      margin-top: rem(5px);
     }
   }
   
@@ -72,4 +73,18 @@
     background: $clr6;
   }
 
+}
+
+.slide-enter-active, .slide-leave-active {
+  transition: width .5s;
+}
+.slide-enter, .slide-leave-to {
+  width: 0;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }

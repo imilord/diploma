@@ -9,17 +9,14 @@
       <li class="board-name" v-if="titleClicked">
         <input type="text" v-model="newBoardName" @blur="changeName" @keyup.enter="changeName" />
       </li>
-      <li v-if="creator.name && !isMobile">
-        <div :key="creator._id">
-          <img v-if="creator.imgUrl" :src="creator.imgUrl" class="member-img" />
-          <avatar v-else :username="creator.username" class="member"></avatar>
-        </div>
-      </li>
-      <li v-if="members && !isMobile">
+      <li v-if="members && !isMobile" class="members">
         <div v-for="member in members" :key="member._id">
           <img v-if="member.imgUrl" :src="member.imgUrl" class="member-img" />
           <avatar v-else :username="member.username" class="member"></avatar>
         </div>
+        <span class="add-member-btn" @click="$emit('add-member')">
+          <font-awesome-icon class="new-add-btn" icon="plus" />
+        </span>
       </li>
       <li v-if="dueDate && !isMobile">{{dueDate | dueDate}}</li>
     </ul>
@@ -56,7 +53,7 @@ export default {
       );
     },
     isMobileDevice() {
-      return window.innerWidth < 500;
+      return window.innerWidth < 550;
     }
   },
   created() {

@@ -35,30 +35,46 @@
     transform: translate(-50%, 0%);
     padding: rem(20px);
     margin-top: rem(80px);
+    margin-bottom: rem(60px);
     font-size: rem(14px);
     color: $clr2;
     width: 700px;
-    // height: 85vh;
     .icon {
       margin-right: rem(10px);
       font-size: rem(20px);
     }
+    .task-btn {
+      border: none;
+      border-radius: rem(3px);
+      height: rem(30px);
+      margin-bottom: rem(8px);
+      color: $clr2;
+      transition: 0.3s;
+      background-color: $clr14;
+      &:hover {
+        background-color: $clr13;
+      }
+    }
     .header {
       .cover-container {
-        display: flex;
-        align-items: flex-end;
-        justify-content: space-between;
-        .cover-img {
-          width: 50%;
+        .img-container {
+          display: flex;
+          justify-content: center;
+          .cover-img {
+            width: 40%;
+          }
+        }
+        .cover-btn {
+          width: rem(140px);
+          position: absolute;
+          right: 20px;
         }
       }
-      .close-btn {
+      .close-task {
         position: absolute;
         top: 0;
         right: 0;
         margin: rem(5px);
-        background: none;
-        border: none;
       }
     }
     .cover-container {
@@ -71,7 +87,6 @@
     }
     .details-container {
       display: flex;
-      align-items: center;
       .task-data {
         margin: rem(20px);
         min-height: 100%;
@@ -94,8 +109,8 @@
         .main-data {
           h4 {
             font-weight: 500;
-            text-transform: uppercase;
             margin: 0;
+            font-size: rem(16px);
           }
           .sub-titles {
             color: $clr9;
@@ -103,6 +118,8 @@
             font-size: rem(12px);
             font-weight: 500;
             letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin: 0;
           }
           .member-labels-date {
             display: flex;
@@ -129,8 +146,16 @@
                 }
               }
             }
-            .members {
+            .members-content {
               margin-right: rem(20px);
+              .members {
+                display: flex;
+                max-width: rem(70px);
+                flex-wrap: nowrap;
+                .member {
+                  margin-top: rem(5px);
+                }
+              }
             }
           }
           .description-content {
@@ -147,6 +172,8 @@
               .description {
                 resize: none;
                 margin-bottom: rem(10px);
+                width: 330px;
+                height: 100px;
               }
               .description-btns {
                 button {
@@ -158,17 +185,39 @@
               padding: rem(10px);
               border-radius: rem(3px);
               cursor: pointer;
-              width: 320px;
+              width: 330px;
               margin-left: rem(28px);
+              transition: 0.3s;
+              &:hover {
+                background-color: $clr13;
+              }
             }
           }
-          .task-activitylog {
+        }
+        .activity-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: rem(20px);
+          .activity-title-content {
+            display: flex;
+            .activity-title {
+              font-weight: 500;
+              margin: 0;
+              font-size: rem(16px);
+            }
+          }
+          .show-btn {
+            width: rem(100px);
+            text-align: center;
           }
         }
       }
       .task-buttons {
         margin: rem(20px);
         min-height: 100%;
+        margin-top: rem(50px);
+        margin-left: rem(70px);
         h4 {
           font-weight: normal;
           text-transform: uppercase;
@@ -176,10 +225,6 @@
           margin-bottom: rem(10px);
         }
         .main-btn {
-          border: none;
-          border-radius: rem(3px);
-          height: rem(30px);
-          margin-bottom: rem(8px);
           width: rem(160px);
           text-align: left;
         }
@@ -190,6 +235,16 @@
             visibility: hidden;
             width: 0;
             height: 0;
+          }
+          .cover-btn {
+            display: flex;
+            align-items: center;
+            width: rem(160px);
+            text-align: left;
+            .cover-icon {
+              margin-right: rem(5px);
+              margin-left: rem(5px);
+            }
           }
         }
       }

@@ -3,11 +3,11 @@
     <header>
       <img src="../assets/img/header.jpg" />
     </header>
+    <section class="search">
+      <i class="el-icon-search"></i>
+      <input type="text" placeholder="Search board" v-model="searchKeyword" />
+    </section>
     <main v-if="boards">
-      <div class="search">
-        <i class="el-icon-search"></i>
-        <input type="text" placeholder="Search board" v-model="searchKeyword" />
-      </div>
       <div
         class="board-preview"
         v-for="board in boardBySearch"
