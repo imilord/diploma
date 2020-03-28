@@ -26,10 +26,7 @@ function uploadImg(ev) {
         })
         .then(res => res.json())
         .then(res => {
-<<<<<<< HEAD
             // console.log(res)
-=======
->>>>>>> f859112b5614ba817b4d59435381b123ea53763a
             return res
         })
         .catch(
