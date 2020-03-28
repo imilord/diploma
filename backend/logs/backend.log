@@ -125,3 +125,54 @@ Fri, 27 Mar 2020 07:46:36 GMT - Debug - auth.service - login with email: ronen@g
 Fri, 27 Mar 2020 07:47:30 GMT - Debug - auth.service - login with email: ronen@gmail.com
 Sat, 28 Mar 2020 08:23:13 GMT - Debug - auth.service - login with email: ella.brazlev@gmail.com
 Sat, 28 Mar 2020 08:30:31 GMT - Info - Server is running on port: 3000
+Sat, 28 Mar 2020 09:37:51 GMT - Debug - auth.service - login with email: ella.brazleb@gmail.com
+Sat, 28 Mar 2020 09:38:41 GMT - Info - Server is running on port: 3000
+Sat, 28 Mar 2020 09:41:48 GMT - Info - Server is running on port: 3000
+Sat, 28 Mar 2020 09:42:29 GMT - Debug - auth.service - login with email: ella.brazlev@gmail.com
+Sat, 28 Mar 2020 09:42:59 GMT - Debug - auth.service - login with email: ella.brazlev@gmail.com
+Sat, 28 Mar 2020 09:52:36 GMT - Debug - auth.service - login with email: ella.brazlev@gmail.com
+Sat, 28 Mar 2020 09:53:04 GMT - Debug - auth.service - login with email: ella.brazlev@gmail.com
+Sat, 28 Mar 2020 10:40:16 GMT - Info - Server is running on port: 3000
+Sat, 28 Mar 2020 10:40:41 GMT - Error - Cannot get boards
+Sat, 28 Mar 2020 10:41:50 GMT - Info - Server is running on port: 3000
+Sat, 28 Mar 2020 10:42:58 GMT - Error - Cannot get boards
+Sat, 28 Mar 2020 11:18:15 GMT - Debug - ella@gmail.com, Ella, 123456
+Sat, 28 Mar 2020 11:18:15 GMT - Debug - auth.service - signup with email: ella@gmail.com, username: Ella
+Sat, 28 Mar 2020 11:18:15 GMT - Debug - auth.route - new account created: {"email":"ella@gmail.com","password":"$2b$10$qcSoaVr1bJ5/HQrhUYEKO.PfduZG/6rqBIijdmwl5EGz7naWK/8oy","username":"Ella","imgUrl":"","_id":"5e7f32770f6f9464bc2a0722"}
+Sat, 28 Mar 2020 11:18:15 GMT - Debug - auth.service - login with email: ella@gmail.com
+Sat, 28 Mar 2020 11:24:16 GMT - Debug - ellab@gmail.com, Ella Brazlev, 1234
+Sat, 28 Mar 2020 11:24:16 GMT - Debug - auth.service - signup with email: ellab@gmail.com, username: Ella Brazlev
+Sat, 28 Mar 2020 11:24:16 GMT - Debug - auth.route - new account created: {"email":"ellab@gmail.com","password":"$2b$10$ECs32Pd/NyQsy.dmhYDM/eu9Mj8ZBudH4St1eoc7Mi7tNaXlJYovm","username":"Ella Brazlev","imgUrl":"http://res.cloudinary.com/dcwrnwtiu/image/upload/v1585394652/ekritpsyixgnutdocee9.jpg","_id":"5e7f33e00f6f9464bc2a0723"}
+Sat, 28 Mar 2020 11:24:16 GMT - Debug - auth.service - login with email: ellab@gmail.com
+Sat, 28 Mar 2020 12:22:52 GMT - Debug - auth.service - login with email: ella@gmail.com
+Sat, 28 Mar 2020 12:23:13 GMT - Debug - auth.service - login with email: ella@gmail.com
+Sat, 28 Mar 2020 12:28:42 GMT - Debug - auth.service - login with email: ella@gmail.com
+Sat, 28 Mar 2020 12:28:58 GMT - Debug - auth.service - login with email: ella@gmail.com
+Sat, 28 Mar 2020 12:48:51 GMT - Debug - auth.service - login with email: ella@gmail.com
+Sat, 28 Mar 2020 12:49:07 GMT - Debug - auth.service - login with email: ella@gmail.com
+Sat, 28 Mar 2020 12:49:18 GMT - Debug - auth.service - login with email: ella@gmail.com
+Sat, 28 Mar 2020 12:49:31 GMT - Debug - auth.service - login with email: ella@gmail.com
+Sat, 28 Mar 2020 12:49:44 GMT - Debug - auth.service - login with email: ella@gmail.com
+Sat, 28 Mar 2020 12:49:58 GMT - Debug - auth.service - login with email: ella@gmail.com
+Sat, 28 Mar 2020 12:50:17 GMT - Debug - auth.service - login with email: ella@gmail.com
+Sat, 28 Mar 2020 12:51:13 GMT - Debug - auth.service - login with email: ella@gmail.com
+Sat, 28 Mar 2020 13:07:05 GMT - Info - Server is running on port: 3000
+Sat, 28 Mar 2020 13:07:23 GMT - Info - Server is running on port: 3000
+Sat, 28 Mar 2020 13:11:37 GMT - Info - Server is running on port: 3000
+Sat, 28 Mar 2020 13:12:32 GMT - Info - Server is running on port: 3000
+Sat, 28 Mar 2020 13:16:13 GMT - Info - Server is running on port: 3000
+Sat, 28 Mar 2020 13:26:07 GMT - Info - Server is running on port: 3000
+Sat, 28 Mar 2020 13:31:31 GMT - Debug - auth.service - login with email: ella@gmail.com
+Sat, 28 Mar 2020 13:35:56 GMT - Info - Server is running on port: 3000
+Sat, 28 Mar 2020 13:36:14 GMT - Debug - auth.service - login with email: ella@gmail.com
+Sat, 28 Mar 2020 13:39:37 GMT - Debug - auth.service - login with email: ella.brazlev@gmail.com
+Sat, 28 Mar 2020 13:39:51 GMT - Debug - auth.service - login with email: ella@gmail.com
+Sat, 28 Mar 2020 13:44:09 GMT - Info - Server is running on port: 3000
+Sat, 28 Mar 2020 13:44:26 GMT - Debug - auth.service - login with email: ella@gmail.com
+Sat, 28 Mar 2020 13:48:19 GMT - Info - Server is running on port: 3000
+Sat, 28 Mar 2020 13:48:59 GMT - Debug - auth.service - login with email: ella@gmail.com
+Sat, 28 Mar 2020 13:51:59 GMT - Info - Server is running on port: 3000
+Sat, 28 Mar 2020 13:52:25 GMT - Debug - auth.service - login with email: ella@gmail.com
+Sat, 28 Mar 2020 13:56:59 GMT - Debug - auth.service - login with email: ella@gmail.com
+Sat, 28 Mar 2020 13:59:53 GMT - Debug - auth.service - login with email: ella@gmail.com
+Sat, 28 Mar 2020 14:07:06 GMT - Info - Server is running on port: 3000
