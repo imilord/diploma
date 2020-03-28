@@ -166,7 +166,7 @@ export default {
 
         this.loaded = true;
       } catch (e) {
-        console.error(e);
+        // console.error(e);
       }
     })();
   }

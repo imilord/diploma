@@ -45,11 +45,3 @@ export default {
   }
 };
 </script>
-<style scoped>
-.logo-conteiner{
-  margin-top: 10px;
-}
-.logo-img{
-  width: 200px;
-}
-</style>

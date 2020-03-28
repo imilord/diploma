@@ -57,11 +57,13 @@
         }
         .header {
             .cover-container {
+                display: flex;
+                justify-content: center;
                 .img-container {
                     display: flex;
                     justify-content: center;
                     .cover-img {
-                        width: 40%;
+                        width: 50%;
                     }
                 }
                 .cover-btn {

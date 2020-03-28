@@ -1,99 +1,92 @@
 .label-picker {
-  position: absolute;
-  background-color: $clr1;
-  left: 80%;
-  transform: translate(-50%, 0%);
-  z-index: 1;
-  padding: rem(20px);
-  border-radius: 3px;
-  box-shadow: 0 0.0625rem 0 rgba(9, 30, 66, 0.25);
-
-  header {
-    border-bottom: 1px solid rgba(9, 30, 66, 0.13);
-    margin: rem(20px);
-    margin-top: 0;
-
-    h2 {
-      font-weight: normal;
-      font-size: rem(16px);
-      text-align: center;
-      padding-bottom: rem(10px);
-      margin: 0;
-    }
-
-    .close-btn {
-      position: absolute;
-      top: 0;
-      right: 0;
-      margin: rem(5px);
-    }
-  }
-
-  .label-content {
-    display: flex;
-    justify-content: space-between;
-
-    .label {
-      display: inline-block;
-      width: rem(200px);
-      height: rem(25px);
-      padding: rem(15px);
-      border-radius: rem(3px);
-      margin-right: rem(7px);
-      margin-bottom: rem(10px);
-      cursor: pointer;
-      color: $clr1;
-      display: flex;
-
-      .label-title {
-        align-self: center;
-      }
-
-      .check-title {
-        align-self: center;
-        margin-left: auto;
-      }
-    }
-
-    .add-title-btn {
-      margin-bottom: rem(10px);
-      border: none;
-      background-color: transparent;
-
-      &:hover {
-        background-color: $clr7;
-        border-radius: 3px;
-        padding: 6px;
-      }
-    }
-  }
-
-  .title-form {
+    position: absolute;
+    background-color: $clr1;
+    left: 80%;
+    transform: translate(-50%, 0%);
+    z-index: 1;
     padding: rem(20px);
-    padding-top: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    .form-header {
-      text-align: center;
-      margin-bottom: rem(6px);
+    border-radius: 3px;
+    box-shadow: 0 0.0625rem 0 rgba(9, 30, 66, 0.25);
+    header {
+        border-bottom: 1px solid rgba(9, 30, 66, 0.13);
+        margin: rem(20px);
+        margin-top: 0;
+        h2 {
+            font-weight: normal;
+            font-size: rem(16px);
+            text-align: center;
+            padding-bottom: rem(10px);
+            margin: 0;
+        }
+        .close-btn {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: rem(5px);
+        }
     }
-
-    .form-btn {
-      text-align: center;
+    .label-content {
+        display: flex;
+        justify-content: space-between;
+        .label {
+            display: inline-block;
+            width: rem(200px);
+            height: rem(25px);
+            padding: rem(15px);
+            border-radius: rem(3px);
+            margin-right: rem(7px);
+            margin-bottom: rem(10px);
+            cursor: pointer;
+            color: $clr1;
+            display: flex;
+            .label-title {
+                align-self: center;
+            }
+            .check-title {
+                align-self: center;
+                margin-left: auto;
+            }
+        }
+        .add-title-btn {
+            margin-bottom: rem(10px);
+            border: none;
+            background-color: transparent;
+            &:hover {
+                background-color: $clr7;
+                border-radius: 3px;
+                padding: 6px;
+            }
+        }
     }
-
-    .selected-color {
-      height: 32px;
-      width: 48px;
-      border-radius: 4px;
-      margin-bottom: rem(15px);
-      color: $clr1;
-      font-size: 16px;
-      font-weight: bold;
-      line-height: 32px;
-      text-align: center;
+    .title-form {
+        padding: rem(20px);
+        padding-top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .form-header {
+            text-align: center;
+            margin-bottom: rem(6px);
+        }
+        .form-btn {
+            text-align: center;
+        }
+        .selected-color {
+            height: 32px;
+            width: 48px;
+            border-radius: 4px;
+            margin-bottom: rem(15px);
+            color: $clr1;
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 32px;
+            text-align: center;
+        }
     }
-  }
+}
+
+@media (max-width: $break-narrow-l) {
+    .label-picker {
+        left: 40%;
+    }
 }
