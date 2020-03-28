@@ -16,8 +16,9 @@
     h2 {
       font-weight: normal;
       font-size: rem(16px);
-      margin: auto;
+      text-align: center;
       padding-bottom: rem(10px);
+      margin: 0;
     }
 
     .close-btn {
@@ -25,8 +26,6 @@
       top: 0;
       right: 0;
       margin: rem(5px);
-      background: none;
-      border: none;
     }
   }
 

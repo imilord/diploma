@@ -4,7 +4,9 @@
       <button class="close-btn" v-if="!isAddTitle" @click="$emit('close-labels')">
         <font-awesome-icon icon="times" />
       </button>
-      <button class="close-btn" v-else @click="toggleAddTitle()">X</button>
+      <button class="close-btn" v-else @click="toggleAddTitle()">
+        <font-awesome-icon icon="times" />
+      </button>
       <h2>Labels</h2>
     </header>
 

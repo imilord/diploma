@@ -4,7 +4,7 @@ export default {
     login,
     logout,
     signup,
-    // update,
+    update,
     getById,
     getUsers
 }
@@ -26,9 +26,10 @@ async function logout() {
     sessionStorage.clear();
 }
 
-// function update(user) {
-//     return httpService.put(`user/${user._id}`, user)
-// }
+function update(user) {
+    _handleLogin(user)
+    return httpService.put(`user/${user._id}`, user)
+}
 
 function getUsers() {
     return httpService.get('user');

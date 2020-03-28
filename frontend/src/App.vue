@@ -1,6 +1,11 @@
 <template>
   <section>
-    <main-nav :user="user" @logout="doLogout" :class="{ isTaskOpen: isTaskOpen }"></main-nav>
+    <main-nav
+      :user="user"
+      @logout="doLogout"
+      @change-img="changeImg"
+      :class="{ isTaskOpen: isTaskOpen }"
+    ></main-nav>
     <router-view></router-view>
   </section>
 </template>
@@ -20,6 +25,19 @@ export default {
       this.$store.dispatch({ type: "logout" });
       this.user = JSON.parse(JSON.stringify(this.$store.getters.loggedinUser));
       this.$router.push("/");
+    },
+    async changeImg(ev) {
+      const url = await this.$store.dispatch({
+        type: "uploadImg",
+        ev
+      });
+
+      this.user.imgUrl = url;
+
+      await this.$store.dispatch({
+        type: "updateUser",
+        user: JSON.parse(JSON.stringify(this.user))
+      });
     }
   },
   watch: {
