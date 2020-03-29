@@ -32,6 +32,9 @@ export default {
       this.isUserProfile = !this.isUserProfile;
     }
   },
+  created() {
+    console.log(this.user);
+  },
   components: {
     userProfile
   }

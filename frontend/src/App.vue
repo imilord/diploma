@@ -18,7 +18,7 @@ export default {
   methods: {
     doLogout() {
       this.$store.dispatch({ type: "logout" });
-      this.user = JSON.parse(JSON.stringify(this.$store.getters.loggedinUser));
+      this.user = this.$store.getters.loggedinUser;
       this.$router.push("/");
     }
   },
@@ -26,6 +26,7 @@ export default {
     "$route.params": function(newVal) {
       if (newVal.taskId) this.isTaskOpen = true;
       if (!newVal.taskId) this.isTaskOpen = false;
+      this.user = JSON.parse(JSON.stringify(this.$store.getters.loggedinUser));
     }
   },
   components: {
