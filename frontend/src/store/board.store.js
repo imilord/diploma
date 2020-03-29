@@ -57,6 +57,9 @@ export default {
         getTaskActivitylog(state, { taskId }) {
             state.currActivitylog = state.board.activitieslog.filter(activity => activity.taskId === taskId);
         },
+        getUserActivitylog(state, { userId }) {
+            state.currActivitylog = state.board.activitieslog.filter(activity => activity.user._id === userId);
+        },
         setEmptyChecklist(state) {
             const checklist = boardService.getEmptyChecklist();
             state.currChecklist = checklist;

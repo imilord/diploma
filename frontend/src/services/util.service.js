@@ -29,7 +29,7 @@ function uploadImg(ev) {
         .then(res => {
             return res
         })
-        .catch(err => console.error(err))
+        .catch()
 }
 
 function getRandomColor() {

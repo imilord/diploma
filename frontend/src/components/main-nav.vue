@@ -1,6 +1,6 @@
 <template>
   <section class="main-nav container">
-    <div class="logo">WorkFlow</div>
+    <div class="logo-conteiner" @click="moveToHomePage"><img class="logo-img" src="../imgs/logo.png"/></div>
     <ul>
       <li>
         <router-link to="/">Boards</router-link>
@@ -12,12 +12,7 @@
       <li v-if="user.username !== 'guest'" @click="$emit('logout')">Logout</li>
     </ul>
 
-    <user-profile
-      v-if="isUserProfile"
-      :user="user"
-      @close-user-profile="toggleUserProfile"
-      @change-img="changeImg"
-    ></user-profile>
+    <user-profile v-if="isUserProfile" :user="user" @close-user-profile="toggleUserProfile"></user-profile>
   </section>
 </template>
 
@@ -38,15 +33,16 @@ export default {
     },
     changeImg(ev) {
       this.$emit("change-img", ev);
+    },
+    moveToHomePage(){
+      this.$router.push('/');
     }
+  },
+  created() {
+    console.log(this.user);
   },
   components: {
     userProfile
   }
 };
 </script>
-<style scoped>
-.logo{
-  width: 40%;
-}
-</style>

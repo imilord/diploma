@@ -1,113 +1,105 @@
 .color-picker-small {
-  display: flex;
-  flex-wrap: wrap;
-  width: rem(132px);
-  background-color: $clr6;
-  padding: 5px;
-
-  .color {
-    width: rem(18px);
-    height: rem(18px);
-    border-radius: 100%;
-    margin: rem(1px);
-    box-sizing: border-box;
-    cursor: pointer;
-  }
-
-  .active {
-    border: rem(2px) solid black;
-  }
+    display: flex;
+    flex-wrap: wrap;
+    width: rem(132px);
+    background-color: $clr6;
+    padding: 5px;
+    .color {
+        width: rem(18px);
+        height: rem(18px);
+        border-radius: 100%;
+        margin: rem(1px);
+        box-sizing: border-box;
+        cursor: pointer;
+    }
+    .active {
+        border: rem(2px) solid black;
+    }
 }
 
 .color-picker-medium-content {
-  position: absolute;
-  background-color: $clr1;
-  left: 80%;
-  transform: translate(-50%, 0%);
-  z-index: 1;
-  padding: rem(20px);
-  border-radius: 3px;
-  box-shadow: 0 0.0625rem 0 rgba(9, 30, 66, 0.25);
-  width: 240px;
-
-  header {
-    border-bottom: 1px solid rgba(9, 30, 66, 0.13);
-    margin: rem(20px);
-    margin-top: 0;
-
-    h2 {
-      font-weight: normal;
-      font-size: rem(16px);
-      margin: auto;
-      padding-bottom: rem(10px);
+    position: absolute;
+    background-color: $clr1;
+    left: 80%;
+    transform: translate(-50%, 0%);
+    z-index: 1;
+    padding: rem(20px);
+    border-radius: 3px;
+    box-shadow: 0 0.0625rem 0 rgba(9, 30, 66, 0.25);
+    width: 240px;
+    header {
+        border-bottom: 1px solid rgba(9, 30, 66, 0.13);
+        margin: rem(20px);
+        margin-top: 0;
+        h2 {
+            font-weight: normal;
+            font-size: rem(16px);
+            margin: auto;
+            padding-bottom: rem(10px);
+        }
+        .close-btn {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: rem(5px);
+        }
     }
-
-    .close-btn {
-      position: absolute;
-      top: 0;
-      right: 0;
-      margin: rem(5px);
+    .color-picker-medium {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        .color {
+            width: rem(30px);
+            height: rem(30px);
+            border-radius: 100%;
+            margin: rem(2px);
+            cursor: pointer;
+        }
+        .active {
+            border: rem(2px) solid black;
+        }
     }
-  }
-
-  .color-picker-medium {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-
-    .color {
-      width: rem(30px);
-      height: rem(30px);
-      border-radius: 100%;
-      margin: rem(2px);
-      cursor: pointer;
-    }
-
-    .active {
-      border: rem(2px) solid black;
-    }
-  }
 }
 
 .color-picker-large {
-  .options {
-    display: flex;
-    justify-content: space-evenly;
-
-    .option {
-      width: 45%;
-      cursor: pointer;
-      text-align: center;
-
-      .img {
-        border-radius: 8px;
-        height: 96px;
-        width: 100%;
-        background-size: cover;
-      }
-
-      .photos-img {
-        background-image: url(https://a.trellocdn.com/prgb/dist/images/photos-thumbnail@3x.48948499e309aef794d7.jpg);
-      }
-
-      .colors-img {
-        background-image: url(https://a.trellocdn.com/prgb/dist/images/colors@2x.864f4df15d825e89e199.jpg);
-      }
+    .options {
+        display: flex;
+        justify-content: space-evenly;
+        .option {
+            width: 45%;
+            cursor: pointer;
+            text-align: center;
+            .img {
+                border-radius: 8px;
+                height: 96px;
+                width: 100%;
+                background-size: cover;
+            }
+            .photos-img {
+                background-image: url(https://a.trellocdn.com/prgb/dist/images/photos-thumbnail@3x.48948499e309aef794d7.jpg);
+            }
+            .colors-img {
+                background-image: url(https://a.trellocdn.com/prgb/dist/images/colors@2x.864f4df15d825e89e199.jpg);
+            }
+        }
     }
-  }
-
-  .options-bgc {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    cursor: pointer;
-
-    .bgc {
-      border-radius: 8px;
-      height: 96px;
-      width: 47%;
-      background-size: cover;
-      margin: 3px 0;
+    .options-bgc {
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        cursor: pointer;
+        .bgc {
+            border-radius: 8px;
+            height: 96px;
+            width: 47%;
+            background-size: cover;
+            margin: 3px 0;
+        }
     }
-  }
+}
+
+@media (max-width: $break-narrow-l) {
+    .color-picker-medium-content {
+        left: 40%;
+    }
 }

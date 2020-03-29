@@ -42,6 +42,7 @@
                 padding: rem(5px);
                 text-align: center;
                 margin-left: rem(5px);
+                transition: .3s;
                 cursor: pointer;
                 >* {
                     margin: 0;
@@ -67,16 +68,16 @@
             padding: rem(5px) rem(10px);
             border: none;
             background-color: transparent;
-                    color: $clr2;
-
+            color: $clr2;
+            transition: .3s;
             &:hover {
                 background-color: $clr6;
                 border-radius: rem(1px);
             }
-                    a {
-          text-decoration: none;
-          color: $clr2;
-        }
+            a {
+                text-decoration: none;
+                color: $clr2;
+            }
         }
     }
     &::-webkit-scrollbar {

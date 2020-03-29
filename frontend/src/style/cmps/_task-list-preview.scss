@@ -1,8 +1,6 @@
 .tasklist-list {
     height: 100vh;
     padding-top: 90px;
-
-
     .tasklist-preview {
         color: $clr2;
         max-height: 100%;
@@ -12,10 +10,6 @@
         margin: 0 rem(4px);
         padding: rem(8px) rem(4px) rem(8px) rem(7px);
         position: relative;
-        // &:hover {
-        //     background-color: $clr3;
-        // }
-
         header {
             display: flex;
             justify-content: space-between;
@@ -23,11 +17,9 @@
             padding: rem(4px);
             padding-top: 0;
             height: rem(40px);
-
             h4 {
                 margin: 0;
             }
-
             button.settings-btn {
                 color: $clr2;
                 height: rem(30px);
@@ -36,14 +28,13 @@
                 padding-top: rem(4px);
                 border: none;
                 background-color: transparent;
-
+                transition: .3s;
                 &:hover {
                     background-color: $clr3;
                     border-radius: rem(3px);
                 }
             }
         }
-
         main {
             max-height: calc(100vh - 225px);
             overflow-y: auto;
@@ -53,41 +44,37 @@
             }
             &::-webkit-scrollbar-track {
                 border-radius: 10px;
-                background: $clr3; 
+                background: $clr3;
             }
             &::-webkit-scrollbar-thumb {
                 border-radius: rem(10px);
-                background: $clr6; 
+                background: $clr6;
             }
         }
-
         main.mobile-mode {
             max-height: calc(100vh - 325px);
             &::-webkit-scrollbar {
                 width: rem(12px);
             }
         }
-        
         footer {
             padding: 6px 0 8px;
             margin-right: 4px;
-                .hover-class {
+            .hover-class {
                 &:hover {
                     background-color: $clr3;
+                }
             }
-        }
-
-            
         }
     }
     .hover-class {
         &:hover {
             background-color: $clr3;
+        }
     }
-
-}
     .newListBgc {
         background-color: rgb(235, 236, 240);
+        transition: .3s;
         &:hover {
             background-color: rgb(235, 236, 240);
         }
