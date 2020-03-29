@@ -4,6 +4,7 @@ import homePage from '../views/home-page.vue';
 import boardDetails from '../views/board-details.vue';
 import taskDetails from '../views/task-details.vue';
 import userAuth from '../views/user-auth.vue';
+import boardDashboard from '../views/boad-dashboard.vue';
 
 Vue.use(VueRouter)
 
@@ -25,6 +26,11 @@ const routes = [{
         path: '/auth',
         name: 'userAuth',
         component: userAuth
+    },
+    {
+        path: '/board/dashboard/:id/',
+        name: 'dashboard',
+        component: boardDashboard
     }
 ]
 

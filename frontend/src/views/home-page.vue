@@ -3,10 +3,29 @@
     <header>
       <img src="../assets/img/header.jpg" />
     </header>
+
     <section class="search">
       <i class="el-icon-search"></i>
       <input type="text" placeholder="Search board" v-model="searchKeyword" />
     </section>
+
+    <div v-if="loggedinUser.username !== 'guest'">
+      <h4>Personal Boards:</h4>
+      <main v-if="boards">
+        <div
+          class="board-preview"
+          v-for="board in boardByUser"
+          :key="board._id"
+          :style="{background: board.style.color || 'url(' + board.style.url + ')'}"
+        >
+          <router-link :to="'/board/' + board._id ">
+            <button>{{board.name}}</button>
+          </router-link>
+        </div>
+      </main>
+      <h4>All Boards:</h4>
+    </div>
+
     <main v-if="boards">
       <div
         class="board-preview"
@@ -31,7 +50,8 @@ export default {
   data() {
     return {
       boards: null,
-      searchKeyword: ""
+      searchKeyword: "",
+      loggedinUser: null
     };
   },
   computed: {
@@ -41,9 +61,27 @@ export default {
         return this.boards.filter(board =>
           board.name.toLowerCase().includes(this.searchKeyword.toLowerCase())
         );
+    },
+    boardByUser() {
+      let userBoards = [];
+      this.boards.forEach(board => {
+        if (
+          board.members.find(
+            member => member.username === this.loggedinUser.username
+          )
+        ) {
+          userBoards.push(board);
+        }
+      });
+      if (!this.searchKeyword) return userBoards;
+      else
+        return userBoards.filter(board =>
+          board.name.toLowerCase().includes(this.searchKeyword.toLowerCase())
+        );
     }
   },
   async created() {
+    this.loggedinUser = this.$store.getters.loggedinUser;
     const boards = await this.$store.dispatch({
       type: "loadBoards"
     });

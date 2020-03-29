@@ -39,6 +39,9 @@
           <button @click="isColorPickerOpen=!isColorPickerOpen">Change background</button>
           <button @click="isDueDateOpen=!isDueDateOpen">Change due date</button>
           <button>Search tasks</button>
+          <button>
+            <router-link :to="'dashboard/' + board._id ">Board dashboard</router-link>
+          </button>
           <button @click="isDeleteQuestOpen=!isDeleteQuestOpen">Delete board</button>
         </main>
 
@@ -57,8 +60,8 @@
           ></due-date-picker>
           <div v-if="isDeleteQuestOpen">
             <div>Are you sure?</div>
-            <button @click="isDeleteQuestOpen=!isDeleteQuestOpen">No</button>
-            <button @click="deleteBoard">Yes, delete this board</button>
+            <button class="add-btn" @click="isDeleteQuestOpen=!isDeleteQuestOpen">No</button>
+            <button class="add-btn" @click="deleteBoard">Yes, delete this board</button>
           </div>
         </section>
       </div>

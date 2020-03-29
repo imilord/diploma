@@ -10,12 +10,13 @@
         v-for="list in lists"
         :key="list.id"
         @update-board="updateBoard"
-        @update-list="updateList"
+        @update-list-drag="updateList"
       >
         <tasklist-preview
           :taskList="list"
           :boardId="boardId"
           @upadte-activitylog="upadteActivitylog"
+          @update-list="updateList"
         ></tasklist-preview>
       </draggable>
       <div class="tasklist-preview hover-class" :class="{newListBgc : isAddListOpen}">

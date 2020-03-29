@@ -16,7 +16,7 @@
         @set-sort="setSort"
       ></list-settings>
     </header>
-    <main>
+    <main :class="{'mobile-mode': isMobile}">
       <task-list
         class="task-list"
         :allTasks="list.tasks"
@@ -63,6 +63,7 @@ export default {
   },
   data() {
     return {
+      isMobile: false,
       isSettingsOpen: false,
       isAddTaskOpen: false,
       newTask: null,
@@ -124,7 +125,7 @@ export default {
     },
     updateTasks(tasks) {
       this.list.tasks = tasks;
-      this.$emit("update-list", this.list);
+      this.$emit("update-list-drag", this.list);
     },
     updateListName(name) {
       const activitylog = this.createActivitylog(
@@ -136,6 +137,7 @@ export default {
         activitylog
       });
       this.list.name = name;
+      console.log(this.list);
       this.$emit("update-list", this.list);
     },
     setColor(color) {
@@ -149,6 +151,7 @@ export default {
       });
 
       this.list.backgroundColor = color;
+      console.log(this.list);
       this.$emit("update-list", this.list);
     },
     setSort(sortBy) {
@@ -182,6 +185,12 @@ export default {
         txt,
         createdAt: Date.now()
       };
+    },
+    isMobileDevice() {
+      return (
+        typeof window.orientation !== "undefined" ||
+        navigator.userAgent.indexOf("IEMobile") !== -1
+      );
     }
   },
   watch: {
@@ -191,6 +200,7 @@ export default {
   },
   created() {
     this.getEmptyTask();
+    this.isMobile = this.isMobileDevice();
   },
   components: {
     taskList,
