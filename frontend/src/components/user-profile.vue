@@ -100,7 +100,6 @@ export default {
         type: "getUserActivitylog",
         userId: this.user._id
       });
-
       this.activitieslog = this.$store.getters.currActivitylog;
     }
   },

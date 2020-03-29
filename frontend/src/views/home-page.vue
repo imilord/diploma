@@ -12,6 +12,9 @@
     <div v-if="loggedinUser.username !== 'guest'">
       <h4>Personal Boards:</h4>
       <main v-if="boards">
+        <div class="board-preview">
+          <button @click="addNewBoard">Create new board</button>
+        </div>
         <div
           class="board-preview"
           v-for="board in boardByUser"
@@ -27,6 +30,9 @@
     </div>
 
     <main v-if="boards">
+      <div v-if="loggedinUser.username === 'guest'" class="board-preview">
+        <button @click="addNewBoard">Create new board</button>
+      </div>
       <div
         class="board-preview"
         v-for="board in boardBySearch"
@@ -36,9 +42,6 @@
         <router-link :to="'/board/' + board._id ">
           <button>{{board.name}}</button>
         </router-link>
-      </div>
-      <div class="board-preview">
-        <button @click="addNewBoard">Create new board</button>
       </div>
     </main>
   </section>

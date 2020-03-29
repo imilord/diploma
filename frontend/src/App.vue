@@ -1,7 +1,7 @@
 <template>
   <section>
     <main-nav :user="user" @logout="doLogout" :class="{ isTaskOpen: isTaskOpen }"></main-nav>
-    <router-view></router-view>
+    <router-view :key="reload"></router-view>
   </section>
 </template>
 
@@ -12,14 +12,19 @@ export default {
   data() {
     return {
       user: JSON.parse(JSON.stringify(this.$store.getters.loggedinUser)),
-      isTaskOpen: false
+      isTaskOpen: false,
+      reload: 0
     };
   },
   methods: {
-    doLogout() {
-      this.$store.dispatch({ type: "logout" });
+    async doLogout() {
+      await this.$store.dispatch({ type: "logout" });
       this.user = this.$store.getters.loggedinUser;
-      this.$router.push("/");
+      if (this.$route.params.id) {
+        this.$router.push("/");
+      } else {
+        this.reload += 1;
+      }
     }
   },
   watch: {
