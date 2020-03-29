@@ -125,7 +125,7 @@ export default {
     },
     updateTasks(tasks) {
       this.list.tasks = tasks;
-      this.$emit("update-list", this.list);
+      this.$emit("update-list-drag", this.list);
     },
     updateListName(name) {
       const activitylog = this.createActivitylog(
