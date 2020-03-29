@@ -169,3 +169,10 @@ Sun, 29 Mar 2020 13:21:09 GMT - Debug - auth.service - login with email: lian@gm
 =======
 Sun, 29 Mar 2020 09:52:25 GMT - Info - Server is running on port: 3000
 >>>>>>> a8a766da83997fd2f9554e6918a5f3a67f47b7ca
+Sun, 29 Mar 2020 14:22:05 GMT - Debug - auth.service - login with email: daniel@gmal.com
+Sun, 29 Mar 2020 14:25:53 GMT - Debug - auth.service - login with email: lian@gmail.com
+Sun, 29 Mar 2020 15:05:57 GMT - Debug - auth.service - login with email: ella@gmail.com
+Sun, 29 Mar 2020 15:15:16 GMT - Debug - auth.service - login with email: ella@gmail.com
+Sun, 29 Mar 2020 15:15:26 GMT - Debug - auth.service - login with email: ella@gmail.com
+Sun, 29 Mar 2020 15:25:36 GMT - Debug - auth.service - login with email: ella@gmail.com
+Sun, 29 Mar 2020 15:59:50 GMT - Debug - auth.service - login with email: ella@gmail.com
