@@ -1,6 +1,6 @@
 <template>
   <section class="main-nav container">
-    <div class="logo">WorkFlow</div>
+    <div class="logo-conteiner" @click="moveToHomePage"><img class="logo-img" src="../imgs/logo.png"/></div>
     <ul>
       <li>
         <router-link to="/">Boards</router-link>
@@ -30,6 +30,12 @@ export default {
   methods: {
     toggleUserProfile() {
       this.isUserProfile = !this.isUserProfile;
+    },
+    changeImg(ev) {
+      this.$emit("change-img", ev);
+    },
+    moveToHomePage(){
+      this.$router.push('/');
     }
   },
   created() {
@@ -40,8 +46,3 @@ export default {
   }
 };
 </script>
-<style scoped>
-.logo {
-  width: 40%;
-}
-</style>

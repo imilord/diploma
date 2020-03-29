@@ -47,7 +47,6 @@ async function getByEmail(email) {
 }
 
 async function update(user) {
-    console.log(user)
     const collection = await dbService.getCollection('user')
     user._id = ObjectId(user._id);
 

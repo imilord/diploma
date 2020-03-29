@@ -1,52 +1,51 @@
 .due-date-picker {
-  position: absolute;
-  background-color: $clr1;
-  left: 80%;
-  transform: translate(-50%, 0%);
-  z-index: 1;
-  padding: rem(20px);
-  border-radius: 3px;
-  box-shadow: 0 0.0625rem 0 rgba(9, 30, 66, 0.25);
-
-  header {
-    border-bottom: 1px solid rgba(9, 30, 66, 0.13);
-    margin: rem(20px);
-    margin-top: 0;
-
-    h2 {
-      font-weight: normal;
-      font-size: rem(16px);
-      text-align: center;
-      margin: 0;
-      padding-bottom: rem(10px);
+    position: absolute;
+    background-color: $clr1;
+    left: 80%;
+    transform: translate(-50%, 0%);
+    z-index: 1;
+    padding: rem(20px);
+    border-radius: 3px;
+    box-shadow: 0 0.0625rem 0 rgba(9, 30, 66, 0.25);
+    header {
+        border-bottom: 1px solid rgba(9, 30, 66, 0.13);
+        margin: rem(20px);
+        margin-top: 0;
+        h2 {
+            font-weight: normal;
+            font-size: rem(16px);
+            text-align: center;
+            margin: 0;
+            padding-bottom: rem(10px);
+        }
+        .close-btn {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: rem(5px);
+        }
     }
-
-    .close-btn {
-      position: absolute;
-      top: 0;
-      right: 0;
-      margin: rem(5px);
+    .calender {
+        margin-bottom: rem(13px);
     }
-  }
-
-  .calender {
-    margin-bottom: rem(13px);
-  }
-
-  .btn-container {
-    text-align: center;
-  }
+    .btn-container {
+        text-align: center;
+    }
 }
 
 .due-date-picker-board {
-  margin: 8%;
-
-  header {
-    display: none;
-
-    .close-btn,
-    h2 {
-      display: none;
+    margin: 8%;
+    header {
+        display: none;
+        .close-btn,
+        h2 {
+            display: none;
+        }
     }
-  }
+}
+
+@media (max-width: $break-narrow-l) {
+    .due-date-picker {
+        left: 40%;
+    }
 }

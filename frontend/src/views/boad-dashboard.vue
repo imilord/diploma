@@ -119,6 +119,11 @@ export default {
             doneTasks: 0
           });
         });
+        mapMembersTasks.push({
+          username: "guest",
+          allTasks: 0,
+          doneTasks: 0
+        });
 
         board.taskLists.forEach(list => {
           this.paiChartdata.labels.push(list.name);
@@ -127,35 +132,34 @@ export default {
           this.paiChartdata.datasets[0].backgroundColor.push(color);
           this.paiChartdata.datasets[1].backgroundColor.push(color);
 
-          let countDoneTasks = 0;
+          let countDoneTasksPerList = 0;
           list.tasks.forEach(task => {
             tasksCount++;
-            if (task.status.isDone) countDoneTasks++;
+            if (task.status.isDone) {
+              countDoneTasksPerList++;
+              mapMembersTasks.forEach(mapMember => {
+                if (mapMember.username === task.status.member.username) {
+                  mapMember.doneTasks++;
+                  completedTasksCount++;
+                }
+              });
+            }
             if (task.members.length > 0) {
               task.members.forEach(member => {
                 mapMembersTasks.forEach(mapMember => {
                   if (mapMember.username === member.username)
                     mapMember.allTasks++;
                 });
-                if (task.status.isDone) {
-                  mapMembersTasks.forEach(mapMember => {
-                    if (mapMember.username === task.status.member.username) {
-                      mapMember.doneTasks++;
-                      completedTasksCount++;
-                    }
-                  });
-                }
               });
             }
           });
-          this.paiChartdata.datasets[1].data.push(countDoneTasks);
+          this.paiChartdata.datasets[1].data.push(countDoneTasksPerList);
         });
 
         const color = utilService.getRandomColor();
         mapMembersTasks.forEach(member => {
           this.lineChartdata.labels.push(member.username);
           this.lineChartdata.datasets[0].backgroundColor.push(color);
-
           this.lineChartdata.datasets[0].data.push(member.doneTasks);
           this.lineChartdata.datasets[1].data.push(
             member.allTasks - member.doneTasks
@@ -164,10 +168,9 @@ export default {
         this.lineChartdata.datasets[0].label += `(${completedTasksCount})`;
         this.lineChartdata.datasets[1].label += `(${tasksCount -
           completedTasksCount})`;
-
         this.loaded = true;
       } catch (e) {
-        console.error(e);
+        // console.error(e);
       }
     })();
   }

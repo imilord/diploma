@@ -1,48 +1,44 @@
 .board-dashboard {
-  padding-top: 60px;
-  overflow-y: auto;
-//   background-color: #ffac81;
-//   width: 100vw;
-//   height: 100vh;
-
-  .title {
-      font-weight: bold;
-      text-align: center;
-      color: $clr2;
-      background-color: $clr4;
-      padding: 10px;
-      margin: 0;
-      border-radius: rem(3px);
-
-      button {
-        border: none;
-        background-color: transparent;
+    padding-top: 60px;
+    overflow-y: auto;
+    //   background-color: #ffac81;
+    //   width: 100vw;
+    //   height: 100vh;
+    .title {
         font-weight: bold;
+        text-align: center;
         color: $clr2;
-        font-size: rem(15px);
-        &:hover {
-            color: $clr8;
+        background-color: $clr4;
+        padding: 10px;
+        margin: 0;
+        border-radius: rem(3px);
+        button {
+            border: none;
+            background-color: transparent;
+            font-weight: bold;
+            color: $clr2;
+            font-size: rem(15px);
+            transition: .3s;
+            &:hover {
+                color: $clr8;
+            }
         }
-      }
-  }
-
-  .charts {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    margin: 10px 0;
-
-    .chart {
-      background-color: $clr8;
-      box-shadow: 0px 0px 9px 0px $clr6;
-      padding: 10px;
-      margin: 10px 0;
-      width: 35%;
-      border-radius: 3px;
     }
-  }
-
-      &::-webkit-scrollbar {
+    .charts {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        margin: 10px 0;
+        .chart {
+            background-color: $clr8;
+            box-shadow: 0px 0px 9px 0px $clr6;
+            padding: 10px;
+            margin: 10px 0;
+            width: 35%;
+            border-radius: 3px;
+        }
+    }
+    &::-webkit-scrollbar {
         width: 10px;
     }
     &::-webkit-scrollbar-track {
@@ -64,8 +60,9 @@
             .chart {
                 width: 40%;
             }
+        }
     }
-}}
+}
 
 @media (max-width: $break-normal) {
     .board-dashboard {
@@ -75,15 +72,16 @@
                 width: 75%;
                 margin: 10px auto;
             }
+        }
     }
-}}
+}
 
 @media (max-width: $break-narrow-s) {
     .board-dashboard {
         .charts {
-
             .chart {
                 width: 90%;
             }
+        }
     }
-}}
+}

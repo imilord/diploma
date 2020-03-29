@@ -1,64 +1,56 @@
 .list-settings {
-  position: absolute;
-  z-index: 20;
-  top: rem(8px);
-  right: rem(8px);
-  border-radius: rem(3px);
-  padding: 0 rem(6px) rem(4px) rem(8px);
-  background-color: $clr1;
-  box-shadow: 0 rem(8px) rem(16px) rem(-4px) rgba(9, 30, 66, 0.25),
-    0 0 0 rem(1px) rgba(9, 30, 66, 0.08);
-
+    position: absolute;
+    z-index: 20;
+    top: rem(8px);
+    right: rem(8px);
+    border-radius: rem(3px);
+    padding: 0 rem(6px) rem(4px) rem(8px);
+    background-color: $clr1;
+    box-shadow: 0 rem(8px) rem(16px) rem(-4px) rgba(9, 30, 66, 0.25), 0 0 0 rem(1px) rgba(9, 30, 66, 0.08);
     header {
-      display: flex;
-      align-items: center;
-      margin-top: rem(10px);
-      border-bottom: 1px solid $clr6;
-      p {
-
-        margin-bottom: 18px;
-        font-weight: bold;
-      }
+        display: flex;
+        align-items: center;
+        margin-top: rem(10px);
+        border-bottom: 1px solid $clr6;
+        p {
+            margin-bottom: 18px;
+            font-weight: bold;
+        }
     }
-    
     main {
-      display: flex;
-      flex-direction: column;
-      margin-top: rem(8px);
-
-      button {
-        text-align: left;
-        padding: rem(5px) rem(10px);
-        border: none;
-        background-color: transparent;
-
-        &:hover {
+        display: flex;
+        flex-direction: column;
+        margin-top: rem(8px);
+        button {
+            text-align: left;
+            padding: rem(5px) rem(10px);
+            border: none;
+            background-color: transparent;
+            transition: .3s;
+            &:hover {
+                background-color: $clr6;
+                border-radius: rem(1px);
+            }
+        }
+        .name-editor {
+            width: 132px;
             background-color: $clr6;
-            border-radius: rem(1px);
+            input {
+                width: 90%;
+                margin: 6px;
+            }
         }
-      }
-
-      .name-editor {
-        width: 132px;
-        background-color: $clr6;
-        input {
-          width: 90%;
-          margin: 6px;
+        .sort-by {
+            width: 132px;
+            background-color: $clr6;
+            font-size: rem(14px);
+            padding: 2px 10px;
+            div {
+                &:hover {
+                    font-weight: 500;
+                    cursor: pointer;
+                }
+            }
         }
-      }
-
-      .sort-by {
-        width: 132px;
-        background-color: $clr6;
-        font-size: rem(14px);
-        padding: 2px 10px;
-        div {
-          &:hover {
-              font-weight: 500;
-              cursor: pointer;
-          }
-        }
-      }
     }
 }
-
