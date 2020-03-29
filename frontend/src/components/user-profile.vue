@@ -11,8 +11,8 @@
     </header>
 
     <main>
-      <button @click="toggle('isProfile')">Profile and visibility</button>
-      <button>Activity</button>
+      <button :class="{'active': isProfile}" @click="toggle('isProfile')">Profile and visibility</button>
+      <button :class="{'active': isActivity}" @click="toggle('isActivity')">Activity</button>
     </main>
 
     <section class="profile" v-if="isProfile">
@@ -21,10 +21,36 @@
         <avatar v-else :username="user.username" class="member"></avatar>
       </div>
 
-      <label for="add-img">
-        <div>{{(user.imgUrl) ? 'Change image' : 'Add image' }}</div>
-        <input id="add-img" type="file" @change="addImg" class="img-input" />
-      </label>
+      <div>
+        <label for="add-img">
+          <div>{{(user.imgUrl) ? 'Change image' : 'Add image' }}</div>
+          <input id="add-img" type="file" @change="addImg" class="img-input" />
+        </label>
+      </div>
+
+      <div class="user-name">
+        <label>
+          Username
+          <input class="board" type="text" v-model="newName" placeholder="Username" />
+        </label>
+        <button class="add-btn" @click="changeName">Change</button>
+      </div>
+    </section>
+
+    <section class="activity-container" v-if="isActivity">
+      <ul class="activities">
+        <li v-for="(activity,idx) in activitieslog" :key="idx" class="activity">
+          <div>
+            <img v-if="activity.user.imgUrl" :src="activity.user.imgUrl" class="member-img" />
+            <avatar v-else :username="activity.user.username" class="member"></avatar>
+          </div>
+          <div>
+            <span class="username">{{activity.user.username}}</span>
+            {{activity.txt}}
+            <div class="due-date">{{activity.createdAt | fromDate}}</div>
+          </div>
+        </li>
+      </ul>
     </section>
   </section>
 </template>
@@ -38,16 +64,46 @@ export default {
   },
   data() {
     return {
-      isProfile: false
+      activitieslog: null,
+      isProfile: false,
+      isActivity: false,
+      newName: this.user.username
     };
   },
   methods: {
     toggle(type) {
       this[type] = !this[type];
+      if (type === "isProfile") this.isActivity = false;
+      else this.isProfile = false;
     },
-    addImg(ev) {
-      this.$emit("change-img", ev);
+    async updateUser() {
+      await this.$store.dispatch({
+        type: "updateUser",
+        user: JSON.parse(JSON.stringify(this.user))
+      });
+    },
+    async addImg(ev) {
+      const url = await this.$store.dispatch({
+        type: "uploadImg",
+        ev
+      });
+
+      this.user.imgUrl = url;
+      this.updateUser();
+    },
+    changeName() {
+      this.user.username = this.newName;
+      this.updateUser();
+    },
+    getUserActivitylog() {
+      this.$store.commit({
+        type: "getUserActivitylog",
+        userId: this.user._id
+      });
     }
+  },
+  created() {
+    this.getUserActivitylog();
   },
   components: {
     avatar

@@ -28,6 +28,10 @@
             outline: none;
         }
     }
+    h4 {
+        margin-left: rem(3.5px);
+        color: $clr2;
+    }
     main {
         display: flex;
         flex-wrap: wrap;
@@ -41,9 +45,9 @@
             border-radius: 3px;
             background-color: rgba(0, 0, 0, 0.15);
             transition: .3s;
-            // &:hover {
-            //     background-color: rgba(0, 0, 0, 0.35) !important;
-            // }
+            &:hover {
+                opacity: 0.75;
+            }
             button {
                 border: none;
                 background: transparent;

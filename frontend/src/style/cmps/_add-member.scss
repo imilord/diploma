@@ -2,7 +2,7 @@
     position: absolute;
     background-color: $clr1;
     left: 20%;
-    top: 13%;
+    top: 14%;
     transform: translate(-50%, 0%);
     z-index: 1;
     padding: rem(20px);
@@ -22,10 +22,8 @@
         .close-btn {
             position: absolute;
             top: 0;
-            right: 0;
+            right: 5%;
             margin: rem(5px);
-            background: none;
-            border: none;
         }
     }
     .users {
@@ -68,6 +66,6 @@
 @media (max-width: $break-narrow) {
     .add-member {
         left: 40%;
-        top: 20%
+        top: 20%;
     }
 }

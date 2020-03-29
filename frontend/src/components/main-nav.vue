@@ -12,12 +12,7 @@
       <li v-if="user.username !== 'guest'" @click="$emit('logout')">Logout</li>
     </ul>
 
-    <user-profile
-      v-if="isUserProfile"
-      :user="user"
-      @close-user-profile="toggleUserProfile"
-      @change-img="changeImg"
-    ></user-profile>
+    <user-profile v-if="isUserProfile" :user="user" @close-user-profile="toggleUserProfile"></user-profile>
   </section>
 </template>
 
@@ -42,6 +37,9 @@ export default {
     moveToHomePage(){
       this.$router.push('/');
     }
+  },
+  created() {
+    console.log(this.user);
   },
   components: {
     userProfile
