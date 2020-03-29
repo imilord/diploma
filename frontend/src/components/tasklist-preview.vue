@@ -137,7 +137,6 @@ export default {
         activitylog
       });
       this.list.name = name;
-      console.log(this.list);
       this.$emit("update-list", this.list);
     },
     setColor(color) {
@@ -151,7 +150,6 @@ export default {
       });
 
       this.list.backgroundColor = color;
-      console.log(this.list);
       this.$emit("update-list", this.list);
     },
     setSort(sortBy) {

@@ -108,7 +108,6 @@ export default {
         });
         this.boardId = boardId;
         this.board = board;
-        console.log(board);
 
         let mapMembersTasks = [];
         let tasksCount = 0;
