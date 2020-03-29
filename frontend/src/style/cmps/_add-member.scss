@@ -1,72 +1,72 @@
 .add-member {
-    position: absolute;
-    background-color: $clr1;
-    left: 20%;
-    top: 13%;
-    transform: translate(-50%, 0%);
-    z-index: 1;
-    padding: rem(20px);
-    border-radius: 3px;
-    box-shadow: 0 0.0625rem 0 rgba(9, 30, 66, 0.25);
-    color: $clr9;
-    header {
-        border-bottom: 1px solid rgba(9, 30, 66, 0.13);
-        margin: rem(20px);
-        margin-top: 0;
-        h2 {
-            font-weight: normal;
-            font-size: rem(16px);
-            margin: auto;
-            padding-bottom: rem(10px);
-        }
-        .close-btn {
-            position: absolute;
-            top: 0;
-            right: 0;
-            margin: rem(5px);
-            background: none;
-            border: none;
-        }
+  position: absolute;
+  background-color: $clr1;
+  left: 20%;
+  top: 14%;
+  transform: translate(-50%, 0%);
+  z-index: 1;
+  padding: rem(20px);
+  border-radius: 3px;
+  box-shadow: 0 0.0625rem 0 rgba(9, 30, 66, 0.25);
+  color: $clr9;
+  header {
+    border-bottom: 1px solid rgba(9, 30, 66, 0.13);
+    margin: rem(20px);
+    margin-top: 0;
+    h2 {
+      font-weight: normal;
+      font-size: rem(16px);
+      margin: auto;
+      padding-bottom: rem(10px);
     }
-    .users {
-        max-height: 200px;
-        overflow-y: auto;
-        margin-top: rem(15px);
-        &::-webkit-scrollbar {
-            width: rem(8px);
-        }
-        &::-webkit-scrollbar-track {
-            border-radius: 10px;
-            background: $clr3;
-        }
-        &::-webkit-scrollbar-thumb {
-            border-radius: rem(10px);
-            background: $clr6;
-        }
-        .user {
-            display: flex;
-            align-items: center;
-            padding: rem(5px) 0;
-            transition: .3s;
-            border-radius: 3px;
-            margin-right: rem(3px);
-            cursor: pointer;
-            &:hover {
-                background-color: $clr13;
-            }
-            .username {
-                margin-left: rem(5px);
-            }
-            .joined {
-                font-size: rem(12px);
-            }
-        }
+    .close-btn {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin: rem(5px);
+      background: none;
+      border: none;
     }
+  }
+  .users {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-top: rem(15px);
+    &::-webkit-scrollbar {
+      width: rem(8px);
+    }
+    &::-webkit-scrollbar-track {
+      border-radius: 10px;
+      background: $clr3;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: rem(10px);
+      background: $clr6;
+    }
+    .user {
+      display: flex;
+      align-items: center;
+      padding: rem(5px) 0;
+      transition: 0.3s;
+      border-radius: 3px;
+      margin-right: rem(3px);
+      cursor: pointer;
+      &:hover {
+        background-color: $clr13;
+      }
+      .username {
+        margin-left: rem(5px);
+      }
+      .joined {
+        font-size: rem(12px);
+      }
+    }
+  }
 }
 
 @media (max-width: $break-narrow) {
-    .add-member {
-        left: 40%;
-        top: 20%
-    }
+  .add-member {
+    left: 40%;
+    top: 20%;
+  }
 }

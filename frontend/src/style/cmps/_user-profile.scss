@@ -54,6 +54,11 @@
         border-radius: rem(1px);
       }
     }
+
+    .active {
+      background-color: $clr6;
+      border-radius: rem(1px);
+    }
   }
 
   .profile {
@@ -82,6 +87,49 @@
       visibility: hidden;
       width: 0;
       height: 0;
+    }
+
+    .user-name {
+      margin-top: rem(20px);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      input {
+        background-color: $clr8;
+        width: 70%;
+        height: 40px;
+        padding-left: 5px;
+        border: none;
+        outline-color: $clr9;
+        border-radius: 3px;
+        border: 1px solid $clr9;
+        margin: rem(4px);
+      }
+    }
+  }
+
+  .activity-container {
+    overflow-y: auto;
+    height: 250px;
+    max-width: 300px;
+    margin: rem(10px);
+
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+    &::-webkit-scrollbar-track {
+      border-radius: 10px;
+      background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
+      background: $clr6;
+    }
+
+    .activities {
+      flex-direction: column;
     }
   }
 }

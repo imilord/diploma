@@ -12,12 +12,7 @@
       <li v-if="user.username !== 'guest'" @click="$emit('logout')">Logout</li>
     </ul>
 
-    <user-profile
-      v-if="isUserProfile"
-      :user="user"
-      @close-user-profile="toggleUserProfile"
-      @change-img="changeImg"
-    ></user-profile>
+    <user-profile v-if="isUserProfile" :user="user" @close-user-profile="toggleUserProfile"></user-profile>
   </section>
 </template>
 
@@ -35,9 +30,6 @@ export default {
   methods: {
     toggleUserProfile() {
       this.isUserProfile = !this.isUserProfile;
-    },
-    changeImg(ev) {
-      this.$emit("change-img", ev);
     }
   },
   components: {
@@ -46,7 +38,7 @@ export default {
 };
 </script>
 <style scoped>
-.logo{
+.logo {
   width: 40%;
 }
 </style>
