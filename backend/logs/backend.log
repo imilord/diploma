@@ -136,13 +136,3 @@ Sun, 29 Mar 2020 08:14:09 GMT - Debug - auth.service - login with email: ronen@g
 Sun, 29 Mar 2020 08:14:38 GMT - Debug - auth.service - login with email: ronen@gmail.com
 Sun, 29 Mar 2020 09:11:39 GMT - Info - Server is running on port: 3000
 Sun, 29 Mar 2020 09:52:25 GMT - Info - Server is running on port: 3000
-Sun, 29 Mar 2020 10:03:48 GMT - Debug - auth.service - login with email: barbara@gmail.com
-Sun, 29 Mar 2020 10:05:04 GMT - Debug - auth.service - login with email: barbara@gmail.com
-Sun, 29 Mar 2020 10:06:13 GMT - Debug - auth.service - login with email: daniel@gmal.com
-Sun, 29 Mar 2020 10:10:44 GMT - Info - Server is running on port: 3000
-Sun, 29 Mar 2020 10:11:44 GMT - Debug - auth.service - login with email: daniel@gmal.com
-Sun, 29 Mar 2020 11:52:34 GMT - Debug - auth.service - login with email: daniel@gmal.com
-Sun, 29 Mar 2020 12:31:06 GMT - Info - Server is running on port: 3000
-Sun, 29 Mar 2020 12:34:00 GMT - Info - Server is running on port: 3000
-Sun, 29 Mar 2020 12:34:25 GMT - Info - Server is running on port: 3000
-Sun, 29 Mar 2020 12:35:12 GMT - Info - Server is running on port: 3000
