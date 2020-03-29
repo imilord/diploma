@@ -135,6 +135,7 @@ Sun, 29 Mar 2020 07:35:35 GMT - Info - Server is running on port: 3000
 Sun, 29 Mar 2020 08:14:09 GMT - Debug - auth.service - login with email: ronen@gmail.com
 Sun, 29 Mar 2020 08:14:38 GMT - Debug - auth.service - login with email: ronen@gmail.com
 Sun, 29 Mar 2020 09:11:39 GMT - Info - Server is running on port: 3000
+<<<<<<< HEAD
 Sun, 29 Mar 2020 09:52:25 GMT - Info - Server is running on port: 3000
 Sun, 29 Mar 2020 10:03:48 GMT - Debug - auth.service - login with email: barbara@gmail.com
 Sun, 29 Mar 2020 10:05:04 GMT - Debug - auth.service - login with email: barbara@gmail.com
@@ -165,3 +166,6 @@ Sun, 29 Mar 2020 13:21:09 GMT - Debug - lian@gmail.com, Lian, 123
 Sun, 29 Mar 2020 13:21:09 GMT - Debug - auth.service - signup with email: lian@gmail.com, username: Lian
 Sun, 29 Mar 2020 13:21:09 GMT - Debug - auth.route - new account created: {"email":"lian@gmail.com","password":"$2b$10$P1ZnNRSCKEziImkvYklWHejSwvQpaL9LadDRi4cLlD7LC0KEbAeFi","username":"Lian","imgUrl":"","_id":"5e80a0c528d001479cb99a50"}
 Sun, 29 Mar 2020 13:21:09 GMT - Debug - auth.service - login with email: lian@gmail.com
+=======
+Sun, 29 Mar 2020 09:52:25 GMT - Info - Server is running on port: 3000
+>>>>>>> a8a766da83997fd2f9554e6918a5f3a67f47b7ca
