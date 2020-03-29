@@ -22,6 +22,8 @@
 
         <div class="task-name">{{task.name}}</div>
 
+        <span v-if="task.description" class="el-icon-s-unfold icon description"></span>
+
         <div
           class="due-date"
           v-if="task.dueDate"
@@ -41,6 +43,9 @@
           <span>/</span>
           <span>{{todosAmount}}</span>
         </div>
+
+        <!-- <span v-if="task.status.isDone" class="el-icon-finished icon isDone"></span> -->
+        <span v-if="task.status.isDone" class="el-icon-check icon isDone"></span>
 
         <div class="members" v-if="task.members">
           <div v-for="member in task.members" :key="member._id">
