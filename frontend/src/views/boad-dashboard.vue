@@ -168,7 +168,6 @@ export default {
         this.lineChartdata.datasets[0].label += `(${completedTasksCount})`;
         this.lineChartdata.datasets[1].label += `(${tasksCount -
           completedTasksCount})`;
-        console.log(mapMembersTasks);
         this.loaded = true;
       } catch (e) {
         console.error(e);
