@@ -1,6 +1,6 @@
 <template>
   <section class="main-nav container">
-    <div class="logo-conteiner"><img class="logo-img" src="../imgs/logo.png"/></div>
+    <div class="logo-conteiner" @click="moveToHomePage"><img class="logo-img" src="../imgs/logo.png"/></div>
     <ul>
       <li>
         <router-link to="/">Boards</router-link>
@@ -38,6 +38,9 @@ export default {
     },
     changeImg(ev) {
       this.$emit("change-img", ev);
+    },
+    moveToHomePage(){
+      this.$router.push('/');
     }
   },
   components: {

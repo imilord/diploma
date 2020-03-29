@@ -1,4 +1,4 @@
-# sprint4
+# Workflow
 
 ## Project setup
 ```

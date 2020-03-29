@@ -126,6 +126,17 @@
           <h4>Add to task</h4>
           <div class="main-buttons">
             <div>
+              <button class="main-btn task-btn" @click="toggle('isAddMember')">
+                <i class="el-icon-user"></i> Members
+              </button>
+              <member-picker
+                v-if="isAddMember"
+                :members="boardMembers"
+                @close-member-picker="toggle('isAddMember')"
+                @update-member="updateMember"
+              ></member-picker>
+            </div>
+            <div>
               <button class="main-btn task-btn" @click="toggle('isLabelsSelected')">
                 <i class="el-icon-price-tag"></i> Labels
               </button>
@@ -151,29 +162,6 @@
               ></due-date-picker>
             </div>
             <div>
-              <button class="main-btn task-btn" @click="toggle('isAddMember')">
-                <i class="el-icon-user"></i> Members
-              </button>
-              <member-picker
-                v-if="isAddMember"
-                :members="boardMembers"
-                @close-member-picker="toggle('isAddMember')"
-                @update-member="updateMember"
-              ></member-picker>
-            </div>
-            <div>
-              <label for="add-img" class="cover-content">
-                <div class="cover-btn task-btn">
-                  <i class="el-icon-picture-outline cover-icon"></i>
-                  <span>Cover</span>
-                </div>
-                <input id="add-img" type="file" @change="addImg" class="cover-input" />
-              </label>
-            </div>
-            <button class="main-btn task-btn" @click="copyTask">
-              <i class="el-icon-document-copy"></i> Copy
-            </button>
-            <div>
               <button class="main-btn task-btn" @click="toggle('isOpenChecklist')">
                 <i class="el-icon-document-checked"></i> Checklist
               </button>
@@ -193,6 +181,18 @@
                 @close-color-picker="toggle('isColorPickerOpen')"
               ></color-picker-medium>
             </div>
+            <div>
+              <label for="add-img" class="cover-content">
+                <div class="cover-btn task-btn">
+                  <i class="el-icon-picture-outline cover-icon"></i>
+                  <span>Cover</span>
+                </div>
+                <input id="add-img" type="file" @change="addImg" class="cover-input" />
+              </label>
+            </div>
+            <button class="main-btn task-btn" @click="copyTask">
+              <i class="el-icon-document-copy"></i> Copy
+            </button>
             <div>
               <button class="main-btn task-btn" @click="deleteTask()">
                 <i class="el-icon-delete"></i> Delete
@@ -571,7 +571,6 @@ export default {
         this.newChecklist = JSON.parse(
           JSON.stringify(this.$store.getters.currChecklist)
         );
-
       } catch (err) {
         // console.log("Err in getEmptyChecklist");
       }

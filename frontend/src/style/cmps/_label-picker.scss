@@ -51,6 +51,7 @@
             margin-bottom: rem(10px);
             border: none;
             background-color: transparent;
+            transition: .3s;
             &:hover {
                 background-color: $clr7;
                 border-radius: 3px;

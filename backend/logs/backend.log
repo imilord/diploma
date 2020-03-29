@@ -128,3 +128,10 @@ Sat, 28 Mar 2020 14:30:10 GMT - Debug - auth.service - login with email: ronen@g
 Sat, 28 Mar 2020 16:25:42 GMT - Info - Server is running on port: 3000
 Sat, 28 Mar 2020 16:33:45 GMT - Info - Server is running on port: 3000
 Sat, 28 Mar 2020 16:50:21 GMT - Info - Server is running on port: 3000
+Sat, 28 Mar 2020 17:30:37 GMT - Info - Server is running on port: 3000
+Sat, 28 Mar 2020 19:27:22 GMT - Info - Server is running on port: 3000
+Sun, 29 Mar 2020 07:05:55 GMT - Info - Server is running on port: 3000
+Sun, 29 Mar 2020 07:35:35 GMT - Info - Server is running on port: 3000
+Sun, 29 Mar 2020 08:14:09 GMT - Debug - auth.service - login with email: ronen@gmail.com
+Sun, 29 Mar 2020 08:14:38 GMT - Debug - auth.service - login with email: ronen@gmail.com
+Sun, 29 Mar 2020 09:11:39 GMT - Info - Server is running on port: 3000

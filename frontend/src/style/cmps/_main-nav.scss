@@ -12,6 +12,7 @@
     color: $clr1;
     .logo-conteiner {
         margin-top: 10px;
+        cursor: pointer;
         .logo-img {
             width: 200px;
         }
@@ -26,6 +27,7 @@
             background-color: $clr4;
             padding: rem(4px) rem(8px);
             margin: 0 4px;
+            transition: .3s;
             &:hover {
                 background-color: $clr3;
             }
