@@ -73,7 +73,7 @@ export default {
   },
   computed: {
     doneTodosAmount() {
-      var doneTodos = 0;
+      let doneTodos = 0;
       this.task.checklists.forEach(checklist => {
         doneTodos += checklist.todos.filter(todo => todo.isDone).length;
       });
@@ -81,7 +81,7 @@ export default {
       return doneTodos;
     },
     todosAmount() {
-      var todos = 0;
+      let todos = 0;
       this.task.checklists.forEach(checklist => {
         todos += checklist.todos.length;
       });
