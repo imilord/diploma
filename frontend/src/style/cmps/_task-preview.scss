@@ -58,6 +58,13 @@
             margin-top: rem(10px);
             display: flex;
         }
+        .description{
+            margin-right: rem(3px);
+        }
+        .isDone {
+            // color: green;
+            font-weight: bold;
+        }
         .due-date {
             font-size: rem(13px);
             padding: rem(3px);

@@ -16,7 +16,7 @@
         @set-sort="setSort"
       ></list-settings>
     </header>
-    <main :class="{'mobile-mode': isMobile}">
+    <main :class="{'mobile-mode': isMobile, 'shorter': isAddTaskOpen}">
       <task-list
         class="task-list"
         :allTasks="list.tasks"

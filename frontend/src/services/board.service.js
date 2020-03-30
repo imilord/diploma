@@ -80,6 +80,7 @@ function getEmptyTask() {
         cover: "",
         attachment: {},
         checklists: [],
+        backgroundColor: '#fff',
         status: {
             isDone: false,
             member: {},

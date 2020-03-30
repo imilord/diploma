@@ -36,7 +36,7 @@
             }
         }
         main {
-            max-height: calc(100vh - 225px);
+            max-height: calc(100vh - 215px);
             overflow-y: auto;
             margin-bottom: rem(8px);
             &::-webkit-scrollbar {
@@ -51,8 +51,11 @@
                 background: $clr6;
             }
         }
+        main.shorter {
+            max-height: calc(100vh - 270px);
+        }
         main.mobile-mode {
-            max-height: calc(100vh - 325px);
+            max-height: calc(100vh - 310px);
             &::-webkit-scrollbar {
                 width: rem(12px);
             }
