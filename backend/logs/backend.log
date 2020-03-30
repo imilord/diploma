@@ -199,3 +199,13 @@ Sun, 29 Mar 2020 14:09:36 GMT - Info - Server is running on port: 3000
 Sun, 29 Mar 2020 14:26:58 GMT - Debug - auth.service - login with email: ella@brazlev.com
 Sun, 29 Mar 2020 14:27:19 GMT - Debug - auth.service - login with email: ella.brazlev@gmail.com
 Sun, 29 Mar 2020 17:01:32 GMT - Info - Server is running on port: 3000
+Sun, 29 Mar 2020 17:12:50 GMT - Debug - auth.service - login with email: ella@gmail.com
+Sun, 29 Mar 2020 17:13:30 GMT - Debug - auth.service - login with email: ella@gmail.com
+Sun, 29 Mar 2020 17:16:05 GMT - Debug - auth.service - login with email: ella@gmail.com
+Sun, 29 Mar 2020 17:16:43 GMT - Debug - auth.service - login with email: ella@gmail.com
+Sun, 29 Mar 2020 17:21:00 GMT - Debug - auth.service - login with email: ella@gmail.com
+Sun, 29 Mar 2020 17:30:18 GMT - Info - Server is running on port: 3000
+Sun, 29 Mar 2020 17:34:51 GMT - Error - Cannot get boards
+Sun, 29 Mar 2020 17:35:33 GMT - Info - Server is running on port: 3000
+Sun, 29 Mar 2020 17:35:51 GMT - Debug - auth.service - login with email: ella@gmail.com
+Mon, 30 Mar 2020 07:23:35 GMT - Debug - auth.service - login with email: ella@gmail.com

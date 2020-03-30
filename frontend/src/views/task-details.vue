@@ -99,7 +99,7 @@
                 @update-checklist="updateChecklist"
                 @remove-checklist="removeChecklist"
                 @add-todo="addTodo"
-                @update-todo="updateTodo"
+                @update-todo-activity="updateTodoActivity"
               ></checklist-details>
             </div>
           </div>
@@ -478,7 +478,6 @@ export default {
       const checklistIndex = this.task.checklists.findIndex(
         currChecklist => currChecklist.id === checklist.id
       );
-
       this.task.checklists.splice(checklistIndex, 1, checklist);
       this.saveTask();
     },
@@ -487,6 +486,7 @@ export default {
         checklist => checklist.id === checklistId
       );
       this.task.checklists.splice(checklistIndex, 1);
+
       const activitylog = this.createActivitylog(
         `removed checklist from ${this.task.name}`
       );
@@ -511,15 +511,7 @@ export default {
 
       this.saveTaskData(activitylog);
     },
-    updateTodo(checklistId, currTodo) {
-      const checklistIndex = this.task.checklists.findIndex(
-        checklist => checklist.id === checklistId
-      );
-      const todos = this.task.checklists[checklistIndex].todos;
-      const todoIndex = todos.findIndex(todo => todo.id === currTodo.id);
-
-      this.task.checklists[checklistIndex].todos.splice(todoIndex, 1, currTodo);
-
+    updateTodoActivity(currTodo) {
       let activitylog;
 
       if (currTodo.isDone) {

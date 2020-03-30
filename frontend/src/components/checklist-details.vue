@@ -6,7 +6,7 @@
         {{checklist.name}}
       </h4>
       <div v-else class="change-checklist-name">
-        <input class="task" type="text" v-model="checklist.name" @keyup.enter="changeChecklistName" />
+        <input class="task" type="text" v-model="checklistName" @keyup.enter="changeChecklistName" />
         <button class="add-btn" @click="changeChecklistName">Save</button>
         <button class="close-btn" @click="toggleChangeName">
           <font-awesome-icon icon="times" />
@@ -27,8 +27,8 @@
         >{{todo.text}}</div>
 
         <div class="checklist-todo" v-if="currTodoId === todo.id">
-          <input class="task" type="text" v-model="todo.text" @keyup.enter="changeTodoName(todo)" />
-          <button class="add-btn" @click="changeTodoName(todo)">Save</button>
+          <input class="task" type="text" v-model="todo.text" @keyup.enter="changeTodoName()" />
+          <button class="add-btn" @click="changeTodoName()">Save</button>
           <button class="close-btn" @click="setCurrTodoId()">
             <font-awesome-icon icon="times" />
           </button>
@@ -69,6 +69,7 @@ export default {
       isAddTodo: false,
       isOpenChangeName: false,
       isOpenChangeText: false,
+      checklistName: this.checklist.name,
       newTodo: { text: "", isDone: false },
       todoText: "",
       currTodoId: ""
@@ -79,26 +80,30 @@ export default {
       this.isAddTodo = !this.isAddTodo;
     },
     toggleChangeName() {
+      if (!this.isOpenChangeName) {
+        this.checklistName = this.checklist.name;
+      }
       this.isOpenChangeName = !this.isOpenChangeName;
     },
-    setCurrTodoId(todo) {
-      if (todo) {
-        this.currTodoId = todo.id;
-        this.todoText = todo.text;
-      } else {
-        var foundTodo = this.checklist.todos.find(
-          currTodo => currTodo.id === this.currTodoId
-        );
-        foundTodo.text = this.todoText;
-        this.currTodoId = "";
-      }
-    },
     changeChecklistName() {
+      this.checklist.name = this.checklistName;
       this.$emit("update-checklist", this.checklist);
       this.toggleChangeName();
     },
     removeChecklist() {
       this.$emit("remove-checklist", this.checklist.id);
+    },
+    setCurrTodoId(todo = null) {
+      if (todo) {
+        this.currTodoId = todo.id;
+        this.todoText = todo.text;
+      } else {
+        var changedTodo = this.checklist.todos.find(
+          currTodo => currTodo.id === this.currTodoId
+        );
+        changedTodo.text = this.todoText;
+        this.currTodoId = "";
+      }
     },
     addTodo() {
       this.$emit(
@@ -109,11 +114,8 @@ export default {
       this.newTodo = { text: "", isDone: false };
     },
     updateTodo(todo) {
-      this.$emit(
-        "update-todo",
-        this.checklist.id,
-        JSON.parse(JSON.stringify(todo))
-      );
+      this.$emit("update-checklist", this.checklist);
+      this.$emit("update-todo-activity", todo);
     },
     removeTodo(todo) {
       const todoIndex = this.checklist.todos.findIndex(
@@ -122,9 +124,9 @@ export default {
       this.checklist.todos.splice(todoIndex, 1);
       this.$emit("update-checklist", this.checklist);
     },
-    changeTodoName(todo) {
-      this.updateTodo(todo);
-      this.setCurrTodoId();
+    changeTodoName() {
+      this.$emit("update-checklist", this.checklist);
+      this.currTodoId = "";
     }
   },
   computed: {
