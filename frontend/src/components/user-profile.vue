@@ -30,18 +30,20 @@
 
       <div class="user-name">
         <label>
-          Username
-          <input class="board" type="text" v-model="newName" placeholder="Username" />
+          Change your username
+          <input
+            class="board"
+            type="text"
+            v-model="newName"
+            placeholder="Username"
+          />
         </label>
         <button class="add-btn" @click="changeName">Change</button>
       </div>
     </section>
 
     <section class="activity-container" v-if="isActivity">
-      <div
-        class="msg"
-        v-if="!activitieslog.length"
-      >In order to see your activities, please connect to the boards that you are a member of</div>
+      <div class="msg" v-if="!activitieslog.length">{{msg}}</div>
 
       <ul class="activities">
         <li v-for="(activity,idx) in activitieslog" :key="idx" class="activity">
@@ -72,7 +74,8 @@ export default {
       activitieslog: null,
       isProfile: false,
       isActivity: false,
-      newName: this.user.username
+      newName: this.user.username,
+      msg: ""
     };
   },
   methods: {
@@ -110,12 +113,16 @@ export default {
   },
   created() {
     this.getUserActivitylog();
+    if (this.$route.params.id) {
+      this.msg = "You don't have any activity on this board";
+    } else {
+      this.msg =
+        "In order to see your activities, please connect to the boards that you are a member of";
+    }
   },
   watch: {
     "$route.params": function() {
-      if (!this.$route.params.id) {
-        this.activitieslog = [];
-      }
+      this.$emit("close-user-profile");
     }
   },
   components: {
