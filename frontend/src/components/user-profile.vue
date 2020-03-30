@@ -38,6 +38,11 @@
     </section>
 
     <section class="activity-container" v-if="isActivity">
+      <div
+        class="msg"
+        v-if="!activitieslog.length"
+      >In order to see your activities, please connect to the boards that you are a member of</div>
+
       <ul class="activities">
         <li v-for="(activity,idx) in activitieslog" :key="idx" class="activity">
           <div>
@@ -105,6 +110,13 @@ export default {
   },
   created() {
     this.getUserActivitylog();
+  },
+  watch: {
+    "$route.params": function() {
+      if (!this.$route.params.id) {
+        this.activitieslog = [];
+      }
+    }
   },
   components: {
     avatar
