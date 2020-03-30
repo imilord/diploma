@@ -10,11 +10,11 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faTasks, faPlus, faTimes, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faTasks, faPlus, faTimes, faSearch, faUsers, faCheck } from '@fortawesome/free-solid-svg-icons';
 import { faTrello } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-library.add(faTasks, faPlus, faTimes, faSearch)
+library.add(faTasks, faPlus, faTimes, faSearch, faUsers, faCheck)
 library.add(faTrello)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);

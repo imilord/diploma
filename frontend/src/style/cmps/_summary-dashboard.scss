@@ -1,0 +1,51 @@
+.summary-dashboard {
+    margin: rem(20px);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: rem(30px);
+    .info-container {
+        display: flex;
+        align-items: center;
+        margin: rem(5px) rem(10px);
+        .icon-container {
+            height: rem(80px);
+            width: rem(80px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-top-left-radius: rem(3px);
+            border-bottom-left-radius: rem(3px);
+            &.members {
+            background-color: #428bca;
+            }
+            &.tasks {
+            background-color: #ffc109;
+            }
+            &.completed {
+            background-color: #05b631;
+            }
+            &.incompleted {
+            background-color: #dc3544;
+            }
+            .icon {
+                font-size: rem(45px);
+                color: $clr1;    
+            }
+        }
+        .info {
+            width: rem(120px);
+            height: rem(80px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            background-color: $clr8;
+            padding: rem(5px);
+            text-transform: uppercase;
+            text-align: center;
+            border-top-right-radius: rem(3px);
+            border-bottom-right-radius: rem(3px);
+        }
+    }
+}

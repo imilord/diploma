@@ -11,7 +11,7 @@
       </div>
     </div>
 
-    <button v-if="isOptionOpen" @click="backToOptions">Back</button>
+    <button v-if="isOptionOpen" @click="backToOptions" class="add-btn">Back</button>
     <div class="options-bgc" v-if="isOptionColorOpen">
       <div
         class="bgc"

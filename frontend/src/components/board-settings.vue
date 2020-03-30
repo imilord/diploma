@@ -35,21 +35,35 @@
         ></add-member>
 
         <main>
-          <button @click="isNameEditorOpen=!isNameEditorOpen">Change board name</button>
-          <button @click="isColorPickerOpen=!isColorPickerOpen">Change background</button>
-          <button @click="isDueDateOpen=!isDueDateOpen">Change due date</button>
-          <button>Search tasks</button>
-          <button>
-            <router-link :to="'dashboard/' + board._id ">Board dashboard</router-link>
-          </button>
-          <button @click="isDeleteQuestOpen=!isDeleteQuestOpen">Delete board</button>
+          <button :class="{active: isChartOpen}" @click="toggle('isChartOpen')">Board dashboard</button>
+          <button
+            :class="{active: isNameEditorOpen}"
+            @click="toggle('isNameEditorOpen')"
+          >Change board name</button>
+          <button
+            :class="{active: isColorPickerOpen}"
+            @click="toggle('isColorPickerOpen')"
+          >Change background</button>
+          <button :class="{active: isDueDateOpen}" @click="toggle('isDueDateOpen')">Change due date</button>
+          <!-- <button>Search tasks</button> -->
+          <button
+            :class="{active: isDeleteQuestOpen}"
+            @click="toggle('isDeleteQuestOpen')"
+          >Delete board</button>
         </main>
 
         <section>
+          <div v-if="isChartOpen" class="dashboard">
+            <bar-chart :chartdata="barChartdata" :options="options"></bar-chart>
+            <button class="add-btn">
+              <router-link :to="'dashboard/' + board._id ">To the full dashboard</router-link>
+            </button>
+          </div>
+
           <color-picker-large v-if="isColorPickerOpen" @set-bgc="setBgc"></color-picker-large>
           <div class="name-editor" v-if="isNameEditorOpen">
-            <input type="text" v-model="newName" :placeholder="board.name" />
-            <button @click="changeName">Save</button>
+            <input type="text" v-model="newName" :placeholder="board.name" class="board" />
+            <button @click="changeName" class="add-btn">Save</button>
           </div>
           <due-date-picker
             class="due-date-picker-board"
@@ -73,7 +87,9 @@
 import avatar from "vue-avatar";
 import colorPickerLarge from "./color-picker-large.vue";
 import dueDatePicker from "./due-date-picker.vue";
-import addMember from './add-member.vue';
+import addMember from "./add-member.vue";
+import barChart from "./chart/bar-chart.vue";
+import { utilService } from "../services/util.service.js";
 
 export default {
   props: {
@@ -82,6 +98,7 @@ export default {
   data() {
     return {
       isLoaded: false,
+      isChartOpen: true,
       isColorPickerOpen: false,
       isNameEditorOpen: false,
       isDeleteQuestOpen: false,
@@ -89,12 +106,59 @@ export default {
       isMobile: false,
       isAddMember: false,
       users: [],
-      newName: ""
+      newName: "",
+      barChartdata: {
+        labels: [],
+        datasets: [
+          {
+            label: "Completed Tasks ",
+            backgroundColor: [],
+            data: []
+          },
+          {
+            label: "Incompleted Tasks ",
+            data: []
+          }
+        ]
+      },
+      options: {
+        scales: {
+          yAxes: [
+            {
+              stacked: true,
+              ticks: {
+                beginAtZero: true,
+                min: 0
+              }
+            }
+          ],
+          xAxes: [
+            {
+              stacked: true,
+              ticks: {
+                beginAtZero: true,
+                categoryPercentage: 0.5,
+                barPercentage: 1
+              }
+            }
+          ]
+        },
+        responsive: true,
+        maintainAspectRatio: false
+      }
     };
   },
   methods: {
     isMobileDevice() {
       return window.innerWidth < 550;
+    },
+    toggle(type) {
+      this.isChartOpen = false;
+      this.isColorPickerOpen = false;
+      this.isNameEditorOpen = false;
+      this.isDeleteQuestOpen = false;
+      this.isDueDateOpen = false;
+      this[type] = !this[type];
     },
     closeSettings() {
       this.isLoaded = false;
@@ -155,11 +219,64 @@ export default {
       this.isLoaded = true;
     }, 100);
   },
+  mounted() {
+    let mapMembersTasks = [];
+    let tasksCount = 0;
+    let completedTasksCount = 0;
+    this.board.members.forEach(member => {
+      mapMembersTasks.push({
+        username: member.username,
+        allTasks: 0,
+        doneTasks: 0
+      });
+    });
+    mapMembersTasks.push({
+      username: "guest",
+      allTasks: 0,
+      doneTasks: 0
+    });
+
+    this.board.taskLists.forEach(list => {
+      list.tasks.forEach(task => {
+        tasksCount++;
+        if (task.status.isDone) {
+          mapMembersTasks.forEach(mapMember => {
+            if (mapMember.username === task.status.member.username) {
+              mapMember.doneTasks++;
+              completedTasksCount++;
+            }
+          });
+        }
+        if (task.members.length > 0) {
+          task.members.forEach(member => {
+            mapMembersTasks.forEach(mapMember => {
+              if (mapMember.username === member.username) mapMember.allTasks++;
+            });
+          });
+        }
+      });
+    });
+
+    const color = utilService.getRandomColor();
+    mapMembersTasks.forEach(member => {
+      this.barChartdata.labels.push(member.username);
+      this.barChartdata.datasets[0].backgroundColor.push(color);
+      this.barChartdata.datasets[0].data.push(member.doneTasks);
+      this.barChartdata.datasets[1].data.push(
+        member.allTasks - member.doneTasks
+      );
+    });
+    this.barChartdata.datasets[0].label += `(${completedTasksCount})`;
+    this.barChartdata.datasets[1].label += `(${tasksCount -
+      completedTasksCount})`;
+  },
+
   components: {
     avatar,
     colorPickerLarge,
     dueDatePicker,
-    addMember
+    addMember,
+    barChart
   }
 };
 </script>
