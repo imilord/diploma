@@ -65,6 +65,9 @@
 }
 
 .color-picker-large {
+    .add-btn {
+        margin: rem(3px) rem(6px);
+    }
     .options {
         display: flex;
         justify-content: space-evenly;
@@ -73,10 +76,14 @@
             cursor: pointer;
             text-align: center;
             .img {
-                border-radius: 8px;
-                height: 96px;
+                border-radius: rem(8px);
+                height: rem(96px);
                 width: 100%;
                 background-size: cover;
+                transition: .3s;
+                &:hover {
+                    opacity: 0.75;
+                }
             }
             .photos-img {
                 background-image: url(https://a.trellocdn.com/prgb/dist/images/photos-thumbnail@3x.48948499e309aef794d7.jpg);
@@ -97,6 +104,10 @@
             width: 47%;
             background-size: cover;
             margin: 3px 0;
+            transition: .3s;
+            &:hover {
+                opacity: 0.75;
+            }
         }
     }
 }
