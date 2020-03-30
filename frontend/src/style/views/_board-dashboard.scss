@@ -1,9 +1,6 @@
 .board-dashboard {
     padding-top: 60px;
     overflow-y: auto;
-    //   background-color: #ffac81;
-    //   width: 100vw;
-    //   height: 100vh;
     .title {
         font-weight: bold;
         text-align: center;
@@ -29,14 +26,25 @@
         flex-wrap: wrap;
         justify-content: space-evenly;
         margin: 10px 0;
-        .chart {
-            background-color: $clr8;
-            box-shadow: 0px 0px 9px 0px $clr6;
-            padding: 10px;
-            margin: 10px 0;
-            width: 35%;
-            border-radius: 3px;
-        }
+    }
+    .chart {
+        background-color: $clr8;
+        box-shadow: 0px 0px 9px 0px $clr6;
+        padding: 10px;
+        margin: 10px 0;
+        width: 40%;
+        border-radius: 3px;
+    }
+    .main-chart {
+        width: 80%;
+        margin: auto;
+
+    h4 {
+        margin-bottom: 0;
+    }
+    p {
+        margin-top: 0;
+    }
     }
     &::-webkit-scrollbar {
         width: 10px;
@@ -73,6 +81,10 @@
                 margin: 10px auto;
             }
         }
+        .main-chart {
+            width: 75%;
+            margin: 10px auto;
+        }
     }
 }
 
@@ -82,6 +94,9 @@
             .chart {
                 width: 90%;
             }
+        }
+        .main-chart {
+            width: 90%;
         }
     }
 }

@@ -8,6 +8,18 @@
       Management Dashboard |
       <button @click="$router.push(`/board/${boardId}`)">Back to board</button>
     </div>
+    <summary-dashboard
+      :memberCount="board.members.length"
+      :tasksCount="tasksCount"
+      :completedTasksCount="completedTasksCount"
+    ></summary-dashboard>
+    <div class="chart main-chart">
+      <h4>Project progress by timeline:</h4>
+      <p>(from the begining of the project until due date)</p>
+      <div class="line-chart-container">
+        <line-chart v-if="loaded" :chartdata="lineChartdata" :options="optionsLine"></line-chart>
+      </div>
+    </div>
     <div class="charts">
       <div class="chart">
         <h4>Tasks count per lists (total and completed):</h4>
@@ -15,25 +27,34 @@
       </div>
       <div class="chart">
         <h4>Tasks status per member:</h4>
-        <bar-chart v-if="loaded" :chartdata="lineChartdata" :options="options"></bar-chart>
+        <bar-chart v-if="loaded" :chartdata="barChartdata" :options="optionsBar"></bar-chart>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import summaryDashboard from "../components/chart/summary-dashboard.vue";
+import lineChart from "../components/chart/line-chart.vue";
 import paiChart from "../components/chart/pai-chart.vue";
 import barChart from "../components/chart/bar-chart.vue";
+
 import { utilService } from "../services/util.service.js";
 
 export default {
   name: "PaiChartContainer",
-  components: { paiChart, barChart },
+  components: { summaryDashboard, lineChart, paiChart, barChart },
   data() {
     return {
       loaded: false,
       board: null,
       boardId: null,
+      tasksCount: 0,
+      completedTasksCount: 0,
+      lineChartdata: {
+        labels: [],
+        datasets: []
+      },
       paiChartdata: {
         labels: [],
         datasets: [
@@ -47,7 +68,7 @@ export default {
           }
         ]
       },
-      lineChartdata: {
+      barChartdata: {
         labels: [],
         datasets: [
           {
@@ -61,7 +82,10 @@ export default {
           }
         ]
       },
-      options: {
+      optionsLine: {
+        maintainAspectRatio: false
+      },
+      optionsBar: {
         scales: {
           yAxes: [
             {
@@ -98,81 +122,118 @@ export default {
     }
   },
   async mounted() {
-    (async () => {
-      this.loaded = false;
-      try {
-        const boardId = this.$route.params.id;
-        const board = await this.$store.dispatch({
-          type: "loadBoard",
-          boardId
-        });
-        this.boardId = boardId;
-        this.board = board;
+    this.loaded = false;
+    try {
+      const boardId = this.$route.params.id;
+      const board = await this.$store.dispatch({
+        type: "loadBoard",
+        boardId
+      });
+      this.boardId = boardId;
+      this.board = board;
 
-        let mapMembersTasks = [];
-        let tasksCount = 0;
-        let completedTasksCount = 0;
-        board.members.forEach(member => {
-          mapMembersTasks.push({
-            username: member.username,
-            allTasks: 0,
-            doneTasks: 0
-          });
-        });
+      let mapMembersTasks = [];
+      let completedTasksTimes = [board.createdAt, board.dueDate];
+      board.members.forEach(member => {
         mapMembersTasks.push({
-          username: "guest",
+          username: member.username,
           allTasks: 0,
           doneTasks: 0
         });
+        this.lineChartdata.datasets.push({
+          label: member.username,
+          borderColor: [utilService.getRandomColor()],
+          fill: false,
+          data: []
+        });
+      });
+      mapMembersTasks.push({
+        username: "guest",
+        allTasks: 0,
+        doneTasks: 0
+      });
 
-        board.taskLists.forEach(list => {
-          this.paiChartdata.labels.push(list.name);
-          this.paiChartdata.datasets[0].data.push(list.tasks.length);
-          var color = utilService.getRandomColor();
-          this.paiChartdata.datasets[0].backgroundColor.push(color);
-          this.paiChartdata.datasets[1].backgroundColor.push(color);
+      board.taskLists.forEach(list => {
+        this.paiChartdata.labels.push(list.name);
+        this.paiChartdata.datasets[0].data.push(list.tasks.length);
+        var color = utilService.getRandomColor();
+        this.paiChartdata.datasets[0].backgroundColor.push(color);
+        this.paiChartdata.datasets[1].backgroundColor.push(color);
 
-          let countDoneTasksPerList = 0;
-          list.tasks.forEach(task => {
-            tasksCount++;
-            if (task.status.isDone) {
-              countDoneTasksPerList++;
+        let countDoneTasksPerList = 0;
+        list.tasks.forEach(task => {
+          this.tasksCount++;
+          if (task.status.isDone) {
+            completedTasksTimes.push(task.status.date);
+            countDoneTasksPerList++;
+
+            mapMembersTasks.forEach(mapMember => {
+              if (mapMember.username === task.status.member.username) {
+                mapMember.doneTasks++;
+                this.completedTasksCount++;
+              }
+            });
+          }
+          if (task.members.length > 0) {
+            task.members.forEach(member => {
               mapMembersTasks.forEach(mapMember => {
-                if (mapMember.username === task.status.member.username) {
-                  mapMember.doneTasks++;
-                  completedTasksCount++;
-                }
+                if (mapMember.username === member.username)
+                  mapMember.allTasks++;
               });
-            }
-            if (task.members.length > 0) {
-              task.members.forEach(member => {
-                mapMembersTasks.forEach(mapMember => {
-                  if (mapMember.username === member.username)
-                    mapMember.allTasks++;
-                });
-              });
-            }
-          });
-          this.paiChartdata.datasets[1].data.push(countDoneTasksPerList);
+            });
+          }
         });
+        this.paiChartdata.datasets[1].data.push(countDoneTasksPerList);
+      });
+      completedTasksTimes.sort((a, b) => a - b);
+      completedTasksTimes = completedTasksTimes.map(time =>
+        new Date(time).toDateString()
+      );
+      completedTasksTimes = new Set(completedTasksTimes);
+      this.lineChartdata.labels = [...completedTasksTimes];
 
-        const color = utilService.getRandomColor();
-        mapMembersTasks.forEach(member => {
-          this.lineChartdata.labels.push(member.username);
-          this.lineChartdata.datasets[0].backgroundColor.push(color);
-          this.lineChartdata.datasets[0].data.push(member.doneTasks);
-          this.lineChartdata.datasets[1].data.push(
-            member.allTasks - member.doneTasks
-          );
+      completedTasksTimes.forEach(time => {
+        this.lineChartdata.datasets.forEach(dataset => {
+          dataset.data.push({
+            x: time,
+            y: 0
+          });
         });
-        this.lineChartdata.datasets[0].label += `(${completedTasksCount})`;
-        this.lineChartdata.datasets[1].label += `(${tasksCount -
-          completedTasksCount})`;
-        this.loaded = true;
-      } catch (e) {
-        // console.error(e);
-      }
-    })();
+      });
+      this.board.taskLists.forEach(list => {
+        list.tasks.forEach(task => {
+          if (task.status.isDone) {
+            this.lineChartdata.datasets.forEach(dataset => {
+              if (dataset.label === task.status.member.username) {
+                dataset.data.forEach(item => {
+                  if (item.x === new Date(task.status.date).toDateString()) {
+                    item.y++;
+                  }
+                });
+              }
+            });
+          }
+        });
+      });
+
+      const color = utilService.getRandomColor();
+
+      mapMembersTasks.forEach(member => {
+        this.barChartdata.labels.push(member.username);
+        this.barChartdata.datasets[0].backgroundColor.push(color);
+        this.barChartdata.datasets[0].data.push(member.doneTasks);
+        this.barChartdata.datasets[1].data.push(
+          member.allTasks - member.doneTasks
+        );
+      });
+
+      this.barChartdata.datasets[0].label += `(${this.completedTasksCount})`;
+      this.barChartdata.datasets[1].label += `(${this.tasksCount -
+        this.completedTasksCount})`;
+      this.loaded = true;
+    } catch (e) {
+      // console.error(e);
+    }
   }
 };
 </script>

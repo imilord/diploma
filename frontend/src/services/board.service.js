@@ -46,6 +46,7 @@ function getEmptyBoard() {
             name: "",
             img: ""
         },
+        createdAt: Date.now(),
         dueDate: Date.now(),
         description: "",
         taskLists: [],

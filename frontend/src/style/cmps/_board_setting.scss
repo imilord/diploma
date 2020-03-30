@@ -78,6 +78,25 @@
                 text-decoration: none;
                 color: $clr2;
             }
+            &.active {
+                background-color: $clr6;
+                border-radius: rem(1px);
+            }
+        }
+    }
+    #bar-chart {
+    height: rem(300px) !important;
+    }
+    .board {
+        margin-top: rem(8px);
+        border: rem(1px) solid $clr9;
+        background-color: $clr1;
+    }
+    .dashboard {
+        text-align: center;;
+        a {
+            text-decoration: none;
+            color: $clr1;
         }
     }
     &::-webkit-scrollbar {
