@@ -197,3 +197,6 @@ Mon, 30 Mar 2020 09:46:35 GMT - Debug - auth.service - login with email: daniel@
 Mon, 30 Mar 2020 12:21:26 GMT - Debug - auth.service - login with email: daniel@gmal.com
 Mon, 30 Mar 2020 16:42:55 GMT - Info - Server is running on port: 3000
 Mon, 30 Mar 2020 17:34:28 GMT - Debug - auth.service - login with email: daniel@gmal.com
+Tue, 31 Mar 2020 07:23:30 GMT - Debug - auth.service - login with email: ella@gmail.com
+Tue, 31 Mar 2020 07:25:01 GMT - Debug - auth.service - login with email: ella@gmail.com
+Tue, 31 Mar 2020 07:26:04 GMT - Debug - auth.service - login with email: ella@gmail.com

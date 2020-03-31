@@ -23,7 +23,7 @@ function connectSockets(io) {
         })
 
         socket.on('add activitylog', activitieslog => {
-            io.to(socket.myBoard).emit('activitylog updated', activitieslog)
+            socket.broadcast.to(socket.myBoard).emit('activitylog updated', activitieslog)
         })
     })
 }
