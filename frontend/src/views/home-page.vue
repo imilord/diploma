@@ -13,7 +13,9 @@
       <h4>Personal Boards:</h4>
       <main v-if="boards">
         <div class="board-preview">
-          <button @click="addNewBoard">Create new board</button>
+          <button @click="addNewBoard">
+            <font-awesome-icon class="icon" icon="plus" />Create new board
+          </button>
         </div>
         <div
           class="board-preview"
@@ -31,7 +33,9 @@
 
     <main v-if="boards">
       <div v-if="loggedinUser.username === 'guest'" class="board-preview">
-        <button @click="addNewBoard">Create new board</button>
+        <button @click="addNewBoard">
+          <font-awesome-icon class="icon" icon="plus" />Create new board
+        </button>
       </div>
       <div
         class="board-preview"

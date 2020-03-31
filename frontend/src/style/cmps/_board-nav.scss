@@ -78,6 +78,7 @@
         background-color: $clr4;
         color: $clr2;
         font-size: rem(15px);
+        transition: .3s;
         &:hover {
             background-color: $clr3;
         }

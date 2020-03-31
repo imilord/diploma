@@ -36,7 +36,7 @@
         <div
           class="checklist"
           v-if="task.checklists.length > 0"
-          :class="{ 'done-todos': doneTodosAmount === todosAmount }"
+          :class="{ 'done-todos': isTodosDone }"
         >
           <span class="checklist-icon el-icon-document-checked"></span>
           <span>{{doneTodosAmount}}</span>
@@ -87,6 +87,9 @@ export default {
       });
 
       return todos;
+    },
+    isTodosDone() {
+      return this.doneTodosAmount === this.todosAmount;
     }
   },
   methods: {
