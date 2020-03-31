@@ -268,6 +268,7 @@ export default {
     },
     async saveTask(activitylog = null) {
       if (activitylog) {
+        console.log('in save')
         this.$store.commit({
           type: "updateActivitieslog",
           activitylog

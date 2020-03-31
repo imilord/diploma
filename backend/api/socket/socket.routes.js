@@ -22,7 +22,7 @@ function connectSockets(io) {
             socket.myTask = taskId;
         })
 
-        socket.on('add activitylog', activitieslog => {
+        socket.broadcast.on('add activitylog', activitieslog => {
             io.to(socket.myBoard).emit('activitylog updated', activitieslog)
         })
     })
