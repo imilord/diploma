@@ -30,8 +30,10 @@
           </div>
           <div class="list-name">In list {{list.name}}</div>
           <div>
-            <input type="checkbox" name="isDone" v-model="task.status.isDone" @input="updatsStatus" />
-            <label for="isDone">Completed task</label>
+            <label class="task-completed" for="isDone">
+              <el-checkbox name="isDone" v-model="task.status.isDone" @change="updatsStatus"></el-checkbox>
+              <span>Completed task</span>
+            </label>
           </div>
           <br />
           <div class="main-data">
