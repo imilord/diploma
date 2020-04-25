@@ -99,19 +99,14 @@ export default {
       this.board.taskLists = lists;
       this.updateBoard();
     },
-    upadteActivitylog(activitylog) {
+    async upadteActivitylog(activitylog) {
       this.$store.commit({
         type: "updateActivitieslog",
         activitylog
       });
 
-      // this.board.activitieslog.unshift(activitylog);
-      // this.updateBoard();
-      this.board = this.$store.getters.board;
-      socketService.emit(
-        "update board",
-        JSON.parse(JSON.stringify(this.board))
-      );
+      this.board.activitieslog = JSON.parse(JSON.stringify(this.$store.getters.board.activitieslog));
+      this.updateBoard();
     },
     toggleActivitylog() {
       this.isOpenActivitylog = !this.isOpenActivitylog;

@@ -149,6 +149,7 @@ export default {
                 const startIndex = state.board.activitieslog.length - ACTIVITIES_TO_DELETE;
 
                 state.board.activitieslog = state.board.activitieslog.slice(0, startIndex);
+                state.currActivitylog = JSON.parse(JSON.stringify(state.board.activitieslog));
             }
 
             activitylog.user = this.state.userStore.loggedinUser;
