@@ -264,3 +264,8 @@ Mon, 30 Mar 2020 18:07:27 GMT - Info - Server is running on port: 3000
 Tue, 31 Mar 2020 07:21:34 GMT - Debug - auth.service - login with email: lian@gmail.com
 Tue, 31 Mar 2020 07:42:39 GMT - Info - Server is running on port: 3000
 >>>>>>> 148308e5bc4270ec0da345eab0a726860d87c18d
+Sat, 25 Apr 2020 08:23:54 GMT - Info - Server is running on port: 3000
+Sat, 25 Apr 2020 09:02:41 GMT - Debug - auth.service - login with email: daniel@gmal.com
+Sat, 25 Apr 2020 09:37:24 GMT - Debug - auth.service - login with email: daniel@gmal.com
+Sat, 25 Apr 2020 09:42:54 GMT - Debug - auth.service - login with email: daniel@gmal.com
+Sat, 25 Apr 2020 10:47:08 GMT - Debug - auth.service - login with email: daniel@gmal.com
