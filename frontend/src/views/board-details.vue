@@ -105,8 +105,13 @@ export default {
         activitylog
       });
 
-      this.board.activitieslog.unshift(activitylog);
-      this.updateBoard();
+      // this.board.activitieslog.unshift(activitylog);
+      // this.updateBoard();
+      this.board = this.$store.getters.board;
+      socketService.emit(
+        "update board",
+        JSON.parse(JSON.stringify(this.board))
+      );
     },
     toggleActivitylog() {
       this.isOpenActivitylog = !this.isOpenActivitylog;

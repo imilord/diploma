@@ -253,7 +253,6 @@ export default {
       this.list = this.$store.getters.currList;
     },
     getTaskActivitylog() {
-      //move to store
       this.$store.commit({
         type: "getTaskActivitylog",
         taskId: this.task.id
@@ -268,7 +267,10 @@ export default {
     },
     async saveTask(activitylog = null) {
       if (activitylog) {
+<<<<<<< HEAD
         console.log("in save");
+=======
+>>>>>>> 56f934616e52bc01462961550ed13f4ed2fc581a
         this.$store.commit({
           type: "updateActivitieslog",
           activitylog
@@ -374,9 +376,13 @@ export default {
         setTimeout(() => {
           const boardId = this.$route.params.id;
           this.$router.push(`/board/${boardId}`);
+<<<<<<< HEAD
         }, 1200);
+=======
+        }, 1000);
+>>>>>>> 56f934616e52bc01462961550ed13f4ed2fc581a
       } catch (err) {
-        console.log("Err in deleteTask");
+        // console.log("Err in deleteTask");
       }
     },
     closeTaskEdit() {
@@ -401,7 +407,7 @@ export default {
     },
     updatsStatus() {
       var activitylog;
-      if (this.task.status.isDone) {
+      if (!this.task.status.isDone) {
         this.task.status.member = {};
         this.task.status.date = null;
         activitylog = this.createActivitylog(
