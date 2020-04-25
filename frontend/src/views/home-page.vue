@@ -73,9 +73,7 @@ export default {
       let userBoards = [];
       this.boards.forEach(board => {
         if (
-          board.members.find(
-            member => member.username === this.loggedinUser.username
-          )
+          board.members.find(member => member._id === this.loggedinUser._id)
         ) {
           userBoards.push(board);
         }
