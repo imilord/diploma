@@ -61,7 +61,6 @@ export default {
             state.currActivitylog = state.board.activitieslog.filter(activity => activity.taskId === taskId);
         },
         getUserActivitylog(state, { userId }) {
-            console.log(state.board, 'state')
             state.currActivitylog = state.board.activitieslog.filter(activity => activity.user._id === userId);
         },
         setEmptyChecklist(state) {
