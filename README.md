@@ -16,6 +16,6 @@ In the task page you can edit the task with variety of tools (labels, chack-list
 
 ![3](https://res.cloudinary.com/dgmwynlbw/image/upload/v1587827978/task_xwjwox.png)
  
- In the deshboard page you can get a overview about your board and monitoring your team activities.
+ In the deshboard page you can get an overview about your board and monitoring your team activities.
  
 ![4](https://res.cloudinary.com/dgmwynlbw/image/upload/v1587824163/dashboard_ibcppe.png)
