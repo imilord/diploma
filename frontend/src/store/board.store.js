@@ -2,6 +2,9 @@ import { boardService } from '../services/board.service.js';
 import { utilService } from '../services/util.service.js';
 import socketService from "../services/socket.service.js";
 
+const MAX_ACTIVITIES = 150;
+const ACTIVITIES_TO_DELETE = 50;
+
 export default {
     state: {
         boards: null,
@@ -143,6 +146,12 @@ export default {
             state.currId = id
         },
         updateActivitieslog(state, { activitylog }) {
+            if (state.board.activitieslog.length >= MAX_ACTIVITIES) {
+                const startIndex = state.board.activitieslog.length - ACTIVITIES_TO_DELETE;
+
+                state.board.activitieslog = state.board.activitieslog.slice(0, startIndex);
+            }
+
             activitylog.user = this.state.userStore.loggedinUser;
             state.board.activitieslog.unshift(activitylog);
         }
