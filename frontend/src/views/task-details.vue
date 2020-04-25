@@ -371,7 +371,7 @@ export default {
         setTimeout(() => {
           const boardId = this.$route.params.id;
           this.$router.push(`/board/${boardId}`);
-        }, 2000);
+        }, 1000);
       } catch (err) {
         // console.log("Err in deleteTask");
       }
