@@ -7,12 +7,12 @@ In the home page you can create a new board and access existing ones.
 
 ![1](https://res.cloudinary.com/dgmwynlbw/image/upload/v1587823969/workflowapp_holdfv.png)
 
-In board page you can manage your tasks. 
+In the board page you can manage your tasks. 
 The board support Drag&Drop and Web Sockets for update, add and edit tasks in real time.
 
 ![2](https://res.cloudinary.com/dgmwynlbw/image/upload/v1587739910/workflow_g9hwss.png)
 
-In task page you can edit the task with variety of tools (labels, chack-lists, descriptions and much more).
+In the task page you can edit the task with variety of tools (labels, chack-lists, descriptions and much more).
 
 ![3](https://res.cloudinary.com/dgmwynlbw/image/upload/v1587827978/task_xwjwox.png)
  
