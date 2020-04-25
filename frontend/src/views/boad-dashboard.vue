@@ -167,13 +167,9 @@ export default {
           if (task.status.isDone) {
             completedTasksTimes.push(task.status.date);
             countDoneTasksPerList++;
-            
+
             mapMembersTasks.forEach(mapMember => {
-              if (
-                mapMember.userId === task.status.member._id ||
-                (mapMember.username === "guest" &&
-                  mapMember.username === task.status.member.username)
-              ) {
+              if (mapMember.username === task.status.member.username) {
                 mapMember.doneTasks++;
                 this.completedTasksCount++;
               }
@@ -182,12 +178,9 @@ export default {
           if (task.members.length > 0) {
             task.members.forEach(member => {
               mapMembersTasks.forEach(mapMember => {
-                if (
-                  mapMember.userId === member._id ||
-                  (mapMember.username === "guest" &&
-                    mapMember.username === member.username)
-                )
+                if (mapMember.username === member.username){
                   mapMember.allTasks++;
+                }
               });
             });
           }

@@ -267,10 +267,6 @@ export default {
     },
     async saveTask(activitylog = null) {
       if (activitylog) {
-<<<<<<< HEAD
-        console.log("in save");
-=======
->>>>>>> 56f934616e52bc01462961550ed13f4ed2fc581a
         this.$store.commit({
           type: "updateActivitieslog",
           activitylog
@@ -376,11 +372,7 @@ export default {
         setTimeout(() => {
           const boardId = this.$route.params.id;
           this.$router.push(`/board/${boardId}`);
-<<<<<<< HEAD
         }, 1200);
-=======
-        }, 1000);
->>>>>>> 56f934616e52bc01462961550ed13f4ed2fc581a
       } catch (err) {
         // console.log("Err in deleteTask");
       }

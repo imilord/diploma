@@ -154,6 +154,21 @@ export default {
 
             activitylog.user = this.state.userStore.loggedinUser;
             state.board.activitieslog.unshift(activitylog);
+        },
+        updateUserName(state, { user }) {
+            state.boards.forEach(board => {
+                const member = board.members.find(member => member._id === user._id);
+                if (member) {
+                    member.username = user.username;
+                    board.taskLists.forEach(taskList => {
+                        taskList.tasks.forEach(task => {
+                            if (task.status.member._id === user._id) {
+                                task.status.member.username = user.username;
+                            }
+                        })
+                    })
+                }
+            })
         }
     },
     actions: {
@@ -261,6 +276,12 @@ export default {
             const savedBoard = await boardService.save(context.state.board);
             socketService.emit("update board", savedBoard);
             return savedBoard;
+        },
+        async saveBoards(context) {
+            await context.state.boards.forEach(board => {
+                socketService.emit("update board", board);
+                boardService.save(board);
+            })
         }
     }
 }
