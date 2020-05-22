@@ -19,7 +19,7 @@ async function getCollection(collectionName) {
 async function connect() {
     if (dbConn) return dbConn;
     try {
-        const url = 'mongodb+srv://admin:admin@cluster0-2tnkw.mongodb.net/test?retryWrites=true&w=majority';
+        const url = config.dbURL;
         const client = await MongoClient.connect(url, { useUnifiedTopology: true });
         const db = client.db(dbName);
         dbConn = db;

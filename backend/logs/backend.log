@@ -238,3 +238,17 @@ Sun, 29 Mar 2020 13:02:31 GMT - Debug - auth.service - login with email: ella@gm
 Sun, 29 Mar 2020 13:02:36 GMT - Debug - auth.service - login with email: ella@gmail.com
 Sun, 29 Mar 2020 13:02:38 GMT - Debug - auth.service - login with email: ella@gmail.com
 Sat, 25 Apr 2020 14:35:53 GMT - Info - Server is running on port: 3000
+Tue, 19 May 2020 09:29:04 GMT - Info - Server is running on port: 3000
+Tue, 19 May 2020 11:10:02 GMT - Info - Server is running on port: 3000
+Tue, 19 May 2020 11:11:36 GMT - Info - Server is running on port: 3000
+Tue, 19 May 2020 11:11:42 GMT - Error - Cannot get boards
+Tue, 19 May 2020 11:12:19 GMT - Info - Server is running on port: 3000
+Tue, 19 May 2020 11:12:53 GMT - Error - Cannot get boards
+Tue, 19 May 2020 11:13:03 GMT - Error - Cannot get boards
+Tue, 19 May 2020 11:13:11 GMT - Debug - admin@mail.ru, kasiyliy, password
+Tue, 19 May 2020 11:13:11 GMT - Debug - auth.service - signup with email: admin@mail.ru, username: kasiyliy
+Tue, 19 May 2020 11:13:41 GMT - Error - [SIGNUP] MongoServerSelectionError: Authentication failed.
+Thu, 21 May 2020 20:31:59 GMT - Info - Server is running on port: 3000
+Thu, 21 May 2020 20:34:40 GMT - Error - Cannot get boards
+Fri, 22 May 2020 09:43:15 GMT - Error - Cannot get boards
+Fri, 22 May 2020 09:44:58 GMT - Error - Cannot get boards
