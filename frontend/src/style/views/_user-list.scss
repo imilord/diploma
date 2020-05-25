@@ -1,0 +1,40 @@
+.user-list {
+
+  margin: 40px;
+
+  .search {
+    background-color: $clr8;
+    width: 200px;
+    margin-bottom: 15px;
+    padding: 0 5px;
+    border-radius: 3px;
+    border: none;
+
+    input {
+      background-color: $clr8;
+      width: 155px;
+      height: 25px;
+      margin: 5px;
+      padding-left: 5px;
+      margin-left: 5px;
+      border: none;
+      outline: none;
+    }
+  }
+
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+
+  }
+}

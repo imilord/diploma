@@ -4,6 +4,7 @@ import homePage from '../views/home-page.vue';
 import boardDetails from '../views/board-details.vue';
 import taskDetails from '../views/task-details.vue';
 import userAuth from '../views/user-auth.vue';
+import userList from '../views/user-list.vue';
 import boardDashboard from '../views/boad-dashboard.vue';
 
 Vue.use(VueRouter)
@@ -13,6 +14,11 @@ const routes = [
         path: '/',
         name: 'homePage',
         component: homePage
+    },
+    {
+        path: '/users',
+        name: 'user-list',
+        component: userList
     },
     {
         path: '/board/:id/',

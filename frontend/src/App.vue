@@ -18,14 +18,11 @@
                 user: JSON.parse(JSON.stringify(this.$store.getters.loggedinUser)),
                 isTaskOpen: false,
                 reload: 0,
-                navs: [
-                    {
-                        icon: 'table',
-                        href: '/',
-                        title: 'Boards',
-                    }
-                ]
+                navs: []
             };
+        },
+        mounted: function () {
+            this.checkNavs();
         },
         methods: {
             async doLogout() {
@@ -36,6 +33,40 @@
                 } else {
                     this.reload += 1;
                 }
+                this.checkNavs();
+            },
+            checkNavs() {
+                if (this.user.username !== 'guest') {
+                    this.navs = [
+                        {
+                            icon: 'home',
+                            href: '/dashboard',
+                            title: 'Dashboard',
+                        },
+                        {
+                            icon: 'table',
+                            href: '/',
+                            title: 'Boards',
+                        },
+                        {
+                            icon: 'users',
+                            href: '/users',
+                            title: 'Users',
+                        },
+                        {
+                            icon: 'plus',
+                            href: '/projects',
+                            title: 'Projects',
+                        },
+                        {
+                            icon: 'upload',
+                            href: '/upload',
+                            title: 'Upload',
+                        },
+                    ]
+                } else {
+                    this.navs = []
+                }
             }
         },
         watch: {
@@ -43,6 +74,7 @@
                 if (newVal.taskId) this.isTaskOpen = true;
                 if (!newVal.taskId) this.isTaskOpen = false;
                 this.user = JSON.parse(JSON.stringify(this.$store.getters.loggedinUser));
+                this.checkNavs();
             }
         },
         components: {

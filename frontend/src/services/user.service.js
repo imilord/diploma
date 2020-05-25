@@ -29,7 +29,7 @@ async function logout() {
 }
 
 function update(user) {
-    _handleLogin(user)
+    _handleLogin(user);
     return httpService.put(`user/${user._id}`, user)
 }
 
