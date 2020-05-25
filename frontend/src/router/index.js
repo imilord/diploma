@@ -8,11 +8,13 @@ import boardDashboard from '../views/boad-dashboard.vue';
 
 Vue.use(VueRouter)
 
-const routes = [{
+const routes = [
+    {
         path: '/',
         name: 'homePage',
         component: homePage
-    }, {
+    },
+    {
         path: '/board/:id/',
         name: 'boardDetails',
         component: boardDetails,

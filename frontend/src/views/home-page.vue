@@ -22,8 +22,7 @@
                         class="board-preview"
                         v-for="board in boardByUser"
                         :key="board._id"
-                        :style="{background: board.style.color || 'url(' + board.style.url + ')' + ' no-repeat center center / cover'}"
-                >
+                        :style="{background: board.style.color || 'url(' + board.style.url + ')' + ' no-repeat center center / cover'}">
                     <router-link :to="'/board/' + board._id ">
                         <button>{{board.name}}</button>
                     </router-link>
@@ -33,18 +32,11 @@
         </div>
 
         <main v-if="boards">
-            <div v-if="loggedinUser.username === 'guest'" class="board-preview">
-                <button @click="addNewBoard">
-                    <font-awesome-icon class="icon" icon="plus"/>
-                    Create new board
-                </button>
-            </div>
             <div
                     class="board-preview"
                     v-for="board in boardBySearch"
                     :key="board._id"
-                    :style="{background: board.style.color || 'url(' + board.style.url + ')' + ' no-repeat center center / cover'}"
-            >
+                    :style="{background: board.style.color || 'url(' + board.style.url + ')' + ' no-repeat center center / cover'}">
                 <router-link :to="'/board/' + board._id ">
                     <button>{{board.name}}</button>
                 </router-link>

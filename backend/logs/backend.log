@@ -28,3 +28,13 @@ Mon, 25 May 2020 09:05:59 GMT - Debug - auth.route - new account created: {"emai
 Mon, 25 May 2020 09:05:59 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
 Mon, 25 May 2020 10:34:59 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
 Mon, 25 May 2020 10:35:16 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
+Mon, 25 May 2020 11:36:23 GMT - Debug - auth.service - login with email: admin@mail.ru
+Mon, 25 May 2020 11:36:33 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
+Mon, 25 May 2020 11:36:47 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
+Mon, 25 May 2020 11:37:19 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
+Mon, 25 May 2020 11:37:37 GMT - Debug - Asilkhan-al@mail.ru, kasya, password, Асылхан, Алданазар
+Mon, 25 May 2020 11:37:37 GMT - Debug - auth.service - signup with email: Asilkhan-al@mail.ru, username: kasya
+Mon, 25 May 2020 11:37:37 GMT - Debug - auth.route - new account created: {"email":"Asilkhan-al@mail.ru","password":"$2b$10$ygcVJAZCiO6Pa.vNGjpO7eP2fDGdyb5L1/gnINRJtyioMozCLUM3u","username":"kasya","imgUrl":"","firstName":"Асылхан","lastName":"Алданазар","role":"ROLE_USER","_id":"5ecbae014b59b4a3ca136be3"}
+Mon, 25 May 2020 11:37:37 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
+Mon, 25 May 2020 11:37:49 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
+Mon, 25 May 2020 12:13:02 GMT - Info - Server is running on port: 3000
