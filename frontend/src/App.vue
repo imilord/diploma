@@ -1,6 +1,6 @@
 <template>
     <section>
-        <side-nav v-if="user"></side-nav>
+        <side-nav :navs="navs" v-if="user"></side-nav>
         <div class="main">
             <main-nav :user="user" @logout="doLogout" :class="{ isTaskOpen: isTaskOpen }"></main-nav>
             <router-view :key="reload"></router-view>
@@ -17,7 +17,14 @@
             return {
                 user: JSON.parse(JSON.stringify(this.$store.getters.loggedinUser)),
                 isTaskOpen: false,
-                reload: 0
+                reload: 0,
+                navs: [
+                    {
+                        icon: 'table',
+                        href: '/',
+                        title: 'Boards',
+                    }
+                ]
             };
         },
         methods: {

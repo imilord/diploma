@@ -78,9 +78,13 @@
         },
         async created() {
             this.loggedinUser = this.$store.getters.loggedinUser;
-            const boards = await this.$store.dispatch({
-                type: "loadBoards"
-            });
+            let boards = [];
+
+            if (this.loggedinUser.username !== 'guest') {
+                boards = await this.$store.dispatch({
+                    type: "loadBoards"
+                });
+            }
             this.boards = JSON.parse(JSON.stringify(boards));
 
             await this.$store.commit({

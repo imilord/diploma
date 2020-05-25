@@ -2,9 +2,6 @@
   <section class="main-nav container">
     <div class="logo-conteiner" @click="moveToHomePage"><img class="logo-img" src="../imgs/logo.png"/></div>
     <ul>
-      <li>
-        <router-link to="/">Boards</router-link>
-      </li>
       <li v-if="user.username === 'guest'">
         <router-link to="/auth">Login</router-link>
       </li>
