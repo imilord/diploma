@@ -62,3 +62,4 @@ Mon, 25 May 2020 19:54:31 GMT - Debug - auth.service - signup with email: Asilkh
 Mon, 25 May 2020 19:54:31 GMT - Debug - auth.route - new account created: {"email":"Asilkhan-al@mail.ru","password":"$2b$10$hhr4hD.eGdKdiqx73ZjXh.f.RMPOr3.V3cOy7WmFv8Jb195/3yNFu","username":"kasya","imgUrl":"","firstName":"Асылхан","lastName":"Алданазар","role":"ROLE_USER","_id":"5ecc22771f07784d0442f2ce"}
 Mon, 25 May 2020 19:54:31 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
 Mon, 25 May 2020 21:28:47 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
+Mon, 25 May 2020 21:59:21 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru

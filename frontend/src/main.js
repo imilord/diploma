@@ -10,16 +10,17 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 
 import {library} from '@fortawesome/fontawesome-svg-core';
-import {faTasks, faPlus, faTimes, faSearch, faUsers, faCheck, faTable} from '@fortawesome/free-solid-svg-icons';
+import {faCheck, faPlus, faSearch, faTable, faTasks, faTimes, faUsers} from '@fortawesome/free-solid-svg-icons';
 import {faTrello} from '@fortawesome/free-brands-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
 import {faAlignJustify} from "@fortawesome/free-solid-svg-icons/faAlignJustify";
 import {faHome} from "@fortawesome/free-solid-svg-icons/faHome";
 import {faUpload} from "@fortawesome/free-solid-svg-icons/faUpload";
+import {faTrash} from "@fortawesome/free-solid-svg-icons/faTrash";
 
 library.add(faTasks, faPlus, faTimes, faSearch, faUsers);
 library.add(faTrello, faCheck, faAlignJustify, faHome, faUpload);
-library.add(faTable);
+library.add(faTable, faTrash);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 

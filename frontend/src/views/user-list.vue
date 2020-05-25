@@ -25,7 +25,17 @@
                 <td>{{user.username}}</td>
                 <td>{{user.firstName}}</td>
                 <td>{{user.lastName}}</td>
-                <td>Germany</td>
+                <td>
+                    <p class="text-center"
+                       v-if="user._id === loggedinUser._id">
+                        😊
+                    </p>
+                    <p class="text-center"
+                       v-else>
+                        <font-awesome-icon icon="trash"></font-awesome-icon>
+                    </p>
+
+                </td>
             </tr>
             </tbody>
         </table>
@@ -38,6 +48,7 @@
         data() {
             return {
                 users: [],
+                loggedinUser: null,
             }
         },
         methods: {
@@ -45,9 +56,14 @@
                 this.users = await this.$store.dispatch({
                     type: "getUsers"
                 });
+            },
+
+            async getCurrentUser() {
+                this.loggedinUser = await this.$store.getters.loggedinUser;
             }
         },
         created() {
+            this.getCurrentUser();
             this.loadAllUsers();
         }
     }
