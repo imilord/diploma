@@ -1,86 +1,99 @@
 .board-nav {
+  display: flex;
+  position: fixed;
+  z-index: 10;
+  top: 60px;
+  justify-content: space-between;
+  align-items: center;
+  height: rem(40px);
+  width: 95%;
+  background: transparent;
+  color: $clr2;
+
+  .board-name {
+    font-weight: bold;
+    font-size: rem(16px);
+    cursor: pointer;
+    transition: .3s;
+
+    &:hover {
+      background-color: $clr3;
+    }
+  }
+
+  input {
+    font-weight: bold;
+    font-size: rem(15px);
+    width: rem(100px);
+    text-align: center;
+    height: 23px;
+    color: $clr2;
+  }
+
+  ul {
+    list-style-position: inside;
+    list-style: none;
+    padding: 0;
     display: flex;
-    position: fixed;
-    z-index: 10;
-    top: 45px;
     justify-content: space-between;
     align-items: center;
-    height: rem(40px);
-    width: 100%;
-    background: transparent;
-    color: $clr2;
-    .board-name {
-        font-weight: bold;
-        font-size: rem(16px);
+
+    li {
+      border-radius: rem(3px);
+      padding: rem(4px) rem(8px);
+      cursor: default;
+    }
+
+    .members {
+      display: flex;
+      margin-left: rem(8px);
+
+      .member,
+      .member-img {
+        &:hover {
+          background-color: transparent;
+        }
+      }
+
+      .add-member-btn {
+        background-color: $clr13;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        padding: rem(5px);
+        margin-left: rem(5px);
+        text-align: center;
         cursor: pointer;
         transition: .3s;
+
+        > * {
+          margin: 0;
+          padding: 0;
+        }
+
         &:hover {
-            background-color: $clr3;
+          background-color: $clr9;
+
+          > * {
+            color: $clr1;
+          }
         }
+      }
     }
-    input {
-        font-weight: bold;
-        font-size: rem(15px);
-        width: rem(100px);
-        text-align: center;
-        height: 23px;
-        color: $clr2;
+  }
+
+  button {
+    border: none;
+    border-radius: rem(3px);
+    padding: rem(4px) rem(8px);
+    margin: 0 rem(3px);
+    background-color: $clr4;
+    color: $clr2;
+    font-size: rem(15px);
+    transition: .3s;
+
+    &:hover {
+      background-color: $clr3;
     }
-    ul {
-        list-style-position: inside;
-        list-style: none;
-        padding: 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        li {
-            border-radius: rem(3px);
-            padding: rem(4px) rem(8px);
-            cursor: default;
-        }
-        .members {
-            display: flex;
-            margin-left: rem(8px);
-            .member,
-            .member-img {
-                &:hover {
-                    background-color: transparent;
-                }
-            }
-            .add-member-btn {
-                background-color: $clr13;
-                width: 32px;
-                height: 32px;
-                border-radius: 50%;
-                padding: rem(5px);
-                margin-left: rem(5px);
-                text-align: center;
-                cursor: pointer;
-                transition: .3s;
-                >* {
-                    margin: 0;
-                    padding: 0;
-                }
-                &:hover {
-                    background-color: $clr9;
-                    >* {
-                        color: $clr1;
-                    }
-                }
-            }
-        }
-    }
-    button {
-        border: none;
-        border-radius: rem(3px);
-        padding: rem(4px) rem(8px);
-        margin: 0 rem(3px);
-        background-color: $clr4;
-        color: $clr2;
-        font-size: rem(15px);
-        transition: .3s;
-        &:hover {
-            background-color: $clr3;
-        }
-    }
+  }
 }

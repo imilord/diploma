@@ -1,5 +1,6 @@
 <template>
   <section class="board-details" v-if="board" :style="{background: boardStyle}">
+    <div class="push"></div>
     <board-nav
       :boardName="board.name"
       :members="board.members"

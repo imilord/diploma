@@ -1,9 +1,6 @@
 <template>
     <section class="home-page">
-        <header>
-            <img src="../assets/img/header.jpg"/>
-        </header>
-
+        <div class="push"></div>
         <section class="search">
             <i class="el-icon-search"></i>
             <input type="text" placeholder="Search board" v-model="searchKeyword"/>

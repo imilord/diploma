@@ -1,5 +1,6 @@
 <template>
     <section class="user-auth">
+        <div class="push"></div>
         <div class="login" v-if="isLogin">
             <h4>Welcome Back</h4>
             <form @submit.prevent="doLogin">

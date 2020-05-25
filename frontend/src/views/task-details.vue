@@ -1,5 +1,6 @@
 <template>
   <section class="screen" @click="closeTaskEdit">
+    <div class="push"></div>
     <section class="task-details" v-if="task" @click.stop>
       <div class="header">
         <button class="close-btn close-task" @click="closeTaskEdit">
