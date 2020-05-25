@@ -26,7 +26,7 @@ async function query() {
 async function getById(userId) {
     const collection = await dbService.getCollection('user')
     try {
-        const user = await collection.findOne({ "_id": ObjectId(userId) })
+        const user = await collection.findOne({"_id": ObjectId(userId)})
         delete user.password
 
         return user
@@ -35,10 +35,11 @@ async function getById(userId) {
         throw err;
     }
 }
+
 async function getByEmail(email) {
     const collection = await dbService.getCollection('user')
     try {
-        const user = await collection.findOne({ email })
+        const user = await collection.findOne({email})
         return user
     } catch (err) {
         console.log(`ERROR: while finding user ${email}`)
@@ -51,7 +52,7 @@ async function update(user) {
     user._id = ObjectId(user._id);
 
     try {
-        await collection.replaceOne({ "_id": user._id }, { $set: user })
+        await collection.replaceOne({"_id": user._id}, {$set: user})
         return user
     } catch (err) {
         console.log(`ERROR: cannot update user ${user._id}`)
@@ -63,7 +64,7 @@ async function add(user) {
     const collection = await dbService.getCollection('user')
     try {
         const email = user.email;
-        const oldUser = await collection.findOne({ email });
+        const oldUser = await collection.findOne({email});
 
         if (!oldUser) {
             await collection.insertOne(user);

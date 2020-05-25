@@ -38,6 +38,24 @@
             placeholder="Username"
           />
         </label>
+        <label>
+          Change your first name
+          <input
+            class="board"
+            type="text"
+            v-model="firstName"
+            placeholder="First name"
+          />
+        </label>
+        <label>
+          Change your last name
+          <input
+            class="board"
+            type="text"
+            v-model="lastName"
+            placeholder="Last name"
+          />
+        </label>
         <button class="add-btn" @click="changeName">Change</button>
       </div>
     </section>
@@ -75,6 +93,8 @@ export default {
       isProfile: false,
       isActivity: false,
       newName: this.user.username,
+      firstName: this.user.firstName,
+      lastName: this.user.lastName,
       msg: ""
     };
   },
@@ -101,6 +121,8 @@ export default {
     },
     async changeName() {
       this.user.username = this.newName;
+      this.user.firstName = this.firstName;
+      this.user.lastName = this.lastName;
       await this.$store.commit({
         type: "updateUserName",
         user: this.user
