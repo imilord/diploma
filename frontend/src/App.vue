@@ -23,6 +23,9 @@
         },
         mounted: function () {
             this.checkNavs();
+            if (this.user.username === 'guest') {
+                this.$router.push("/auth");
+            }
         },
         methods: {
             async doLogout() {
