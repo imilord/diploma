@@ -28,11 +28,7 @@
             async doLogout() {
                 await this.$store.dispatch({type: "logout"});
                 this.user = this.$store.getters.loggedinUser;
-                if (this.$route.params.id) {
-                    this.$router.push("/");
-                } else {
-                    this.reload += 1;
-                }
+                this.$router.push("/");
                 this.checkNavs();
             },
             checkNavs() {
