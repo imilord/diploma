@@ -63,3 +63,12 @@ Mon, 25 May 2020 19:54:31 GMT - Debug - auth.route - new account created: {"emai
 Mon, 25 May 2020 19:54:31 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
 Mon, 25 May 2020 21:28:47 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
 Mon, 25 May 2020 21:59:21 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
+Tue, 26 May 2020 16:26:36 GMT - Info - Server is running on port: 3000
+Tue, 26 May 2020 16:34:06 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
+Tue, 26 May 2020 16:34:39 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
+Tue, 26 May 2020 16:37:08 GMT - Debug - demo@mail.ru, Demo, password, Demo, Demo
+Tue, 26 May 2020 16:37:08 GMT - Debug - auth.service - signup with email: demo@mail.ru, username: Demo
+Tue, 26 May 2020 16:37:08 GMT - Debug - auth.route - new account created: {"email":"demo@mail.ru","password":"$2b$10$zXo2sEn4PVwqdaBtbFglNe1PGWsivKPaF/SuKkrV23ol7JJO3viJG","username":"Demo","imgUrl":"","firstName":"Demo","lastName":"Demo","role":"ROLE_USER","_id":"5ecd45b4ffd75192e29d4141"}
+Tue, 26 May 2020 16:37:08 GMT - Debug - auth.service - login with email: demo@mail.ru
+Tue, 26 May 2020 21:00:41 GMT - Info - Server is running on port: 3000
+Tue, 26 May 2020 21:03:52 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru

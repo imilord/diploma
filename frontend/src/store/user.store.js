@@ -7,8 +7,8 @@ if (sessionStorage.user) {
     try {
         tempUser = JSON.parse(sessionStorage.user);
         localLoggedinUser = tempUser;
-    } catch (e) {
-        console.log(e);
+    } finally {
+
     }
 }
 
