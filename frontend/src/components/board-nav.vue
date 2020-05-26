@@ -23,7 +23,6 @@
           <font-awesome-icon class="new-add-btn" icon="plus" />
         </span>
       </li>
-      <li v-if="dueDate && !isMobile">{{dueDate | dueDate}}</li>
     </ul>
     <div>
       <button @click="$emit('toggle-settings')">Menu</button>
