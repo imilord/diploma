@@ -7,6 +7,7 @@ import userAuth from '../views/user-auth.vue';
 import userList from '../views/user-list.vue';
 import projectList from '../views/project-list.vue';
 import boardDashboard from '../views/boad-dashboard.vue';
+import dashboard from '../views/dashboard.vue';
 
 Vue.use(VueRouter)
 
@@ -43,8 +44,13 @@ const routes = [
     },
     {
         path: '/board/dashboard/:id/',
-        name: 'dashboard',
+        name: 'board-dashboard',
         component: boardDashboard
+    },
+    {
+        path: '/dashboard',
+        name: 'dashboard',
+        component: dashboard
     }
 ]
 
