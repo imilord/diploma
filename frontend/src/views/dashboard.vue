@@ -34,7 +34,7 @@
         </div>
         <section class="search">
             <i class="el-icon-search"></i>
-            <input type="text" placeholder="Search users" @input="filterUsers($event.target.value)"/>
+            <input type="text" placeholder="Search projects" @input="filterProjects($event.target.value)"/>
         </section>
         <table>
             <thead>
