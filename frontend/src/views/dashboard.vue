@@ -84,9 +84,18 @@
         },
         computed: {
             all: function () {
-                return this.projects.length ? this.projects.reduce((a, b) => {
-                    return a.members.length + b.members.length
-                }) : 0
+                var all = 0;
+
+                for (let i = 0; i < this.projects.length; i++) {
+                    const project = this.projects[i];
+                    if (project.members) {
+                        for (let j = 0; j < project.members; j++) {
+                            const memberCount = project.members.length;
+                            all += memberCount;
+                        }
+                    }
+                }
+                return all;
             },
             managersCount: function () {
                 var all = 0;
