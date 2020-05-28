@@ -55,3 +55,5 @@ Thu, 28 May 2020 21:07:33 GMT - Info - finding boards where userId = 5ecd45b4ffd
 Thu, 28 May 2020 21:08:44 GMT - Info - Server is running on port: 3000
 Thu, 28 May 2020 21:09:07 GMT - Info - Server is running on port: 3000
 Thu, 28 May 2020 21:09:47 GMT - Info - Server is running on port: 3000
+Thu, 28 May 2020 23:49:43 GMT - Debug - auth.service - login with email: demo@mail.ru
+Thu, 28 May 2020 23:49:56 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru

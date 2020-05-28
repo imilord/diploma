@@ -83,12 +83,12 @@
             }
         },
         computed: {
-            all() {
+            all: () => {
                 return this.projects.length ? this.projects.reduce((a, b) => {
                     return a.members.length + b.members.length
                 }) : 0
             },
-            managersCount() {
+            managersCount: () => {
                 var all = 0;
                 for (let i = 0; i < this.projects.length; i++) {
                     const project = this.projects[i];
