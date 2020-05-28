@@ -6,7 +6,7 @@
         </h1>
         <section class="search">
             <i class="el-icon-search"></i>
-            <input type="text" placeholder="Search users"/>
+            <input type="text" placeholder="Search users" @input="filterUsers($event.target.value)"/>
         </section>
         <table>
             <thead>
@@ -19,7 +19,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr v-for="user in users"
+            <tr v-for="user in usersToShow"
                 v-bind:key="user._id">
                 <td>{{user.email}}</td>
                 <td>{{user.username}}</td>
@@ -47,6 +47,7 @@
         name: "user-list",
         data() {
             return {
+                usersToShow: [],
                 users: [],
                 loggedinUser: null,
             }
@@ -56,10 +57,20 @@
                 this.users = await this.$store.dispatch({
                     type: "getUsers"
                 });
+                this.usersToShow = this.users;
             },
 
             async getCurrentUser() {
                 this.loggedinUser = await this.$store.getters.loggedinUser;
+            },
+            async filterUsers(value) {
+                let all = this.users;
+                if (value) {
+                    this.usersToShow = all.filter(e => e.username.startsWith(value) || e.email.startsWith(value) ||
+                        e.firstName.startsWith(value) || e.lastName.startsWith(value));
+                } else {
+                    this.usersToShow = all;
+                }
             }
         },
         created() {

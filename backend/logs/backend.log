@@ -1,79 +1,57 @@
-Sat, 23 May 2020 09:49:31 GMT - Info - Server is running on port: 3000
-Sat, 23 May 2020 10:07:19 GMT - Info - Server is running on port: 3000
-Sat, 23 May 2020 10:07:57 GMT - Info - Server is running on port: 3000
-Sat, 23 May 2020 10:08:22 GMT - Debug - auth.service - login with email: admin@mail.ru
-Sat, 23 May 2020 10:08:31 GMT - Error - Cannot get boards
-Sat, 23 May 2020 10:09:22 GMT - Error - Cannot get boards
-Sat, 23 May 2020 10:09:32 GMT - Debug - admin@mail.ru, kasya, password
-Sat, 23 May 2020 10:09:32 GMT - Debug - auth.service - signup with email: admin@mail.ru, username: kasya
-Sat, 23 May 2020 10:10:02 GMT - Error - [SIGNUP] MongoServerSelectionError: Authentication failed.
-Mon, 25 May 2020 08:24:59 GMT - Info - Server is running on port: 3000
-Mon, 25 May 2020 08:25:56 GMT - Debug - Asilkhan-al@mail.ru, kasya, password
-Mon, 25 May 2020 08:25:56 GMT - Debug - auth.service - signup with email: Asilkhan-al@mail.ru, username: kasya
-Mon, 25 May 2020 08:25:56 GMT - Debug - auth.route - new account created: {"email":"Asilkhan-al@mail.ru","password":"$2b$10$v.xF1PnZB7TZwq4T9Hy0wemrGMFGIMO42aXRa2ZTYy99pkZJw3ufe","username":"kasya","imgUrl":"","_id":"5ecb8114bcf3bb941c5928bb"}
-Mon, 25 May 2020 08:25:56 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
-Mon, 25 May 2020 08:57:19 GMT - Info - Server is running on port: 3000
-Mon, 25 May 2020 08:57:48 GMT - Debug - Demo@mail.ru, demo, password, Асылхан, Алданазар
-Mon, 25 May 2020 08:57:48 GMT - Debug - auth.service - signup with email: Demo@mail.ru, username: demo
-Mon, 25 May 2020 08:57:48 GMT - Debug - auth.route - new account created: {"email":"Demo@mail.ru","password":"$2b$10$shvRNLic5c1Iq62y884EXeS.QGVUP9pkhcPUrmJfugIZEQOEdHyOy","username":"demo","imgUrl":"","firstName":"Асылхан","lastName":"Алданазар","_id":"5ecb888c130ccda0e4733f64"}
-Mon, 25 May 2020 08:57:48 GMT - Debug - auth.service - login with email: Demo@mail.ru
-Mon, 25 May 2020 09:04:35 GMT - Info - Server is running on port: 3000
-Mon, 25 May 2020 09:04:52 GMT - Debug - eldarkhasen@gmail.com, demo, demo, demo, demo
-Mon, 25 May 2020 09:04:52 GMT - Debug - auth.service - signup with email: eldarkhasen@gmail.com, username: demo
-Mon, 25 May 2020 09:04:52 GMT - Debug - auth.route - new account created: {"email":"eldarkhasen@gmail.com","password":"$2b$10$Tl/EbqkC9Mv/oxlvA.zbfeBSqVc34Yd6UTkUeHiZfl9y/eCZC4HhK","username":"demo","imgUrl":"","firstName":"demo","lastName":"demo","role":"ROLE_USER","_id":"5ecb8a344b59b4a3ca136be0"}
-Mon, 25 May 2020 09:04:52 GMT - Debug - auth.service - login with email: eldarkhasen@gmail.com
-Mon, 25 May 2020 09:05:58 GMT - Debug - Asilkhan-al@mail.ru, kasya, kasya, Асылхан, Алданазар
-Mon, 25 May 2020 09:05:58 GMT - Debug - auth.service - signup with email: Asilkhan-al@mail.ru, username: kasya
-Mon, 25 May 2020 09:05:59 GMT - Debug - auth.route - new account created: {"email":"Asilkhan-al@mail.ru","password":"$2b$10$L/E9NCyMvee36bhY9bpIbu3AJvhya3OBHI13WRoqAyVExQk5Aq7gu","username":"kasya","imgUrl":"","firstName":"Асылхан","lastName":"Алданазар","role":"ROLE_USER","_id":"5ecb8a764b59b4a3ca136be1"}
-Mon, 25 May 2020 09:05:59 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
-Mon, 25 May 2020 10:34:59 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
-Mon, 25 May 2020 10:35:16 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
-Mon, 25 May 2020 11:36:23 GMT - Debug - auth.service - login with email: admin@mail.ru
-Mon, 25 May 2020 11:36:33 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
-Mon, 25 May 2020 11:36:47 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
-Mon, 25 May 2020 11:37:19 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
-Mon, 25 May 2020 11:37:37 GMT - Debug - Asilkhan-al@mail.ru, kasya, password, Асылхан, Алданазар
-Mon, 25 May 2020 11:37:37 GMT - Debug - auth.service - signup with email: Asilkhan-al@mail.ru, username: kasya
-Mon, 25 May 2020 11:37:37 GMT - Debug - auth.route - new account created: {"email":"Asilkhan-al@mail.ru","password":"$2b$10$ygcVJAZCiO6Pa.vNGjpO7eP2fDGdyb5L1/gnINRJtyioMozCLUM3u","username":"kasya","imgUrl":"","firstName":"Асылхан","lastName":"Алданазар","role":"ROLE_USER","_id":"5ecbae014b59b4a3ca136be3"}
-Mon, 25 May 2020 11:37:37 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
-Mon, 25 May 2020 11:37:49 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
-Mon, 25 May 2020 12:13:02 GMT - Info - Server is running on port: 3000
-Mon, 25 May 2020 15:44:21 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
-Mon, 25 May 2020 15:58:32 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
-Mon, 25 May 2020 15:58:59 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
-Mon, 25 May 2020 16:54:13 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
-Mon, 25 May 2020 17:00:11 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
-Mon, 25 May 2020 17:06:08 GMT - Debug - auth.service - login with email: asilkhan-al@mail.ru
-Mon, 25 May 2020 17:06:25 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
-Mon, 25 May 2020 17:07:13 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
-Mon, 25 May 2020 17:13:14 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
-Mon, 25 May 2020 17:13:31 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
-Mon, 25 May 2020 17:13:51 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
-Mon, 25 May 2020 17:16:32 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
-Mon, 25 May 2020 18:34:29 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
-Mon, 25 May 2020 18:34:42 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
-Mon, 25 May 2020 18:35:00 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
-Mon, 25 May 2020 18:35:19 GMT - Info - Server is running on port: 3000
-Mon, 25 May 2020 18:35:42 GMT - Info - Server is running on port: 3000
-Mon, 25 May 2020 19:42:54 GMT - Info - Server is running on port: 3000
-Mon, 25 May 2020 19:47:36 GMT - Info - Server is running on port: 3000
-Mon, 25 May 2020 19:54:31 GMT - Debug - Asilkhan-al@mail.ru, kasya, password, Асылхан, Алданазар
-Mon, 25 May 2020 19:54:31 GMT - Debug - auth.service - signup with email: Asilkhan-al@mail.ru, username: kasya
-Mon, 25 May 2020 19:54:31 GMT - Debug - auth.route - new account created: {"email":"Asilkhan-al@mail.ru","password":"$2b$10$hhr4hD.eGdKdiqx73ZjXh.f.RMPOr3.V3cOy7WmFv8Jb195/3yNFu","username":"kasya","imgUrl":"","firstName":"Асылхан","lastName":"Алданазар","role":"ROLE_USER","_id":"5ecc22771f07784d0442f2ce"}
-Mon, 25 May 2020 19:54:31 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
-Mon, 25 May 2020 21:28:47 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
-Mon, 25 May 2020 21:59:21 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
-Tue, 26 May 2020 16:26:36 GMT - Info - Server is running on port: 3000
-Tue, 26 May 2020 16:34:06 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
-Tue, 26 May 2020 16:34:39 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
-Tue, 26 May 2020 16:37:08 GMT - Debug - demo@mail.ru, Demo, password, Demo, Demo
-Tue, 26 May 2020 16:37:08 GMT - Debug - auth.service - signup with email: demo@mail.ru, username: Demo
-Tue, 26 May 2020 16:37:08 GMT - Debug - auth.route - new account created: {"email":"demo@mail.ru","password":"$2b$10$zXo2sEn4PVwqdaBtbFglNe1PGWsivKPaF/SuKkrV23ol7JJO3viJG","username":"Demo","imgUrl":"","firstName":"Demo","lastName":"Demo","role":"ROLE_USER","_id":"5ecd45b4ffd75192e29d4141"}
-Tue, 26 May 2020 16:37:08 GMT - Debug - auth.service - login with email: demo@mail.ru
-Tue, 26 May 2020 21:00:41 GMT - Info - Server is running on port: 3000
-Tue, 26 May 2020 21:03:52 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
-Thu, 28 May 2020 00:50:33 GMT - Info - Server is running on port: 3000
-Thu, 28 May 2020 00:51:20 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
-Thu, 28 May 2020 00:52:15 GMT - Debug - auth.service - login with email: demo@mail.ru
-Thu, 28 May 2020 18:39:45 GMT - Info - Server is running on port: 3000
-Thu, 28 May 2020 18:40:52 GMT - Debug - auth.service - login with email: demo@mail.ru
+Thu, 28 May 2020 20:49:49 GMT - Info - Server is running on port: 3000
+Thu, 28 May 2020 20:49:52 GMT - Error - Cannot get boards by user
+Thu, 28 May 2020 20:51:48 GMT - Info - Server is running on port: 3000
+Thu, 28 May 2020 20:51:52 GMT - Error - Cannot get boards by user
+Thu, 28 May 2020 20:54:27 GMT - Info - Server is running on port: 3000
+Thu, 28 May 2020 20:54:30 GMT - Error - Cannot get boards by user
+Thu, 28 May 2020 20:56:10 GMT - Info - Server is running on port: 3000
+Thu, 28 May 2020 20:56:14 GMT - Error - Cannot get boards by user
+Thu, 28 May 2020 20:56:22 GMT - Error - Cannot get boards by user
+Thu, 28 May 2020 20:56:25 GMT - Error - Cannot get boards by user
+Thu, 28 May 2020 20:56:26 GMT - Error - Cannot get boards by user
+Thu, 28 May 2020 20:56:26 GMT - Error - Cannot get boards by user
+Thu, 28 May 2020 20:56:27 GMT - Error - Cannot get boards by user
+Thu, 28 May 2020 20:56:28 GMT - Error - Cannot get boards by user
+Thu, 28 May 2020 20:56:29 GMT - Error - Cannot get boards by user
+Thu, 28 May 2020 20:56:36 GMT - Info - Server is running on port: 3000
+Thu, 28 May 2020 20:56:37 GMT - Error - Cannot get boards by user
+Thu, 28 May 2020 20:56:37 GMT - Error - Cannot get boards by user
+Thu, 28 May 2020 20:56:38 GMT - Error - Cannot get boards by user
+Thu, 28 May 2020 20:56:38 GMT - Error - Cannot get boards by user
+Thu, 28 May 2020 20:56:38 GMT - Error - Cannot get boards by user
+Thu, 28 May 2020 20:56:38 GMT - Error - Cannot get boards by user
+Thu, 28 May 2020 20:56:53 GMT - Info - Server is running on port: 3000
+Thu, 28 May 2020 20:56:54 GMT - Error - Cannot get boards by user
+Thu, 28 May 2020 20:56:54 GMT - Error - Cannot get boards by user
+Thu, 28 May 2020 20:56:55 GMT - Error - Cannot get boards by user
+Thu, 28 May 2020 20:56:55 GMT - Error - Cannot get boards by user
+Thu, 28 May 2020 20:56:55 GMT - Error - Cannot get boards by user
+Thu, 28 May 2020 20:57:25 GMT - Info - Server is running on port: 3000
+Thu, 28 May 2020 20:57:30 GMT - Info - Server is running on port: 3000
+Thu, 28 May 2020 20:58:20 GMT - Info - Server is running on port: 3000
+Thu, 28 May 2020 20:59:02 GMT - Info - Server is running on port: 3000
+Thu, 28 May 2020 21:00:40 GMT - Info - Server is running on port: 3000
+Thu, 28 May 2020 21:02:38 GMT - Info - Server is running on port: 3000
+Thu, 28 May 2020 21:02:39 GMT - Info - finding boards where userId = 5ecd45b4ffd75192e29d4141
+Thu, 28 May 2020 21:02:40 GMT - Info - finding boards where userId = 5ecd45b4ffd75192e29d4141
+Thu, 28 May 2020 21:02:47 GMT - Info - finding boards where userId = 5ecd45b4ffd75192e29d4141
+Thu, 28 May 2020 21:03:26 GMT - Info - Server is running on port: 3000
+Thu, 28 May 2020 21:03:26 GMT - Info - finding boards where userId = 5ecd45b4ffd75192e29d4141
+Thu, 28 May 2020 21:03:28 GMT - Info - finding boards where userId = 5ecd45b4ffd75192e29d4141
+Thu, 28 May 2020 21:03:58 GMT - Info - Server is running on port: 3000
+Thu, 28 May 2020 21:03:58 GMT - Info - finding boards where userId = 5ecd45b4ffd75192e29d4141
+Thu, 28 May 2020 21:04:00 GMT - Info - finding boards where userId = 5ecd45b4ffd75192e29d4141
+Thu, 28 May 2020 21:05:43 GMT - Info - Server is running on port: 3000
+Thu, 28 May 2020 21:05:45 GMT - Info - finding boards where userId = 5ecd45b4ffd75192e29d4141
+Thu, 28 May 2020 21:05:46 GMT - Info - finding boards where userId = 5ecd45b4ffd75192e29d4141
+Thu, 28 May 2020 21:05:52 GMT - Info - finding boards where userId = 5ecd45b4ffd75192e29d4141
+Thu, 28 May 2020 21:07:00 GMT - Info - Server is running on port: 3000
+Thu, 28 May 2020 21:07:01 GMT - Info - finding boards where userId = 5ecd45b4ffd75192e29d4141
+Thu, 28 May 2020 21:07:02 GMT - Info - finding boards where userId = 5ecd45b4ffd75192e29d4141
+Thu, 28 May 2020 21:07:08 GMT - Info - finding boards where userId = 5ecd45b4ffd75192e29d4141
+Thu, 28 May 2020 21:07:31 GMT - Info - Server is running on port: 3000
+Thu, 28 May 2020 21:07:31 GMT - Info - finding boards where userId = 5ecd45b4ffd75192e29d4141
+Thu, 28 May 2020 21:07:33 GMT - Info - finding boards where userId = 5ecd45b4ffd75192e29d4141
+Thu, 28 May 2020 21:08:44 GMT - Info - Server is running on port: 3000
+Thu, 28 May 2020 21:09:07 GMT - Info - Server is running on port: 3000
+Thu, 28 May 2020 21:09:47 GMT - Info - Server is running on port: 3000

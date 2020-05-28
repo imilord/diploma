@@ -10,8 +10,18 @@ async function getBoards(req, res) {
         res.json(boards);
     } catch (err) {
         logger.error('Cannot get boards', err);
-        res.status(500).send({ error: 'cannot get boards' });
+        res.status(500).send({error: 'cannot get boards'});
 
+    }
+}
+
+async function getBoardsByUser(req, res) {
+    try {
+        const boards = await boardService.getBoardsByUser(req.params.id);
+        res.json(boards);
+    } catch (err) {
+        logger.error('Cannot get boards by user', err);
+        res.status(500).send({error: 'cannot get boards by user'});
     }
 }
 
@@ -42,5 +52,6 @@ module.exports = {
     deleteBoard,
     addBoard,
     updateBoard,
-    getBoard
+    getBoard,
+    getBoardsByUser
 }

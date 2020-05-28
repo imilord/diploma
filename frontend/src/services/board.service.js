@@ -11,6 +11,7 @@ export const boardService = {
     getEmptyBoard,
     getEmptyTasksList,
     getEmptyTask,
+    getBoardsByUser,
     getEmptyChecklist
 }
 
@@ -20,6 +21,10 @@ function query() {
 
 function getById(id) {
     return httpService.get(`${endpoint}/${id}`);
+}
+
+function getBoardsByUser(id) {
+    return httpService.get(`${endpoint}/user/${id}`);
 }
 
 function remove(id) {
