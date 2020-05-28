@@ -72,3 +72,8 @@ Tue, 26 May 2020 16:37:08 GMT - Debug - auth.route - new account created: {"emai
 Tue, 26 May 2020 16:37:08 GMT - Debug - auth.service - login with email: demo@mail.ru
 Tue, 26 May 2020 21:00:41 GMT - Info - Server is running on port: 3000
 Tue, 26 May 2020 21:03:52 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
+Thu, 28 May 2020 00:50:33 GMT - Info - Server is running on port: 3000
+Thu, 28 May 2020 00:51:20 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
+Thu, 28 May 2020 00:52:15 GMT - Debug - auth.service - login with email: demo@mail.ru
+Thu, 28 May 2020 18:39:45 GMT - Info - Server is running on port: 3000
+Thu, 28 May 2020 18:40:52 GMT - Debug - auth.service - login with email: demo@mail.ru
