@@ -29,7 +29,7 @@
                 <td>{{timeConverter(project.dueDate)}}</td>
                 <td>
                     <router-link :to="'/board/' + project._id ">
-                        <a class="btn add-btn">View project</a>
+                        <a class="button add-btn">View project</a>
                     </router-link>
                 </td>
             </tr>
