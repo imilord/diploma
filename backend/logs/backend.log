@@ -57,3 +57,14 @@ Thu, 28 May 2020 21:09:07 GMT - Info - Server is running on port: 3000
 Thu, 28 May 2020 21:09:47 GMT - Info - Server is running on port: 3000
 Thu, 28 May 2020 23:49:43 GMT - Debug - auth.service - login with email: demo@mail.ru
 Thu, 28 May 2020 23:49:56 GMT - Debug - auth.service - login with email: Asilkhan-al@mail.ru
+Fri, 29 May 2020 00:52:26 GMT - Debug - auth.service - login with email: kasya@mail.ru
+Fri, 29 May 2020 00:52:38 GMT - Debug - auth.service - login with email: kasya@mail.ru
+Fri, 29 May 2020 00:54:10 GMT - Debug - a1@mail.ru, asd, asd, asd, asd
+Fri, 29 May 2020 00:54:10 GMT - Debug - auth.service - signup with email: a1@mail.ru, username: asd
+Fri, 29 May 2020 00:54:10 GMT - Debug - auth.route - new account created: {"email":"a1@mail.ru","password":"$2b$10$j.6gKKMrwcKaJOQaglUxju/qQqNh3YlToIj5DakjRDXBOoQItFucK","username":"asd","imgUrl":"","firstName":"asd","lastName":"asd","role":"ROLE_USER","_id":"5ed05d32c1b53959103b105c"}
+Fri, 29 May 2020 00:54:10 GMT - Debug - auth.service - login with email: a1@mail.ru
+Fri, 29 May 2020 00:54:20 GMT - Debug - auth.service - login with email: a2@mail.ru
+Fri, 29 May 2020 00:54:38 GMT - Debug - asd@mail.ru, qwe, qwe, qwe, qwe
+Fri, 29 May 2020 00:54:38 GMT - Debug - auth.service - signup with email: asd@mail.ru, username: qwe
+Fri, 29 May 2020 00:54:38 GMT - Debug - auth.route - new account created: {"email":"asd@mail.ru","password":"$2b$10$inIpbj9X/doUUMUSlugoj.Jepo0f.Jpx2GldeJDqNZmPW9YMi0.0G","username":"qwe","imgUrl":"","firstName":"qwe","lastName":"qwe","role":"ROLE_USER","_id":"5ed05d4ec1b53959103b105d"}
+Fri, 29 May 2020 00:54:38 GMT - Debug - auth.service - login with email: asd@mail.ru
